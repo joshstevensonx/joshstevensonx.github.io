@@ -2169,7 +2169,7 @@ input[type=reset]:hover,
 input[type=button]:hover {
     background-color: var(--color-btn-hover);
     border-color: var(--color-btn-hover);
-    color: var(--color-btn-hover-text);
+    color: var(--color-btn);
     outline: 0;
 }
 
@@ -4494,7 +4494,7 @@ nav
     padding-top: var(--vspace-2);
     padding-bottom: var(--bottom-padding);
     color: var(--color-gray-15);
-    margin-top: var(--vspace-2);
+    
 }
 
 .s-footer h5 {
