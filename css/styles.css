@@ -4105,7 +4105,7 @@ nav
     align-items: center;
     justify-content: space-between;
     margin-top: var(--vspace-1_5);
-    margin-bottom: var(--vspace-1);
+    margin-bottom: var(--vspace-0_5);
 }
 
 .menublock__slider-nav .menu-link {
