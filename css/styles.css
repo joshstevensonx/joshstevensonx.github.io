@@ -3319,7 +3319,7 @@ body.menu-is-open {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.s-header__nav-links .dropdown li a {
+.s-header__nav-links .dropdown li adx {
     display: block;
     padding: var(--vspace-0_5) 0;
     color: white;
@@ -4192,7 +4192,7 @@ nav
 }
 
 .menublock-item__price {
-    font-size: 2.1rem;
+    font-size: 0.5rem;
 }
 
 .menublock-item__price span {
@@ -4897,7 +4897,7 @@ nav
 
 .menu-list__item-desc {
     max-width: min(100%, 90rem);
-    padding-right: calc(var(--gutter) * 2);
+    padding-right: var(--vspace-0_75);
 }
 
 .menu-list__item-price {
