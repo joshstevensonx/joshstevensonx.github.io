@@ -4076,7 +4076,7 @@ body.menu-is-open {
  * ------------------------------------------------------------------- */
 .s-menublock {
     padding-top: var(--vspace-1);
-    padding-bottom: var(--vspace-2);
+    padding-bottom: var(--vspace-1);
 }
 
 .s-menublock__top {
