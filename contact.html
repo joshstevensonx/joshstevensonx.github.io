@@ -15,6 +15,10 @@
     ================================================== -->
         <link rel="stylesheet" href="css/vendor.css">
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/contact.css">
+        <style>
+            
+        </style>
         <!-- favicons
     ================================================== -->
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -96,12 +100,13 @@
                 <section class="s-pageheader pageheader" style="background-image:url(images/scene_5.jpg)">
                     <div class="row">
                         <div class="column xl-12 s-pageheader__content">
-                            <h1 class="page-title">Contact Us  </h1>
+                            <h1 class="page-title">Contact Us </h1>
                         </div>
                     </div>
                 </section>
                 <!-- ## pagecontent -->
                 <section class="s-pagecontent pagecontent">
+                
                     <div class="row width-narrower content-block">
                         <div class="column xl-12">
                             <form name="rform" id="rform" class="reservation-form" action="mailto:joshua.stevenson.100703@gmail.com" method="post" enctype="text/plain" autocomplete="off">
@@ -111,8 +116,37 @@
                                         <input type="text" name="Name: " id="rname" class="u-fullwidth" placeholder="Enter Your Name" value="">
                                     </div>
                                     <div class="column xl-6 tab-12">
+                                        <label for="remail">Email:</label>
+                                        <input type="email" name="Email:" id="remail" class="u-fullwidth" placeholder="Enter Your Email" value="">
+                                    </div>
+                                    <div class="column xl-6 tab-12">
                                         <label for="rphone">Contact Number: </label>
                                         <input type="tel" name="Phone Number: " id="rphone" class="u-fullwidth" placeholder="Enter Your Contact No." value="">
+                                    </div>
+                                    <div class="column xl-6 tab-12">
+                                        <label for="rpeople">Number of People:</label>
+                                        <input type="number" name="Number of People:" id="rpeople" class="u-fullwidth" min="1" value="">
+                                    </div>
+                                    <div class="column xl-6 tab-12 datepicker-wrapper">
+                                        <label for="rcheckin">Check In:</label>
+                                        <input type="date" name="Check In:" id="rcheckin" class="u-fullwidth datepicker-input" placeholder="Select Date">
+                                        <div id="checkin-datepicker" class="datepicker"></div>
+                                    </div>
+                                    <div class="column xl-6 tab-12 datepicker-wrapper">
+                                        <label for="rcheckout">Check Out:</label>
+                                        <input type="date" name="Check Out:" id="rcheckout" class="u-fullwidth datepicker-input" placeholder="Select Date">
+                                        <div id="checkout-datepicker" class="datepicker"></div>
+                                    </div>
+                                    <div class="column xl-12 tab-12">
+                                        <label for="rhearabout">How did you hear about us:</label>
+                                        <select id="rhearabout" name="How did you hear about us:" class="u-fullwidth">
+                                            <option value="">Select an option</option>
+                                            <option value="socialmedia">Social Media</option>
+                                            <option value="search engine">Search Engine</option>
+                                            <option value="friend">Friend/Family</option>
+                                            <option value="advertisement">Advertisement</option>
+                                            <option value="other">Other</option>
+                                        </select>
                                     </div>
                                     <div class="column xl-12 message u-add-bottom">
                                         <label for="radd-info">Message: </label>
@@ -128,9 +162,8 @@
                                 </fieldset>
                             </form>
                         </div>
-                    </div> <!-- end content-block -->
-                   
-                </section> <!-- pagecontent -->
+                    </div>
+                </section>
                 <!-- # footer 
         ================================================== -->
                 <footer id="footer" class="s-footer">
@@ -194,6 +227,7 @@
     ================================================== -->
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
+       
     </body>
 
 </html>

@@ -4887,6 +4887,11 @@ nav
     margin-top: 0;
     margin-bottom: var(--vspace-0_25);
 }
+.menu-list__item a {
+    font-weight: 300;
+    font-size: 18px;
+    padding-left: 0;
+}
 
 .menu-list__item p {
     font-weight: 300;
