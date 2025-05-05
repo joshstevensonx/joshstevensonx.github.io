@@ -5,7 +5,8 @@ body {
     background-color: #f4f4f4;
 }
 
-h1, h2 {
+h1,
+h2 {
     color: #333;
     text-align: center;
 }
@@ -15,7 +16,7 @@ h1, h2 {
     padding: 20px;
     margin-bottom: 30px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #add-test-form div {
@@ -30,7 +31,8 @@ h1, h2 {
 
 #add-test-form input[type="text"],
 #add-test-form input[type="number"] {
-    width: calc(100% - 12px); /* Adjust width considering padding */
+    width: calc(100% - 12px);
+    /* Adjust width considering padding */
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -51,24 +53,45 @@ h1, h2 {
 #add-test-form button[type="submit"]:hover {
     background-color: #4cae4c;
 }
+
 /* Add/Adjust styles for form select elements */
 #add-test-form select {
-    width: 100%; /* Make select take full width like inputs */
+    width: 100%;
+    /* Make select take full width like inputs */
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 3px;
-    background-color: white; /* Ensure background color */
-    font-size: 1em; /* Match input font size */
-    line-height: 1.4; /* Adjust line height if needed */
-    height: 38px; /* Match input height (adjust as needed) */
-    box-sizing: border-box; /* Include padding and border in width/height */
+    background-color: white;
+    /* Ensure background color */
+    font-size: 1em;
+    /* Match input font size */
+    line-height: 1.4;
+    /* Adjust line height if needed */
+    height: 38px;
+    /* Match input height (adjust as needed) */
+    box-sizing: border-box;
+    /* Include padding and border in width/height */
 }
-/* Add styles for disabled select */
+
+
 #add-test-form select:disabled {
-    background-color: #f0f0f0; /* Lighter grey background */
+    background-color: #f0f0f0;
     cursor: not-allowed;
-    color: #999; /* Greyer text */
+    color: #999;
 }
+
+/* **** NEW: Styles for readonly input **** */
+#add-test-form input[readonly] {
+    background-color: #f0f0f0;
+    /* Same grey background */
+    cursor: default;
+    /* Default cursor, not text selection */
+    /* Optionally add other styles like border or color */
+    color: #555;
+    /* Slightly darker text than disabled */
+}
+
+/* **** END NEW **** */
 
 /* --- Other styles remain the same --- */
 
@@ -80,12 +103,13 @@ h1, h2 {
     background: #fff;
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 #test-list-table {
     width: 100%;
-    border-collapse: collapse; /* Merge cell borders */
+    border-collapse: collapse;
+    /* Merge cell borders */
     margin-top: 15px;
 }
 
@@ -97,11 +121,13 @@ h1, h2 {
 }
 
 #test-list-table th {
-    background-color: #f2f2f2; /* Light grey header */
+    background-color: #f2f2f2;
+    /* Light grey header */
     font-weight: bold;
 }
 
-#test-list-table td:last-child { /* Style the last column (Action) */
+#test-list-table td:last-child {
+    /* Style the last column (Action) */
     text-align: center;
 }
 
@@ -119,18 +145,19 @@ h1, h2 {
 }
 
 #clear-all-button {
-     background-color: #f0ad4e;
-     color: white;
-     border: none;
-     padding: 8px 15px;
-     border-radius: 3px;
-     cursor: pointer;
-     font-size: 14px;
+    background-color: #f0ad4e;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 #clear-all-button:hover {
-     background-color: #ec971f;
+    background-color: #ec971f;
 }
+
 /* Add styles for filter and pagination */
 /* --- Remove or Modify previous filter styles --- */
 /* Remove styles specifically for .filter-controls select if they exist */
@@ -141,23 +168,28 @@ h1, h2 {
     background: #fff;
     padding: 15px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     /* Keep flex for alignment */
     display: flex;
     align-items: center;
-    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    flex-wrap: wrap;
+    /* Allow buttons to wrap on smaller screens */
     gap: 10px;
 }
 
 .filter-controls .filter-label {
     font-weight: bold;
-    margin-right: 10px; /* Space between label and buttons */
+    margin-right: 10px;
+    /* Space between label and buttons */
 }
 
 #type-filter-buttons {
-    display: flex; /* Make buttons sit inline */
-    flex-wrap: wrap; /* Allow wrapping */
-    gap: 8px; /* Space between buttons */
+    display: flex;
+    /* Make buttons sit inline */
+    flex-wrap: wrap;
+    /* Allow wrapping */
+    gap: 8px;
+    /* Space between buttons */
 }
 
 #type-filter-buttons button {
@@ -177,7 +209,8 @@ h1, h2 {
 
 /* Style for the currently active filter button */
 #type-filter-buttons button.active-filter {
-    background-color: #5cb85c; /* Same green as Add button */
+    background-color: #5cb85c;
+    /* Same green as Add button */
     color: white;
     border-color: #4cae4c;
     font-weight: bold;
@@ -216,5 +249,6 @@ h1, h2 {
 #test-list-table th,
 #test-list-table td {
     /* Adjust padding or text-align as needed */
-    padding: 10px 8px; /* Slightly less horizontal padding */
+    padding: 10px 8px;
+    /* Slightly less horizontal padding */
 }
