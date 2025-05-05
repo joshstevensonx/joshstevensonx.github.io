@@ -1,475 +1,287 @@
+/* --- CSS Variables (Dark Theme Palette) --- */
+:root {
+    --bg-primary: #1f2023;          /* Very dark grey/black */
+    --bg-secondary: #2d2f34;        /* Lighter dark grey for cards */
+    --bg-tertiary: #3a3d42;         /* Even lighter grey for headers/hover */
+    --text-primary: #e1e1e6;        /* Off-white */
+    --text-secondary: #a0a0a5;     /* Light grey */
+    --border-color: #4a4d55;         /* Dark grey for borders */
+    --accent-primary: #4a90e2;      /* Blue for primary actions/active */
+    --accent-secondary: #50e3c2;    /* Teal/Green for update */
+    --accent-danger: #e94f4f;       /* Red for delete */
+    --accent-warning: #f5a623;      /* Orange for clear */
+
+    --font-family-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    --border-radius-small: 4px;
+    --border-radius-medium: 6px;
+    --padding-small: 8px;
+    --padding-medium: 15px;
+    --padding-large: 20px;
+}
+
+/* --- Global Styles --- */
 body {
-    font-family: sans-serif;
+    font-family: var(--font-family-main);
     line-height: 1.6;
-    margin: 20px;
-    background-color: #f4f4f4;
+    margin: 0;
+    padding: var(--padding-large);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
 }
 
-h1,
-h2 {
-    color: #333;
+h1, h2 {
+    color: var(--text-primary);
+    margin-bottom: var(--padding-large);
+    font-weight: 500; /* Slightly lighter weight */
+}
+
+h1 {
     text-align: center;
+    font-size: 2.2em;
+    margin-bottom: var(--padding-large) * 1.5;
 }
 
-#add-test-form {
-    background: #fff;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+h2 {
+    font-size: 1.6em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--padding-small);
+    margin-top: var(--padding-large) * 1.5;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border-radius: var(--border-radius-small);
+    padding: var(--padding-small) var(--padding-medium);
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* --- Card/Container Styles --- */
+.filter-controls,
+#add-test-form,
+#test-list-container {
+    background-color: var(--bg-secondary);
+    padding: var(--padding-large);
+    border-radius: var(--border-radius-medium);
+    margin-bottom: var(--padding-large) * 1.5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* --- Filter Controls --- */
+.filter-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--padding-medium);
+}
+
+.filter-controls .filter-label {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+#type-filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--padding-small);
+}
+
+#type-filter-buttons button {
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    font-size: 0.9em;
+    padding: 6px 12px;
+}
+
+#type-filter-buttons button:hover {
+    background-color: var(--bg-tertiary);
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
+#type-filter-buttons button.active-filter {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-primary);
+    color: white;
+    font-weight: 500;
+}
+
+/* --- Form Styles --- */
+#add-test-form h2 {
+    margin-top: 0;
+    margin-bottom: var(--padding-large);
+    font-size: 1.3em;
+    border: none;
 }
 
 #add-test-form div {
-    margin-bottom: 15px;
+    margin-bottom: var(--padding-medium);
 }
 
 #add-test-form label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+    margin-bottom: var(--padding-small);
+    font-weight: 500;
+    font-size: 0.95em;
+    color: var(--text-secondary);
 }
 
-#add-test-form input[type="text"],
+#add-test-form select,
 #add-test-form input[type="number"] {
-    width: calc(100% - 12px);
-    /* Adjust width considering padding */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    width: 100%;
+    padding: var(--padding-small) var(--padding-medium);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    box-sizing: border-box;
+    background-color: var(--bg-primary); /* Dark input background */
+    color: var(--text-primary);
+    font-size: 1em;
+    height: 40px;
+}
+
+#add-test-form select:focus,
+#add-test-form input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.3); /* Subtle focus ring */
+}
+
+#add-test-form select {
+    appearance: none; /* Basic styling reset */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23a0a0a5%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); /* Simple arrow */
+    background-repeat: no-repeat;
+    background-position: right var(--padding-medium) center;
+    background-size: .65em auto;
+    padding-right: var(--padding-large) * 1.5; /* Space for arrow */
+}
+
+#add-test-form select:disabled {
+    background-color: var(--bg-secondary);
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-image: none; /* Hide arrow when disabled */
 }
 
 #add-test-form button[type="submit"] {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #5cb85c;
-    color: white;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 16px;
+    background-color: var(--accent-secondary);
+    color: #111; /* Dark text on light green */
+    font-weight: 500;
+    font-size: 1em;
+    padding: 10px var(--padding-medium);
 }
 
 #add-test-form button[type="submit"]:hover {
-    background-color: #4cae4c;
+    opacity: 0.85;
 }
 
-/* Add/Adjust styles for form select elements */
-#add-test-form select {
-    width: 100%;
-    /* Make select take full width like inputs */
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    background-color: white;
-    /* Ensure background color */
-    font-size: 1em;
-    /* Match input font size */
-    line-height: 1.4;
-    /* Adjust line height if needed */
-    height: 38px;
-    /* Match input height (adjust as needed) */
-    box-sizing: border-box;
-    /* Include padding and border in width/height */
-}
-
-
-#add-test-form select:disabled {
-    background-color: #f0f0f0;
-    cursor: not-allowed;
-    color: #999;
-}
-
-/* **** NEW: Styles for readonly input **** */
-#add-test-form input[readonly] {
-    background-color: #f0f0f0;
-    /* Same grey background */
-    cursor: default;
-    /* Default cursor, not text selection */
-    /* Optionally add other styles like border or color */
-    color: #555;
-    /* Slightly darker text than disabled */
-}
-
-/* **** END NEW **** */
-
-/* --- Other styles remain the same --- */
-
-/* You might need specific styles for appearance in different browsers */
-/* For example, controlling the dropdown arrow might require vendor prefixes */
-
-/* --- Other styles remain the same --- */
-#test-list-container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* --- Table Styles --- */
+#test-list-container h2 {
+     margin-top: 0;
+     margin-bottom: var(--padding-large);
+     font-size: 1.3em;
+     border: none;
 }
 
 #test-list-table {
     width: 100%;
     border-collapse: collapse;
-    /* Merge cell borders */
-    margin-top: 15px;
+    margin-top: 0;
+    font-size: 0.95em;
 }
 
 #test-list-table th,
 #test-list-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
+    border: 1px solid var(--border-color);
+    padding: var(--padding-small) var(--padding-medium);
     text-align: left;
+    vertical-align: middle;
 }
 
 #test-list-table th {
-    background-color: #f2f2f2;
-    /* Light grey header */
-    font-weight: bold;
+    background-color: var(--bg-tertiary);
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+#test-list-table tbody tr:nth-child(even) {
+    background-color: var(--bg-primary); /* Slightly different for striping */
+}
+
+#test-list-table tbody tr:hover {
+    background-color: var(--bg-tertiary);
 }
 
 #test-list-table td:last-child {
-    /* Style the last column (Action) */
     text-align: center;
 }
 
 .delete-button {
-    background-color: #d9534f;
+    background-color: transparent;
+    color: var(--accent-danger);
+    border: 1px solid var(--accent-danger);
+    padding: 4px 8px;
+    font-size: 0.85em;
+}
+.delete-button:hover {
+    background-color: var(--accent-danger);
     color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
 }
 
-.delete-button:hover {
-    background-color: #c9302c;
+/* --- Inline Edit Styles --- */
+.editable-correct {
+    cursor: pointer;
+    position: relative;
+}
+/* Remove default hover as row hover exists */
+/* .editable-correct:hover { background-color: transparent; } */
+
+.inline-edit-input {
+    width: calc(100% - 10px);
+    padding: 4px;
+    border: 1px solid var(--accent-primary); /* Highlight editing field */
+    border-radius: var(--border-radius-small);
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left; /* Match other cells */
+    box-sizing: border-box;
+    background-color: var(--bg-primary); /* Match input style */
+    color: var(--text-primary);
+}
+
+/* --- Other Elements --- */
+#no-tests-message {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: var(--padding-large);
+    font-style: italic;
 }
 
 #clear-all-button {
-    background-color: #f0ad4e;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 14px;
+    visibility: hidden;
+    display: none;
 }
 
-#clear-all-button:hover {
-    background-color: #ec971f;
+/* --- Custom Scrollbars (Optional) --- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 }
-
-/* Add styles for filter and pagination */
-/* --- Remove or Modify previous filter styles --- */
-/* Remove styles specifically for .filter-controls select if they exist */
-
-/* --- Add/Update styles for the new filter button layout --- */
-.filter-controls {
-    margin-bottom: 15px;
-    background: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* Keep flex for alignment */
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    /* Allow buttons to wrap on smaller screens */
-    gap: 10px;
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
 }
-
-.filter-controls .filter-label {
-    font-weight: bold;
-    margin-right: 10px;
-    /* Space between label and buttons */
+::-webkit-scrollbar-thumb {
+  background-color: var(--bg-tertiary);
+  border-radius: 4px;
+  border: 2px solid var(--bg-primary);
 }
-
-#type-filter-buttons {
-    display: flex;
-    /* Make buttons sit inline */
-    flex-wrap: wrap;
-    /* Allow wrapping */
-    gap: 8px;
-    /* Space between buttons */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--border-color);
 }
-
-#type-filter-buttons button {
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    background-color: #f8f8f8;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-#type-filter-buttons button:hover {
-    background-color: #eee;
-    border-color: #bbb;
-}
-
-/* Style for the currently active filter button */
-#type-filter-buttons button.active-filter {
-    background-color: #5cb85c;
-    /* Same green as Add button */
-    color: white;
-    border-color: #4cae4c;
-    font-weight: bold;
-}
-
-/* --- Other styles remain the same --- */
-/* Pagination, table, body, form styles etc. */
-
-.pagination-controls {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.pagination-controls button {
-    padding: 8px 15px;
-    margin: 0 5px;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    cursor: pointer;
-}
-
-.pagination-controls button:disabled {
-    background-color: #f8f8f8;
-    color: #aaa;
-    cursor: not-allowed;
-}
-
-.pagination-controls span {
-    margin: 0 15px;
-    font-weight: bold;
-    color: #555;
-}
-
-/* Adjust table layout if needed for new column */
-#test-list-table th,
-#test-list-table td {
-    /* Adjust padding or text-align as needed */
-    padding: 10px 8px;
-    /* Slightly less horizontal padding */
-}
-/* --- Remove Form Styles --- */
-/* Delete all styles starting with #add-test-form */
-
-/* --- Remove Pagination Styles --- */
-/* Delete all styles starting with .pagination-controls */
-
-/* --- Styles for Filter Buttons (Keep these) --- */
-.filter-controls { /* ... styles remain ... */ }
-.filter-controls .filter-label { /* ... styles remain ... */ }
-#type-filter-buttons { /* ... styles remain ... */ }
-#type-filter-buttons button { /* ... styles remain ... */ }
-#type-filter-buttons button.active-filter { /* ... styles remain ... */ }
-
-/* --- Table Styles (Keep and potentially adjust) --- */
-#test-list-container { /* ... styles remain ... */ }
-#test-list-table { /* ... styles remain ... */ }
-#test-list-table th,
-#test-list-table td { /* ... styles remain ... */ }
-#test-list-table th { /* ... styles remain ... */ }
-.delete-button { /* ... styles remain ... */ }
-.delete-button:hover { /* ... styles remain ... */ }
-
-/* Make the Correct Answers cell cursor indicate interactivity */
-.editable-correct {
-    cursor: pointer;
-    position: relative; /* For potential absolute positioning of icons later */
-}
-.editable-correct:hover {
-    background-color: #f5f5f5; /* Slight hover effect */
-}
-
-/* Style for the inline input field */
-.inline-edit-input {
-    width: calc(100% - 10px); /* Adjust width to fit cell padding */
-    padding: 4px;
-    border: 1px solid #888;
-    border-radius: 3px;
-    font-family: inherit; /* Use table font */
-    font-size: inherit; /* Use table font size */
-    text-align: right; /* Align numbers to the right */
-    box-sizing: border-box;
-}
-
-/* Optional: Add a small 'pen' icon for edit hint */
-/* .editable-correct::after { content: ' ✎'; font-size: smaller; color: #aaa; } */
-
-
-/* --- Other Styles (body, h1, h2, clear button - Keep these) --- */
-body { /* ... styles remain ... */ }
-h1, h2 { /* ... styles remain ... */ }
-#clear-all-button { /* ... styles remain ... */ }
-#clear-all-button:hover { /* ... styles remain ... */ }
-/* Re-add basic form styles if they were removed previously */
-#view-test-form {
-    background: #fff;
-    padding: 20px;
-    margin-bottom: 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-#view-test-form div { margin-bottom: 15px; }
-#view-test-form label { display: block; margin-bottom: 5px; font-weight: bold; }
-#view-test-form select,
-#view-test-form input[type="number"] /* Apply to number inputs too */
- {
-    width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 3px;
-    box-sizing: border-box; height: 38px; line-height: 1.4; font-size: 1em;
-}
-
-/* Styles for readonly inputs (ensure this exists) */
-#view-test-form input[readonly] {
-    background-color: #f0f0f0;
-    cursor: default;
-    color: #555;
-}
-/* Styles for disabled select (ensure this exists) */
-#view-test-form select:disabled {
-    background-color: #f0f0f0;
-    cursor: not-allowed;
-    color: #999;
-}
-
-/* --- Remove Clear All Button styles --- */
-/* Delete #clear-all-button and #clear-all-button:hover if they exist */
-
-/* --- Other styles remain (Filters, Table, Inline Edit, etc.) --- */
-.filter-controls { /* ... */ }
-#type-filter-buttons { /* ... */ }
-#type-filter-buttons button { /* ... */ }
-#type-filter-buttons button.active-filter { /* ... */ }
-#test-list-container { /* ... */ }
-#test-list-table { /* ... */ }
-#test-list-table th, #test-list-table td { /* ... */ }
-.editable-correct { /* ... */ }
-.inline-edit-input { /* ... */ }
-.delete-button { /* ... */ }
-body, h1, h2 { /* ... */ }
-/* --- Remove Form Styles --- */
-/* Delete all styles starting with #add-test-form */
-
-/* --- Remove Pagination Styles --- */
-/* Delete all styles starting with .pagination-controls */
-
-/* --- Styles for Filter Buttons (Keep these) --- */
-.filter-controls { /* ... styles remain ... */ }
-.filter-controls .filter-label { /* ... styles remain ... */ }
-#type-filter-buttons { /* ... styles remain ... */ }
-#type-filter-buttons button { /* ... styles remain ... */ }
-#type-filter-buttons button.active-filter { /* ... styles remain ... */ }
-
-/* --- Table Styles (Keep and potentially adjust) --- */
-#test-list-container { /* ... styles remain ... */ }
-#test-list-table { /* ... styles remain ... */ }
-#test-list-table th,
-#test-list-table td { /* ... styles remain ... */ }
-#test-list-table th { /* ... styles remain ... */ }
-.delete-button { /* ... styles remain ... */ }
-.delete-button:hover { /* ... styles remain ... */ }
-
-/* Make the Correct Answers cell cursor indicate interactivity */
-.editable-correct {
-    cursor: pointer;
-    position: relative; /* For potential absolute positioning of icons later */
-}
-.editable-correct:hover {
-    background-color: #f5f5f5; /* Slight hover effect */
-}
-
-/* Style for the inline input field */
-.inline-edit-input {
-    width: calc(100% - 10px); /* Adjust width to fit cell padding */
-    padding: 4px;
-    border: 1px solid #888;
-    border-radius: 3px;
-    font-family: inherit; /* Use table font */
-    font-size: inherit; /* Use table font size */
-    text-align: right; /* Align numbers to the right */
-    box-sizing: border-box;
-}
-
-/* Optional: Add a small 'pen' icon for edit hint */
-/* .editable-correct::after { content: ' ✎'; font-size: smaller; color: #aaa; } */
-
-
-/* --- Other Styles (body, h1, h2, clear button - Keep these) --- */
-body { /* ... styles remain ... */ }
-h1, h2 { /* ... styles remain ... */ }
-#clear-all-button { /* ... styles remain ... */ }
-#clear-all-button:hover { /* ... styles remain ... */ }
-/* --- Form Styles (Restore/Keep) --- */
-#add-test-form {
-    background: #fff; padding: 20px; margin-bottom: 30px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-#add-test-form h2 { text-align: left; margin-bottom: 15px;}
-#add-test-form div { margin-bottom: 15px; }
-#add-test-form label { display: block; margin-bottom: 5px; font-weight: bold; }
-#add-test-form select,
-#add-test-form input[type="number"] { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 3px; box-sizing: border-box; }
-#add-test-form select { background-color: white; height: 38px; }
-#add-test-form input[type="number"] { height: 38px; } /* Match height */
-#add-test-form button[type="submit"] { display: block; width: 100%; padding: 10px; background-color: #5cb85c; color: white; border: none; border-radius: 3px; cursor: pointer; font-size: 16px; }
-#add-test-form button[type="submit"]:hover { background-color: #4cae4c; }
-#add-test-form select:disabled { background-color: #f0f0f0; cursor: not-allowed; color: #999; }
-/* --- Remove Form Styles specific to Total Marks --- */
-/* Delete any rules targeting #total-marks-form or input[readonly] within the form */
-/* Keep general form styles */
-#add-test-form { /* ... styles remain ... */ }
-#add-test-form h2 { /* ... styles remain ... */ }
-#add-test-form div { /* ... styles remain ... */ }
-#add-test-form label { /* ... styles remain ... */ }
-#add-test-form select,
-#add-test-form input[type="number"] { /* ... styles remain ... */ }
-#add-test-form select { /* ... styles remain ... */ }
-#add-test-form input[type="number"] { /* ... styles remain ... */ }
-#add-test-form button[type="submit"] { /* ... styles remain ... */ }
-#add-test-form button[type="submit"]:hover { /* ... styles remain ... */ }
-#add-test-form select:disabled { /* ... styles remain ... */ }
-/* Removed readonly style as element is gone */
-
-
-/* --- Styles for Filter Buttons (Keep) --- */
-/* ... */
-
-/* --- Table Styles (Keep/Adjust) --- */
-/* ... */
-/* Adjust column widths if needed after removing one column */
-
-
-/* --- Inline Edit Styles (Keep) --- */
-/* ... */
-
-/* --- Other Styles (Keep) --- */
-/* ... */
-
-/* --- Styles for Filter Buttons (Keep) --- */
-.filter-controls { margin-bottom: 15px; background: #fff; padding: 15px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
-.filter-controls .filter-label { font-weight: bold; margin-right: 10px; }
-#type-filter-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
-#type-filter-buttons button { padding: 6px 12px; border: 1px solid #ccc; background-color: #f8f8f8; border-radius: 4px; cursor: pointer; font-size: 14px; transition: background-color 0.2s ease, border-color 0.2s ease; }
-#type-filter-buttons button:hover { background-color: #eee; border-color: #bbb; }
-#type-filter-buttons button.active-filter { background-color: #5cb85c; color: white; border-color: #4cae4c; font-weight: bold; }
-
-/* --- Table Styles (Keep/Adjust) --- */
-#test-list-container { background: #fff; padding: 20px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-#test-list-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-#test-list-table th, #test-list-table td { border: 1px solid #ddd; padding: 10px 8px; text-align: left; }
-#test-list-table th { background-color: #f2f2f2; font-weight: bold; }
-#test-list-table td:last-child { text-align: center; }
-.delete-button { background-color: #d9534f; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; }
-.delete-button:hover { background-color: #c9302c; }
-
-/* --- Inline Edit Styles (Keep) --- */
-.editable-correct { cursor: pointer; position: relative; }
-.editable-correct:hover { background-color: #f5f5f5; }
-.inline-edit-input { width: calc(100% - 10px); padding: 4px; border: 1px solid #888; border-radius: 3px; font-family: inherit; font-size: inherit; text-align: right; box-sizing: border-box; }
-
-/* --- Other Styles (Keep) --- */
-body { font-family: sans-serif; line-height: 1.6; margin: 20px; background-color: #f4f4f4; }
-h1, h2 { color: #333; } /* Keep h2 left aligned by default now form title is gone */
-#clear-all-button { background-color: #f0ad4e; color: white; border: none; padding: 8px 15px; border-radius: 3px; cursor: pointer; font-size: 14px; }
-#clear-all-button:hover { background-color: #ec971f; }

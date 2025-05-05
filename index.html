@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Score Tracker</title>
+    <title>License Preparation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Test Score Tracker</h1>
 
     <form id="add-test-form">
-        <h2>Update Test Result via Form</h2>
+       
         <div>
             <label for="test-type">Type:</label>
             <select id="test-type" required>
@@ -28,17 +27,17 @@
             <label for="correct-answers">Correct Answers:</label>
             <input type="number" id="correct-answers-form" required min="0">
         </div>
-        <button type="submit">Update Score (Form)</button>
+        <button type="submit">Update</button>
     </form>
 
-    <h2>Recorded Tests</h2>
+  
 
-    <div class="filter-controls">
+    <div class="filter-controls" style="margin-top: 20px;">
          <span class="filter-label">Filter by Type:</span>
          <div id="type-filter-buttons"></div>
     </div>
 
-    <div id="test-list-container">
+    <div id="test-list-container" style="margin-top: 20px;">
         <table id="test-list-table">
              <thead>
                  <tr>
@@ -52,7 +51,7 @@
              <tbody id="test-list-body"></tbody>
         </table>
         <p id="no-tests-message" style="display: none;">No tests recorded for this type.</p>
-        <button id="clear-all-button" style="display: none; margin-top: 15px;">Clear All Tests</button>
+        <button id="clear-all-button" style="display: none; margin-top: 15px;"></button>
     </div>
 
     <script src="script.js"></script>
