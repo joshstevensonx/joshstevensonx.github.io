@@ -51,7 +51,31 @@ h1, h2 {
 #add-test-form button[type="submit"]:hover {
     background-color: #4cae4c;
 }
+/* Add/Adjust styles for form select elements */
+#add-test-form select {
+    width: 100%; /* Make select take full width like inputs */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: white; /* Ensure background color */
+    font-size: 1em; /* Match input font size */
+    line-height: 1.4; /* Adjust line height if needed */
+    height: 38px; /* Match input height (adjust as needed) */
+    box-sizing: border-box; /* Include padding and border in width/height */
+}
+/* Add styles for disabled select */
+#add-test-form select:disabled {
+    background-color: #f0f0f0; /* Lighter grey background */
+    cursor: not-allowed;
+    color: #999; /* Greyer text */
+}
 
+/* --- Other styles remain the same --- */
+
+/* You might need specific styles for appearance in different browsers */
+/* For example, controlling the dropdown arrow might require vendor prefixes */
+
+/* --- Other styles remain the same --- */
 #test-list-container {
     background: #fff;
     padding: 20px;
@@ -108,28 +132,59 @@ h1, h2 {
      background-color: #ec971f;
 }
 /* Add styles for filter and pagination */
+/* --- Remove or Modify previous filter styles --- */
+/* Remove styles specifically for .filter-controls select if they exist */
+
+/* --- Add/Update styles for the new filter button layout --- */
 .filter-controls {
     margin-bottom: 15px;
     background: #fff;
     padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: flex; /* Align label and select */
+    /* Keep flex for alignment */
+    display: flex;
     align-items: center;
-    gap: 10px; /* Space between label and select */
+    flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+    gap: 10px;
 }
 
-.filter-controls label {
+.filter-controls .filter-label {
+    font-weight: bold;
+    margin-right: 10px; /* Space between label and buttons */
+}
+
+#type-filter-buttons {
+    display: flex; /* Make buttons sit inline */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 8px; /* Space between buttons */
+}
+
+#type-filter-buttons button {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#type-filter-buttons button:hover {
+    background-color: #eee;
+    border-color: #bbb;
+}
+
+/* Style for the currently active filter button */
+#type-filter-buttons button.active-filter {
+    background-color: #5cb85c; /* Same green as Add button */
+    color: white;
+    border-color: #4cae4c;
     font-weight: bold;
 }
 
-.filter-controls select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    min-width: 150px; /* Give dropdown some width */
-}
-
+/* --- Other styles remain the same --- */
+/* Pagination, table, body, form styles etc. */
 
 .pagination-controls {
     margin-top: 20px;

@@ -13,12 +13,15 @@
     <form id="add-test-form">
         <h2>Add New Test Result</h2>
         <div>
-            <label for="test-name">Test Name:</label>
-            <input type="text" id="test-name" required>
-        </div>
-         <div>
             <label for="test-type">Type:</label>
-            <input type="text" id="test-type" required>
+            <select id="test-type" required>
+                 <option value="" disabled selected>-- Select Type --</option>
+                 </select>
+        </div>
+        <div>
+            <label for="test-name">Test Name:</label>
+            <select id="test-name" required disabled> <option value="" disabled selected>-- Select Test Name --</option>
+                </select>
         </div>
         <div>
             <label for="correct-answers">Correct Answers:</label>
@@ -31,37 +34,19 @@
         <button type="submit">Add Test</button>
     </form>
 
-    <h2>Recorded Tests</h2>
-
     <div class="filter-controls">
-         <label for="type-filter">Filter by Type:</label>
-         <select id="type-filter">
-             <option value="All">All Types</option>
-             </select>
+         <span class="filter-label">Filter by Type:</span>
+         <div id="type-filter-buttons"></div>
     </div>
+
     <div id="test-list-container">
         <table id="test-list-table">
-            <thead>
-                <tr>
-                    <th>Test Name</th>
-                    <th>Type</th>
-                    <th>Correct Answers</th>
-                    <th>Total Marks</th>
-                    <th>Percentage</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="test-list-body">
-                </tbody>
+             <thead><tr><th>Test Name</th><th>Type</th><th>Correct Answers</th><th>Total Marks</th><th>Percentage</th><th>Action</th></tr></thead>
+             <tbody id="test-list-body"></tbody>
         </table>
         <p id="no-tests-message" style="display: none;">No tests recorded for this type.</p>
-
-         <div class="pagination-controls" style="display: none;">
-             <button id="prev-page" disabled>Previous</button>
-             <span id="page-info">Page 1 of 1</span>
-             <button id="next-page" disabled>Next</button>
-         </div>
-         <button id="clear-all-button" style="display: none; margin-top: 15px;">Clear All Tests</button>
+        <div class="pagination-controls" style="display: none;"><button id="prev-page" disabled>Previous</button><span id="page-info">Page 1 of 1</span><button id="next-page" disabled>Next</button></div>
+        <button id="clear-all-button" style="display: none; margin-top: 15px;">Clear All Tests</button>
     </div>
 
     <script src="script.js"></script>
