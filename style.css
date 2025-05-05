@@ -1,0 +1,165 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+#add-test-form {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#add-test-form div {
+    margin-bottom: 15px;
+}
+
+#add-test-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#add-test-form input[type="text"],
+#add-test-form input[type="number"] {
+    width: calc(100% - 12px); /* Adjust width considering padding */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#add-test-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#add-test-form button[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+#test-list-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#test-list-table {
+    width: 100%;
+    border-collapse: collapse; /* Merge cell borders */
+    margin-top: 15px;
+}
+
+#test-list-table th,
+#test-list-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+#test-list-table th {
+    background-color: #f2f2f2; /* Light grey header */
+    font-weight: bold;
+}
+
+#test-list-table td:last-child { /* Style the last column (Action) */
+    text-align: center;
+}
+
+.delete-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #c9302c;
+}
+
+#clear-all-button {
+     background-color: #f0ad4e;
+     color: white;
+     border: none;
+     padding: 8px 15px;
+     border-radius: 3px;
+     cursor: pointer;
+     font-size: 14px;
+}
+
+#clear-all-button:hover {
+     background-color: #ec971f;
+}
+/* Add styles for filter and pagination */
+.filter-controls {
+    margin-bottom: 15px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex; /* Align label and select */
+    align-items: center;
+    gap: 10px; /* Space between label and select */
+}
+
+.filter-controls label {
+    font-weight: bold;
+}
+
+.filter-controls select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    min-width: 150px; /* Give dropdown some width */
+}
+
+
+.pagination-controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagination-controls button {
+    padding: 8px 15px;
+    margin: 0 5px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.pagination-controls button:disabled {
+    background-color: #f8f8f8;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.pagination-controls span {
+    margin: 0 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Adjust table layout if needed for new column */
+#test-list-table th,
+#test-list-table td {
+    /* Adjust padding or text-align as needed */
+    padding: 10px 8px; /* Slightly less horizontal padding */
+}
