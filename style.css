@@ -252,3 +252,152 @@ h2 {
     padding: 10px 8px;
     /* Slightly less horizontal padding */
 }
+/* --- Remove Form Styles --- */
+/* Delete all styles starting with #add-test-form */
+
+/* --- Remove Pagination Styles --- */
+/* Delete all styles starting with .pagination-controls */
+
+/* --- Styles for Filter Buttons (Keep these) --- */
+.filter-controls { /* ... styles remain ... */ }
+.filter-controls .filter-label { /* ... styles remain ... */ }
+#type-filter-buttons { /* ... styles remain ... */ }
+#type-filter-buttons button { /* ... styles remain ... */ }
+#type-filter-buttons button.active-filter { /* ... styles remain ... */ }
+
+/* --- Table Styles (Keep and potentially adjust) --- */
+#test-list-container { /* ... styles remain ... */ }
+#test-list-table { /* ... styles remain ... */ }
+#test-list-table th,
+#test-list-table td { /* ... styles remain ... */ }
+#test-list-table th { /* ... styles remain ... */ }
+.delete-button { /* ... styles remain ... */ }
+.delete-button:hover { /* ... styles remain ... */ }
+
+/* Make the Correct Answers cell cursor indicate interactivity */
+.editable-correct {
+    cursor: pointer;
+    position: relative; /* For potential absolute positioning of icons later */
+}
+.editable-correct:hover {
+    background-color: #f5f5f5; /* Slight hover effect */
+}
+
+/* Style for the inline input field */
+.inline-edit-input {
+    width: calc(100% - 10px); /* Adjust width to fit cell padding */
+    padding: 4px;
+    border: 1px solid #888;
+    border-radius: 3px;
+    font-family: inherit; /* Use table font */
+    font-size: inherit; /* Use table font size */
+    text-align: right; /* Align numbers to the right */
+    box-sizing: border-box;
+}
+
+/* Optional: Add a small 'pen' icon for edit hint */
+/* .editable-correct::after { content: ' ✎'; font-size: smaller; color: #aaa; } */
+
+
+/* --- Other Styles (body, h1, h2, clear button - Keep these) --- */
+body { /* ... styles remain ... */ }
+h1, h2 { /* ... styles remain ... */ }
+#clear-all-button { /* ... styles remain ... */ }
+#clear-all-button:hover { /* ... styles remain ... */ }
+/* Re-add basic form styles if they were removed previously */
+#view-test-form {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+#view-test-form div { margin-bottom: 15px; }
+#view-test-form label { display: block; margin-bottom: 5px; font-weight: bold; }
+#view-test-form select,
+#view-test-form input[type="number"] /* Apply to number inputs too */
+ {
+    width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 3px;
+    box-sizing: border-box; height: 38px; line-height: 1.4; font-size: 1em;
+}
+
+/* Styles for readonly inputs (ensure this exists) */
+#view-test-form input[readonly] {
+    background-color: #f0f0f0;
+    cursor: default;
+    color: #555;
+}
+/* Styles for disabled select (ensure this exists) */
+#view-test-form select:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+    color: #999;
+}
+
+/* --- Remove Clear All Button styles --- */
+/* Delete #clear-all-button and #clear-all-button:hover if they exist */
+
+/* --- Other styles remain (Filters, Table, Inline Edit, etc.) --- */
+.filter-controls { /* ... */ }
+#type-filter-buttons { /* ... */ }
+#type-filter-buttons button { /* ... */ }
+#type-filter-buttons button.active-filter { /* ... */ }
+#test-list-container { /* ... */ }
+#test-list-table { /* ... */ }
+#test-list-table th, #test-list-table td { /* ... */ }
+.editable-correct { /* ... */ }
+.inline-edit-input { /* ... */ }
+.delete-button { /* ... */ }
+body, h1, h2 { /* ... */ }
+/* --- Remove Form Styles --- */
+/* Delete all styles starting with #add-test-form */
+
+/* --- Remove Pagination Styles --- */
+/* Delete all styles starting with .pagination-controls */
+
+/* --- Styles for Filter Buttons (Keep these) --- */
+.filter-controls { /* ... styles remain ... */ }
+.filter-controls .filter-label { /* ... styles remain ... */ }
+#type-filter-buttons { /* ... styles remain ... */ }
+#type-filter-buttons button { /* ... styles remain ... */ }
+#type-filter-buttons button.active-filter { /* ... styles remain ... */ }
+
+/* --- Table Styles (Keep and potentially adjust) --- */
+#test-list-container { /* ... styles remain ... */ }
+#test-list-table { /* ... styles remain ... */ }
+#test-list-table th,
+#test-list-table td { /* ... styles remain ... */ }
+#test-list-table th { /* ... styles remain ... */ }
+.delete-button { /* ... styles remain ... */ }
+.delete-button:hover { /* ... styles remain ... */ }
+
+/* Make the Correct Answers cell cursor indicate interactivity */
+.editable-correct {
+    cursor: pointer;
+    position: relative; /* For potential absolute positioning of icons later */
+}
+.editable-correct:hover {
+    background-color: #f5f5f5; /* Slight hover effect */
+}
+
+/* Style for the inline input field */
+.inline-edit-input {
+    width: calc(100% - 10px); /* Adjust width to fit cell padding */
+    padding: 4px;
+    border: 1px solid #888;
+    border-radius: 3px;
+    font-family: inherit; /* Use table font */
+    font-size: inherit; /* Use table font size */
+    text-align: right; /* Align numbers to the right */
+    box-sizing: border-box;
+}
+
+/* Optional: Add a small 'pen' icon for edit hint */
+/* .editable-correct::after { content: ' ✎'; font-size: smaller; color: #aaa; } */
+
+
+/* --- Other Styles (body, h1, h2, clear button - Keep these) --- */
+body { /* ... styles remain ... */ }
+h1, h2 { /* ... styles remain ... */ }
+#clear-all-button { /* ... styles remain ... */ }
+#clear-all-button:hover { /* ... styles remain ... */ }
