@@ -265,8 +265,15 @@ button:disabled {
 }
 
 #clear-all-button {
-    visibility: hidden;
-    display: none;
+    background-color: transparent;
+    color: var(--accent-warning);
+    border: 1px solid var(--accent-warning);
+    float: right; /* Position bottom right */
+    margin-top: var(--padding-medium);
+}
+#clear-all-button:hover {
+    background-color: var(--accent-warning);
+    color: white;
 }
 
 /* --- Custom Scrollbars (Optional) --- */
