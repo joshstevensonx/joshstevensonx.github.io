@@ -21,7 +21,15 @@ let selectedRecordIndexForForm = null; // Index in allTests for the record selec
 let currentlyEditingIndex = null; // Index in allTests for the record being edited INLINE
 let currentlyEditingElement = null; // TD element being edited INLINE
 
-// --- Firebase Initialization ---
+// --- Firebase Initialization ---// Initialize Firebase (firebaseConfig is provided by the SDK snippet in index.html)
+try {
+    firebase.initializeApp(firebaseConfig);
+    console.log("Firebase initialized successfully");
+ } catch (e) {
+     console.error("Could not initialize Firebase", e);
+     alert("Error connecting to the database. Please check console.");
+ }
+ 
 let db; // Declare db instance variable globally
 try {
     if (firebase && typeof firebase.initializeApp === 'function') {
