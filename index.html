@@ -52,26 +52,9 @@
              <tbody id="test-list-body"></tbody>
         </table>
         <p id="no-tests-message" style="display: none;">No tests recorded for this type.</p>
-        <button id="clear-all-button" style="display: none; margin-top: 15px;" >Clear All Tests</button>
+        <button id="clear-all-button" style="display: none; margin-top: 15px; visibility: hidden;" >Clear All Tests</button>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script >
-      
-        const firebaseConfig = {
-          apiKey: "AIzaSyA__rfRWW8H9pKEwS1CczB2H6THnLvVUOM",
-          authDomain: "test-score-tracker-app.firebaseapp.com",
-          projectId: "test-score-tracker-app",
-          storageBucket: "test-score-tracker-app.firebasestorage.app",
-          messagingSenderId: "555159164023",
-          appId: "1:555159164023:web:8799e5e71916717800a272",
-          measurementId: "G-QX0VNLX5CX"
-        };
-      
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
+
     <script src="script.js"></script>
 </body>
 </html>
