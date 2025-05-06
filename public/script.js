@@ -10,6 +10,7 @@ const clearAllButton = document.getElementById('clear-all-button');
 const testListTable = document.getElementById('test-list-table');
 const typeFilterButtonsDiv = document.getElementById('type-filter-buttons');
 const exportCsvButton = document.getElementById('export-csv-button'); // Keep export button reference if HTML has it
+const testListContainer = document.getElementById('test-list-container'); // Reference the main container div
 
 // --- Application State ---
 let allTests = []; // Holds ALL tests loaded from Firestore (includes Firestore ID)
@@ -34,9 +35,10 @@ try {
 } catch (e) {
     console.error("Firebase initialization error:", e);
     alert("Error connecting to database services. App functionality may be limited.");
-    // Disable elements dependent on DB if needed
+    // Now this line should work:
+    if(testListContainer) testListContainer.innerHTML = '<p style="color: red; text-align: center;">Error connecting to the database.</p>';
+    // Disable form if it exists
     if(form) form.style.display = 'none';
-    if(testListContainer) testListContainer.innerHTML = '<p>Error connecting to database.</p>';
 }
 
 // --- Data Handling Functions ---
