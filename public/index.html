@@ -54,7 +54,29 @@
         <p id="no-tests-message" style="display: none;">No tests recorded for this type.</p>
         <button id="clear-all-button" style="display: none; margin-top: 15px; visibility: hidden;" >Clear All Tests</button>
     </div>
-
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyA__rfRWW8H9pKEwS1CczB2H6THnLvVUOM",
+          authDomain: "test-score-tracker-app.firebaseapp.com",
+          projectId: "test-score-tracker-app",
+          storageBucket: "test-score-tracker-app.firebasestorage.app",
+          messagingSenderId: "555159164023",
+          appId: "1:555159164023:web:f931cf2ea91abc0800a272",
+          measurementId: "G-CC2C7ZC9C0"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
     <script src="script.js"></script>
 </body>
 </html>
