@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog - Your Name</title>
+    <meta name="description" content="Read articles and insights from [Your Name] on technology, design, and more.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+
+    <script src="js/script.js" defer></script>
+    <script src="js/blog.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" id="logo">Your Name</a>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="blog-listing" class="blog-section">
+            <div class="container">
+                <h1 class="section-title">Insights & Articles</h1>
+
+                <div class="blog-posts-container">
+                    <article class="blog-post-card">
+                        <div class="post-image-container">
+                            <a href="#"><img src="https://via.placeholder.com/800x450/4A4A4A/FFFFFF?text=Blog+Post+Image+1" alt="Blog Post 1 Thumbnail" class="post-thumbnail"></a>
+                        </div>
+                        <div class="post-content">
+                            <header class="post-header">
+                                <h2 class="post-title"><a href="#">The Future of Web Development: Trends to Watch</a></h2>
+                                <p class="post-meta">
+                                    <span class="post-date">May 10, 2025</span> | <span class="post-category">Web Development</span>
+                                </p>
+                            </header>
+                            <div class="post-excerpt">
+                                <p>Web development is constantly evolving. In this post, we explore the upcoming trends that will shape the industry, from AI-powered tools to new JavaScript frameworks...</p>
+                            </div>
+                            <footer class="post-footer">
+                                <a href="#" class="btn btn-secondary btn-small">Read More</a>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="blog-post-card">
+                        <div class="post-image-container">
+                             <a href="#"><img src="https://via.placeholder.com/800x450/5B5B5B/FFFFFF?text=Blog+Post+Image+2" alt="Blog Post 2 Thumbnail" class="post-thumbnail"></a>
+                        </div>
+                        <div class="post-content">
+                            <header class="post-header">
+                                <h2 class="post-title"><a href="#">Mastering UI/UX: A Beginner's Guide</a></h2>
+                                 <p class="post-meta">
+                                    <span class="post-date">April 28, 2025</span> | <span class="post-category">UI/UX Design</span>
+                                </p>
+                            </header>
+                            <div class="post-excerpt">
+                                <p>Good design is more than just aesthetics; it's about creating intuitive and enjoyable user experiences. This guide will walk you through the fundamental principles of UI/UX design...</p>
+                            </div>
+                            <footer class="post-footer">
+                                <a href="#" class="btn btn-secondary btn-small">Read More</a>
+                            </footer>
+                        </div>
+                    </article>
+
+                    <article class="blog-post-card">
+                        <div class="post-image-container">
+                             <a href="#"><img src="https://via.placeholder.com/800x450/6C6C6C/FFFFFF?text=Blog+Post+Image+3" alt="Blog Post 3 Thumbnail" class="post-thumbnail"></a>
+                        </div>
+                        <div class="post-content">
+                            <header class="post-header">
+                                <h2 class="post-title"><a href="#">My Journey into App Development</a></h2>
+                                <p class="post-meta">
+                                    <span class="post-date">April 15, 2025</span> | <span class="post-category">Personal Growth</span>
+                                </p>
+                            </header>
+                            <div class="post-excerpt">
+                                <p>Transitioning into app development was a challenging yet rewarding experience. Here, I share the lessons learned, resources that helped me, and advice for aspiring developers...</p>
+                            </div>
+                            <footer class="post-footer">
+                                <a href="#" class="btn btn-secondary btn-small">Read More</a>
+                            </footer>
+                        </div>
+                    </article>
+
+                    </div>
+                 </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Your Name. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        if (document.getElementById('current-year')) {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>

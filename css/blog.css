@@ -1,0 +1,140 @@
+/* css/blog.css */
+
+.blog-section {
+    padding: 40px 0 60px;
+}
+
+/* Blog Posts Container */
+.blog-posts-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column layout for posts */
+    gap: 40px; /* Space between blog post cards */
+    max-width: 800px; /* Max width for the blog column for readability */
+    margin: 0 auto; /* Center the column */
+}
+
+.blog-post-card {
+    background-color: var(--secondary-bg-color);
+    border-radius: 8px;
+    overflow: hidden; /* If images are directly inside or for box shadows */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column; /* Stacks image and content vertically */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.post-image-container {
+    width: 100%;
+    max-height: 350px; /* Max height for the image */
+    overflow: hidden; /* Crop image if it's too tall */
+}
+
+.post-image-container img.post-thumbnail {
+    display: block;
+    width: 100%;
+    height: 100%; /* Fill the container */
+    object-fit: cover; /* Cover the area, cropping if necessary */
+    transition: transform 0.3s ease;
+}
+
+.blog-post-card:hover .post-image-container img.post-thumbnail {
+    transform: scale(1.03);
+}
+
+.post-content {
+    padding: 25px 30px; /* Padding inside the card for text */
+}
+
+.post-header {
+    margin-bottom: 15px;
+}
+
+.post-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.post-title a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.post-title a:hover {
+    color: var(--accent-color);
+}
+
+.post-meta {
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 20px;
+}
+
+.post-meta .post-category {
+    /* color: var(--accent-color); */ /* Optionally highlight category */
+    font-weight: 500;
+}
+
+.post-excerpt p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--primary-text-color);
+    margin-bottom: 20px;
+}
+
+.post-footer {
+    margin-top: auto; /* Pushes "Read More" button to the bottom of the card if content is short */
+    text-align: left;
+}
+
+/* Small button variant if not already globally defined or needs override */
+.btn-small {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+}
+
+/* Optional Pagination Styles */
+.pagination {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.page-numbers {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 4px;
+    text-decoration: none;
+    color: var(--secondary-text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-numbers:hover,
+.page-numbers.current {
+    background-color: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .post-title {
+        font-size: 1.5rem;
+    }
+    .post-content {
+        padding: 20px;
+    }
+    .blog-posts-container {
+        gap: 30px;
+    }
+}
