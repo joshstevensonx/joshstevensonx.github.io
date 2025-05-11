@@ -138,3 +138,17 @@
         gap: 30px;
     }
 }
+/* css/blog.css */
+
+/* ... (existing styles) ... */
+
+.blog-intro {
+    text-align: center;
+    max-width: 750px; /* Adjust as needed */
+    margin: 0 auto 40px auto; /* Center it and add space below */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--secondary-text-color);
+}
+
+/* ... (rest of blog.css) ... */
