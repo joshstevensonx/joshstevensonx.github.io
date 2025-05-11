@@ -272,3 +272,152 @@ a:focus, button:focus, input:focus, textarea:focus {
     outline-offset: 2px;
     box-shadow: 0 0 0 3px rgba(var(--accent-color), 0.5) !important; /* More visible focus */
 }
+/* css/style.css -- ADD THESE STYLES or REPLACE if some parts are already there from home.css adaptation */
+
+/* ... (other styles from style.css) ... */
+
+/* Projects Grid & Cards - (Moved from home.css for reusability) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--secondary-bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+    display: flex; /* Added for flex column layout */
+    flex-direction: column; /* Added for flex column layout */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.project-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card img.project-thumbnail { /* Added class for clarity */
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover img.project-thumbnail {
+    transform: scale(1.05);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(var(--accent-color-rgb, 255, 0, 102), 0.75); /* Ensure --accent-color-rgb is in :root */
+    display: flex;
+    flex-direction: column; /* To stack title and button */
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* Center text in overlay */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    padding: 20px;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-overlay h3 { /* Project title inside overlay */
+    color: var(--primary-text-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.project-overlay .btn { /* Button style within overlay */
+    padding: 10px 20px;
+    background-color: #fff;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+.project-overlay .btn:hover {
+    background-color: var(--primary-text-color); /* Lighter white */
+    color: var(--primary-bg-color); /* Dark text */
+}
+
+.project-content { /* Container for text below image */
+    padding: 20px;
+    flex-grow: 1; /* Allows this section to grow, pushing footer of card down */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card .project-title { /* Title below image */
+    font-size: 1.4rem; /* Adjusted size */
+    margin-bottom: 10px;
+    color: var(--primary-text-color);
+}
+
+.project-card .project-category {
+    font-size: 0.9rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 15px;
+    flex-grow: 1; /* Pushes button to bottom if description is short */
+}
+
+.project-card .project-link-btn { /* Styling for a link acting as a button below content */
+    display: inline-block;
+    align-self: flex-start; /* Align to the left */
+    margin-top: auto; /* Pushes to the bottom of .project-content */
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 0; /* Add some padding for easier clicking */
+    position: relative;
+}
+
+.project-card .project-link-btn::after {
+    content: ' \u2192'; /* Right arrow */
+}
+
+.project-card .project-link-btn:hover {
+    text-decoration: underline;
+    color: var(--accent-hover-color);
+}
+
+
+/* Section Title Styling (if not already present or to refine) */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background-color: var(--accent-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* ... (rest of style.css, like @media queries) ... */

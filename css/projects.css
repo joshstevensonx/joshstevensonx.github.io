@@ -1,0 +1,57 @@
+/* css/projects.css */
+
+.portfolio-section {
+    padding: 40px 0 60px; /* Adjust padding as needed */
+}
+
+/* Page Title - Using h1 here, .section-title styles it globally */
+.portfolio-section .section-title { /* Overriding global section-title if needed for H1 */
+    font-size: 2.8rem; /* Slightly larger for main page title */
+    margin-bottom: 40px;
+}
+
+/* Filter Buttons Styling */
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.filter-buttons .btn { /* Re-using global .btn styles */
+    margin: 5px;
+    background-color: transparent; /* Default unselected style */
+    color: var(--secondary-text-color);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px; /* Slightly smaller padding for filter buttons */
+    font-size: 0.9rem;
+}
+
+.filter-buttons .btn:hover {
+    color: var(--primary-text-color);
+    background-color: var(--secondary-bg-color);
+    border-color: var(--secondary-text-color);
+}
+
+.filter-buttons .btn.active { /* Style for the active filter button */
+    background-color: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+}
+
+/* Styles for hiding/showing projects (used by JS) */
+.project-card.hide {
+    display: none;
+}
+
+/* Specific adjustments for project cards on this page if needed */
+/* For example, if you want them to look slightly different than on home page's featured section. */
+/* .projects-page .project-card { ... } */
+
+@media (max-width: 768px) {
+    .portfolio-section .section-title {
+        font-size: 2.2rem; /* Adjust title for mobile */
+    }
+    .filter-buttons .btn {
+        font-size: 0.85rem;
+        padding: 8px 15px;
+    }
+}

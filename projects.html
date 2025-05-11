@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - Your Name</title>
+    <meta name="description" content="Explore a collection of projects by [Your Name].">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/projects.css">
+
+    <script src="js/script.js" defer></script>
+    <script src="js/projects.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" id="logo">Your Name</a>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="portfolio-gallery" class="portfolio-section">
+            <div class="container">
+                <h1 class="section-title">My Portfolio</h1> 
+
+                <div class="filter-buttons">
+                    <button class="btn filter-btn active" data-filter="all">All</button>
+                    <button class="btn filter-btn" data-filter="web">Web Design</button>
+                    <button class="btn filter-btn" data-filter="app">App Development</button>
+                    <button class="btn filter-btn" data-filter="uiux">UI/UX</button>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card" data-category="web">
+                        <div class="project-image-container">
+                            <img src="https://via.placeholder.com/400x300/FF6347/FFFFFF?text=E-commerce+Site" alt="E-commerce Platform" class="project-thumbnail">
+                            <div class="project-overlay">
+                                <h3>E-commerce Platform</h3>
+                                <a href="#" class="btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">E-commerce Platform</h3>
+                            <p class="project-category">A feature-rich online store built with modern web technologies.</p>
+                            <a href="#" class="project-link-btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="app">
+                        <div class="project-image-container">
+                            <img src="https://via.placeholder.com/400x300/4682B4/FFFFFF?text=Mobile+Task+App" alt="Mobile Task App" class="project-thumbnail">
+                            <div class="project-overlay">
+                                <h3>Task Management App</h3>
+                                <a href="#" class="btn">View Details</a>
+                            </div>
+                        </div>
+                         <div class="project-content">
+                            <h3 class="project-title">Task Management App</h3>
+                            <p class="project-category">A cross-platform mobile application for boosting productivity.</p>
+                            <a href="#" class="project-link-btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="uiux">
+                        <div class="project-image-container">
+                            <img src="https://via.placeholder.com/400x300/32CD32/FFFFFF?text=UX+Redesign" alt="UX Redesign Project" class="project-thumbnail">
+                             <div class="project-overlay">
+                                <h3>Analytics Dashboard UX</h3>
+                                <a href="#" class="btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Analytics Dashboard UX</h3>
+                            <p class="project-category">Complete UI/UX redesign for a data analytics company.</p>
+                            <a href="#" class="project-link-btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="web">
+                        <div class="project-image-container">
+                            <img src="https://via.placeholder.com/400x300/DAA520/FFFFFF?text=Portfolio+Website" alt="Portfolio Website" class="project-thumbnail">
+                            <div class="project-overlay">
+                                <h3>Creative Portfolio</h3>
+                                <a href="#" class="btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Creative Portfolio</h3>
+                            <p class="project-category">A personal portfolio website for a digital artist.</p>
+                            <a href="#" class="project-link-btn">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="app">
+                        <div class="project-image-container">
+                            <img src="https://via.placeholder.com/400x300/8A2BE2/FFFFFF?text=Social+Media+App" alt="Social Media App" class="project-thumbnail">
+                            <div class="project-overlay">
+                                <h3>Social Connect App</h3>
+                                <a href="#" class="btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Social Connect App</h3>
+                            <p class="project-category">A niche social networking mobile application.</p>
+                            <a href="#" class="project-link-btn">Learn More</a>
+                        </div>
+                    </div>
+
+                     <div class="project-card" data-category="uiux">
+                        <div class="project-image-container">
+                            <img src="https://via.placeholder.com/400x300/FF7F50/FFFFFF?text=Booking+System+UI" alt="Booking System UI" class="project-thumbnail">
+                            <div class="project-overlay">
+                                <h3>Travel Booking UI</h3>
+                                <a href="#" class="btn">View Details</a>
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Travel Booking UI</h3>
+                            <p class="project-category">User interface design for a travel booking platform.</p>
+                            <a href="#" class="project-link-btn">Learn More</a>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Your Name. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Ensure current year in footer is updated
+        if (document.getElementById('current-year')) {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>
