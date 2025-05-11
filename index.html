@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Your Name - Portfolio</title>
+        <meta name="description" content="Welcome to the portfolio of [Your Name]. Showcasing projects and skills." />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/home.css" />
+
+        <script src="js/script.js" defer></script>
+        <script src="js/home.js" defer></script>
+    </head>
+
+    <body>
+        <header>
+            <div class="container">
+                <nav>
+                    <a href="index.html" id="logo">Your Name</a>
+                    <div class="hamburger">
+                        <div class="line1"></div>
+                        <div class="line2"></div>
+                        <div class="line3"></div>
+                    </div>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+
+                        <li>
+                            <a href="#contact" class="btn btn-primary btn-small-nav">Hire Me</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section id="hero" class="hero-section">
+                <div class="container hero-content-container">
+                   
+                    <div class="hero-text">
+                        <h3>Hi, I'm</h3>
+                        <h1>[Your Name]</h1>
+                     
+                        <p class="lead">[Your Profession/Title]</p>
+                      
+                        <p class="hero-description">
+                            I design and develop services for customers of all sizes,
+                            specializing in creating stylish, modern websites, web services
+                            and online stores. {/* Adjust this text to your own */}
+                        </p>
+                        <a href="projects.html" class="btn btn-primary">View My Work</a>
+                        <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="https://via.placeholder.com/400x450/CCCCCC/000000?text=Your+Image" alt="Your Name - Profile Picture" />
+                        
+                    </div>
+                </div>
+            </section>
+
+            <section id="about" class="about-section section-bg">
+               
+                <div class="container">
+                    <h2 class="section-title">What I Do</h2>
+                    
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <i class="fas fa-laptop-code"></i> 
+                            <img src="https://via.placeholder.com/60/FF0066/FFFFFF?text=WD" alt="Web Design Icon" class="service-icon" />
+                            <h3>Web Design</h3>
+                            <p>
+                                Crafting beautiful and intuitive user interfaces that are a joy
+                                to use.
+                            </p>
+                        </div>
+                        <div class="service-card">
+                            <img src="https://via.placeholder.com/60/FF0066/FFFFFF?text=AD" alt="App Development Icon" class="service-icon" />
+                            <h3>App Development</h3>
+                            <p>
+                                Building responsive and robust web applications tailored to your
+                                needs.
+                            </p>
+                        </div>
+                        <div class="service-card">
+                            <img src="https://via.placeholder.com/60/FF0066/FFFFFF?text=UX" alt="UI/UX Icon" class="service-icon" />
+                            <h3>UI/UX Design</h3>
+                            <p>
+                                Focusing on user experience to create engaging digital products.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="featured-projects" class="featured-projects-section">
+                <div class="container">
+                    <h2 class="section-title">Recent Works</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-image-container">
+                                <img src="https://via.placeholder.com/400x300/777777/FFFFFF?text=Project+Alpha" alt="Project Alpha Thumbnail" />
+                                <div class="project-overlay">
+                                    <a href="projects.html#project-alpha" class="btn btn-primary">View Project</a>
+                                </div>
+                            </div>
+                            <h3>Project Alpha</h3>
+                            <p class="project-category">Web Design / Development</p>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image-container">
+                                <img src="https://via.placeholder.com/400x300/888888/FFFFFF?text=Project+Beta" alt="Project Beta Thumbnail" />
+                                <div class="project-overlay">
+                                    <a href="projects.html#project-beta" class="btn btn-primary">View Project</a>
+                                </div>
+                            </div>
+                            <h3>Project Beta</h3>
+                            <p class="project-category">App Development</p>
+                        </div>
+                        <div class="project-card">
+                            <div class="project-image-container">
+                                <img src="https://via.placeholder.com/400x300/999999/FFFFFF?text=Project+Gamma" alt="Project Gamma Thumbnail" />
+                                <div class="project-overlay">
+                                    <a href="projects.html#project-gamma" class="btn btn-primary">View Project</a>
+                                </div>
+                            </div>
+                            <h3>Project Gamma</h3>
+                            <p class="project-category">UI/UX Design</p>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 40px">
+                        <a href="projects.html" class="btn btn-primary">View All Works</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>
+                    &copy; <span id="current-year"></span> Your Name. All Rights Reserved.
+                </p>
+            </div>
+        </footer>
+
+        <script>
+            document.getElementById("current-year").textContent =
+                new Date().getFullYear();
+        </script>
+    </body>
+
+</html>
