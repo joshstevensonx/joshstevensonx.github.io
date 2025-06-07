@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOFA Ltd - Powering Your Growth</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.navbar {
+  background: #000;
+  color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.hero {
+  background: url('hero-image.jpg') no-repeat center center/cover;
+  color: white;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #ffb400;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.btn.secondary {
+  background: #f1f1f1;
+  color: #000;
+}
+
+.partners, .functions, .services, .projects, .energy, .about {
+  padding: 60px 30px;
+}
+
+.partners .logos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.about-img img {
+  max-width: 100%;
+}
+
+.function-list {
+  columns: 2;
+  margin: 20px 0;
+}
+
+.service-cards {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background: #f7f7f7;
+  padding: 20px;
+  flex: 1;
+  border-radius: 6px;
+}
+
+.grid-4 {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+footer {
+  background: #111;
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
+
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">TOFA</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Solutions</a></li>
+        <li><a href="#">Power Equipment</a></li>
+        <li><a href="#">Sectors</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Powering Your Growth</h1>
+      <p>With Sustainable, Reliable, and Economic Power Solutions.</p>
+      <a href="#" class="btn">Discover More</a>
+    </div>
+  </section>
+
+  <section class="partners">
+    <h2>World-Class Partners</h2>
+    <div class="logos">
+      <img src="logo-schneider.png" alt="Schneider" />
+      <img src="logo-trina.png" alt="Trina Solar" />
+      <img src="logo-scania.png" alt="Scania" />
+      <img src="logo-volvo.png" alt="Volvo Penta" />
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-text">
+      <h2>Powering Your Growth</h2>
+      <p>TOFA Limited is a leading power solutions provider offering reliable and cost-effective power services, supply, and engineering.</p>
+      <ul>
+        <li>✔️ Reliable Supply</li>
+        <li>✔️ Economical Services</li>
+        <li>✔️ Sustainable Power</li>
+      </ul>
+      <a href="#" class="btn secondary">About Us</a>
+    </div>
+    <div class="about-img">
+      <img src="power-equipment.jpg" alt="Power Equipment" />
+    </div>
+  </section>
+
+  <section class="functions">
+    <h2>Key Functions</h2>
+    <ul class="function-list">
+      <li>Independent Power Producer (IPP)</li>
+      <li>Diesel/Gas Generator Leasing</li>
+      <li>Renewable Energy Supplier</li>
+      <li>Power Equipment Supply</li>
+      <li>EPC Services</li>
+      <li>Operation & Maintenance</li>
+      <li>Overhauling & Retrofitting</li>
+      <li>Project Management Services</li>
+    </ul>
+    <a href="#" class="btn">Learn More</a>
+  </section>
+
+  <section class="services">
+    <h2>Power Services</h2>
+    <div class="service-cards">
+      <div class="card">
+        <h3>IPP Service</h3>
+        <p>Allocation, O&M and power system optimization billed by consumption.</p>
+      </div>
+      <div class="card">
+        <h3>Outsourcing</h3>
+        <p>Provision of power system needs with metering-based billing.</p>
+      </div>
+      <div class="card">
+        <h3>Management Service</h3>
+        <p>Selected combination of services like 24/7 power supply or backup.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="energy">
+    <h2>Energy Services</h2>
+    <div class="grid-4">
+      <div><h4>Medium Voltage Networks</h4><p>Design, implementation, and upgrades.</p></div>
+      <div><h4>Low Voltage Systems</h4><p>Room installations, panels, controls.</p></div>
+      <div><h4>Panel Design</h4><p>Custom panels, synchronizers, and ATS.</p></div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>Turnkey Projects</h2>
+    <ul>
+      <li>✔️ On-Grid Power Projects</li>
+      <li>✔️ Off-Grid Power Projects</li>
+      <li>✔️ Micro/Mini Grid Projects</li>
+      <li>✔️ Transmission Networks</li>
+    </ul>
+    <a href="#" class="btn">View More</a>
+  </section>
+
+  <footer>
+    <div class="footer-info">
+      <div class="footer-logo">TOFA</div>
+      <div class="footer-links">
+        <p><strong>Address:</strong> 48 Adetokunbo Ademola St., Lagos, Nigeria</p>
+        <p><strong>Email:</strong> info@tofa-ng.com</p>
+        <p><strong>Phone:</strong> +234 8105 333336</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
