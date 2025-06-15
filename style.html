@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Color Palette Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define color variables for easy use in Tailwind and custom CSS */
+        :root {
+            /* Primary and its variants */
+            --color-primary: #FEC522;
+            --color-primary-light: #FFE170;
+            --color-primary-dark: #D4A300;
+            --color-primary-hover: #FFD43B;
+            --color-primary-border: #E2B420;
+
+            /* Functional (Semantic) Colors */
+            --color-success: #38A169;
+            --color-warning: #F59E0B;
+            --color-error: #E53E3E;
+            --color-info: #3182CE;
+            
+            /* Light Mode Neutrals */
+            --color-background-light: #FFFFFF;
+            --color-surface-light: #F9F9F9;
+            --color-border-light: #E0E0E0;
+            --color-text-primary-light: #1A1A1A;
+            --color-text-body-light: #4A4A4A;
+            --color-text-disabled-light: #A8A8A8;
+
+            /* Dark Mode Neutrals */
+            --color-background-dark: #121212;
+            --color-surface-dark: #1E1E1E;
+            --color-border-dark: #333333;
+            --color-text-primary-dark: #F5F5F5;
+            --color-text-body-dark: #BBBBBB;
+            --color-text-disabled-dark: #A8A8A8;
+        }
+        
+        /* Apply base styles for light mode */
+        .light {
+            --bg-background: var(--color-background-light);
+            --bg-surface: var(--color-surface-light);
+            --border-color: var(--color-border-light);
+            --text-primary: var(--color-text-primary-light);
+            --text-body: var(--color-text-body-light);
+            --text-disabled: var(--color-text-disabled-light);
+        }
+
+        /* Apply base styles for dark mode */
+        .dark {
+            --bg-background: var(--color-background-dark);
+            --bg-surface: var(--color-surface-dark);
+            --border-color: var(--color-border-dark);
+            --text-primary: var(--color-text-primary-dark);
+            --text-body: var(--color-text-body-dark);
+            --text-disabled: var(--color-text-disabled-dark);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-background);
+            color: var(--text-body);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Custom focus ring using the primary color */
+        .focus-ring:focus-visible {
+            outline: 2px solid var(--color-primary-border);
+            outline-offset: 2px;
+        }
+    </style>
+    <script>
+        // Tailwind Customization
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'var(--color-primary)',
+                        'primary-light': 'var(--color-primary-light)',
+                        'primary-dark': 'var(--color-primary-dark)',
+                        'primary-hover': 'var(--color-primary-hover)',
+                        'primary-border': 'var(--color-primary-border)',
+                        
+                        success: 'var(--color-success)',
+                        warning: 'var(--color-warning)',
+                        error: 'var(--color-error)',
+                        info: 'var(--color-info)',
+
+                        // Theming colors that adapt to light/dark mode
+                        'bg-background': 'var(--bg-background)',
+                        'bg-surface': 'var(--bg-surface)',
+                        'border-color': 'var(--border-color)',
+                        'text-primary': 'var(--text-primary)',
+                        'text-body': 'var(--text-body)',
+                        'text-disabled': 'var(--text-disabled)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-bg-background text-text-body antialiased">
+<nav class="desktop-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="solutions.html" class="nav-link">Solutions</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- Header -->
+        <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 pb-4 border-b border-border-color">
+            <div>
+                <h1 class="text-4xl font-bold text-text-primary">UI Color Palette</h1>
+                <p class="mt-2 text-lg">Interactive preview for the <code class="bg-bg-surface px-2 py-1 rounded-md text-primary font-semibold">#FEC522</code> palette.</p>
+            </div>
+            <!-- Theme Toggle Switch -->
+            <button id="theme-toggle" class="mt-4 sm:mt-0 flex items-center justify-center gap-2 px-4 py-2 rounded-full bg-bg-surface border border-border-color focus-ring transition-colors">
+                <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-500"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400 hidden"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <span id="theme-text" class="text-text-primary font-medium"></span>
+            </button>
+        </header>
+
+        <main>
+            <!-- Section for Color Swatches -->
+            <div class="space-y-12">
+                <section>
+                    <h2 class="text-2xl font-bold text-text-primary mb-6">Primary & Tints</h2>
+                    <div id="primary-palette" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                        <!-- Populated by JS -->
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-text-primary mb-6">Neutrals (Theme-Aware)</h2>
+                    <div id="neutral-palette" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                         <!-- Populated by JS -->
+                    </div>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold text-text-primary mb-6">Functional Colors</h2>
+                    <div id="functional-palette" class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <!-- Populated by JS -->
+                    </div>
+                </section>
+
+                <!-- NEW SECTION: EXPANDED PALETTES -->
+                <section class="mt-16 pt-8 border-t border-border-color">
+                    <h2 class="text-3xl font-bold text-text-primary mb-4">Expanded Palettes (Generated)</h2>
+                    <p class="mb-8 max-w-3xl">These palettes are generated based on color theory to complement the primary color. They are useful for illustrations, accents, or more complex UIs.</p>
+                    
+                    <div>
+                        <h3 class="text-2xl font-semibold text-text-primary mb-6">Analogous Palette</h3>
+                        <p class="mb-6 text-text-body -mt-4">Colors that are next to each other on the color wheel. Creates a serene and comfortable design.</p>
+                        <div id="analogous-palette" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                           <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-semibold text-text-primary mb-6">Triadic Palette</h3>
+                        <p class="mb-6 text-text-body -mt-4">Colors that are evenly spaced around the color wheel. Creates a vibrant, high-contrast effect.</p>
+                        <div id="triadic-palette" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                           <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-semibold text-text-primary mb-6">Split-Complementary Palette</h3>
+                        <p class="mb-6 text-text-body -mt-4">A variation of the complementary color scheme. In addition to the base color, it uses the two colors adjacent to its complement. This color scheme has the same strong visual contrast as the complementary color scheme, but has less tension.</p>
+                        <div id="split-complementary-palette" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                           <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Section for UI Component Examples -->
+            <section class="mt-16">
+                <h2 class="text-3xl font-bold text-text-primary mb-8 pb-4 border-b border-border-color">UI Component Examples</h2>
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Buttons -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-semibold text-text-primary">Buttons</h3>
+                        <div class="p-6 bg-bg-surface rounded-lg border border-border-color space-y-4">
+                            <p>Demonstrates primary, secondary, and interactive states.</p>
+                            <div class="flex flex-wrap items-center gap-4">
+                               <button class="px-5 py-2.5 font-semibold text-black bg-primary hover:bg-primary-hover rounded-lg shadow-md focus-ring transition-all">Primary Button</button>
+                               <button class="px-5 py-2.5 font-semibold text-text-primary bg-bg-surface border border-border-color hover:bg-border-color rounded-lg focus-ring transition-colors">Secondary</button>
+                               <button class="px-5 py-2.5 font-semibold text-text-disabled bg-border-color rounded-lg cursor-not-allowed">Disabled</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Alerts -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-semibold text-text-primary">Alerts</h3>
+                        <div class="p-6 bg-bg-surface rounded-lg border border-border-color space-y-4">
+                            <p>Shows semantic colors for user feedback.</p>
+                            <div class="alert bg-green-50 text-green-800 border-green-200 dark:bg-green-900/50 dark:text-green-200 dark:border-green-700"><strong>Success!</strong> Your profile has been updated.</div>
+                            <div class="alert bg-yellow-50 text-yellow-800 border-yellow-200 dark:bg-yellow-900/50 dark:text-yellow-200 dark:border-yellow-700"><strong>Warning:</strong> Your session is about to expire.</div>
+                            <div class="alert bg-red-50 text-red-800 border-red-200 dark:bg-red-900/50 dark:text-red-200 dark:border-red-700"><strong>Error:</strong> Please fill out all required fields.</div>
+                            <div class="alert bg-blue-50 text-blue-800 border-blue-200 dark:bg-blue-900/50 dark:text-blue-200 dark:border-blue-700"><strong>Info:</strong> A new version is available.</div>
+                        </div>
+                    </div>
+                    <!-- Form Inputs -->
+                     <div class="space-y-6 lg:col-span-2">
+                        <h3 class="text-xl font-semibold text-text-primary">Form Inputs</h3>
+                        <div class="p-6 bg-bg-surface rounded-lg border border-border-color grid md:grid-cols-3 gap-6">
+                             <div>
+                                <label for="name" class="block text-sm font-medium text-text-primary mb-2">Standard Input</label>
+                                <input type="text" id="name" placeholder="Enter your name" class="form-input">
+                            </div>
+                             <div>
+                                <label for="email" class="block text-sm font-medium text-text-primary mb-2">Focused State</label>
+                                <input type="email" id="email" value="user@example.com" class="form-input focus-input">
+                            </div>
+                            <div>
+                                <label for="disabled-input" class="block text-sm font-medium text-text-primary mb-2">Disabled Input</label>
+                                <input type="text" id="disabled-input" placeholder="Cannot be edited" disabled class="form-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        // --- THEME TOGGLE LOGIC ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const themeText = document.getElementById('theme-text');
+        const docElement = document.documentElement;
+
+        function updateThemeUI() {
+            if (docElement.classList.contains('dark')) {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                themeText.textContent = 'Dark Mode';
+            } else {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                themeText.textContent = 'Light Mode';
+            }
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            docElement.classList.toggle('dark');
+            docElement.classList.toggle('light');
+            const isDarkMode = docElement.classList.contains('dark');
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            updateThemeUI();
+            // Re-populate neutral palette to reflect theme change
+            populatePaletteById('neutral');
+        });
+
+        // --- PALETTE DATA ---
+        const palettes = {
+            primary: [
+                { color: "#FEC522", name: "Primary", desc: "Golden yellow" },
+                { color: "#FFE170", name: "Primary Light", desc: "Light background version" },
+                { color: "#D4A300", name: "Primary Dark", desc: "For active or dark mode" },
+                { color: "#FFD43B", name: "Primary Hover", desc: "On hover" },
+                { color: "#E2B420", name: "Primary Border", desc: "Slightly muted outline" },
+            ],
+            neutral: [
+                { color: "var(--bg-background)", name: "Background", desc: "Page background", themeAware: true, className: 'bg-bg-background' },
+                { color: "var(--bg-surface)", name: "Surface", desc: "Card background", themeAware: true, className: 'bg-bg-surface' },
+                { color: "var(--border-color)", name: "Border", desc: "UI outlines", themeAware: true, className: 'bg-border-color' },
+                { color: "var(--text-primary)", name: "Text Primary", desc: "For headings", themeAware: true, className: 'bg-text-primary' },
+                { color: "var(--text-body)", name: "Text Body", desc: "For body copy", themeAware: true, className: 'bg-text-body' },
+                { color: "var(--text-disabled)", name: "Disabled", desc: "Muted text/inputs", themeAware: true, className: 'bg-text-disabled' },
+            ],
+            functional: [
+                { color: "#38A169", name: "Success", desc: "For success states" },
+                { color: "#F59E0B", name: "Warning", desc: "Soft warning shade" },
+                { color: "#E53E3E", name: "Error", desc: "For validation errors" },
+                { color: "#3182CE", name: "Info", desc: "For info or tooltips" },
+            ],
+            analogous: [
+                { color: "#fec522", name: "Primary", desc: "Original primary color" },
+                { color: "#d9fe22", name: "Analogous 1", desc: "Yellow-Green" },
+                { color: "#f7901d", name: "Analogous 2", desc: "Orange" }
+            ],
+            triadic: [
+                { color: "#fec522", name: "Primary", desc: "Original primary color" },
+                { color: "#22fec5", name: "Triadic 1", desc: "Cyan" },
+                { color: "#c522fe", name: "Triadic 2", desc: "Magenta" }
+            ],
+            'split-complementary': [
+                { color: "#fec522", name: "Primary", desc: "Original primary color" },
+                { color: "#2296fe", name: "Split-Comp 1", desc: "Azure Blue" },
+                { color: "#6f22fe", name: "Split-Comp 2", desc: "Indigo" }
+            ],
+        };
+
+        // --- DYNAMIC COLOR CARD GENERATION ---
+        function createColorCard(colorData) {
+            const { color, name, desc, themeAware, className } = colorData;
+            
+            const cardElement = document.createElement('div');
+            cardElement.className = 'bg-bg-surface rounded-lg shadow-sm border border-border-color overflow-hidden flex flex-col';
+            
+            // Create swatch div
+            const swatchDiv = document.createElement('div');
+            swatchDiv.className = 'h-28 flex-shrink-0';
+            
+            // Create info div
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'p-4 flex flex-col flex-grow';
+            infoDiv.innerHTML = `
+                <div class="flex-grow">
+                    <h3 class="font-bold text-text-primary">${name}</h3>
+                    <p class="text-sm text-text-body mt-1">${desc}</p>
+                </div>
+                <div class="flex justify-between items-center mt-3">
+                    <code class="text-sm font-semibold text-text-primary"></code>
+                    <button class="copy-btn p-1.5 rounded-md hover:bg-border-color focus-ring" title="Copy code">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-text-body"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            `;
+            
+            const codeElement = infoDiv.querySelector('code');
+
+            if (themeAware) {
+                // For theme-aware colors, use the CSS variable
+                swatchDiv.style.backgroundColor = color;
+                codeElement.textContent = color.replace('var(','').replace(')','');
+            } else {
+                // For static colors, use the hex value
+                swatchDiv.style.backgroundColor = color;
+                codeElement.textContent = color;
+            }
+
+            cardElement.appendChild(swatchDiv);
+            cardElement.appendChild(infoDiv);
+            
+            // Add copy functionality
+            cardElement.querySelector('.copy-btn').addEventListener('click', (e) => {
+                 e.stopPropagation();
+                 const textToCopy = codeElement.textContent;
+                 
+                 const textArea = document.createElement("textarea");
+                 textArea.value = textToCopy;
+                 document.body.appendChild(textArea);
+                 textArea.focus();
+                 textArea.select();
+                 try {
+                     document.execCommand('copy');
+                     const originalText = e.currentTarget.innerHTML;
+                     e.currentTarget.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-success"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                     `;
+                     setTimeout(() => { e.currentTarget.innerHTML = originalText; }, 2000);
+                 } catch (err) {
+                     console.error('Fallback: Oops, unable to copy', err);
+                 }
+                 document.body.removeChild(textArea);
+            });
+            return cardElement;
+        }
+
+        function populatePaletteById(paletteId) {
+            const container = document.getElementById(`${paletteId}-palette`);
+            if (container) {
+                // Clear previous content
+                container.innerHTML = '';
+                palettes[paletteId].forEach(colorData => {
+                    container.appendChild(createColorCard(colorData));
+                });
+            }
+        }
+
+        function populateAllPalettes() {
+            for (const paletteId in palettes) {
+                populatePaletteById(paletteId);
+            }
+        }
+        
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+                docElement.classList.add('dark');
+                docElement.classList.remove('light');
+            } else {
+                docElement.classList.add('light');
+                docElement.classList.remove('dark');
+            }
+            updateThemeUI();
+            
+            populateAllPalettes();
+            
+            document.querySelectorAll('.alert').forEach(el => {
+                el.classList.add('p-4', 'rounded-lg', 'border', 'text-sm');
+            });
+
+            document.querySelectorAll('.form-input').forEach(el => {
+                el.classList.add(
+                    'w-full', 'px-3', 'py-2', 
+                    'bg-bg-background', 'text-text-primary',
+                    'border', 'border-border-color', 'rounded-lg',
+                    'transition-colors',
+                    'focus:outline-none', 'focus:ring-2', 'focus:ring-primary-border', 'focus:border-primary-border',
+                    'disabled:bg-bg-surface', 'disabled:text-text-disabled', 'disabled:cursor-not-allowed'
+                );
+            });
+            document.querySelector('.focus-input').focus();
+        });
+    </script>
+</body>
+</html>
