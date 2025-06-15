@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character set and responsive viewport -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page Title -->
+    <title>CEMEX PROJECT INTEGRATED LIMITED - Contact</title>
+    
+    <!-- Google Fonts: Roboto and Roboto Condensed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Alpine.js for interactive components like tabs -->
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- All-inclusive CSS styles -->
+     <link rel="stylesheet" href="css/home.css">
+    
+</head>
+
+<body x-data>
+
+    <!-- ========================================================================
+         Header Section: Contains logo, navigation, and quote button.
+         ======================================================================== -->
+    <header class="main-header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <img src="https://raw.githubusercontent.com/joshstevensonx/joshstevensonx.github.io/main/imgs/logo_no-bg.png" alt="CEMEX Project Integrated LTD Logo" class="logo-img">
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="solutions.html" class="nav-link">Solutions</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Quote Button (Visible on Desktop) -->
+            <a href="#" class="btn btn-primary lg:inline-block hidden">Contact Us</a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-button" class="mobile-menu-toggle">
+                <!-- Hamburger Icon -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="height: 1.5rem; width: 1.5rem;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu (Hidden by default) -->
+        <div id="mobile-menu" class="mobile-nav-menu hidden">
+            <nav class="mobile-nav">
+                <a href="index.html" class="nav-link-mobile">Home</a>
+                <a href="about.html" class="nav-link-mobile">About</a>
+                <a href="solutions.html" class="nav-link-mobile">Solutions</a>
+                <a href="#" class="nav-link-mobile">Projects</a>
+                <a href="#" class="nav-link-mobile">Contact</a>
+                <a href="#" class="btn btn-primary w-full mt-2">Contact Us</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========================================================================
+         Main Content Area
+         ======================================================================== -->
+     <main>
+
+      
+
+        <!-- ====================================================================
+             Call to Action (CTA) Section
+             ==================================================================== -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="section-title fade-in">Let's Build the Future Together</h2>
+                <p class="fade-in" style="transition-delay: 150ms;">Discuss your project needs with our experts. We are ready to provide safe, efficient, and high-quality solutions tailored for you.</p>
+                <a href="#" class="btn btn-accent mt-8 fade-in" style="transition-delay: 300ms;">Request a Consultation</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========================================================================
+         Footer Section: Contains company info, links, and contact details.
+         ======================================================================== -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <!-- About the company -->
+            <div class="footer-about">
+                <a href="index.html"><img src="https://raw.githubusercontent.com/joshstevensonx/joshstevensonx.github.io/main/imgs/logo_no-bg.png" alt="CEMEX Project Integrated LTD Logo" class="footer-logo"></a>
+                <p>Your trusted partner for integrated services in Nigeria's oil & gas and marine sectors. Committed to quality, safety, and client satisfaction.</p>
+            </div>
+            
+            <!-- Footer navigation links -->
+            <div class="footer-links">
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html" class="footer-link">About</a></li>
+                        <li><a href="solutions.html" class="footer-link">Solutions</a></li>
+                        <li><a href="projects.html" class="footer-link">Projects</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Contact Info</h4>
+                    <ul class="contact-list">
+                        <li>6A, Rumudomaya/Airport Road, Port Harcourt, Rivers State, Nigeria.</li>
+                        <li><a href="tel:+2348033097460" class="footer-link">+234 (0) 803 309 7460</a></li>
+                        <li><a href="mailto:info@cpil.com.ng" class="footer-link">info@cpil.com.ng</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom footer with copyright -->
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> CEMEX PROJECT INTEGRATED LIMITED. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========================================================================
+         JavaScript for page interactivity
+         ======================================================================== -->
+    <script>
+        // Wait for the DOM to be fully loaded before running scripts
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if(mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    // Toggles the 'hidden' class to show/hide the menu
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // --- Set Current Year in Footer ---
+            const yearSpan = document.getElementById('current-year');
+            if(yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+
+            // --- Scroll-triggered Fade-in Animation ---
+            // Create an observer to watch for elements entering the viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // If the element is intersecting (visible)
+                    if (entry.isIntersecting) {
+                        // Add the 'is-visible' class to trigger the animation
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { 
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            // Select all elements with the 'fade-in' class and observe them
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>

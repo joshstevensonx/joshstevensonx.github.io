@@ -2,150 +2,82 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags for character set and responsive viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CEMEX PROJECT INTEGRATED LIMITED - Premier Oil, Gas & Marine Services</title>
     
+    <!-- Page Title -->
+    <title>CEMEX PROJECT INTEGRATED LIMITED - About</title>
+    
+    <!-- Google Fonts: Roboto and Roboto Condensed -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Alpine.js for interactive components like tabs -->
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <link rel="stylesheet" href="css/about.css">
+    <!-- All-inclusive CSS styles -->
+     <link rel="stylesheet" href="css/home.css">
+    
 </head>
 
 <body x-data>
 
+    <!-- ========================================================================
+         Header Section: Contains logo, navigation, and quote button.
+         ======================================================================== -->
     <header class="main-header">
         <div class="container header-container">
+            <!-- Logo -->
             <a href="index.html" class="logo">
-                <img src="imgs/logo_no-bg.png" alt="CEMEX Project Integrated LTD Logo" class="logo-img">
+                <img src="https://raw.githubusercontent.com/joshstevensonx/joshstevensonx.github.io/main/imgs/logo_no-bg.png" alt="CEMEX Project Integrated LTD Logo" class="logo-img">
             </a>
+
+            <!-- Desktop Navigation -->
             <nav class="desktop-nav">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="#" class="nav-link">About</a>
+                <a href="about.html" class="nav-link">About</a>
                 <a href="solutions.html" class="nav-link">Solutions</a>
-                <a href="#" class="nav-link">Projects</a>
-                <a href="#" class="nav-link">Contact</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </nav>
-            <a href="#" class="btn btn-primary hidden lg:inline-block">Get a Quote</a>
-            <button id="mobile-menu-button" class="mobile-menu-toggle lg:hidden">
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+            <!-- Quote Button (Visible on Desktop) -->
+            <a href="#" class="btn btn-primary lg:inline-block hidden">Contact Us</a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-button" class="mobile-menu-toggle">
+                <!-- Hamburger Icon -->
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="height: 1.5rem; width: 1.5rem;">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </div>
+
+        <!-- Mobile Navigation Menu (Hidden by default) -->
         <div id="mobile-menu" class="mobile-nav-menu hidden">
             <nav class="mobile-nav">
                 <a href="index.html" class="nav-link-mobile">Home</a>
-                <a href="#" class="nav-link-mobile">About</a>
+                <a href="about.html" class="nav-link-mobile">About</a>
                 <a href="solutions.html" class="nav-link-mobile">Solutions</a>
                 <a href="#" class="nav-link-mobile">Projects</a>
                 <a href="#" class="nav-link-mobile">Contact</a>
-                <a href="#" class="btn btn-primary w-full mt-2">Get a Quote</a>
+                <a href="#" class="btn btn-primary w-full mt-2">Contact Us</a>
             </nav>
         </div>
     </header>
 
+    <!-- ========================================================================
+         Main Content Area
+         ======================================================================== -->
     <main>
-        <section class="hero">
-            <video autoplay loop muted playsinline class="hero-video">
-                <source src="https://placehold.co/1920x1080.mp4" type="video/mp4">
-                <img src="https://placehold.co/1920x1080/111827/ffffff?text=Industrial+Operations" alt="Industrial Operations" class="hero-video">
-            </video>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1 class="hero-title fade-in">Engineering Excellence <br> in Oil, Gas & Marine</h1>
-                <p class="hero-subtitle fade-in" style="transition-delay: 200ms;">Delivering world-class construction, fabrication, and marine logistics with an unwavering commitment to safety and quality.</p>
-                <a href="#" class="btn btn-accent mt-8 fade-in" style="transition-delay: 400ms;">Our Services</a>
-            </div>
-        </section>
 
-        <section class="services-section" x-data="{ activeTab: 'onshore' }">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <h2 class="section-title">Our Core Capabilities</h2>
-                </div>
-                <div class="tabs fade-in" style="transition-delay: 150ms;">
-                    <button @click="activeTab = 'onshore'" :class="{ 'active': activeTab === 'onshore' }" class="tab-button">Onshore Services</button>
-                    <button @click="activeTab = 'offshore'" :class="{ 'active': activeTab === 'offshore' }" class="tab-button">Offshore & Marine</button>
-                </div>
+      
 
-                <div x-show="activeTab === 'onshore'" 
-                     x-transition:enter="transition ease-out duration-500" 
-                     x-transition:enter-start="opacity-0 transform -translate-y-4" 
-                     x-transition:enter-end="opacity-100 transform translate-y-0"
-                     class="service-grid">
-                    <div class="service-card fade-in">
-                        <h3 class="service-card-title">Construction & Fabrication</h3>
-                        <p>Civil/mechanical construction, structural fabrication, and pipeline installation with precision engineering.</p>
-                    </div>
-                    <div class="service-card fade-in" style="transition-delay: 150ms;">
-                        <h3 class="service-card-title">Corrosion Control</h3>
-                        <p>Industrial sandblasting, painting, and advanced coating applications to protect critical assets from wear.</p>
-                    </div>
-                    <div class="service-card fade-in" style="transition-delay: 300ms;">
-                        <h3 class="service-card-title">Procurement & Supply</h3>
-                        <p>Sourcing and supplying a wide variety of industrial equipment, materials, and spare parts.</p>
-                    </div>
-                </div>
-
-                <div x-show="activeTab === 'offshore'" 
-                     x-transition:enter="transition ease-out duration-500" 
-                     x-transition:enter-start="opacity-0 transform -translate-y-4" 
-                     x-transition:enter-end="opacity-100 transform translate-y-0"
-                     class="service-grid" style="display: none;">
-                    <div class="service-card">
-                        <h3 class="service-card-title">Marine Logistics</h3>
-                        <p>Comprehensive marine support, dredging, and leasing of heavy-duty equipment like barges and tugboats.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3 class="service-card-title">Manpower Supply</h3>
-                        <p>Providing skilled, certified, and experienced manpower for all offshore operational phases.</p>
-                    </div>
-                    <div class="service-card">
-                        <h3 class="service-card-title">Inspection & Testing</h3>
-                        <p>Non-Destructive Testing (NDT) and pressure testing services to ensure asset integrity and safety standards.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="feature-section hse-commitment">
-            <div class="container feature-container">
-                <div class="feature-content fade-in">
-                    <h3 class="feature-subtitle">Our Core Principle</h3>
-                    <h2 class="section-title">Uncompromising on Safety</h2>
-                    <p>At CEMEX, Health, Safety, and Environment (HSE) are integrated into every aspect of our operations. We are dedicated to protecting our employees, clients, and the environment by adhering to the strictest international standards and regulations.</p>
-                    <a href="#" class="btn btn-outline">Our HSE Policy</a>
-                </div>
-                <div class="feature-image fade-in" style="transition-delay: 150ms;">
-                    <img src="https://placehold.co/600x400/111827/fec522?text=Safety+First" alt="Safety gear on an industrial site">
-                </div>
-            </div>
-        </section>
-
-        <section class="feature-section turnkey-projects">
-            <div class="container feature-container">
-                <div class="feature-image fade-in">
-                    <img src="https://placehold.co/600x400/fec522/212121?text=Project+Management" alt="Engineers planning a project">
-                </div>
-                <div class="feature-content fade-in" style="transition-delay: 150ms;">
-                    <h3 class="feature-subtitle text-gray-600">End-to-End Solutions</h3>
-                    <h2 class="section-title text-[var(--color-primary-dark)]">Turnkey Project Execution</h2>
-                    <p>CEMEX delivers comprehensive integrated solutions, from design and procurement to installation and commissioning. Our turnkey services provide a single point of coordination, ensuring quality, timelines, and budgets are managed with precision.</p>
-                    <ul class="feature-list">
-                        <li>Full-Cycle Project Management</li>
-                        <li>Maintenance & Operational Support</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
+        <!-- ====================================================================
+             Call to Action (CTA) Section
+             ==================================================================== -->
         <section class="cta-section">
             <div class="container">
                 <h2 class="section-title fade-in">Let's Build the Future Together</h2>
@@ -153,22 +85,29 @@
                 <a href="#" class="btn btn-accent mt-8 fade-in" style="transition-delay: 300ms;">Request a Consultation</a>
             </div>
         </section>
+
     </main>
 
+    <!-- ========================================================================
+         Footer Section: Contains company info, links, and contact details.
+         ======================================================================== -->
     <footer class="main-footer">
         <div class="container footer-container">
+            <!-- About the company -->
             <div class="footer-about">
-                <a href="#"><img src="imgs/logo_no-bg.png" alt="CEMEX Project Integrated LTD Logo" class="footer-logo"></a>
+                <a href="index.html"><img src="https://raw.githubusercontent.com/joshstevensonx/joshstevensonx.github.io/main/imgs/logo_no-bg.png" alt="CEMEX Project Integrated LTD Logo" class="footer-logo"></a>
                 <p>Your trusted partner for integrated services in Nigeria's oil & gas and marine sectors. Committed to quality, safety, and client satisfaction.</p>
             </div>
+            
+            <!-- Footer navigation links -->
             <div class="footer-links">
                 <div>
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul>
-                        <li><a href="#" class="footer-link">About</a></li>
+                        <li><a href="about.html" class="footer-link">About</a></li>
                         <li><a href="solutions.html" class="footer-link">Solutions</a></li>
-                        <li><a href="#" class="footer-link">Projects</a></li>
-                        <li><a href="#" class="footer-link">Contact</a></li>
+                        <li><a href="projects.html" class="footer-link">Projects</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -181,56 +120,57 @@
                 </div>
             </div>
         </div>
+
+        <!-- Bottom footer with copyright -->
         <div class="footer-bottom">
             <p>&copy; <span id="current-year"></span> CEMEX PROJECT INTEGRATED LIMITED. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+    <!-- ========================================================================
+         JavaScript for page interactivity
+         ======================================================================== -->
     <script>
+        // Wait for the DOM to be fully loaded before running scripts
         document.addEventListener('DOMContentLoaded', function() {
+            
             // --- Mobile Menu Toggle ---
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+            
+            if(mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    // Toggles the 'hidden' class to show/hide the menu
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
 
             // --- Set Current Year in Footer ---
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+            const yearSpan = document.getElementById('current-year');
+            if(yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
 
             // --- Scroll-triggered Fade-in Animation ---
+            // Create an observer to watch for elements entering the viewport
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
+                    // If the element is intersecting (visible)
                     if (entry.isIntersecting) {
+                        // Add the 'is-visible' class to trigger the animation
                         entry.target.classList.add('is-visible');
                     }
                 });
             }, { 
-                threshold: 0.1 
+                threshold: 0.1 // Trigger when 10% of the element is visible
             });
 
+            // Select all elements with the 'fade-in' class and observe them
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
             });
-
-            // --- Init Swiper Carousels (if needed) ---
-            // Note: The original code included Swiper, but no HTML element with the class '.hero-slideshow' exists.
-            // If you create a swiper container, this code will initialize it.
-            const heroSwiper = new Swiper('.hero-slideshow', { 
-                loop: true, 
-                effect: 'fade', 
-                autoplay: { 
-                    delay: 5000, 
-                    disableOnInteraction: false 
-                }, 
-                pagination: { 
-                    el: '.swiper-pagination', 
-                    clickable: true 
-                }
-            });
         });
     </script>
+
 </body>
 </html>
