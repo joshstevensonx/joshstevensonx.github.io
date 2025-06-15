@@ -66,7 +66,7 @@
         }
 
         .logo-img {
-            height: 4rem;
+            height: 60px;
             width: auto;
         }
 
@@ -83,8 +83,9 @@
         }
 
         .nav-link {
-            font-size: 0.875rem;
-            font-weight: 500;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0rem 1rem;
             color: var(--color-text-dark);
             text-decoration: none;
             transition: color 0.3s;
@@ -136,9 +137,9 @@
         /* Button Styles */
         .btn {
             display: inline-block;
-            font-weight: 700;
+            font-weight: 600;
             text-transform: uppercase;
-            padding: 0.75rem 2rem;
+            padding: 0.75rem 1rem;
             border-radius: 0.5rem;
             text-align: center;
             text-decoration: none;
@@ -410,14 +411,16 @@
             }
         }
         .footer-logo {
-            height: 5rem;
+            height: 80px;
             width: auto;
+         
             margin-bottom: 1rem;
         }
 
         .footer-about p {
             font-size: 0.875rem;
             margin: 0;
+           /* text-align: center; */
         }
 
         .footer-links {
@@ -452,7 +455,7 @@
 
         .contact-list li {
             position: relative;
-            padding-left: 1.75rem;
+         
         }
         .contact-list li::before {
             position: absolute;
@@ -461,10 +464,7 @@
             color: var(--color-accent);
             font-size: 1rem;
         }
-        /* Using emojis as placeholders for icons */
-        .contact-list li:nth-child(1)::before { content: '📍'; }
-        .contact-list li:nth-child(2)::before { content: '📞'; }
-        .contact-list li:nth-child(3)::before { content: '✉️'; }
+      
 
 
         .footer-bottom {
