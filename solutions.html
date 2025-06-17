@@ -8,6 +8,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Add this style to ensure all cards in a grid row have the same height */
+        .grid .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Make card take full height of the grid cell */
+        }
+
+        .grid .card__body {
+            flex-grow: 1; /* Allow the body to grow and fill the available space */
+        }
+    </style>
 </head>
 <body>
 
@@ -48,41 +60,132 @@
 
         <section id="solutions-grid" class="section">
             <div class="container">
-                <div class="grid grid--3-cols">
-                    <div class="card fade-in">
-                        <div class="card__body">
-                            <h3 class="card__title heading">Construction & Fabrication</h3>
-                            <p>End-to-end services for civil and mechanical construction, structural steel fabrication, and pipeline installation. We ensure projects are completed to the highest standards of quality and safety.</p>
+                <div class="section__header fade-in">
+                    <h2 class="section__title">Service Categories</h2>
+                </div>
+
+                <!-- Corrosion Control and Maintenance -->
+                <div class="fade-in" style="margin-bottom: 3rem;">
+                    <h3 class="heading">Corrosion Control and Maintenance</h3>
+                    <div class="grid grid--3-cols">
+                        <div class="card">
+                            <img src="https://placehold.co/400x250/374151/f3f4f6?text=Sandblasting" alt="Sandblasting and painting service" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Sandblasting and Painting</h4>
+                                <p>Protective coating application to prevent corrosion and extend asset life.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                             <img src="https://placehold.co/400x250/fec522/121212?text=Coating" alt="Coating services" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Coating Services</h4>
+                                <p>Specialized industrial coatings for tanks, pipelines, and structural steel.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://placehold.co/400x250/121212/fec522?text=Tank+Cleaning" alt="Tank and vessel cleaning" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Tank and Vessel Cleaning & Repair</h4>
+                                <p>Safe and efficient cleaning and maintenance for storage tanks and vessels.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="card fade-in" style="transition-delay: 0.2s;">
-                        <div class="card__body">
-                            <h3 class="card__title heading">Corrosion Control</h3>
-                            <p>Advanced asset protection through industrial sandblasting, painting, and specialized coating applications. We extend the life of critical infrastructure and prevent costly wear and tear.</p>
+                </div>
+
+                 <!-- Construction and Fabrication -->
+                <div class="fade-in" style="margin-bottom: 3rem;">
+                    <h3 class="heading">Construction and Fabrication</h3>
+                    <div class="grid grid--3-cols">
+                        <div class="card">
+                             <img src="https://placehold.co/400x250/fec522/121212?text=Construction" alt="Civil and mechanical construction" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Civil and Mechanical Construction</h4>
+                                <p>Full-cycle construction services for industrial and commercial projects.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                             <img src="https://placehold.co/400x250/121212/fec522?text=Fabrication" alt="Fabrication and installation" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Fabrication & Installation</h4>
+                                <p>Precision fabrication and installation of structures and pipelines.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://placehold.co/400x250/374151/f3f4f6?text=Insulation" alt="Hot and cold insulation" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Hot and Cold Insulation</h4>
+                                <p>Thermal insulation solutions for pipelines, vessels, and equipment.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="card fade-in" style="transition-delay: 0.4s;">
-                        <div class="card__body">
-                            <h3 class="card__title heading">Marine Logistics</h3>
-                            <p>Comprehensive marine support, including dredging, reclamation, and leasing of heavy-duty equipment like barges, tugboats, and crew vessels to support offshore operations.</p>
+                </div>
+
+                 <!-- Marine and Logistics -->
+                <div class="fade-in" style="margin-bottom: 3rem;">
+                    <h3 class="heading">Marine and Logistics</h3>
+                    <div class="grid grid--3-cols">
+                        <div class="card">
+                            <img src="https://placehold.co/400x250/121212/fec522?text=Marine+Support" alt="Marine support services" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Marine Support Services</h4>
+                                <p>Vessel chartering, crew management, and full logistical support for offshore operations.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://placehold.co/400x250/374151/f3f4f6?text=Dredging" alt="Dredging and canalization" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Dredging and Canalization</h4>
+                                <p>Capital and maintenance dredging to ensure navigational access and land reclamation.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                             <img src="https://placehold.co/400x250/fec522/121212?text=Leasing" alt="Equipment leasing" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Equipment Leasing</h4>
+                                <p>Leasing of barges, tugboats, cranes, and other heavy construction equipment.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="card fade-in">
-                        <div class="card__body">
-                            <h3 class="card__title heading">Procurement & Supply</h3>
-                            <p>Strategic sourcing and reliable supply of industrial equipment, materials, spare parts, and personal protective equipment (PPE) to ensure your operations run smoothly.</p>
+                </div>
+
+                <!-- Manpower and Procurement -->
+                <div class="fade-in" style="margin-bottom: 3rem;">
+                    <h3 class="heading">Manpower and Procurement</h3>
+                    <div class="grid grid--2-cols">
+                        <div class="card">
+                            <img src="https://placehold.co/400x250/374151/f3f4f6?text=Manpower" alt="Manpower supply" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Manpower Supply and Development</h4>
+                                <p>Providing skilled, certified, and experienced technical personnel for projects.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://placehold.co/400x250/121212/fec522?text=Procurement" alt="Industrial procurement" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Procurement of Industrial Equipment</h4>
+                                <p>Sourcing and supplying a wide range of materials and industrial equipment.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="card fade-in" style="transition-delay: 0.2s;">
-                        <div class="card__body">
-                            <h3 class="card__title heading">Manpower Supply</h3>
-                            <p>Providing skilled, certified, and experienced technical manpower for all phases of onshore and offshore projects, ensuring you have the right expertise when you need it.</p>
+                </div>
+
+                <!-- Testing and Inspection -->
+                 <div class="fade-in">
+                    <h3 class="heading">Testing and Inspection</h3>
+                    <div class="grid grid--2-cols">
+                        <div class="card">
+                            <img src="https://placehold.co/400x250/fec522/121212?text=NDT" alt="Non-Destructive Testing" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Non-Destructive Testing (NDT)</h4>
+                                <p>Ensuring asset integrity through various NDT methods without causing damage.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card fade-in" style="transition-delay: 0.4s;">
-                        <div class="card__body">
-                            <h3 class="card__title heading">Inspection & Testing</h3>
-                            <p>Ensuring asset integrity and compliance with Non-Destructive Testing (NDT) services, pressure testing, and certification to meet international safety and quality standards.</p>
+                        <div class="card">
+                            <img src="https://placehold.co/400x250/374151/f3f4f6?text=Calibration" alt="Pressure testing and calibration" class="card__image">
+                            <div class="card__body">
+                                <h4 class="card__title heading">Pressure Testing and Calibration</h4>
+                                <p>Verifying the strength and integrity of pressure vessels and pipelines.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -119,7 +222,9 @@
                     <ul class="footer__links">
                         <li>6A, Rumudomaya/Airport Road, Port Harcourt, Nigeria.</li>
                         <li><a href="tel:+2348033097460">+234 (0) 803 309 7460</a></li>
+                        <li><a href="tel:+2348059226733">+234 (0) 805 922 6733</a></li>
                         <li><a href="mailto:info@cpil.com.ng">info@cpil.com.ng</a></li>
+                        <li><a href="mailto:cemexproject@yahoo.com">cemexproject@yahoo.com</a></li>
                     </ul>
                 </div>
             </div>
