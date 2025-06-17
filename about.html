@@ -7,25 +7,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Page Title -->
-    <title>CEMEX PROJECT INTEGRATED LIMITED - About</title>
+    <title>CEMEX PROJECT INTEGRATED LIMITED - About Us</title>
     
     <!-- Google Fonts: Roboto and Roboto Condensed -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     
-    <!-- Alpine.js for interactive components like tabs -->
+    <!-- Alpine.js for interactive components -->
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <!-- All-inclusive CSS styles -->
-     <link rel="stylesheet" href="css/home.css">
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="css/home.css">
     
+    <!-- Custom styles for About Page layout -->
+    <style>
+        /* Hero section for internal pages */
+        .page-hero {
+            padding: 5rem 1rem;
+            background-color: var(--color-primary-dark);
+            color: var(--color-text-light);
+            text-align: center;
+            background-image: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://placehold.co/1920x400/111827/fec522?text=CEMEX');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .page-hero .page-title {
+            font-size: clamp(2.25rem, 5vw, 3.5rem);
+            font-family: var(--font-secondary);
+            text-transform: uppercase;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+
+        .page-hero .page-subtitle {
+            max-width: 800px;
+            margin: 1rem auto 0;
+            color: #e5e7eb;
+            font-size: 1.125rem;
+            line-height: 1.6;
+        }
+
+        /* Override section title to be left-aligned in feature sections */
+        .feature-section .feature-content .section-title {
+            text-align: left;
+        }
+
+        .feature-section .feature-content .section-title::after {
+            left: 0;
+            transform: translateX(0);
+        }
+
+        /* Specific styles for the mission/vision section */
+        .mission-vision-section h4 {
+            font-family: var(--font-secondary);
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--color-primary-dark);
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .mission-vision-section p {
+            margin-bottom: 1.5rem;
+        }
+    </style>
 </head>
 
 <body x-data>
 
     <!-- ========================================================================
-         Header Section: Contains logo, navigation, and quote button.
+         Header Section: Consistent across all pages.
          ======================================================================== -->
     <header class="main-header">
         <div class="container header-container">
@@ -44,11 +98,10 @@
             </nav>
 
             <!-- Quote Button (Visible on Desktop) -->
-             <a href="style.html" class="btn btn-primary lg:inline-block hidden">Contact Us</a>
+            <a href="style.html" class="btn btn-primary lg:inline-block hidden">Contact Us</a>
 
             <!-- Mobile Menu Toggle Button -->
             <button id="mobile-menu-button" class="mobile-menu-toggle">
-                <!-- Hamburger Icon -->
                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="height: 1.5rem; width: 1.5rem;">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
@@ -61,9 +114,9 @@
                 <a href="index.html" class="nav-link-mobile">Home</a>
                 <a href="about.html" class="nav-link-mobile">About</a>
                 <a href="solutions.html" class="nav-link-mobile">Solutions</a>
-                <a href="#" class="nav-link-mobile">Projects</a>
-                <a href="#" class="nav-link-mobile">Contact</a>
-                <a href="#" class="btn btn-primary w-full mt-2">Contact Us</a>
+                <a href="projects.html" class="nav-link-mobile">Projects</a>
+                <a href="contact.html" class="nav-link-mobile">Contact</a>
+                <a href="contact.html" class="btn btn-primary w-full mt-2">Contact Us</a>
             </nav>
         </div>
     </header>
@@ -73,33 +126,88 @@
          ======================================================================== -->
     <main>
 
-      
-
-        <!-- ====================================================================
-             Call to Action (CTA) Section
-             ==================================================================== -->
-        <section class="cta-section">
-            <div class="container">
-                <h2 class="section-title fade-in">Let's Build the Future Together</h2>
-                <p class="fade-in" style="transition-delay: 150ms;">Discuss your project needs with our experts. We are ready to provide safe, efficient, and high-quality solutions tailored for you.</p>
-                <a href="#" class="btn btn-accent mt-8 fade-in" style="transition-delay: 300ms;">Request a Consultation</a>
+        <!-- Page Hero Section -->
+        <section class="page-hero">
+            <div class="container fade-in">
+                <h1 class="page-title">About CEMEX</h1>
+                <p class="page-subtitle">Excellence in Oil, Gas & Marine Engineering</p>
             </div>
         </section>
 
+        <!-- Company Profile Section -->
+        <section class="feature-section" style="padding-top: 5rem;">
+            <div class="container feature-container">
+                <div class="feature-content fade-in">
+                    <h3 class="feature-subtitle">Who We Are</h3>
+                    <h2 class="section-title">Powering Your Growth</h2>
+                    <p style="color: var(--color-text-muted); line-height: 1.7;">
+                        CEMEX PROJECT INTEGRATED LIMITED is a wholly Nigerian company focused on providing integrated services to the oil and gas and marine sectors. Our expertise lies in delivering professional, cost-effective solutions tailored to the specific needs of our clients, from engineering and procurement to construction and marine logistics.
+                    </p>
+                </div>
+                <div class="feature-image fade-in" style="transition-delay: 150ms;">
+                    <img src="https://placehold.co/600x450/eab308/121212?text=Our+Team+at+Work" alt="A professional team working on an engineering project">
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="feature-section turnkey-projects mission-vision-section">
+            <div class="container feature-container">
+                <div class="feature-image fade-in">
+                    <img src="https://placehold.co/600x500/121212/fec522?text=Guiding+Principles" alt="Image representing company's vision and mission">
+                </div>
+                <div class="feature-content fade-in" style="transition-delay: 150ms;">
+                    <h3 class="feature-subtitle text-gray-600">Our Compass</h3>
+                    <h2 class="section-title text-[var(--color-primary-dark)]">Our Mission & Vision</h2>
+                    
+                    <h4>Our Mission</h4>
+                    <p>To provide the highest quality services to our clients safely and efficiently by utilizing our local technical expertise, with a strict adherence to our Health, Safety & Environment (HSE) policy, while promoting the development of our host communities.</p>
+                    
+                    <h4>Our Vision</h4>
+                    <p>To become the undisputed reference point for quality, efficiency, and client satisfaction in the Nigerian oil, gas, and marine industries.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Health, Safety, and Environment (HSE) Policy Section -->
+        <section class="feature-section hse-commitment">
+            <div class="container feature-container">
+                <div class="feature-content fade-in">
+                    <h3 class="feature-subtitle">Our Pledge</h3>
+                    <h2 class="section-title">HSE & Quality Policy</h2>
+                    <p>At CEMEX, our commitment to Health, Safety, and Environment (HSE) is integral to our business. We strive to exceed expectations by ensuring every project is delivered with the highest standards of safety and quality, protecting our people and the planet.</p>
+                    <ul class="feature-list">
+                        <li>Protecting the health and safety of all employees and affected persons.</li>
+                        <li>Minimizing the environmental impact of our activities.</li>
+                        <li>Adhering to all relevant HSE laws and international standards.</li>
+                        <li>Continuously improving our performance through training and review.</li>
+                    </ul>
+                </div>
+                <div class="feature-image fade-in" style="transition-delay: 150ms;">
+                    <img src="https://placehold.co/600x500/fec522/121212?text=Unwavering+Commitment" alt="Visual of safety and quality standards">
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="section-title fade-in">View Our Work</h2>
+                <p class="fade-in" style="transition-delay: 150ms;">Explore our portfolio of successfully completed projects and see our commitment to excellence in action.</p>
+                <a href="projects.html" class="btn btn-accent mt-8 fade-in" style="transition-delay: 300ms;">See Our Projects</a>
+            </div>
+        </section>
     </main>
 
     <!-- ========================================================================
-         Footer Section: Contains company info, links, and contact details.
+         Footer Section: Consistent across all pages.
          ======================================================================== -->
     <footer class="main-footer">
         <div class="container footer-container">
-            <!-- About the company -->
             <div class="footer-about">
                <a href="index.html"><img src="imgs/footer_logo.svg" alt="CEMEX Project Integrated LTD Logo" class="footer-logo"></a>
                 <p>Your trusted partner for integrated services in Nigeria's oil & gas and marine sectors. Committed to quality, safety, and client satisfaction.</p>
             </div>
-            
-            <!-- Footer navigation links -->
             <div class="footer-links">
                 <div>
                     <h4 class="footer-heading">Quick Links</h4>
@@ -120,57 +228,44 @@
                 </div>
             </div>
         </div>
-
-        <!-- Bottom footer with copyright -->
         <div class="footer-bottom">
             <p>&copy; <span id="current-year"></span> CEMEX PROJECT INTEGRATED LIMITED. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- ========================================================================
-         JavaScript for page interactivity
-         ======================================================================== -->
+    <!-- JavaScript for page interactivity -->
     <script>
-        // Wait for the DOM to be fully loaded before running scripts
         document.addEventListener('DOMContentLoaded', function() {
-            
-            // --- Mobile Menu Toggle ---
+            // Mobile Menu Toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-            
             if(mobileMenuButton && mobileMenu) {
                 mobileMenuButton.addEventListener('click', () => {
-                    // Toggles the 'hidden' class to show/hide the menu
                     mobileMenu.classList.toggle('hidden');
                 });
             }
 
-            // --- Set Current Year in Footer ---
+            // Set Current Year in Footer
             const yearSpan = document.getElementById('current-year');
             if(yearSpan) {
                 yearSpan.textContent = new Date().getFullYear();
             }
 
-            // --- Scroll-triggered Fade-in Animation ---
-            // Create an observer to watch for elements entering the viewport
+            // Scroll-triggered Fade-in Animation
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    // If the element is intersecting (visible)
                     if (entry.isIntersecting) {
-                        // Add the 'is-visible' class to trigger the animation
                         entry.target.classList.add('is-visible');
                     }
                 });
             }, { 
-                threshold: 0.1 // Trigger when 10% of the element is visible
+                threshold: 0.1 
             });
 
-            // Select all elements with the 'fade-in' class and observe them
             document.querySelectorAll('.fade-in').forEach(el => {
                 observer.observe(el);
             });
         });
     </script>
-
 </body>
 </html>
