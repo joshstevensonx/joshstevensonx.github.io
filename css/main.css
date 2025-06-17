@@ -1,0 +1,572 @@
+/* ========================================================================
+   1. CSS Custom Properties (Design System)
+   ======================================================================== */
+:root {
+    /* Colors */
+    --color-primary: #121212;
+    --color-secondary: #f3f4f6;
+    --color-accent: #fec522;
+    --color-accent-dark: #eab308;
+    --color-text: #374151;
+    --color-text-light: #f8f9fa;
+    --color-text-muted: #6b7280;
+    --color-background: #ffffff;
+    --color-border: #e5e7eb;
+
+    /* Typography */
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Roboto Condensed', sans-serif;
+    --font-size-base: 1rem; /* 16px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-lg: 1.125rem; /* 18px */
+    --font-size-xl: 1.25rem; /* 20px */
+    --font-size-h3: 1.5rem; /* 24px */
+    --font-size-h2: 2.25rem; /* 36px */
+    --font-size-h1: 3rem; /* 48px */
+
+    /* Spacing & Sizing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 4rem;
+    --container-width: 1280px;
+    --header-height: 80px;
+
+    /* Effects */
+    --border-radius: 0.5rem;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --transition: all 0.3s ease-in-out;
+}
+
+
+/* ========================================================================
+   2. Base & Typography Styles
+   ======================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .heading {
+    font-family: var(--font-secondary);
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+a {
+    color: var(--color-accent-dark);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ========================================================================
+   3. Layout & Utility Classes
+   ======================================================================== */
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+}
+
+.section {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+}
+
+.section--secondary {
+    background-color: var(--color-secondary);
+}
+
+.section__header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.section__title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: var(--spacing-xs);
+}
+
+.section__title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-accent);
+}
+
+.section__title--left::after {
+    left: 0;
+    transform: translateX(0);
+}
+
+.grid {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.grid--2-cols {
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+    .grid--2-cols {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    }
+}
+
+.grid--3-cols {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+
+/* ========================================================================
+   4. Component Styles
+   ======================================================================== */
+/* Buttons */
+.btn {
+    display: inline-block;
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.8rem 1.8rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.btn--primary {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    box-shadow: var(--shadow-md);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-accent-dark);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn--outline {
+    background-color: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.btn--outline:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+.btn--white-outline {
+    background-color: transparent;
+    color: var(--color-background);
+    border-color: var(--color-background);
+}
+
+.btn--white-outline:hover {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+}
+
+/* Cards */
+.card {
+    background-color: var(--color-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card__body {
+    padding: var(--spacing-md);
+}
+
+.card__title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Feature List */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-md);
+}
+
+.feature-list li {
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-list li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-border);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-accent-dark);
+    box-shadow: 0 0 0 3px rgba(254, 197, 34, 0.4);
+}
+
+textarea.form-control {
+    min-height: 150px;
+    resize: vertical;
+}
+
+
+/* ========================================================================
+   5. Layout Section Styles
+   ======================================================================== */
+/* Header */
+.header {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-sm);
+    height: var(--header-height);
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.header__logo img {
+    height: 50px;
+}
+
+/* Desktop Navigation */
+.nav--desktop {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .nav--desktop {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+}
+
+.nav__link {
+    font-family: var(--font-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.nav__link:hover, .nav__link--active {
+    color: var(--color-accent-dark);
+}
+
+/* Mobile Navigation */
+.nav__toggle {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+}
+@media (min-width: 1024px) {
+    .nav__toggle {
+        display: none;
+    }
+}
+
+.nav__toggle-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary);
+}
+
+.nav--mobile {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background-color: var(--color-background);
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.nav--mobile.is-active {
+    display: block;
+}
+
+.nav--mobile .nav__list {
+    list-style: none;
+    text-align: center;
+}
+
+.nav--mobile .nav__item {
+    margin-bottom: var(--spacing-sm);
+}
+
+.nav--mobile .nav__link {
+    font-size: var(--font-size-lg);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: calc(100vh - var(--header-height));
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-light);
+    overflow: hidden;
+}
+
+.hero__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+}
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(17, 24, 39, 0.7);
+    z-index: -1;
+}
+
+.hero__content {
+    padding: var(--spacing-md);
+}
+
+.hero__title {
+    font-size: clamp(2.5rem, 6vw, var(--font-size-h1));
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.hero__subtitle {
+    font-size: clamp(1rem, 2vw, var(--font-size-lg));
+    max-width: 650px;
+    margin: 0 auto var(--spacing-lg);
+    opacity: 0.9;
+}
+
+/* Page Hero */
+.page-hero {
+    padding: var(--spacing-xl) var(--spacing-md);
+    text-align: center;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+}
+
+.page-hero .section__title {
+    color: var(--color-text-light);
+}
+
+/* Featured Content Section */
+.feature-content__img {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 768px) {
+    .feature-content__img--order-first {
+        order: -1;
+    }
+}
+
+/* Parallax Section */
+.parallax {
+    min-height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    text-align: center;
+}
+
+.parallax::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: rgba(17, 24, 39, 0.6);
+}
+
+.parallax__content {
+    position: relative;
+    z-index: 2;
+    padding: var(--spacing-lg);
+}
+
+.parallax__content h2 {
+    color: var(--color-text-light);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-primary);
+    color: var(--color-text-muted);
+    padding-top: var(--spacing-xl);
+}
+
+.footer__grid {
+    display: grid;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .footer__grid {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
+
+.footer__logo {
+    height: 60px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer__heading {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.footer__links {
+    list-style: none;
+}
+
+.footer__links li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer__links a {
+    color: var(--color-text-muted);
+}
+.footer__links a:hover {
+    color: var(--color-accent);
+}
+
+.footer__bottom {
+    border-top: 1px solid #374151;
+    text-align: center;
+    padding: var(--spacing-md) 0;
+    margin-top: var(--spacing-lg);
+    font-size: var(--font-size-sm);
+}
+
+
+/* ========================================================================
+   6. Animation Styles
+   ======================================================================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
