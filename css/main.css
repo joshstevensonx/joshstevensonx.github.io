@@ -684,8 +684,8 @@ textarea.form-control {
 }
 
 .footer__logo {
-    height: 60px;
-    margin-bottom: var(--spacing-sm);
+    height: 80px;
+    
 }
 
 .footer__heading {
