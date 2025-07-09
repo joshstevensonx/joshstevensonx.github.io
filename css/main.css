@@ -160,7 +160,16 @@ img {
 .grid--3-cols {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+.grid--4-cols {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));;
+}
 
+@media (min-width: 768px) {
+    .grid--4-cols {
+         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));;
+        
+    }
+}
 
 /* ========================================================================
    4. Component Styles
@@ -237,7 +246,7 @@ img {
 }
 
 .card__body {
-    padding: var(--spacing-md);
+    padding: var(--spacing-sm);
 }
 
 .card__title {
