@@ -16,13 +16,20 @@
     /* Typography */
     --font-primary: 'Roboto', sans-serif;
     --font-secondary: 'Roboto Condensed', sans-serif;
-    --font-size-base: 1rem; /* 16px */
-    --font-size-sm: 0.875rem; /* 14px */
-    --font-size-lg: 1.125rem; /* 18px */
-    --font-size-xl: 1.25rem; /* 20px */
-    --font-size-h3: 1.5rem; /* 24px */
-    --font-size-h2: 2.25rem; /* 36px */
-    --font-size-h1: 3rem; /* 48px */
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-sm: 0.875rem;
+    /* 14px */
+    --font-size-lg: 1.125rem;
+    /* 18px */
+    --font-size-xl: 1.25rem;
+    /* 20px */
+    --font-size-h3: 1.5rem;
+    /* 24px */
+    --font-size-h2: 2.25rem;
+    /* 36px */
+    --font-size-h1: 3rem;
+    /* 48px */
 
     /* Spacing & Sizing */
     --spacing-xs: 0.5rem;
@@ -35,9 +42,9 @@
 
     /* Effects */
     --border-radius: 0.5rem;
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --transition: all 0.3s ease-in-out;
 }
 
@@ -45,7 +52,9 @@
 /* ========================================================================
    2. Base & Typography Styles
    ======================================================================== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -60,7 +69,10 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, .heading {
+h1,
+h2,
+h3,
+.heading {
     font-family: var(--font-secondary);
     text-transform: uppercase;
     font-weight: 700;
@@ -68,9 +80,17 @@ h1, h2, h3, .heading {
     margin-bottom: var(--spacing-sm);
 }
 
-h1 { font-size: var(--font-size-h1); }
-h2 { font-size: var(--font-size-h2); }
-h3 { font-size: var(--font-size-h3); }
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
 
 p {
     margin-bottom: var(--spacing-sm);
@@ -160,14 +180,15 @@ img {
 .grid--3-cols {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+
 .grid--4-cols {
-    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 @media (min-width: 768px) {
     .grid--4-cols {
-         grid-template-columns: repeat(4, minmax(250px, 1fr));
-        
+         grid-template-columns: 1fr 1fr 1fr 1fr;
+
     }
 }
 
@@ -357,7 +378,8 @@ textarea.form-control {
     color: var(--color-text);
 }
 
-.nav__link:hover, .nav__link--active {
+.nav__link:hover,
+.nav__link--active {
     color: var(--color-accent-dark);
 }
 
@@ -369,6 +391,7 @@ textarea.form-control {
     cursor: pointer;
     padding: var(--spacing-xs);
 }
+
 @media (min-width: 1024px) {
     .nav__toggle {
         display: none;
@@ -408,6 +431,7 @@ textarea.form-control {
 .nav--mobile .nav__link {
     font-size: var(--font-size-lg);
 }
+
 /* --- Dropdown-Specific Styles --- */
 
 /* The wrapper for a dropdown navigation item */
@@ -426,9 +450,11 @@ textarea.form-control {
     background: none;
     border: none;
     cursor: pointer;
-   
-    line-height: 1; /* Ensures icon is vertically centered */
-    color: inherit; /* Inherits color from parent nav link */
+
+    line-height: 1;
+    /* Ensures icon is vertically centered */
+    color: inherit;
+    /* Inherits color from parent nav link */
 }
 
 /* The SVG caret icon itself */
@@ -446,17 +472,18 @@ textarea.form-control {
     left: 0;
     background-color: var(--color-background, #fff);
     border-radius: var(--border-radius, 0.5rem);
-    box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0,0,0,0.1));
+    box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
     list-style: none;
     padding: 0.5rem 0;
     margin: 0;
-  /* Space between nav bar and menu */
+    /* Space between nav bar and menu */
     min-width: 220px;
     opacity: 0;
     transform: translateY(10px);
     visibility: hidden;
     transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
-    z-index: 101; /* Ensures it appears above other content */
+    z-index: 101;
+    /* Ensures it appears above other content */
 }
 
 /* The open state for the dropdown menu */
@@ -478,11 +505,14 @@ textarea.form-control {
     color: var(--color-text, #374151);
     text-decoration: none;
     font-size: 0.9rem;
-    white-space: nowrap; /* Prevents text from wrapping */
+    white-space: nowrap;
+    /* Prevents text from wrapping */
     transition: background-color 0.2s, color 0.2s;
     font-family: var(--font-primary, 'Roboto', sans-serif);
-    text-transform: none; /* Override uppercase from main nav links */
-    font-weight: 400; /* Regular font weight for submenu items */
+    text-transform: none;
+    /* Override uppercase from main nav links */
+    font-weight: 400;
+    /* Regular font weight for submenu items */
 }
 
 /* Hover state for dropdown links */
@@ -518,7 +548,7 @@ textarea.form-control {
     left: 100%;
     top: 50%;
     transform: translateY(-50%);
-    
+
 }
 
 /* On mobile, the dropdown menu appears in the normal document flow */
@@ -545,7 +575,8 @@ textarea.form-control {
 /* When open, the submenu expands and pushes content below it down. */
 .nav--mobile .dropdown-menu.is-open {
     max-height: 500px;
-    margin-top: var(--spacing-sm); /* Adds space between "Solutions" and the first sub-item */
+    margin-top: var(--spacing-sm);
+    /* Adds space between "Solutions" and the first sub-item */
 }
 
 /* Individual items in the submenu */
@@ -694,7 +725,7 @@ textarea.form-control {
 
 .footer__logo {
     height: 80px;
-    
+
 }
 
 .footer__heading {
@@ -714,6 +745,7 @@ textarea.form-control {
 .footer__links a {
     color: var(--color-text-muted);
 }
+
 .footer__links a:hover {
     color: var(--color-accent);
 }
