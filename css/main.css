@@ -636,24 +636,12 @@ textarea.form-control {
     padding: var(--spacing-md);
 }
 
-.hero__title {
-    font-size: clamp(2.5rem, 6vw, var(--font-size-h1));
-    color: var(--color-text-light);
-    margin-bottom: var(--spacing-md);
-}
-
-.hero__subtitle {
-    font-size: clamp(1rem, 2vw, var(--font-size-lg));
-    max-width: 650px;
-    margin: 0 auto var(--spacing-lg);
-    opacity: 0.9;
-}
 
 /* Page Hero */
 .page-hero {
     position: relative;
-    height: 60vh;
-    min-height: 400px;
+    height: 40vh;
+    min-height: 300px;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -672,16 +660,23 @@ textarea.form-control {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
 }
-
 .hero__title {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 2;
+    font-size: clamp(2.5rem, 6vw, var(--font-size-h1));
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-md);
 }
 
 .hero__subtitle {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 2vw, var(--font-size-lg));
+    max-width: 650px;
+    margin: 0 auto var(--spacing-lg);
+    opacity: 0.9;
+}
+
+
+
+.hero__subtitle {
+
     max-width: 800px;
     margin: 0 auto 2rem;
     position: relative;
@@ -689,7 +684,9 @@ textarea.form-control {
 }
 
 .page-hero .section__title {
-    color: var(--color-text-light);
+     box-shadow: var(--shadow-lg);
+    color: white;
+     
 }
 
 /* Featured Content Section */
