@@ -651,10 +651,41 @@ textarea.form-control {
 
 /* Page Hero */
 .page-hero {
-    padding: var(--spacing-xl) var(--spacing-md);
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
+    color: white;
+    padding: 2rem;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hero__title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.hero__subtitle {
+    font-size: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .page-hero .section__title {

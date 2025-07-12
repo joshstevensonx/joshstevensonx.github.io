@@ -1,244 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solutions - CEMEX PROJECT INTEGRATED LIMITED</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="/css/footer.css">
-    <style>
-        /* Add this style to ensure all cards in a grid row have the same height */
-        .grid .card {
-            display: flex;
-            flex-direction: column;
-            height: 100%; /* Make card take full height of the grid cell */
-        }
 
-        .grid .card__body {
-            flex-grow: 1; /* Allow the body to grow and fill the available space */
-        }
-    </style>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Solutions - CEMEX PROJECT INTEGRATED LIMITED</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <style>
+            /* Add this style to ensure all cards in a grid row have the same height */
+            .grid .card {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                /* Make card take full height of the grid cell */
+            }
 
-    <header class="header">
-        <div class="container header__container">
-            <a href="/index.html" class="header__logo">
-                <img src="https://raw.githubusercontent.com/joshstevensonx/joshstevensonx.github.io/main/imgs/logo_no-bg.png" alt="CEMEX Project Integrated LTD Logo">
-            </a>
+            .grid .card__body {
+                flex-grow: 1;
+                /* Allow the body to grow and fill the available space */
+            }
+        </style>
+    </head>
 
-            <nav class="nav--desktop">
-                <a href="/index.html" class="nav__link">Home</a>
-                <a href="/about.html" class="nav__link">About</a>
-                <!-- Updated Solutions Dropdown -->
-                <div class="nav__item--dropdown">
-                    <div class="nav__link-container">
-                        <a href="/solutions.html" class="nav__link nav__link--active">Solutions</a>
-                        <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Toggle Solutions menu">
-                            <svg class="dropdown-toggle__caret" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        </button>
+    <body>
+
+        <header class="header">
+            <div class="container header__container">
+                <a href="/index.html" class="header__logo">
+                    <img src="https://raw.githubusercontent.com/joshstevensonx/joshstevensonx.github.io/main/imgs/logo_no-bg.png" alt="CEMEX Project Integrated LTD Logo">
+                </a>
+
+                <nav class="nav--desktop">
+                    <a href="/index.html" class="nav__link">Home</a>
+                    <a href="/about.html" class="nav__link">About</a>
+                    <!-- Updated Solutions Dropdown -->
+                    <div class="nav__item--dropdown">
+                        <div class="nav__link-container">
+                            <a href="/solutions.html" class="nav__link nav__link--active">Solutions</a>
+                            <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Toggle Solutions menu">
+                                <svg class="dropdown-toggle__caret" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a href="/html/solutions/power.html" class="dropdown-menu__link">Power Solution</a></li>
+                            <li><a href="/html/solutions/construction.html" class="dropdown-menu__link">Construction</a></li>
+                            <li><a href="/html/solutions/marine.html" class="dropdown-menu__link">Marine Services</a></li>
+                            <li><a href="/html/solutions/catering.html" class="dropdown-menu__link">Catering</a></li>
+                        </ul>
                     </div>
-                    <ul class="dropdown-menu">
-                        <li><a href="/html/solutions/power.html" class="dropdown-menu__link">Power Solution</a></li>
-                        <li><a href="/html/solutions/construction.html" class="dropdown-menu__link">Construction</a></li>
-                        <li><a href="/html/solutions/marine.html" class="dropdown-menu__link">Marine Services</a></li>
-                        <li><a href="/html/solutions/catering.html" class="dropdown-menu__link">Catering</a></li>
-                    </ul>
-                </div>
-                <!-- End Dropdown -->
-                <a href="/projects.html" class="nav__link">Projects</a>
-                <a href="/contact.html" class="nav__link">Contact</a>
+                    <!-- End Dropdown -->
+                    <a href="/projects.html" class="nav__link">Projects</a>
+                    <a href="/contact.html" class="nav__link">Contact</a>
+                </nav>
+
+                <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <svg class="nav__toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+
+            </div>
+            <!-- Mobile navigation is now outside the container to allow full width background -->
+            <nav class="nav--mobile">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="/index.html" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="/about.html" class="nav__link">About</a></li>
+                    <!-- Updated Mobile Solutions Dropdown -->
+                    <li class="nav__item nav__item--dropdown">
+                        <div class="nav__link-container">
+                            <a href="/solutions.html" class="nav__link nav__link--active">Solutions</a>
+                            <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Toggle Solutions menu">
+                                <svg class="dropdown-toggle__caret" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        <ul class="dropdown-menu">
+                            <li><a href="/html/solutions/power.html" class="dropdown-menu__link">Power Solution</a></li>
+                            <li><a href="/html/solutions/construction.html" class="dropdown-menu__link">Construction</a></li>
+                            <li><a href="/html/solutions/marine.html" class="dropdown-menu__link">Marine Services</a></li>
+                            <li><a href="/html/solutions/catering.html" class="dropdown-menu__link">Catering</a></li>
+                        </ul>
+                    </li>
+                    <!-- End Mobile Dropdown -->
+                    <li class="nav__item"><a href="/projects.html" class="nav__link">Projects</a></li>
+                    <li class="nav__item"><a href="/contact.html" class="nav__link">Contact</a></li>
+                </ul>
             </nav>
-            
-            <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
-                <svg class="nav__toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-            
-        </div>
-        <!-- Mobile navigation is now outside the container to allow full width background -->
-        <nav class="nav--mobile">
-            <ul class="nav__list">
-                <li class="nav__item"><a href="/index.html" class="nav__link">Home</a></li>
-                <li class="nav__item"><a href="/about.html" class="nav__link">About</a></li>
-                <!-- Updated Mobile Solutions Dropdown -->
-                <li class="nav__item nav__item--dropdown">
-                    <div class="nav__link-container">
-                        <a href="/solutions.html" class="nav__link nav__link--active">Solutions</a>
-                        <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Toggle Solutions menu">
-                             <svg class="dropdown-toggle__caret" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        </button>
-                    </div>
-                    <ul class="dropdown-menu">
-                        <li><a href="/html/solutions/power.html" class="dropdown-menu__link">Power Solution</a></li>
-                        <li><a href="/html/solutions/construction.html" class="dropdown-menu__link">Construction</a></li>
-                        <li><a href="/html/solutions/marine.html" class="dropdown-menu__link">Marine Services</a></li>
-                        <li><a href="/html/solutions/catering.html" class="dropdown-menu__link">Catering</a></li>
-                    </ul>
-                </li>
-                 <!-- End Mobile Dropdown -->
-                <li class="nav__item"><a href="/projects.html" class="nav__link">Projects</a></li>
-                <li class="nav__item"><a href="/contact.html" class="nav__link">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+        </header>
 
-    <main>
-        <section class="page-hero">
-            <div class="section__header fade-in">
-                <h1 class="section__title">Our Solutions</h1>
-                <p>Providing a full spectrum of specialized services for the energy and marine sectors.</p>
-            </div>
-        </section>
-
-        <section id="solutions-grid" class="section">
-            <div class="container">
+        <main>
+            <!-- Replace the existing page-hero section with this: -->
+            <section class="page-hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('imgs/solutions_hero.jpg');">
+                <div class="hero__overlay"></div>
                 <div class="section__header fade-in">
-                    <h2 class="section__title">Service Categories</h2>
+                    <h1 class="section__title hero__title">Our Solutions</h1>
+                    <p class="hero__subtitle">Providing a full spectrum of specialized services for the energy and marine sectors.</p>
                 </div>
+            </section>
 
-                <!-- Corrosion Control and Maintenance -->
-                <div class="fade-in" style="margin-bottom: 3rem;">
-                    <h3 class="heading">Corrosion Control and Maintenance</h3>
-                    <div class="grid grid--3-cols">
-                        <div class="card">
-                            <img src="https://placehold.co/400x250/374151/f3f4f6?text=Sandblasting" alt="Sandblasting and painting service" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Sandblasting and Painting</h4>
-                                <p>Protective coating application to prevent corrosion and extend asset life.</p>
+            <!-- Replace the existing grid section with this: -->
+            <section id="solutions-grid" class="section">
+                <div class="container">
+
+                    <div class="section__header fade-in">
+                        <h2 class="section__title">Our Core Capabilities</h2>
+                        <p>We provide a comprehensive range of services tailored to meet the demanding needs of the energy sector.</p>
+                    </div>
+
+                    <!-- 1. Construction -->
+                    <div class="fade-in" style="margin-bottom: 3rem;">
+                        <h3 class="heading">Construction</h3>
+                        <div class="grid grid--3-cols">
+                            <div class="card">
+                                <img src="/imgs/site_2.jpg" alt="Civil/mechanical construction" class="card__image">
+                                <div class="card__body">
+                                    <h4 class="card__title heading">Civil/Mechanical Construction</h4>
+                                    <p>Full-cycle construction services for industrial and commercial projects.</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="/imgs/fabrication.jpg" alt="Fabrication and installation" class="card__image">
+                                <div class="card__body">
+                                    <h4 class="card__title heading">Fabrication & Installation</h4>
+                                    <p>Precision fabrication and installation of structures and pipelines.</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="/imgs/insulation.jpg" alt="Hot and cold insulation" class="card__image">
+                                <div class="card__body">
+                                    <h4 class="card__title heading">Insulation Services</h4>
+                                    <p>Thermal insulation solutions for pipelines, vessels, and equipment.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="card">
-                             <img src="https://placehold.co/400x250/fec522/121212?text=Coating" alt="Coating services" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Coating Services</h4>
-                                <p>Specialized industrial coatings for tanks, pipelines, and structural steel.</p>
+                    </div>
+
+                    <!-- 2. Catering -->
+                    <div class="fade-in" style="margin-bottom: 3rem;">
+                        <h3 class="heading">Catering</h3>
+                        <div class="grid grid--2-cols">
+                            <div class="card">
+                                <img src="/imgs/catering.jpg" alt="Industrial catering" class="card__image">
+                                <div class="card__body">
+                                    <h4 class="card__title heading">Industrial Catering</h4>
+                                    <p>High-quality catering services for remote sites and offshore facilities.</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="/imgs/camp-management.jpg" alt="Camp management" class="card__image">
+                                <div class="card__body">
+                                    <h4 class="card__title heading">Camp Management</h4>
+                                    <p>Complete hospitality solutions for workforce accommodations.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="card">
-                            <img src="https://placehold.co/400x250/121212/fec522?text=Tank+Cleaning" alt="Tank and vessel cleaning" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Tank and Vessel Cleaning & Repair</h4>
-                                <p>Safe and efficient cleaning and maintenance for storage tanks and vessels.</p>
+                    </div>
+
+                    <!-- 3. Marine Services -->
+                    <div class="fade-in" style="margin-bottom: 3rem;">
+                        <h3 class="heading">Marine Services</h3>
+                        <div class="grid grid--3-cols">
+                            <div class="card">
+                                <img src="/imgs/marine.jpg" alt="Marine support" class="card__image">
+                                <div class="card__body">
+                                    <h4 class="card__title heading">Marine Support</h4>
+                                    <p>Vessel chartering, crew management, and logistical support.</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="/imgs/dredging.jpg" alt="Dredging services" class="card__image">
+                                <div class="card__body">
+                                    <h4 class="card__title heading">Dredging</h4>
+                                    <p>Capital and maintenance dredging for navigational access.</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="/imgs/equipment-leasing.jpg" alt="Equipment leasing" class="card__image">
+                                <div class="card__body">
+                                    <h4 class="card__title heading">Equipment Leasing</h4>
+                                    <p>Leasing of barges, tugboats, and heavy construction equipment.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Power Solutions -->
+                    <div class="fade-in">
+                        <h3 class="heading">Power Solutions</h3>
+                        <div class="grid grid--2-cols">
+                            <div class="card">
+                                <img src="/imgs/Maintenance.jpg" alt="Power generation" class="card__image">
+                                <div class="card__body">
+                                    <h4 class="card__title heading">Power Generation</h4>
+                                    <p>Reliable temporary and permanent power solutions.</p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="/imgs/energy-management.jpg" alt="Energy management" class="card__image">
+                                <div class="card__body">
+                                    <h4 class="card__title heading">Energy Management</h4>
+                                    <p>Efficiency optimization and load balancing.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </section>
 
-                 <!-- Construction and Fabrication -->
-                <div class="fade-in" style="margin-bottom: 3rem;">
-                    <h3 class="heading">Construction and Fabrication</h3>
-                    <div class="grid grid--3-cols">
-                        <div class="card">
-                             <img src="https://placehold.co/400x250/fec522/121212?text=Construction" alt="Civil and mechanical construction" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Civil and Mechanical Construction</h4>
-                                <p>Full-cycle construction services for industrial and commercial projects.</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                             <img src="https://placehold.co/400x250/121212/fec522?text=Fabrication" alt="Fabrication and installation" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Fabrication & Installation</h4>
-                                <p>Precision fabrication and installation of structures and pipelines.</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="https://placehold.co/400x250/374151/f3f4f6?text=Insulation" alt="Hot and cold insulation" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Hot and Cold Insulation</h4>
-                                <p>Thermal insulation solutions for pipelines, vessels, and equipment.</p>
-                            </div>
-                        </div>
-                    </div>
+            <section class="parallax" style="background-image: url('imgs/site_1.jpg');">
+                <div class="parallax__content fade-in">
+                    <h2>Ready to Start Your Next Project?</h2>
+                    <p>Our team is ready to provide the expertise and support you need to achieve your goals. Let's discuss how we can help.</p>
+                    <a href="contact.html" class="btn btn--white-outline" style="margin-top: 1.5rem;">Contact Us Today</a>
                 </div>
+            </section>
+        </main>
 
-                 <!-- Marine and Logistics -->
-                <div class="fade-in" style="margin-bottom: 3rem;">
-                    <h3 class="heading">Marine and Logistics</h3>
-                    <div class="grid grid--3-cols">
-                        <div class="card">
-                            <img src="https://placehold.co/400x250/121212/fec522?text=Marine+Support" alt="Marine support services" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Marine Support Services</h4>
-                                <p>Vessel chartering, crew management, and full logistical support for offshore operations.</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="https://placehold.co/400x250/374151/f3f4f6?text=Dredging" alt="Dredging and canalization" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Dredging and Canalization</h4>
-                                <p>Capital and maintenance dredging to ensure navigational access and land reclamation.</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                             <img src="https://placehold.co/400x250/fec522/121212?text=Leasing" alt="Equipment leasing" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Equipment Leasing</h4>
-                                <p>Leasing of barges, tugboats, cranes, and other heavy construction equipment.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Manpower and Procurement -->
-                <div class="fade-in" style="margin-bottom: 3rem;">
-                    <h3 class="heading">Manpower and Procurement</h3>
-                    <div class="grid grid--2-cols">
-                        <div class="card">
-                            <img src="https://placehold.co/400x250/374151/f3f4f6?text=Manpower" alt="Manpower supply" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Manpower Supply and Development</h4>
-                                <p>Providing skilled, certified, and experienced technical personnel for projects.</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="https://placehold.co/400x250/121212/fec522?text=Procurement" alt="Industrial procurement" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Procurement of Industrial Equipment</h4>
-                                <p>Sourcing and supplying a wide range of materials and industrial equipment.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testing and Inspection -->
-                 <div class="fade-in">
-                    <h3 class="heading">Testing and Inspection</h3>
-                    <div class="grid grid--2-cols">
-                        <div class="card">
-                            <img src="https://placehold.co/400x250/fec522/121212?text=NDT" alt="Non-Destructive Testing" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Non-Destructive Testing (NDT)</h4>
-                                <p>Ensuring asset integrity through various NDT methods without causing damage.</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <img src="https://placehold.co/400x250/374151/f3f4f6?text=Calibration" alt="Pressure testing and calibration" class="card__image">
-                            <div class="card__body">
-                                <h4 class="card__title heading">Pressure Testing and Calibration</h4>
-                                <p>Verifying the strength and integrity of pressure vessels and pipelines.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-         <section class="parallax" style="background-image: url('https://placehold.co/1920x500/111827/ffffff?text=Partner+With+Us');">
-            <div class="parallax__content fade-in">
-                <h2>Ready to Start Your Next Project?</h2>
-                <p>Our team is ready to provide the expertise and support you need to achieve your goals. Let's discuss how we can help.</p>
-                <a href="contact.html" class="btn btn--white-outline" style="margin-top: 1.5rem;">Contact Us Today</a>
-            </div>
-        </section>
-    </main>
-    
-    <!-- FOOTER SECTION -->
+        <!-- FOOTER SECTION -->
 
         <footer class="site-footer-v2-simplified">
             <div class="container">
@@ -285,6 +270,7 @@
                 </div>
             </div>
         </footer>
-    <script src="js/main.js"></script>
-</body>
+        <script src="js/main.js"></script>
+    </body>
+
 </html>
