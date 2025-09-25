@@ -2,185 +2,359 @@
 <html lang="en">
 
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>About Us - CEMEX PROJECT INTEGRATED LIMITED</title>
-        <!-- STYLE -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="css/footer.css">
+        <!-- Google Fonts and CSS Stylesheets -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="/css/main.css" />
+        <link rel="stylesheet" href="css/footer.css" />
     </head>
 
     <body>
-        <!-- HEADER -->
+        <!-- ================= HEADER SECTION ================= -->
         <header class="header">
             <div class="container header__container">
+                <!-- Logo linking to homepage -->
                 <a href="/index.html" class="header__logo">
-                    <img src="/imgs/logos/logo_no-bg.png" alt="CEMEX Project Integrated Limited Logo - Home">
+                    <img src="/imgs/logos/logo_no-bg.png"
+                        alt="CEMEX Project Integrated Limited Logo - Home" />
                 </a>
-                <!-- NAVIGATION -->
-                <!-- NAVIGATION: Desktop -->
+                <!-- ========== NAVIGATION: Desktop ========== -->
                 <nav class="nav--desktop">
+                    <!-- Main navigation links -->
                     <a href="/index.html" class="nav__link">Home</a>
-                    <a href="/about.html" class="nav__link nav__link--active">About</a>
-
+                    <a href="/about.html"
+                        class="nav__link nav__link--active">About</a>
+                    <!-- Dropdown for Solutions (desktop) -->
                     <div class="nav__item--dropdown">
                         <div class="nav__link-container">
-                            <a href="/solutions.html" class="nav__link">Solutions</a>
-                            <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Toggle Solutions menu">
-                                <svg class="dropdown-toggle__caret" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
+                            <a href="/solutions.html"
+                                class="nav__link">Solutions</a>
+                            <button class="dropdown-toggle" aria-haspopup="true"
+                                aria-expanded="false"
+                                aria-label="Toggle Solutions menu">
+                                <svg class="dropdown-toggle__caret"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline
+                                        points="6 9 12 15 18 9"></polyline>
                                 </svg>
                             </button>
                         </div>
                         <ul class="dropdown-menu">
-                            <li><a href="/html/solutions/power.html" class="dropdown-menu__link">Power Solution</a></li>
-                            <li><a href="/html/solutions/construction.html" class="dropdown-menu__link">Construction</a></li>
-                            <li><a href="/html/solutions/marine.html" class="dropdown-menu__link">Marine Services</a></li>
-                            <li><a href="/html/solutions/catering.html" class="dropdown-menu__link">Catering</a></li>
+                            <li>
+                                <a href="/html/solutions/power.html"
+                                    class="dropdown-menu__link">Power
+                                    Solution</a>
+                            </li>
+                            <li>
+                                <a href="/html/solutions/construction.html"
+                                    class="dropdown-menu__link">Construction</a>
+                            </li>
+                            <li>
+                                <a href="/html/solutions/marine.html"
+                                    class="dropdown-menu__link">Marine
+                                    Services</a>
+                            </li>
+                            <li>
+                                <a href="/html/solutions/catering.html"
+                                    class="dropdown-menu__link">Catering</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- End Dropdown -->
                     <a href="/projects.html" class="nav__link">Projects</a>
                     <a href="/contact.html" class="nav__link">Contact</a>
                 </nav>
+                <!-- ========== END NAVIGATION: Desktop ========== -->
 
-                <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
-                    <svg class="nav__toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                <!-- Hamburger menu button for mobile navigation -->
+                <button class="nav__toggle" aria-label="Toggle navigation"
+                    aria-expanded="false">
+                    <svg class="nav__toggle-icon"
+                        xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
                 </button>
-
             </div>
-            <!-- NAVIGATION: Mobile -->
+            <!-- ========== NAVIGATION: Mobile ========== -->
             <nav class="nav--mobile">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="/index.html" class="nav__link">Home</a></li>
-                    <li class="nav__item"><a href="/about.html" class="nav__link nav__link--active">About</a></li>
-                    <!-- Updated Mobile Solutions Dropdown -->
+                    <li class="nav__item">
+                        <a href="/index.html" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/about.html"
+                            class="nav__link nav__link--active">About</a>
+                    </li>
+                    <!-- Mobile Solutions Dropdown -->
                     <li class="nav__item nav__item--dropdown">
                         <div class="nav__link-container">
-                            <a href="/solutions.html" class="nav__link">Solutions</a>
-                            <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Toggle Solutions menu">
-                                <svg class="dropdown-toggle__caret" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
+                            <a href="/solutions.html"
+                                class="nav__link">Solutions</a>
+                            <button class="dropdown-toggle" aria-haspopup="true"
+                                aria-expanded="false"
+                                aria-label="Toggle Solutions menu">
+                                <svg class="dropdown-toggle__caret"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <polyline
+                                        points="6 9 12 15 18 9"></polyline>
                                 </svg>
                             </button>
                         </div>
                         <ul class="dropdown-menu">
-                            <li><a href="/html/solutions/power.html" class="dropdown-menu__link">Power Solution</a></li>
-                            <li><a href="/html/solutions/construction.html" class="dropdown-menu__link">Construction</a></li>
-                            <li><a href="/html/solutions/marine.html" class="dropdown-menu__link">Marine Services</a></li>
-                            <li><a href="/html/solutions/catering.html" class="dropdown-menu__link">Catering</a></li>
+                            <li>
+                                <a href="/html/solutions/power.html"
+                                    class="dropdown-menu__link">Power
+                                    Solution</a>
+                            </li>
+                            <li>
+                                <a href="/html/solutions/construction.html"
+                                    class="dropdown-menu__link">Construction</a>
+                            </li>
+                            <li>
+                                <a href="/html/solutions/marine.html"
+                                    class="dropdown-menu__link">Marine
+                                    Services</a>
+                            </li>
+                            <li>
+                                <a href="/html/solutions/catering.html"
+                                    class="dropdown-menu__link">Catering</a>
+                            </li>
                         </ul>
                     </li>
                     <!-- End Mobile Dropdown -->
-                    <li class="nav__item"><a href="/projects.html" class="nav__link">Projects</a></li>
-                    <li class="nav__item"><a href="/contact.html" class="nav__link">Contact</a></li>
+                    <li class="nav__item">
+                        <a href="/projects.html" class="nav__link">Projects</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/contact.html" class="nav__link">Contact</a>
+                    </li>
                 </ul>
             </nav>
+            <!-- ========== END NAVIGATION: Mobile ========== -->
         </header>
+        <!-- ================= END HEADER SECTION ================= -->
 
         <main>
-            <!-- HERO -->
-            <section class="page-hero" style="background-image:  url('imgs/solutions.jpg');">
+            <!-- ================= HERO SECTION ================= -->
+            <section class="page-hero"
+                style="background-image: url('imgs/solutions.jpg')">
                 <div class="hero__overlay"></div>
                 <div class="section__header fade-in">
                     <h1 class="section__title hero__title">About CEMEX</h1>
-                    <p class="hero__subtitle">Learn about our commitment to excellence, our guiding principles, and our unwavering dedication to safety and quality.
-
+                    <p class="hero__subtitle">
+                        Learn about our commitment to excellence, our guiding
+                        principles,
+                        and our unwavering dedication to safety and quality.
                     </p>
                 </div>
             </section>
+            <!-- =============== END HERO SECTION =============== -->
 
+            <!-- =============== COMPANY PROFILE SECTION =============== -->
             <section class="section">
                 <div class="container">
                     <div class="grid grid--2-cols">
+                        <!-- Company profile text -->
                         <div class="feature-content fade-in">
-                            <h2 class="section__title section__title--left">Our Company Profile</h2>
-                            <p>CEMEX PROJECT INTEGRATED LIMITED is a Nigerian company that provides a variety of services, primarily in the oil and gas and marine sectors. We stand on a foundation of technical expertise, innovation, and a deep-rooted commitment to delivering projects that exceed expectations.</p>
+                            <h2 class="section__title section__title--left">
+                                Our Company Profile
+                            </h2>
+                            <p>
+                                CEMEX Project Integrated LTD is a full-spectrum
+                                infrastructure company based in Lagos, Nigeria,
+                                with core expertise in Power Systems, Marine
+                                Services, Construction, and Facility Management.
+
+                            </p>
+                            <p>
+                                We deliver reliable energy solutions, offshore
+                                and coastal marine support, integrated
+                                design-build services, and comprehensive
+                                facility management services. Our
+                                multidisciplinary approach ensures seamless
+                                execution: from powering critical operations to
+                                creating and maintaining environments that stand
+                                the test of time.
+
+                            </p>
+                            <p>
+                                Established in 2015, we began as a bold,
+                                forward-thinking player in Nigeria's Power,
+                                Marine, and Construction sectors. Over the
+                                years, we have navigated complex industry
+                                challenges through strategic leadership,
+                                technical expertise, and a steadfast commitment
+                                to quality delivery. These strengths have
+                                enabled us to deliver impactful projects and
+                                evolve into a trusted name in the industry. Our
+                                journey is one of continuous transformation,
+                                driven by purpose, sustained by expertise, and
+                                measured by results we are proud to uphold.
+                            </p>
                         </div>
-                        <div class="fade-in" style="transition-delay: 0.2s;">
-                            <img src="imgs/foundation.jpg" alt="Image representing CEMEX's company foundation" class="feature-content__img">
+                        <!-- Company profile image -->
+                        <div class="fade-in" style="transition-delay: 0.2s">
+                            <img src="imgs/foundation.jpg"
+                                alt="Image representing CEMEX's company foundation"
+                                class="feature-content__img" />
                         </div>
                     </div>
                 </div>
             </section>
+            <!-- =============== END COMPANY PROFILE SECTION =============== -->
 
+            <!-- =============== MISSION & VISION SECTION =============== -->
             <section class="section section--secondary">
                 <div class="container">
                     <div class="grid grid--2-cols">
+                        <!-- Mission & Vision image -->
                         <div class="fade-in feature-content__img--order-first">
-                            <img src="https://placehold.co/600x400/121212/fec522?text=Guiding+Principles" alt="Image representing company's vision" class="feature-content__img">
+                            <img
+                                src="https://placehold.co/600x400/121212/fec522?text=Guiding+Principles"
+                                alt="Image representing company's vision"
+                                class="feature-content__img" />
                         </div>
-                        <div class="feature-content fade-in" style="transition-delay: 0.2s;">
-                            <h2 class="section__title section__title--left">Our Mission & Vision</h2>
-                            <h3 class="heading" style="font-size: var(--font-size-xl); margin-top: 1.5rem;">Our Mission</h3>
-                            <p>To provide quality services to the oil & gas and marine sectors of the Nigerian economy, with a commitment to Health, Safety & Environment.</p>
-                            <h3 class="heading" style="font-size: var(--font-size-xl); margin-top: 1.5rem;">Our Vision</h3>
-                            <p>To be a reference point in the provision of quality, efficient and client-satisfaction-oriented services in Nigeria.</p>
+                        <!-- Mission & Vision text -->
+                        <div class="feature-content fade-in"
+                            style="transition-delay: 0.2s">
+                            <h2 class="section__title section__title--left">
+                                Our Mission & Vision
+                            </h2>
+                            <h3 class="heading"
+                                style="font-size: var(--font-size-xl); margin-top: 1.5rem">
+                                Our Mission
+                            </h3>
+                            <p>
+                                To deliver reliable power, marine, construction and facility management solutions that drive sustainable growth, strengthen communities and support critical operations. We are committed to excellence, innovation and efficiency, ensuring every project we undertake creates long term value for our clients and stakeholders.
+                            </p>
+                            <h3 class="heading"
+                                style="font-size: var(--font-size-xl); margin-top: 1.5rem">
+                                Our Vision
+                            </h3>
+                            <p>
+                                To set a new standard of infrastructure excellence by delivering sustainable power solutions, advancing marine services, and developing iconic projects that energize communities and drive progress across Nigeria and beyond.
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
+            <!-- =============== END MISSION & VISION SECTION =============== -->
 
-            <section class="parallax" style="background-image: url('https://placehold.co/1920x500/111827/ffffff?text=HSE+First');">
+            <!-- =============== HSE PARALLAX SECTION =============== -->
+            <section class="parallax" style="
+          background-image: url('https://placehold.co/1920x500/111827/ffffff?text=HSE+First');
+        ">
                 <div class="parallax__content fade-in">
                     <h2>Health, Safety & Environment</h2>
-                    <p>Our HSE Policy is the cornerstone of our operations. We are committed to protecting the health and safety of our employees, minimizing our environmental impact, and adhering to all relevant HSE laws.</p>
-                    <a href="contact.html" class="btn btn--white-outline" style="margin-top: 1.5rem;">Learn More</a>
+                    <p>
+                        Our HSE Policy is the cornerstone of our operations. We
+                        are
+                        committed to protecting the health and safety of our
+                        employees,
+                        minimizing our environmental impact, and adhering to all
+                        relevant
+                        HSE laws.
+                    </p>
+                    <a href="contact.html" class="btn btn--white-outline"
+                        style="margin-top: 1.5rem">Learn More</a>
                 </div>
             </section>
+            <!-- =============== END HSE PARALLAX SECTION =============== -->
         </main>
-        <!-- FOOTER SECTION -->
 
+        <!-- ================= FOOTER SECTION ================= -->
         <footer class="site-footer-v2-simplified">
             <div class="container">
                 <div class="footer-v2__main-section">
                     <div class="footer-v2__grid">
+                        <!-- Brand and description -->
                         <div class="footer-v2__column footer-v2__column--brand">
-                            <a href="/index.html" class="footer-v2__brand-name">CEMEX PROJECT INTEGRATED LTD</a>
-                            <p class="footer-v2__brand-description">Your trusted partner for integrated services in
-                                Nigeria's oil & gas and marine sectors. Committed to quality, safety, and client satisfaction.</p>
-                            <a href="/about.html" class="footer-v2__read-more">Read More
+                            <a href="/index.html"
+                                class="footer-v2__brand-name">CEMEX PROJECT
+                                INTEGRATED LTD</a>
+                            <p class="footer-v2__brand-description">
+                                Your trusted partner for integrated services in
+                                Nigeria's oil &
+                                gas and marine sectors. Committed to quality,
+                                safety, and client
+                                satisfaction.
+                            </p>
+                            <a href="/about.html"
+                                class="footer-v2__read-more">Read More
                                 &rarr;</a>
                         </div>
+                        <!-- Discover links -->
                         <div class="footer-v2__column">
                             <h3 class="footer-v2__column-title">Discover</h3>
                             <ul class="footer-v2__link-list">
-                                <li><a href="/solutions.html" class="footer-v2__link">Solutions</a></li>
-                                <li><a href="/projects.html" class="footer-v2__link">Projects</a></li>
-                                <li><a href="/about.html" class="footer-v2__link">About
-                                        Us</a></li>
-
+                                <li>
+                                    <a href="/solutions.html"
+                                        class="footer-v2__link">Solutions</a>
+                                </li>
+                                <li>
+                                    <a href="/projects.html"
+                                        class="footer-v2__link">Projects</a>
+                                </li>
+                                <li>
+                                    <a href="/about.html"
+                                        class="footer-v2__link">About Us</a>
+                                </li>
                             </ul>
                         </div>
-
+                        <!-- Contact info -->
                         <div class="footer-v2__column">
-                            <h3 class="footer-v2__column-title"><a href="/contact.html" class="footer-title__link">Contact
-                                    Us</a></h3>
+                            <h3 class="footer-v2__column-title">
+                                <a href="/contact.html"
+                                    class="footer-title__link">Contact Us</a>
+                            </h3>
                             <ul class="footer-v2__link-list">
-                                <li><a href="tel:+2347025005555" class="footer-v2__link">+234-702-500-5555
-                                    </a></li>
-                                <li><a href="mailto:info@cpil.com.ng" class="footer-v2__link">info@cpil.com.ng</a></li>
-
-                                <li><a href="https://maps.app.goo.gl/Ja5kT4QqXKkEPEXf6" class="footer-v2__link">No 16, Crown Court Estate, Victoria Island, Lagos</a></li>
+                                <li>
+                                    <a href="tel:+2347025005555"
+                                        class="footer-v2__link">+234-702-500-5555
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:info@cpil.com.ng"
+                                        class="footer-v2__link">info@cpil.com.ng</a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://maps.app.goo.gl/Ja5kT4QqXKkEPEXf6"
+                                        class="footer-v2__link">No 16, Crown
+                                        Court Estate, Victoria Island, Lagos</a>
+                                </li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
-
-
-
+                <!-- Copyright -->
                 <div class="footer-v2__bottom-bar">
-                    <p>&copy;2025 CEMEX PROJECT
-                        INTEGRATED LIMITED. All Rights Reserved</p>
+                    <p>
+                        &copy;2025 CEMEX PROJECT INTEGRATED LIMITED. All Rights
+                        Reserved
+                    </p>
                 </div>
             </div>
         </footer>
+        <!-- ================= END FOOTER SECTION ================= -->
+
+        <!-- Main JavaScript file -->
         <script src="js/main.js"></script>
     </body>
 

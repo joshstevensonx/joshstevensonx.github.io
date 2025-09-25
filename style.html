@@ -1,48 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <head>
+<head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Solutions - CEMEX PROJECT INTEGRATED LIMITED</title>
+        <title>About Us - CEMEX PROJECT INTEGRATED LIMITED</title>
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/footer.css">
-        <style>
-            /* Add this style to ensure all cards in a grid row have the same height */
-            .grid .card {
-                display: flex;
-                flex-direction: column;
-                height: 100%;
-                /* Make card take full height of the grid cell */
-            }
-
-            .grid .card__body {
-                flex-grow: 1;
-                /* Allow the body to grow and fill the available space */
-            }
-        </style>
+        <link rel="stylesheet" href="css/footer.css">
     </head>
 
     <body>
-
         <header class="header">
             <div class="container header__container">
                 <a href="/index.html" class="header__logo">
-                    <img src="/imgs/logos/logo_no-bg.png" alt="CEMEX Project Integrated LTD Logo">
+                    <img src="/imgs/logos/logo_no-bg.png" alt="CEMEX Project Integrated Limited Logo - Home">
                 </a>
 
                 <nav class="nav--desktop">
                     <a href="/index.html" class="nav__link">Home</a>
-                    <a href="/about.html" class="nav__link">About</a>
-                    <!-- Updated Solutions Dropdown -->
+                    <a href="/about.html" class="nav__link nav__link--active">About</a>
+
                     <div class="nav__item--dropdown">
                         <div class="nav__link-container">
-                            <a href="/solutions.html" class="nav__link nav__link--active">Solutions</a>
+                            <a href="/solutions.html" class="nav__link">Solutions</a>
                             <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Toggle Solutions menu">
-                                <svg class="dropdown-toggle__caret" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <svg class="dropdown-toggle__caret" xmlns="http://www.w.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="6 9 12 15 18 9"></polyline>
                                 </svg>
                             </button>
@@ -53,9 +38,7 @@
                             <li><a href="/html/solutions/marine.html" class="dropdown-menu__link">Marine Services</a></li>
                             <li><a href="/html/solutions/catering.html" class="dropdown-menu__link">Catering</a></li>
                         </ul>
-                    </div>
-                    <!-- End Dropdown -->
-                    <a href="/projects.html" class="nav__link">Projects</a>
+                    </div> <a href="/projects.html" class="nav__link">Projects</a>
                     <a href="/contact.html" class="nav__link">Contact</a>
                 </nav>
 
@@ -64,17 +47,16 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
                 </button>
-
             </div>
-            <!-- Mobile navigation is now outside the container to allow full width background -->
+
             <nav class="nav--mobile">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="/index.html" class="nav__link">Home</a></li>
-                    <li class="nav__item"><a href="/about.html" class="nav__link">About</a></li>
-                    <!-- Updated Mobile Solutions Dropdown -->
+                    <li class="nav__item"><a href="/about.html" class="nav__link nav__link--active">About</a></li>
+
                     <li class="nav__item nav__item--dropdown">
                         <div class="nav__link-container">
-                            <a href="/solutions.html" class="nav__link nav__link--active">Solutions</a>
+                            <a href="/solutions.html" class="nav__link">Solutions</a>
                             <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Toggle Solutions menu">
                                 <svg class="dropdown-toggle__caret" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -87,140 +69,59 @@
                             <li><a href="/html/solutions/marine.html" class="dropdown-menu__link">Marine Services</a></li>
                             <li><a href="/html/solutions/catering.html" class="dropdown-menu__link">Catering</a></li>
                         </ul>
-                    </li>
-                    <!-- End Mobile Dropdown -->
-                    <li class="nav__item"><a href="/projects.html" class="nav__link">Projects</a></li>
+                    </li> <li class="nav__item"><a href="/projects.html" class="nav__link">Projects</a></li>
                     <li class="nav__item"><a href="/contact.html" class="nav__link">Contact</a></li>
                 </ul>
             </nav>
         </header>
 
         <main>
-            <!-- Replace the existing page-hero section with this: -->
             <section class="page-hero" style="background-image:  url('imgs/solutions.jpg');">
-                <div class="hero__overlay"></div>
-                <div class="section__header fade-in">
-                    <h1 class="section__title hero__title">Our Solutions</h1>
-                    <p class="hero__subtitle">Providing a full spectrum of specialized services for the energy and marine sectors.</p>
+                <div class="hero__overlay"></div> <div class="section__header fade-in">
+                    <h1 class="section__title hero__title">About CEMEX</h1>
+                    <p class="hero__subtitle">Learn about our commitment to excellence, our guiding principles, and our unwavering dedication to safety and quality.</p>
                 </div>
             </section>
 
-            <!-- Replace the existing grid section with this: -->
-            <section id="solutions-grid" class="section">
+            <section class="section">
                 <div class="container">
-
-                    
-
-                    <!-- 1. Construction -->
-                    <div class="fade-in" style="margin-bottom: 3rem;">
-                        <h3 class="heading">Construction</h3>
-                        <div class="grid grid--3-cols">
-                            <div class="card">
-                                <img src="/imgs/site_2.jpg" alt="Civil/mechanical construction" class="card__image">
-                                <div class="card__body">
-                                    <h4 class="card__title heading">Civil/Mechanical Construction</h4>
-                                    <p>Full-cycle construction services for industrial and commercial projects.</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="/imgs/fabrication.jpg" alt="Fabrication and installation" class="card__image">
-                                <div class="card__body">
-                                    <h4 class="card__title heading">Fabrication & Installation</h4>
-                                    <p>Precision fabrication and installation of structures and pipelines.</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="/imgs/insulation.jpg" alt="Hot and cold insulation" class="card__image">
-                                <div class="card__body">
-                                    <h4 class="card__title heading">Insulation Services</h4>
-                                    <p>Thermal insulation solutions for pipelines, vessels, and equipment.</p>
-                                </div>
-                            </div>
+                    <div class="grid grid--2-cols">
+                        <div class="feature-content fade-in">
+                            <h2 class="section__title section__title--left">Our Company Profile</h2>
+                            <p>CEMEX PROJECT INTEGRATED LIMITED is a Nigerian company that provides a variety of services, primarily in the oil and gas and marine sectors. We stand on a foundation of technical expertise, innovation, and a deep-rooted commitment to delivering projects that exceed expectations.</p>
+                        </div>
+                        <div class="fade-in" style="transition-delay: 0.2s;">
+                            <img src="imgs/foundation.jpg" alt="Image representing CEMEX's company foundation" class="feature-content__img">
                         </div>
                     </div>
-
-
-                    <div class="fade-in">
-                        <h3 class="heading">Catering & Power Solutions</h3>
-                        <div class="grid grid--4-cols" style="margin-bottom: 3rem;">
-
-                            <div class="card">
-                                <img src="/imgs/catering.jpg" alt="Industrial catering" class="card__image">
-                                <div class="card__body">
-                                    <h4 class="card__title heading">Industrial Catering</h4>
-                                    <p>High-quality catering services for remote sites and offshore facilities.</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="/imgs/camp-management.jpg" alt="Camp management" class="card__image">
-                                <div class="card__body">
-                                    <h4 class="card__title heading">Camp Management</h4>
-                                    <p>Complete hospitality solutions for workforce accommodations.</p>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <img src="/imgs/Maintenance.jpg" alt="Power generation" class="card__image">
-                                <div class="card__body">
-                                    <h4 class="card__title heading">Power Generation</h4>
-                                    <p>Reliable temporary and permanent power solutions.</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="/imgs/energy-management.jpg" alt="Energy management" class="card__image">
-                                <div class="card__body">
-                                    <h4 class="card__title heading">Energy Management</h4>
-                                    <p>Efficiency optimization and load balancing.</p>
-                                </div>
-                            </div>
-                            <!-- 2. Catering -->
-
-
-                        </div>
-
-                    </div>
-                    <!-- 3. Marine Services -->
-                    <div class="fade-in" style="margin-bottom: 3rem;">
-                        <h3 class="heading">Marine Services</h3>
-                        <div class="grid grid--3-cols">
-                            <div class="card">
-                                <img src="/imgs/marine.jpg" alt="Marine support" class="card__image">
-                                <div class="card__body">
-                                    <h4 class="card__title heading">Marine Support</h4>
-                                    <p>Vessel chartering, crew management, and logistical support.</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="/imgs/dredging.jpg" alt="Dredging services" class="card__image">
-                                <div class="card__body">
-                                    <h4 class="card__title heading">Dredging</h4>
-                                    <p>Capital and maintenance dredging for navigational access.</p>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="/imgs/equipment-leasing.jpg" alt="Equipment leasing" class="card__image">
-                                <div class="card__body">
-                                    <h4 class="card__title heading">Equipment Leasing</h4>
-                                    <p>Leasing of barges, tugboats, and heavy construction equipment.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
                 </div>
             </section>
 
-            <section class="parallax" style="background-image: url('imgs/site_1.jpg');">
+            <section class="section section--secondary">
+                <div class="container">
+                    <div class="grid grid--2-cols">
+                        <div class="fade-in feature-content__img--order-first">
+                            <img src="https://placehold.co/600x400/121212/fec522?text=Guiding+Principles" alt="Image representing company's vision" class="feature-content__img">
+                        </div>
+                        <div class="feature-content fade-in" style="transition-delay: 0.2s;">
+                            <h2 class="section__title section__title--left">Our Mission & Vision</h2>
+                            <h3 class="heading" style="font-size: var(--font-size-xl); margin-top: 1.5rem;">Our Mission</h3>
+                            <p>To provide quality services to the oil & gas and marine sectors of the Nigerian economy, with a commitment to Health, Safety & Environment.</p>
+                            <h3 class="heading" style="font-size: var(--font-size-xl); margin-top: 1.5rem;">Our Vision</h3>
+                            <p>To be a reference point in the provision of quality, efficient and client-satisfaction-oriented services in Nigeria.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="parallax" style="background-image: url('https://placehold.co/1920x500/111827/ffffff?text=HSE+First');">
                 <div class="parallax__content fade-in">
-                    <h2>Ready to Start Your Next Project?</h2>
-                    <p>Our team is ready to provide the expertise and support you need to achieve your goals. Let's discuss how we can help.</p>
-                    <a href="contact.html" class="btn btn--white-outline" style="margin-top: 1.5rem;">Contact Us Today</a>
+                    <h2>Health, Safety & Environment</h2>
+                    <p>Our HSE Policy is the cornerstone of our operations. We are committed to protecting the health and safety of our employees, minimizing our environmental impact, and adhering to all relevant HSE laws.</p>
+                    <a href="contact.html" class="btn btn--white-outline" style="margin-top: 1.5rem;">Learn More</a>
                 </div>
             </section>
         </main>
-
-        <!-- FOOTER SECTION -->
 
         <footer class="site-footer-v2-simplified">
             <div class="container">
@@ -240,10 +141,8 @@
                                 <li><a href="/projects.html" class="footer-v2__link">Projects</a></li>
                                 <li><a href="/about.html" class="footer-v2__link">About
                                         Us</a></li>
-
                             </ul>
                         </div>
-
                         <div class="footer-v2__column">
                             <h3 class="footer-v2__column-title"><a href="/contact.html" class="footer-title__link">Contact
                                     Us</a></h3>
@@ -251,15 +150,11 @@
                                 <li><a href="tel:+2347025005555" class="footer-v2__link">+234-702-500-5555
                                     </a></li>
                                 <li><a href="mailto:info@cpil.com.ng" class="footer-v2__link">info@cpil.com.ng</a></li>
-
                                 <li><a href="https://maps.app.goo.gl/Ja5kT4QqXKkEPEXf6" class="footer-v2__link">No 16, Crown Court Estate, Victoria Island, Lagos</a></li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
-
-
 
                 <div class="footer-v2__bottom-bar">
                     <p>&copy;2025 CEMEX PROJECT
@@ -267,6 +162,7 @@
                 </div>
             </div>
         </footer>
+
         <script src="js/main.js"></script>
     </body>
 
