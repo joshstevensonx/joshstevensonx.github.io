@@ -4,236 +4,1169 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CEMEX PROJECT INTEGRATED LIMITED - Premier Oil, Gas & Marine
-            Services</title>
+        <title>Nexora - We Engineer Digital Growth</title>
+        <!-- Tailwind's preflight styles are useful, but we are replacing classes -->
+        <!-- For this exercise, we will manually define all styles. -->
+        <!-- Google Fonts: Inter -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/main.css">
-        <link rel="stylesheet" href="/css/footer.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <!-- three.js Library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+        <style>
+            /* 1. Global Styles & Resets */
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            body,
+            h1,
+            h2,
+            h3,
+            p,
+            ul,
+            figure,
+            footer {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: #121212;
+                color: #E0E0E0;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+
+            img {
+                max-width: 100%;
+                display: block;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            /* 2. Reusable Component Styles */
+            .container {
+                width: 100%;
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 5rem 0;
+            }
+
+            .section-header {
+                text-align: center;
+                max-width: 768px;
+                margin: 0 auto;
+            }
+
+            .section-header__title {
+                font-size: 2.25rem;
+                font-weight: 700;
+                letter-spacing: -0.025em;
+                color: #ffffff;
+            }
+
+            .section-header__subtitle {
+                margin-top: 1rem;
+                font-size: 1.125rem;
+                color: #9CA3AF;
+            }
+
+            /* 3. Hero Section Styles */
+            .hero {
+                position: relative;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: #ffffff;
+                overflow: hidden;
+            }
+
+            #hero-canvas {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+            }
+
+            .hero__overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(ellipse at center, rgba(18, 18, 18, 0.6) 0%, rgba(18, 18, 18, 1) 100%);
+                z-index: 1;
+            }
+
+            .hero__content {
+                position: relative;
+                z-index: 2;
+                padding: 0 1rem;
+            }
+
+            .hero__title {
+                font-weight: 600;
+                letter-spacing: -0.025em;
+                font-size: 2.25rem;
+            }
+
+            .hero__subtitle {
+                margin-top: 1rem;
+                max-width: 42rem;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 1rem;
+                color: #D1D5DB;
+            }
+
+            .hero__cta {
+                margin-top: 2rem;
+                display: inline-block;
+                background-color: #007BFF;
+                color: #ffffff;
+                font-weight: 600;
+                padding: 0.75rem 2rem;
+                border-radius: 0.5rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                transition: all 0.3s ease-in-out;
+            }
+
+            .hero__cta:hover {
+                background-color: #2563EB;
+                transform: translateY(-0.25rem);
+            }
+
+            /* Responsive text for hero */
+            @media (min-width: 640px) {
+                .hero__title {
+                    font-size: 3rem;
+                }
+
+                .hero__subtitle {
+                    font-size: 1.125rem;
+                }
+            }
+
+            @media (min-width: 768px) {
+                .hero__title {
+                    font-size: 3.75rem;
+                }
+
+                .hero__subtitle {
+                    font-size: 1.25rem;
+                    margin-top: 1.5rem;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .hero__title {
+                    font-size: 4.5rem;
+                }
+
+                .hero__subtitle {
+                    max-width: 56rem;
+                }
+            }
+
+            /* Credibility Bar */
+            .credibility-bar {
+                background-color: #1E1E1E;
+                padding: 2rem 0;
+                /* py-8 */
+            }
+
+            .credibility-bar__title {
+                text-align: center;
+                font-size: 0.875rem;
+                /* text-sm */
+                font-weight: 600;
+                color: #9CA3AF;
+                /* text-gray-400 */
+                letter-spacing: 0.05em;
+                /* tracking-wider */
+                text-transform: uppercase;
+            }
+
+            .credibility-bar__scroller {
+                margin-top: 1.5rem;
+                width: 100%;
+                overflow: hidden;
+                -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+                mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+            }
+
+            .credibility-bar__scroller-list {
+                display: flex;
+                gap: 4rem;
+                /* space-x-16 */
+                animation: scroll-horizontally 40s linear infinite;
+            }
+
+            .credibility-bar__logo {
+                height: 2rem;
+                /* h-8 */
+                object-fit: contain;
+                filter: grayscale(100%);
+                transition: all 0.3s;
+            }
+
+            .credibility-bar__logo:hover {
+                filter: grayscale(0%);
+            }
+
+            @keyframes scroll-horizontally {
+                from {
+                    transform: translateX(0);
+                }
+
+                to {
+                    transform: translateX(-50%);
+                }
+
+                /* Halfway for seamless loop */
+            }
+
+            @media (min-width: 640px) {
+                .credibility-bar {
+                    padding: 3rem 0;
+                }
+            }
+
+            /* Core Capabilities */
+            .capabilities {
+                background-color: #121212;
+            }
+
+            .capabilities__grid {
+                margin-top: 4rem;
+                display: grid;
+                gap: 3rem;
+            }
+
+            .capability-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                background-color: #1E1E1E;
+                padding: 2rem;
+                border-radius: 0.75rem;
+                /* rounded-xl */
+                border: 1px solid #333333;
+                transition: all 0.3s ease;
+            }
+
+            .capability-card:hover {
+                border-color: #007BFF;
+                box-shadow: 0 25px 50px -12px rgba(0, 123, 255, 0.15);
+            }
+
+            .capability-card__icon-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 3rem;
+                width: 3rem;
+                /* h-12 w-12 */
+                border-radius: 0.5rem;
+                /* rounded-lg */
+                background-color: #007BFF;
+            }
+
+            .capability-card__icon {
+                height: 1.5rem;
+                width: 1.5rem;
+                /* h-6 w-6 */
+                color: white;
+            }
+
+            .capability-card__title {
+                margin-top: 1.5rem;
+                font-size: 1.25rem;
+                /* text-xl */
+                font-weight: 600;
+                color: #ffffff;
+            }
+
+            .capability-card__description {
+                margin-top: 1rem;
+                color: #9CA3AF;
+                /* text-gray-400 */
+            }
+
+            .capability-card__link {
+                margin-top: 1.5rem;
+                font-weight: 600;
+                color: #007BFF;
+            }
+
+            .capability-card__link:hover {
+                color: #60A5FA;
+                /* hover:text-blue-400 */
+            }
+
+            @media (min-width: 1024px) {
+                .capabilities__grid {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 2rem;
+                }
+            }
+
+            /* Featured Work */
+            .featured-work {
+                background-color: #1E1E1E;
+            }
+
+            .featured-work__grid {
+                margin-top: 4rem;
+                display: grid;
+                gap: 2rem;
+            }
+
+            .work-card {
+                display: block;
+                position: relative;
+                height: 20rem;
+                /* h-80 */
+                width: 100%;
+                border-radius: 0.75rem;
+                /* rounded-xl */
+                overflow: hidden;
+                border: 2px solid transparent;
+                transition: all 0.3s ease;
+            }
+
+            .work-card:hover {
+                border-color: #007BFF;
+            }
+
+            .work-card__image {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+
+            .work-card:hover .work-card__image {
+                transform: scale(1.05);
+            }
+
+            .work-card__overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5), transparent);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .work-card:hover .work-card__overlay {
+                opacity: 1;
+            }
+
+            .work-card__content {
+                position: absolute;
+                inset: 0;
+                padding: 1.5rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                color: white;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .work-card:hover .work-card__content {
+                opacity: 1;
+            }
+
+            .work-card__title {
+                font-size: 1.5rem;
+                /* text-2xl */
+                font-weight: 700;
+            }
+
+            .work-card__metric {
+                margin-top: 0.25rem;
+                font-size: 1.125rem;
+                /* text-lg */
+                font-weight: 600;
+                color: #4ADE80;
+                /* text-green-400 */
+            }
+
+            .work-card__cta {
+                margin-top: 1rem;
+                display: inline-block;
+                background-color: white;
+                color: black;
+                font-weight: 600;
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                transform: translateY(1rem);
+                transition: all 0.3s ease;
+            }
+
+            .work-card:hover .work-card__cta {
+                transform: translateY(0);
+            }
+
+            @media (min-width: 768px) {
+                .featured-work__grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .featured-work__grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            /* Process Timeline */
+            .process-timeline {
+                margin-top: 4rem;
+                display: grid;
+                gap: 4rem 3rem;
+                text-align: center;
+            }
+
+            .process-timeline__item {
+                position: relative;
+            }
+
+            .process-timeline__step-number-wrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 4rem;
+                height: 4rem;
+                /* w-16 h-16 */
+                margin: 0 auto 1.5rem;
+                border-radius: 9999px;
+                /* rounded-full */
+                background-color: #1E1E1E;
+                border: 2px solid #333333;
+            }
+
+            .process-timeline__step-number {
+                font-size: 1.5rem;
+                /* text-2xl */
+                font-weight: 700;
+                color: #007BFF;
+            }
+
+            .process-timeline__title {
+                font-size: 1.25rem;
+                /* text-xl */
+                font-weight: 600;
+                color: #ffffff;
+            }
+
+            .process-timeline__description {
+                margin-top: 0.5rem;
+                color: #9CA3AF;
+                /* text-gray-400 */
+            }
+
+            @media (min-width: 1024px) {
+                .process-timeline {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+
+                .process-timeline__item:not(:last-child)::after {
+                    content: '';
+                    position: absolute;
+                    top: 2rem;
+                    right: -2.75rem;
+                    width: 5.5rem;
+                    border-top: 2px dashed #333333;
+                }
+            }
+
+            /* Testimonials */
+            .testimonials {
+                background-color: #1E1E1E;
+            }
+
+            .testimonial-card {
+                max-width: 56rem;
+                /* max-w-4xl */
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .testimonial-card__logo {
+                height: 3rem;
+                /* h-12 */
+                margin: 0 auto;
+            }
+
+            .testimonial-card__quote {
+                margin-top: 2rem;
+                font-size: 1.5rem;
+                /* text-2xl */
+                font-weight: 500;
+                color: #ffffff;
+            }
+
+            .testimonial-card__footer {
+                margin-top: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .testimonial-card__avatar {
+                height: 3rem;
+                width: 3rem;
+                /* h-12 w-12 */
+                border-radius: 9999px;
+            }
+
+            .testimonial-card__author-info {
+                margin-left: 1rem;
+                text-align: left;
+            }
+
+            .testimonial-card__author-name {
+                font-weight: 600;
+                color: #ffffff;
+            }
+
+            .testimonial-card__author-title {
+                color: #9CA3AF;
+                /* text-gray-400 */
+            }
+
+            @media (min-width: 768px) {
+                .testimonial-card__quote {
+                    font-size: 1.875rem;
+                    /* md:text-3xl */
+                }
+            }
+
+            /* Lead Magnet */
+            .lead-magnet__container {
+                background-color: #1E1E1E;
+                border-radius: 1rem;
+                /* rounded-2xl */
+                padding: 2rem;
+                border: 1px solid #333333;
+            }
+
+            .lead-magnet__grid {
+                display: grid;
+                gap: 2rem;
+                align-items: center;
+            }
+
+            .lead-magnet__title {
+                font-size: 1.875rem;
+                /* text-3xl */
+                font-weight: 600;
+                letter-spacing: -0.025em;
+                color: #ffffff;
+            }
+
+            .lead-magnet__description {
+                margin-top: 1rem;
+                font-size: 1.125rem;
+                /* text-lg */
+                color: #9CA3AF;
+            }
+
+            .audit-form {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .audit-form__input {
+                display: block;
+                width: 100%;
+                background-color: #121212;
+                border: 1px solid #333333;
+                border-radius: 0.375rem;
+                /* rounded-md */
+                padding: 0.75rem 1rem;
+                color: #ffffff;
+                transition: all 0.2s ease;
+            }
+
+            .audit-form__input::placeholder {
+                color: #6B7280;
+                /* placeholder-gray-500 */
+            }
+
+            .audit-form__input:focus {
+                border-color: #007BFF;
+                box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+                outline: none;
+            }
+
+            .audit-form__submit {
+                width: 100%;
+                background-color: #007BFF;
+                color: white;
+                font-weight: 600;
+                padding: 0.75rem 1.5rem;
+                border-radius: 0.5rem;
+                border: none;
+                cursor: pointer;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                transition: all 0.3s ease-in-out;
+            }
+
+            .audit-form__submit:hover {
+                background-color: #2563EB;
+                transform: translateY(-0.25rem);
+            }
+
+            @media (min-width: 768px) {
+                .lead-magnet__container {
+                    padding: 3rem;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .lead-magnet__container {
+                    padding: 4rem;
+                }
+
+                .lead-magnet__grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 4rem;
+                }
+            }
+
+            @media (min-width: 640px) {
+                .lead-magnet__title {
+                    font-size: 2.25rem;
+                }
+
+                /* sm:text-4xl */
+            }
+
+            /* Footer */
+            .site-footer {
+                background-color: #1E1E1E;
+                border-top: 1px solid #333333;
+            }
+
+            .site-footer__main {
+                padding: 3rem 0;
+            }
+
+            .site-footer__grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .site-footer__brand-area {
+                grid-column: span 2 / span 2;
+            }
+
+            .site-footer__brand-name {
+                font-size: 1.5rem;
+                /* text-2xl */
+                font-weight: 700;
+                color: #ffffff;
+            }
+
+            .site-footer__brand-tagline {
+                margin-top: 0.5rem;
+                font-size: 0.875rem;
+                /* text-sm */
+                color: #9CA3AF;
+            }
+
+            .site-footer__nav-title {
+                font-size: 0.875rem;
+                /* text-sm */
+                font-weight: 600;
+                color: #9CA3AF;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+
+            .site-footer__nav-list {
+                margin-top: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .site-footer__nav-link,
+            .site-footer__contact-link {
+                color: #D1D5DB;
+                /* text-gray-300 */
+            }
+
+            .site-footer__nav-link:hover,
+            .site-footer__contact-link:hover {
+                color: #ffffff;
+            }
+
+            .site-footer__social-links {
+                margin-top: 1rem;
+                display: flex;
+                gap: 1rem;
+            }
+
+            .site-footer__social-link {
+                color: #9CA3AF;
+            }
+
+            .site-footer__social-link:hover {
+                color: #ffffff;
+            }
+
+            .site-footer__social-icon {
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+
+            .site-footer__bottom-bar {
+                margin-top: 2rem;
+                border-top: 1px solid #333333;
+                padding-top: 2rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 0.875rem;
+                /* text-sm */
+                color: #9CA3AF;
+            }
+
+            .site-footer__bottom-link:hover {
+                color: #ffffff;
+            }
+
+            @media (min-width: 768px) {
+                .site-footer__grid {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+
+                .site-footer__brand-area {
+                    grid-column: span 2 / span 2;
+                }
+
+                .site-footer__nav-group--socials {
+                    grid-column-start: 4;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .site-footer__grid {
+                    grid-template-columns: repeat(5, 1fr);
+                }
+
+                .site-footer__brand-area {
+                    grid-column: span 1 / span 1;
+                }
+
+                .site-footer__nav-group--socials {
+                    grid-column-start: 5;
+                }
+            }
+        </style>
+        <link rel="stylesheet" href="assets/css/navigation.css">
+        <script src="assets/js/navigation.js"></script>
     </head>
 
     <body>
-
-        <header class="header">
-            <div class="container header__container">
-                <a href="/index.html" class="header__logo">
-                    <img src="/imgs/logo_no-bg.png" alt="CEMEX Project Integrated LTD Logo">
-                </a>
-
-                <nav class="nav--desktop">
-                    <a href="/index.html" class="nav__link nav__link--active">Home</a>
-                    <a href="/about.html" class="nav__link">About</a>
-                    <!-- Updated Solutions Dropdown -->
-                    <div class="nav__item--dropdown">
-                        <div class="nav__link-container">
-                            <a href="/solutions.html" class="nav__link">Solutions</a>
-                            <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Toggle Solutions menu">
-                                <svg class="dropdown-toggle__caret" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="dropdown-menu">
-                            <li><a href="/html/solutions/power.html" class="dropdown-menu__link">Power
-                                    Solution</a></li>
-                            <li><a href="/html/solutions/construction.html" class="dropdown-menu__link">Construction</a></li>
-                            <li><a href="/html/solutions/marine.html" class="dropdown-menu__link">Marine
-                                    Services</a></li>
-                            <li><a href="/html/solutions/catering.html" class="dropdown-menu__link">Catering</a></li>
-                        </ul>
-                    </div>
-                    <!-- End Dropdown -->
-                    <a href="/projects.html" class="nav__link">Projects</a>
-                    <a href="/contact.html" class="nav__link">Contact</a>
+        <header class="site-header">
+            <div class="container site-header__container">
+                <a href="index.html" class="site-header__brand">NEXORA</a>
+                <nav class="site-header__nav">
+                    <ul class="site-header__nav-list">
+                        <li><a href="about.html" class="site-header__nav-link">About</a></li>
+                        <li><a href="services.html" class="site-header__nav-link">Services</a></li>
+                        <li><a href="work.html" class="site-header__nav-link">Work</a></li>
+                        <li><a href="insights.html" class="site-header__nav-link">Insights</a></li>
+                        <li><a href="contact.html" class="site-header__nav-link site-header__nav-link--cta">Contact</a></li>
+                    </ul>
                 </nav>
-
-                <button class="nav__toggle" aria-label="Toggle navigation" aria-expanded="false">
-                    <svg class="nav__toggle-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                <button class="site-header__mobile-menu-button" aria-label="Open navigation menu">
+                    <svg class="site-header__mobile-menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
                 </button>
-
             </div>
-            <!-- Mobile navigation is now outside the container to allow full width background -->
-            <nav class="nav--mobile">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="/index.html" class="nav__link nav__link--active">Home</a></li>
-                    <li class="nav__item"><a href="/about.html" class="nav__link">About</a></li>
-                    <!-- Updated Mobile Solutions Dropdown -->
-                    <li class="nav__item nav__item--dropdown">
-                        <div class="nav__link-container">
-                            <a href="/solutions.html" class="nav__link">Solutions</a>
-                            <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Toggle Solutions menu">
-                                <svg class="dropdown-toggle__caret" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg>
-                            </button>
-                        </div>
-                        <ul class="dropdown-menu">
-                            <li><a href="/html/solutions/power.html" class="dropdown-menu__link">Power
-                                    Solution</a></li>
-                            <li><a href="/html/solutions/construction.html" class="dropdown-menu__link">Construction</a></li>
-                            <li><a href="/html/solutions/marine.html" class="dropdown-menu__link">Marine
-                                    Services</a></li>
-                            <li><a href="/html/solutions/catering.html" class="dropdown-menu__link">Catering</a></li>
-                        </ul>
-                    </li>
-                    <!-- End Mobile Dropdown -->
-                    <li class="nav__item"><a href="/projects.html" class="nav__link">Projects</a></li>
-                    <li class="nav__item"><a href="/contact.html" class="nav__link">Contact</a></li>
-                </ul>
-            </nav>
         </header>
-
-        <main>
-            <section class="hero">
-                <img class="hero__video" src="imgs/hero_home.jpg">
-
-                </img>
-                <div class="hero__overlay"></div>
-                <div class="hero__content fade-in">
-                    <h1 class="hero__title">Engineering Excellence <br> in Oil,
-                        Gas & Marine</h1>
-                    <p class="hero__subtitle">To be a reference point in the
-                        provision of quality, efficient and
-                        client-satisfaction-oriented services in Nigeria.</p>
-                    <a href="solutions.html" class="btn btn--primary">Our
-                        Solutions</a>
-                </div>
-            </section>
-
-            <section id="services" class="section">
-                <div class="container">
-                    <div class="section__header fade-in">
-                        <h2 class="section__title">Our Core Capabilities</h2>
-                        <p>We provide a comprehensive range of services tailored
-                            to meet the demanding needs of the energy
-                            sector.</p>
-                    </div>
-                    <div class="grid grid--4-cols">
-                        <div class="card fade-in"style="transition-delay: 0.2s;">
-                            <img src="imgs/site_2.jpg" alt="Onshore construction site" class="card__image">
-                            <div class="card__body">
-                                <h3 class="card__title heading">Construction</h3>
-                                <p>Civil/mechanical construction, structural
-                                    fabrication, pipeline installation, and
-                                    insulation services.</p>
-                            </div>
-                        </div>
-                        <div class="card fade-in"style="transition-delay: 0.2s;">
-                            <img src="imgs/catering.jpg" alt="Onshore construction site" class="card__image">
-                            <div class="card__body">
-                                <h3 class="card__title heading">Catering</h3>
-                                <p>Your expertise in providing high-quality catering services. This should cover the types of events or environments you serve</p>
-                            </div>
-                        </div>
-                        <div class="card fade-in" style="transition-delay: 0.2s;">
-                            <img src="imgs/marine.jpg" alt="Offshore marine vessel" class="card__image">
-                            <div class="card__body">
-                                <h3 class="card__title heading">Marine Services</h3>
-                                <p>Comprehensive marine support, dredging, and
-                                    leasing of heavy-duty equipment like barges
-                                    and tugboats.</p>
-                            </div>
-                        </div>
-                        <div class="card fade-in" style="transition-delay: 0.4s;">
-                            <img src="imgs/Maintenance.jpg" alt="Industrial equipment" class="card__image">
-                            <div class="card__body">
-                                <h3 class="card__title heading">Power Solutions</h3>
-                                <p>Your offerings in providing reliable power generation and management. This includes detailing the types of power solutions</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section section--secondary">
-                <div class="container">
-                    <div class="grid grid--2-cols">
-                        <div class="feature-content fade-in">
-                            <h2 class="section__title section__title--left">Uncompromising
-                                on Safety</h2>
-                            <p>At CEMEX, our HSE policy is fundamental. We are
-                                dedicated to protecting our employees, clients,
-                                and the environment by adhering to the strictest
-                                international standards.</p>
-                            <ul class="feature-list">
-                                <li>Protecting the health and safety of all
-                                    employees and affected persons.</li>
-                                <li>Minimizing the environmental impact of our
-                                    activities.</li>
-                                <li>Adhering to all relevant HSE laws.</li>
-                            </ul>
-                            <a href="about.html" class="btn btn--primary" style="margin-top: 1.5rem;">Our HSE Policy</a>
-                        </div>
-                        <div class="fade-in" style="transition-delay: 0.2s;">
-                            <img src="imgs/safety.jpg" alt="Safety gear on an industrial site" class="feature-content__img">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="parallax" style="background-image: url('imgs/site_1.jpg');">
-                <div class="parallax__content fade-in">
-                    <h2>Let's Build the Future Together</h2>
-                    <p>Discuss your project needs with our experts. We are ready
-                        to provide safe, efficient, and high-quality solutions
-                        tailored for you.</p>
-                    <a href="contact.html" class="btn btn--white-outline" style="margin-top: 1.5rem;">Request a Consultation</a>
-                </div>
-            </section>
-        </main>
-
-        <!-- FOOTER SECTION -->
-
-        <footer class="site-footer-v2-simplified">
+        <!-- 
+      ===========================================================
+      HERO SECTION
+      ===========================================================
+    -->
+        <section class="hero">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h1 class="hero__title">We Engineer Digital Growth.</h1>
+                <p class="hero__subtitle">Partner with us to build high-performance web solutions that drive measurable results and fuel your bottom line.</p>
+                <a href="contact.html" class="hero__cta">Schedule a Discovery Call</a>
+            </div>
+        </section>
+        <!-- 
+      ===========================================================
+      CREDIBILITY BAR SECTION
+      ===========================================================
+    -->
+        <div class="credibility-bar">
             <div class="container">
-                <div class="footer-v2__main-section">
-                    <div class="footer-v2__grid">
-                        <div class="footer-v2__column footer-v2__column--brand">
-                            <a href="/index.html" class="footer-v2__brand-name">CEMEX PROJECT INTEGRATED LTD</a>
-                            <p class="footer-v2__brand-description">Your trusted partner for integrated services in
-                                Nigeria's oil & gas and marine sectors. Committed to quality, safety, and client satisfaction.</p>
-                            <a href="/about.html" class="footer-v2__read-more">Read More
-                                &rarr;</a>
-                        </div>
-                        <div class="footer-v2__column">
-                            <h3 class="footer-v2__column-title">Discover</h3>
-                            <ul class="footer-v2__link-list">
-                                <li><a href="/solutions.html" class="footer-v2__link">Solutions</a></li>
-                                <li><a href="/projects.html" class="footer-v2__link">Projects</a></li>
-                                <li><a href="/about.html" class="footer-v2__link">About
-                                        Us</a></li>
-
-                            </ul>
-                        </div>
-
-                        <div class="footer-v2__column">
-                            <h3 class="footer-v2__column-title"><a href="/contact.html" class="footer-title__link">Contact
-                                    Us</a></h3>
-                            <ul class="footer-v2__link-list">
-                                <li><a href="tel:+2347025005555" class="footer-v2__link">+234-702-500-5555
-                                    </a></li>
-                                <li><a href="mailto:info@cpil.com.ng" class="footer-v2__link">info@cpil.com.ng</a></li>
-
-                                <li><a href="https://maps.app.goo.gl/Ja5kT4QqXKkEPEXf6" class="footer-v2__link">No 16, Crown Court Estate, Victoria Island, Lagos</a></li>
-                            </ul>
-                        </div>
-
+                <h2 class="credibility-bar__title">Trusted by industry-leading companies</h2>
+                <div class="credibility-bar__scroller">
+                    <div class="credibility-bar__scroller-list">
+                        <!-- The list is duplicated to create the seamless scroll effect -->
+                        <img class="credibility-bar__logo" src="https://placehold.co/200x80/FFFFFF/000000?text=ClientA" alt="Client A">
+                        <img class="credibility-bar__logo" src="https://placehold.co/200x80/FFFFFF/000000?text=ClientB" alt="Client B">
+                        <img class="credibility-bar__logo" src="https://placehold.co/200x80/FFFFFF/000000?text=ClientC" alt="Client C">
+                        <img class="credibility-bar__logo" src="https://placehold.co/200x80/FFFFFF/000000?text=ClientD" alt="Client D">
+                        <img class="credibility-bar__logo" src="https://placehold.co/200x80/FFFFFF/000000?text=ClientE" alt="Client E">
+                        <img class="credibility-bar__logo" src="https://placehold.co/200x80/FFFFFF/000000?text=ClientF" alt="Client F">
+                        <!-- Duplicates for seamless animation -->
+                        <img class="credibility-bar__logo" src="https://placehold.co/200x80/FFFFFF/000000?text=ClientA" alt="Client A" aria-hidden="true">
+                        <img class="credibility-bar__logo" src="https://placehold.co/200x80/FFFFFF/000000?text=ClientB" alt="Client B" aria-hidden="true">
+                        <img class="credibility-bar__logo" src="https://placehold.co/200x80/FFFFFF/000000?text=ClientC" alt="Client C" aria-hidden="true">
+                        <img class="credibility-bar__logo" src="https://placehold.co/200x80/FFFFFF/000000?text=ClientD" alt="Client D" aria-hidden="true">
+                        <img class="credibility-bar__logo" src="https://placehold.co/200x80/FFFFFF/000000?text=ClientE" alt="Client E" aria-hidden="true">
+                        <img class="credibility-bar__logo" src="https://placehold.co/200x80/FFFFFF/000000?text=ClientF" alt="Client F" aria-hidden="true">
                     </div>
-                </div>
-
-
-
-                <div class="footer-v2__bottom-bar">
-                    <p>&copy;2025 CEMEX PROJECT
-                        INTEGRATED LIMITED. All Rights Reserved</p>
                 </div>
             </div>
-        </footer>
+        </div>
+        <!-- 
+      ===========================================================
+      CORE CAPABILITIES SECTION
+      ===========================================================
+    -->
+        <section class="section capabilities">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-header__title">Our Core Capabilities</h2>
+                    <p class="section-header__subtitle">We deliver end-to-end solutions that combine strategy, design, and technology.</p>
+                </header>
+                <div class="capabilities__grid">
+                    <!-- Capability 1: Strategic Design -->
+                    <div class="capability-card">
+                        <div class="capability-card__icon-wrapper">
+                            <svg class="capability-card__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 16v-2m0-8a4 4 0 100-8 4 4 0 000 8zm0 0a4 4 0 100 8 4 4 0 000-8z" />
+                            </svg>
+                        </div>
+                        <h3 class="capability-card__title">Strategic Design</h3>
+                        <p class="capability-card__description">We create intuitive, high-converting UX/UI designs that delight users and guide them effortlessly toward action.</p>
+                        <a href="/html/services/service-detail-design.html" class="capability-card__link">Learn More &rarr;</a>
+                    </div>
+                    <!-- Capability 2: Precision Engineering -->
+                    <div class="capability-card">
+                        <div class="capability-card__icon-wrapper">
+                            <svg class="capability-card__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
+                        </div>
+                        <h3 class="capability-card__title">Precision Engineering</h3>
+                        <p class="capability-card__description">Our code is clean, scalable, and secure. We build robust web applications that perform under pressure and stand the test of time.</p>
+                        <a href="/html/services/service-detail-engineering.html" class="capability-card__link">Learn More &rarr;</a>
+                    </div>
+                    <!-- Capability 3: Growth-Focused SEO -->
+                    <div class="capability-card">
+                        <div class="capability-card__icon-wrapper">
+                            <svg class="capability-card__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg>
+                        </div>
+                        <h3 class="capability-card__title">Growth-Focused SEO</h3>
+                        <p class="capability-card__description">Using data-driven strategies, we increase your visibility on search engines, attracting qualified traffic that converts into revenue.</p>
+                        <a href="/html/services/service-detail-seo.html" class="capability-card__link">Learn More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 
+      ===========================================================
+      FEATURED WORK SECTION
+      ===========================================================
+    -->
+        <section class="section featured-work">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-header__title">Results-Driven Work</h2>
+                    <p class="section-header__subtitle">We've helped ambitious brands create exceptional digital products.</p>
+                </header>
+                <div class="featured-work__grid">
+                    <!-- Project 1 -->
+                    <a href="/work/project-one" class="work-card">
+                        <img src="https://placehold.co/600x400/333/fff?text=Project+1" alt="Showcase of Project One" class="work-card__image">
+                        <div class="work-card__overlay"></div>
+                        <div class="work-card__content">
+                            <h3 class="work-card__title">Project Alpha</h3>
+                            <p class="work-card__metric">+200% Increase in Conversions</p>
+                            <span class="work-card__cta">View Case Study</span>
+                        </div>
+                    </a>
+                    <!-- Project 2 -->
+                    <a href="/work/project-two" class="work-card">
+                        <img src="https://placehold.co/600x400/444/fff?text=Project+2" alt="Showcase of Project Two" class="work-card__image">
+                        <div class="work-card__overlay"></div>
+                        <div class="work-card__content">
+                            <h3 class="work-card__title">Project Beta</h3>
+                            <p class="work-card__metric">50% Faster Load Times</p>
+                            <span class="work-card__cta">View Case Study</span>
+                        </div>
+                    </a>
+                    <!-- Project 3 -->
+                    <a href="/work/project-three" class="work-card">
+                        <img src="https://placehold.co/600x400/555/fff?text=Project+3" alt="Showcase of Project Three" class="work-card__image">
+                        <div class="work-card__overlay"></div>
+                        <div class="work-card__content">
+                            <h3 class="work-card__title">Project Gamma</h3>
+                            <p class="work-card__metric">+35% User Engagement</p>
+                            <span class="work-card__cta">View Case Study</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- 
+      ===========================================================
+      PROCESS TIMELINE SECTION
+      ===========================================================
+    -->
+        <section class="section">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-header__title">Our Proven Process</h2>
+                    <p class="section-header__subtitle">A clear path from concept to launch, ensuring transparency and results.</p>
+                </header>
+                <div class="process-timeline">
+                    <!-- Step 1 -->
+                    <div class="process-timeline__item">
+                        <div class="process-timeline__step-number-wrapper"><span class="process-timeline__step-number">1</span></div>
+                        <h3 class="process-timeline__title">Discover</h3>
+                        <p class="process-timeline__description">We start by understanding your vision, goals, audience, and challenges through collaborative workshops.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="process-timeline__item">
+                        <div class="process-timeline__step-number-wrapper"><span class="process-timeline__step-number">2</span></div>
+                        <h3 class="process-timeline__title">Design</h3>
+                        <p class="process-timeline__description">Next, we craft the sitemap, wireframes, and high-fidelity UI designs that form the blueprint for success.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="process-timeline__item">
+                        <div class="process-timeline__step-number-wrapper"><span class="process-timeline__step-number">3</span></div>
+                        <h3 class="process-timeline__title">Develop</h3>
+                        <p class="process-timeline__description">Our expert engineers bring the designs to life with clean, scalable, and secure code on modern frameworks.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="process-timeline__item">
+                        <div class="process-timeline__step-number-wrapper"><span class="process-timeline__step-number">4</span></div>
+                        <h3 class="process-timeline__title">Deploy</h3>
+                        <p class="process-timeline__description">We handle the launch, optimize for performance, and monitor the results to ensure a successful deployment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- 
+      ===========================================================
+      TESTIMONIALS SECTION
+      ===========================================================
+    -->
+        <section class="section testimonials">
+            <div class="container">
+                <figure class="testimonial-card">
+                    <img class="testimonial-card__logo" src="https://placehold.co/200x48/FFFFFF/000000?text=ClientLogo" alt="Client Company Logo">
+                    <blockquote class="testimonial-card__quote">
+                        <p>“Working with Nexora was a game-changer. Their team didn't just build a website; they engineered a growth platform that has fundamentally transformed our business. The results speak for themselves.”</p>
+                    </blockquote>
+                    <figcaption class="testimonial-card__footer">
+                        <img class="testimonial-card__avatar" src="https://placehold.co/100x100/777/fff?text=AV" alt="Photo of Jane Doe">
+                        <div class="testimonial-card__author-info">
+                            <div class="testimonial-card__author-name">Jane Doe</div>
+                            <div class="testimonial-card__author-title">CEO, Example Inc.</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+        <!-- 
+      ===========================================================
+      LEAD MAGNET SECTION
+      ===========================================================
+    -->
+        <section class="section">
+            <div class="container">
+                <div class="lead-magnet__container">
+                    <div class="lead-magnet__grid">
+                        <div class="lead-magnet__content">
+                            <h2 class="lead-magnet__title">Is Your Website Underperforming?</h2>
+                            <p class="lead-magnet__description">Get a free, no-obligation performance, SEO, and usability audit from our experts. We'll identify key areas for improvement to help you unlock your site's true potential.</p>
+                        </div>
+                        <div class="lead-magnet__form-wrapper">
+                            <form action="#" method="POST" class="audit-form">
+                                <input type="text" name="name" required class="audit-form__input" placeholder="Your Name">
+                                <input type="email" name="email" required class="audit-form__input" placeholder="Work Email">
+                                <input type="url" name="website" required class="audit-form__input" placeholder="Website URL">
+                                <button type="submit" class="audit-form__submit">Get My Free Audit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+         <!-- FOOTER SECTION -->
+       <footer class="site-footer-v2-simplified">
+    <div class="container">
+        <div class="footer-v2__main-section">
+            <div class="footer-v2__grid">
+                <div class="footer-v2__column footer-v2__column--brand">
+                    <a href="/index.html" class="footer-v2__brand-name">NEXORA</a>
+                    <p class="footer-v2__brand-description">We engineer high-performance web solutions that drive measurable results and fuel your bottom line.</p>
+                    <a href="/about.html" class="footer-v2__read-more">Read More &rarr;</a>
+                </div>
+                <div class="footer-v2__column">
+                    <h3 class="footer-v2__column-title">Discover</h3>
+                    <ul class="footer-v2__link-list">
+                        <li><a href="/services.html" class="footer-v2__link">Services</a></li>
+                        <li><a href="/work.html" class="footer-v2__link">Work</a></li>
+                        <li><a href="/insights.html" class="footer-v2__link">Insights</a></li>
+                    </ul>
+                </div>
+                <div class="footer-v2__column">
+                    <h3 class="footer-v2__column-title">About</h3>
+                    <ul class="footer-v2__link-list">
+                        <li><a href="/about.html" class="footer-v2__link">About Us</a></li>
+                        <li><a href="/contact.html" class="footer-v2__link">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-v2__column">
+                    <h3 class="footer-v2__column-title">Social</h3>
+                    <ul class="footer-v2__link-list">
+                         <li><a href="https://www.instagram.com/nexora_web_agency/" class="footer-v2__link" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/in/nexora-web-agency-353b10370" class="footer-v2__link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-        <script src="js/main.js"></script>
+        <div class="footer-v2__partner-section">
+            <span class="footer-v2__partner-label">Our Partners:</span>
+            <div class="footer-v2__partner-logos">
+                <img src="https://placehold.co/100x40/FFFFFF/000000?text=COMPANY+01" alt="Company 01" class="footer-v2__partner-logo">
+                <img src="https://placehold.co/100x40/FFFFFF/000000?text=COMPANY+02" alt="Company 02" class="footer-v2__partner-logo">
+                <img src="https://placehold.co/100x40/FFFFFF/000000?text=COMPANY+03" alt="Company 03" class="footer-v2__partner-logo">
+                <img src="https://placehold.co/100x40/FFFFFF/000000?text=COMPANY+04" alt="Company 04" class="footer-v2__partner-logo">
+                <img src="https://placehold.co/100x40/FFFFFF/000000?text=COMPANY+05" alt="Company 05" class="footer-v2__partner-logo">
+                <img src="https://placehold.co/100x40/FFFFFF/000000?text=COMPANY+06" alt="Company 06" class="footer-v2__partner-logo">
+            </div>
+            <a href="/work.html" class="footer-v2__partner-see-all">See All &rarr;</a>
+        </div>
+        
+        <div class="footer-v2__bottom-bar">
+            <p>Copyright &copy;2024 All rights reserved</p>
+        </div>
+    </div>
+</footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // Check if three.js is loaded
+                if (typeof THREE === 'undefined') {
+                    console.error('Three.js is not loaded.');
+                    return;
+                }
+
+                // Scene setup
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                const canvas = document.getElementById('hero-canvas');
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas });
+
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(window.devicePixelRatio);
+                camera.position.z = 5;
+
+                // Particle system
+                const particleCount = 5000;
+                const particlesGeometry = new THREE.BufferGeometry();
+                const posArray = new Float32Array(particleCount * 3);
+
+                for (let i = 0; i < particleCount * 3; i++) {
+                    posArray[i] = (Math.random() - 0.5) * 10;
+                }
+
+                particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+                const particlesMaterial = new THREE.PointsMaterial({
+                    size: 0.015,
+                    color: 0x007BFF,
+                    transparent: true,
+                    blending: THREE.AdditiveBlending
+                });
+
+                const particleMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+                scene.add(particleMesh);
+
+                // Mouse interaction
+                const mouse = new THREE.Vector2();
+                window.addEventListener('mousemove', (event) => {
+                    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+                    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                });
+
+                // Animation loop
+                const clock = new THREE.Clock();
+                const animate = () => {
+                    const elapsedTime = clock.getElapsedTime();
+
+                    // Animate particles
+                    particleMesh.rotation.y = elapsedTime * 0.05;
+                    particleMesh.rotation.x = elapsedTime * 0.05;
+
+                    // Animate based on mouse position
+                    if (particleMesh) {
+                        particleMesh.rotation.y += mouse.x * 0.1;
+                        particleMesh.rotation.x += mouse.y * 0.1;
+                    }
+
+                    renderer.render(scene, camera);
+                    window.requestAnimationFrame(animate);
+                };
+
+                animate();
+
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    camera.aspect = window.innerWidth / window.innerHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(window.innerWidth, window.innerHeight);
+                    renderer.setPixelRatio(window.devicePixelRatio);
+                });
+            });
+        </script>
+
+
     </body>
 
 </html>

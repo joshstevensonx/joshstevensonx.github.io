@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Case Study: Project Alpha - Nexora</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+        <style>
+            /* 1. Global Styles & Resets */
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            body,
+            h1,
+            h2,
+            h3,
+            h4,
+            p,
+            ul,
+            figure,
+            blockquote,
+            footer {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: #121212;
+                color: #E0E0E0;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            img {
+                max-width: 100%;
+                display: block;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            ul {
+                list-style: none;
+            }
+
+            /* 2. Reusable Component Styles */
+            .container {
+                width: 100%;
+                max-width: 1024px;
+                margin: 0 auto;
+                padding: 0 1rem;
+            }
+
+            .section {
+                padding: 5rem 0;
+            }
+
+            .button {
+                display: inline-block;
+                padding: 0.75rem 1.5rem;
+                font-weight: 600;
+                border-radius: 0.5rem;
+                transition: all 0.3s ease;
+                border: 2px solid transparent;
+            }
+
+            .button--primary {
+                background-color: #007BFF;
+                color: #ffffff;
+            }
+
+            .button--primary:hover {
+                background-color: #2563EB;
+            }
+
+            /* 3. Animation Styles */
+            .animate-on-scroll {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            }
+
+            .animate-on-scroll.is-visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* Staggered animation for project details */
+            .project-details__item.is-visible:nth-child(1) {
+                transition-delay: 0.1s;
+            }
+
+            .project-details__item.is-visible:nth-child(2) {
+                transition-delay: 0.2s;
+            }
+
+            .project-details__item.is-visible:nth-child(3) {
+                transition-delay: 0.3s;
+            }
+
+            .project-details__item.is-visible:nth-child(4) {
+                transition-delay: 0.4s;
+            }
+
+
+            /* 4. Site Header & Navigation Styles */
+            .site-header {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 10;
+                padding: 1.5rem 0;
+                background-color: transparent;
+                transition: background-color 0.3s ease;
+            }
+
+            .site-header.is-sticky {
+                position: fixed;
+                background-color: rgba(18, 18, 18, 0.8);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                animation: slide-down 0.5s ease-out;
+            }
+
+            @keyframes slide-down {
+                from {
+                    transform: translateY(-100%);
+                }
+
+                to {
+                    transform: translateY(0);
+                }
+            }
+
+            .site-header__container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 1280px;
+            }
+
+            .site-header__brand {
+                font-size: 1.75rem;
+                font-weight: 700;
+                color: #ffffff;
+                letter-spacing: -0.05em;
+            }
+
+            .site-header__nav {
+                display: none;
+            }
+
+            .site-header__nav-list {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .site-header__nav-link {
+                font-weight: 500;
+                color: #E0E0E0;
+                transition: color 0.3s ease;
+            }
+
+            .site-header__nav-link:hover {
+                color: #007BFF;
+            }
+
+            .site-header__nav-link--cta {
+                background-color: #007BFF;
+                color: #ffffff;
+                padding: 0.5rem 1rem;
+                border-radius: 0.375rem;
+                transition: background-color 0.3s ease;
+            }
+
+            .site-header__nav-link--cta:hover {
+                background-color: #2563EB;
+                color: #ffffff;
+            }
+
+            .site-header__mobile-menu-button {
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                color: #ffffff;
+            }
+
+            .site-header__mobile-menu-icon {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            @media (min-width: 768px) {
+                .site-header__nav {
+                    display: block;
+                }
+
+                .site-header__mobile-menu-button {
+                    display: none;
+                }
+            }
+
+            .mobile-nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #121212;
+                z-index: 100;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transform: translateX(100%);
+                transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            }
+
+            .mobile-nav.is-open {
+                transform: translateX(0);
+            }
+
+            .mobile-nav__list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+            }
+
+            .mobile-nav__item {
+                margin-bottom: 2rem;
+            }
+
+            .mobile-nav__link {
+                font-size: 1.75rem;
+                font-weight: 600;
+                color: #ffffff;
+                transition: color 0.3s ease;
+            }
+
+            .mobile-nav__link:hover {
+                color: #007BFF;
+            }
+
+            .mobile-nav__close-button {
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                color: #ffffff;
+            }
+
+            .mobile-nav__close-icon {
+                width: 2rem;
+                height: 2rem;
+            }
+
+            /* 5. Case Study Specific Styles */
+            .case-study-hero {
+                padding: 8rem 0 6rem;
+                text-align: center;
+                border-bottom: 1px solid #333333;
+            }
+
+            .case-study-hero__title {
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: #ffffff;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .case-study-hero__subtitle {
+                margin-top: 1rem;
+                font-size: 1.25rem;
+                color: #9CA3AF;
+            }
+
+            .case-study-hero__metric {
+                margin-top: 2rem;
+                font-size: 3rem;
+                font-weight: 700;
+                color: #4ADE80;
+            }
+
+            .case-study-hero__metric-label {
+                display: block;
+                font-size: 1rem;
+                color: #9CA3AF;
+                font-weight: 500;
+                margin-top: 0.5rem;
+            }
+
+            .project-details {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 2rem;
+                padding: 3rem 0;
+                border-bottom: 1px solid #333333;
+                text-align: center;
+            }
+
+            .project-details__item h4 {
+                font-size: 0.875rem;
+                font-weight: 600;
+                color: #9CA3AF;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 0.5rem;
+            }
+
+            .project-details__item p {
+                font-size: 1.125rem;
+                color: #ffffff;
+                font-weight: 500;
+            }
+
+            .case-study-body {
+                padding: 4rem 0;
+                font-size: 1.125rem;
+                line-height: 1.8;
+                color: #D1D5DB;
+            }
+
+            .case-study-body h2 {
+                font-size: 2rem;
+                font-weight: 600;
+                color: #ffffff;
+                margin-top: 3rem;
+                margin-bottom: 1.5rem;
+                padding-bottom: 1rem;
+                border-bottom: 1px solid #333333;
+            }
+
+            .case-study-body h2:first-child {
+                margin-top: 0;
+            }
+
+            .case-study-body p {
+                margin-bottom: 1.5rem;
+            }
+
+            .case-study-body .image-showcase {
+                margin: 3rem 0;
+                border-radius: 0.75rem;
+                overflow: hidden;
+                border: 1px solid #333333;
+            }
+
+            .testimonial-quote {
+                background-color: #1E1E1E;
+                padding: 4rem 2rem;
+                border-radius: 1rem;
+                text-align: center;
+                border: 1px solid #333333;
+                margin: 4rem 0;
+            }
+
+            .testimonial-quote__text {
+                font-size: 1.5rem;
+                font-weight: 500;
+                color: #ffffff;
+                line-height: 1.6;
+                max-width: 800px;
+                margin: 0 auto 1.5rem;
+            }
+
+            .testimonial-quote__author {
+                color: #9CA3AF;
+                font-style: normal;
+            }
+
+            .testimonial-quote__author span {
+                font-weight: 600;
+                color: #ffffff;
+            }
+
+            .page-cta {
+                text-align: center;
+            }
+
+            .page-cta__title {
+                font-size: 2rem;
+                font-weight: 600;
+                color: #ffffff;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            @media (min-width: 768px) {
+                .case-study-hero__title {
+                    font-size: 3.5rem;
+                }
+            }
+
+            /* 6. Footer Styles (Copied from existing pages) */
+            .site-footer {
+                background-color: #1E1E1E;
+                border-top: 1px solid #333333;
+                padding-top: 3rem;
+            }
+
+            .site-footer__main {
+                padding-bottom: 3rem;
+            }
+
+            .site-footer__grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .site-footer__brand-area {
+                grid-column: span 2 / span 2;
+            }
+
+            .site-footer__brand-name {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #ffffff;
+            }
+
+            .site-footer__brand-tagline {
+                margin-top: 0.5rem;
+                font-size: 0.875rem;
+                color: #9CA3AF;
+            }
+
+            .site-footer__nav-title {
+                font-size: 0.875rem;
+                font-weight: 600;
+                color: #9CA3AF;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+
+            .site-footer__nav-list {
+                margin-top: 1rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .site-footer__nav-link,
+            .site-footer__contact-link {
+                color: #D1D5DB;
+                transition: color 0.3s ease;
+            }
+
+            .site-footer__nav-link:hover,
+            .site-footer__contact-link:hover {
+                color: #ffffff;
+            }
+
+            .site-footer__social-links {
+                margin-top: 1rem;
+                display: flex;
+                gap: 1rem;
+            }
+
+            .site-footer__social-link {
+                color: #9CA3AF;
+                transition: color 0.3s ease;
+            }
+
+            .site-footer__social-link:hover {
+                color: #ffffff;
+            }
+
+            .site-footer__social-icon {
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+
+            .site-footer__bottom-bar {
+                margin-top: 2rem;
+                border-top: 1px solid #333333;
+                padding: 2rem 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 0.875rem;
+                color: #9CA3AF;
+            }
+
+            .site-footer__bottom-link:hover {
+                color: #ffffff;
+            }
+
+            @media (min-width: 768px) {
+                .site-footer__grid {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+
+                .site-footer__brand-area {
+                    grid-column: span 2 / span 2;
+                }
+
+                .site-footer__nav-group--socials {
+                    grid-column-start: 4;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .site-footer__grid {
+                    grid-template-columns: repeat(5, 1fr);
+                }
+
+                .site-footer__brand-area {
+                    grid-column: span 1 / span 1;
+                }
+
+                .site-footer__nav-group--socials {
+                    grid-column-start: 5;
+                }
+            }
+        </style>
+          <link rel="stylesheet" href="/assets/css/navigation.css">
+        <script src="/assets/js/navigation.js"></script>
+    </head>
+
+    <body>
+
+        <header class="site-header">
+            <div class="container site-header__container">
+                <a href="/index.html" class="site-header__brand">NEXORA</a>
+                <nav class="site-header__nav">
+                    <ul class="site-header__nav-list">
+                        <li><a href="/about.html" class="site-header__nav-link">About</a></li>
+                        <li><a href="/services.html" class="site-header__nav-link">Services</a></li>
+                        <li><a href="/work.html" class="site-header__nav-link">Work</a></li>
+                        <li><a href="/insights.html" class="site-header__nav-link">Insights</a></li>
+                        <li><a href="/contact.html" class="site-header__nav-link site-header__nav-link--cta">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="site-header__mobile-menu-button" aria-label="Open navigation menu">
+                    <svg class="site-header__mobile-menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="case-study-hero">
+                <div class="container animate-on-scroll">
+                    <p class="case-study-hero__subtitle">Project Alpha</p>
+                    <h1 class="case-study-hero__title">A strategic redesign that led to a massive boost in user engagement and conversions.</h1>
+                    <div class="case-study-hero__metric">
+                        +200%
+                        <span class="case-study-hero__metric-label">Increase in Conversions</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project-details container">
+                <div class="project-details__item animate-on-scroll">
+                    <h4>Client</h4>
+                    <p>Enterprise SaaS Co.</p>
+                </div>
+                <div class="project-details__item animate-on-scroll">
+                    <h4>Year</h4>
+                    <p>2024</p>
+                </div>
+                <div class="project-details__item animate-on-scroll">
+                    <h4>Services</h4>
+                    <p>Strategic Design, UX Research</p>
+                </div>
+                <div class="project-details__item animate-on-scroll">
+                    <h4>Industry</h4>
+                    <p>Technology / B2B</p>
+                </div>
+            </section>
+
+            <section class="case-study-body container">
+                <div class="animate-on-scroll">
+                    <h2>The Challenge</h2>
+                    <p>Enterprise SaaS Co. had a powerful platform, but their marketing website failed to communicate its value effectively. The user journey was confusing, bounce rates were high, and lead generation was suffering. They needed a complete overhaul to better reflect the quality of their product and guide users toward conversion.</p>
+                </div>
+
+                <img src="https://placehold.co/1200x800/2a2a2a/ffffff?text=Full-Width+Project+Image" alt="Screenshot of the old website design" class="image-showcase animate-on-scroll">
+
+                <div class="animate-on-scroll">
+                    <h2>The Solution</h2>
+                    <p>Our approach was rooted in a deep understanding of the target user. We began with comprehensive UX research, including stakeholder interviews and user journey mapping. This informed a new information architecture and wireframes focused on clarity and conversion.</p>
+                    <p>Our design team then crafted a visually stunning, high-fidelity UI that aligned with their modern brand identity. The development phase prioritized performance and accessibility, resulting in a lightning-fast experience across all devices. We implemented a clear call-to-action system to guide users seamlessly from discovery to demo request.</p>
+                </div>
+
+                <img src="https://placehold.co/1200x800/444/fff?text=New+UI/UX+Showcase" alt="Hero shot of the new website design" class="image-showcase animate-on-scroll">
+
+                <div class="animate-on-scroll">
+                    <h2>The Results</h2>
+                    <p>The new website launched to universal acclaim from their internal team and, more importantly, their users. By focusing on a user-centric design and clear conversion pathways, we achieved significant, measurable improvements across all key metrics.</p>
+                    <ul>
+                        <li><strong>+200% Increase in qualified leads</strong> from the website within the first quarter.</li>
+                        <li><strong>-40% Reduction in bounce rate</strong> on key landing pages.</li>
+                        <li><strong>+60% Increase in average session duration</strong>, indicating higher user engagement.</li>
+                    </ul>
+                </div>
+
+                <div class="testimonial-quote animate-on-scroll">
+                    <p class="testimonial-quote__text">“Nexora didn't just give us a new design; they gave us a strategic tool that has become our most powerful asset for lead generation. Their process was transparent and their team's expertise was evident at every stage.”</p>
+                    <cite class="testimonial-quote__author"><span>Jane Doe</span>, CEO of Enterprise SaaS Co.</cite>
+                </div>
+            </section>
+
+            <section class="section page-cta animate-on-scroll">
+                <div class="container">
+                    <h2 class="page-cta__title">Ready to see results like these for your business?</h2>
+                    <a href="contact.html" class="button button--primary" style="margin-top: 2rem;">Schedule a Discovery Call</a>
+                </div>
+            </section>
+        </main>
+  <!-- FOOTER SECTION -->
+       <footer class="site-footer-v2-simplified">
+    <div class="container">
+        <div class="footer-v2__main-section">
+            <div class="footer-v2__grid">
+                <div class="footer-v2__column footer-v2__column--brand">
+                    <a href="/index.html" class="footer-v2__brand-name">NEXORA</a>
+                    <p class="footer-v2__brand-description">We engineer high-performance web solutions that drive measurable results and fuel your bottom line.</p>
+                    <a href="/about.html" class="footer-v2__read-more">Read More &rarr;</a>
+                </div>
+                <div class="footer-v2__column">
+                    <h3 class="footer-v2__column-title">Discover</h3>
+                    <ul class="footer-v2__link-list">
+                        <li><a href="/services.html" class="footer-v2__link">Services</a></li>
+                        <li><a href="/work.html" class="footer-v2__link">Work</a></li>
+                        <li><a href="/insights.html" class="footer-v2__link">Insights</a></li>
+                    </ul>
+                </div>
+                <div class="footer-v2__column">
+                    <h3 class="footer-v2__column-title">About</h3>
+                    <ul class="footer-v2__link-list">
+                        <li><a href="/about.html" class="footer-v2__link">About Us</a></li>
+                        <li><a href="/contact.html" class="footer-v2__link">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-v2__column">
+                    <h3 class="footer-v2__column-title">Social</h3>
+                    <ul class="footer-v2__link-list">
+                         <li><a href="https://www.instagram.com/nexora_web_agency/" class="footer-v2__link" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                        <li><a href="https://www.linkedin.com/in/nexora-web-agency-353b10370" class="footer-v2__link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-v2__partner-section">
+            <span class="footer-v2__partner-label">Our Partners:</span>
+            <div class="footer-v2__partner-logos">
+                <img src="https://placehold.co/100x40/FFFFFF/000000?text=COMPANY+01" alt="Company 01" class="footer-v2__partner-logo">
+                <img src="https://placehold.co/100x40/FFFFFF/000000?text=COMPANY+02" alt="Company 02" class="footer-v2__partner-logo">
+                <img src="https://placehold.co/100x40/FFFFFF/000000?text=COMPANY+03" alt="Company 03" class="footer-v2__partner-logo">
+                <img src="https://placehold.co/100x40/FFFFFF/000000?text=COMPANY+04" alt="Company 04" class="footer-v2__partner-logo">
+                <img src="https://placehold.co/100x40/FFFFFF/000000?text=COMPANY+05" alt="Company 05" class="footer-v2__partner-logo">
+                <img src="https://placehold.co/100x40/FFFFFF/000000?text=COMPANY+06" alt="Company 06" class="footer-v2__partner-logo">
+            </div>
+            <a href="/work.html" class="footer-v2__partner-see-all">See All &rarr;</a>
+        </div>
+        
+        <div class="footer-v2__bottom-bar">
+            <p>Copyright &copy;2024 All rights reserved</p>
+        </div>
+    </div>
+</footer>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // --- Navigation Logic ---
+                const header = document.querySelector('.site-header');
+                const mobileMenuButton = document.querySelector('.site-header__mobile-menu-button');
+                const mobileNav = document.createElement('div');
+                mobileNav.classList.add('mobile-nav');
+
+                mobileNav.innerHTML = `
+                <button class="mobile-nav__close-button" aria-label="Close navigation menu">
+                    <svg class="mobile-nav__close-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+                <ul class="mobile-nav__list">
+                    <li class="mobile-nav__item"><a href="about.html" class="mobile-nav__link">About</a></li>
+                    <li class="mobile-nav__item"><a href="services.html" class="mobile-nav__link">Services</a></li>
+                    <li class="mobile-nav__item"><a href="work.html" class="mobile-nav__link">Work</a></li>
+                    <li class="mobile-nav__item"><a href="insights.html" class="mobile-nav__link">Insights</a></li>
+                    <li class="mobile-nav__item"><a href="contact.html" class="mobile-nav__link">Contact</a></li>
+                </ul>
+            `;
+                document.body.appendChild(mobileNav);
+
+                const mobileNavCloseButton = mobileNav.querySelector('.mobile-nav__close-button');
+
+                mobileMenuButton.addEventListener('click', () => mobileNav.classList.add('is-open'));
+                mobileNavCloseButton.addEventListener('click', () => mobileNav.classList.remove('is-open'));
+
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('is-sticky');
+                    } else {
+                        header.classList.remove('is-sticky');
+                    }
+                });
+
+                // --- Scroll Animation Logic ---
+                const animatedElements = document.querySelectorAll('.animate-on-scroll');
+                if ("IntersectionObserver" in window) {
+                    const observer = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('is-visible');
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.1 });
+
+                    animatedElements.forEach(el => observer.observe(el));
+                } else {
+                    animatedElements.forEach(el => el.classList.add('is-visible'));
+                }
+            });
+        </script>
+
+    </body>
+
+</html>

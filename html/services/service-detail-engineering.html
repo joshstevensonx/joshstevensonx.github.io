@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Design Services - Nexora</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* 1. Global & Reusable Styles */
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #E0E0E0;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+        .section { padding: 6rem 0; }
+        .button {
+            display: inline-block; padding: 0.75rem 2rem; font-weight: 600; border-radius: 0.5rem;
+            transition: all 0.3s ease; border: 2px solid transparent; text-decoration: none;
+        }
+        .button--primary { background-color: #007BFF; color: #ffffff; }
+        .button--primary:hover { background-color: #ffffff; color: #007BFF; }
+        a {text-decoration: none; color: inherit;}
+
+        /* 2. Service Detail Page Specific Styles */
+        .service-hero {
+            position: relative;
+            text-align: center;
+            padding: 8rem 0;
+            background-color: #1E1E1E;
+            border-bottom: 1px solid #333333;
+        }
+        .service-hero__title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .service-hero__subtitle {
+            font-size: 1.25rem;
+            color: #9CA3AF;
+            max-width: 700px;
+            margin: 1rem auto 0;
+            line-height: 1.6;
+        }
+        .service-overview { text-align: center; max-width: 800px; margin: 0 auto; }
+        .service-overview h2 { font-size: 2.25rem; color: #fff; margin-bottom: 1rem; }
+        .service-overview p { font-size: 1.125rem; color: #D1D5DB; line-height: 1.8; }
+        .deliverables { background-color: #1E1E1E; }
+        .deliverables__header { text-align: center; margin-bottom: 4rem; }
+        .deliverables__header h2 { font-size: 2.5rem; color: #fff; }
+        .deliverables__header p { font-size: 1.125rem; color: #9CA3AF; max-width: 600px; margin: 1rem auto 0; }
+        .deliverables__grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        .deliverable-card {
+            background-color: #121212;
+            padding: 2.5rem 2rem;
+            border: 1px solid #333333;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+        .deliverable-card:hover {
+            border-color: #007BFF;
+            transform: translateY(-5px);
+        }
+        .deliverable-card__icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            color: #007BFF;
+            margin-bottom: 1.5rem;
+        }
+        .deliverable-card h3 { font-size: 1.25rem; color: #fff; margin-bottom: 0.75rem; }
+        .deliverable-card p { color: #9CA3AF; line-height: 1.6; }
+        .featured-project {
+            background-color: #1E1E1E;
+            border-radius: 1rem;
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        @media (min-width: 1024px) { .featured-project { grid-template-columns: 1fr 1fr; } }
+        .featured-project__image-wrapper { border-radius: 0.75rem; overflow: hidden; }
+        .featured-project__content h4 {
+            font-size: 0.875rem; color: #007BFF; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;
+        }
+        .featured-project__content h2 { font-size: 2rem; color: #fff; margin-bottom: 1rem; }
+        .featured-project__content p { color: #D1D5DB; line-height: 1.7; margin-bottom: 2rem; }
+        .page-cta { text-align: center; }
+        .page-cta h2 { font-size: 2.25rem; color: #fff; max-width: 600px; margin: 0 auto 1.5rem; }
+        .page-cta p { font-size: 1.125rem; color: #9CA3AF; max-width: 600px; margin: 0 auto 2.5rem; }
+        .page-cta .button { margin: 0 0.5rem; }
+        .button--secondary { background-color: #1E1E1E; color: #fff; border-color: #333; }
+        .button--secondary:hover { background-color: #333; }
+
+        /* Simplified Footer Styles */
+        .site-footer-v2-simplified { background-color: #1a1a1a; color: #9CA3AF; font-size: 0.95rem; line-height: 1.6; padding: 5rem 0 0; }
+        .footer-v2__main-section { padding-bottom: 3rem; border-bottom: 1px solid #333333; }
+        .footer-v2__grid { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+        .footer-v2__column-title { color: #ffffff; font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; }
+        .footer-v2__link-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.8rem; }
+        .footer-v2__link { color: #9CA3AF; transition: color 0.3s ease, padding-left 0.3s ease; }
+        .footer-v2__link:hover { color: #ffffff; padding-left: 5px; }
+        .footer-v2__brand-name { display: block; color: #ffffff; font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; }
+        .footer-v2__brand-description { margin-bottom: 1rem; }
+        .footer-v2__read-more { color: #c0b09a; font-weight: 600; }
+        .footer-v2__read-more:hover { color: #ffffff; }
+        .footer-v2__partner-section { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; padding: 2rem 0; border-bottom: 1px solid #333333; }
+        .footer-v2__partner-label { font-weight: 600; color: #ffffff; }
+        .footer-v2__partner-logos { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+        .footer-v2__partner-logo { height: 25px; filter: grayscale(1) brightness(1.5); opacity: 0.6; transition: opacity 0.3s; }
+        .footer-v2__partner-logo:hover { opacity: 1; }
+        .footer-v2__partner-see-all { color: #c0b09a; font-weight: 600; white-space: nowrap; }
+        .footer-v2__partner-see-all:hover { color: #ffffff; }
+        .footer-v2__bottom-bar { padding: 2rem 0; display: flex; justify-content: center; align-items: center; text-align: center; }
+        @media (min-width: 768px) { .footer-v2__grid { grid-template-columns: repeat(4, 1fr); } .footer-v2__column--brand { grid-column: span 2; } }
+        @media (min-width: 992px) { .footer-v2__grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; } .footer-v2__column--brand { grid-column: span 1; } }
+    </style>
+    <link rel="stylesheet" href="/assets/css/navigation.css">
+</head>
+<body>
+
+   <header class="site-header">
+            <div class="container site-header__container">
+                <a href="/index.html" class="site-header__brand">NEXORA</a>
+                <nav class="site-header__nav">
+                    <ul class="site-header__nav-list">
+                        <li><a href="/about.html" class="site-header__nav-link">About</a></li>
+                        <li><a href="/services.html" class="site-header__nav-link">Services</a></li>
+                        <li><a href="/work.html" class="site-header__nav-link">Work</a></li>
+                        <li><a href="/insights.html" class="site-header__nav-link">Insights</a></li>
+                        <li><a href="/contact.html" class="site-header__nav-link site-header__nav-link--cta">Contact</a></li>
+                    </ul>
+                </nav>
+                <button class="site-header__mobile-menu-button" aria-label="Open navigation menu">
+                    <svg class="site-header__mobile-menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+    <main>
+        <section class="service-hero">
+            <div class="container">
+                <h1 class="service-hero__title">Strategic Design</h1>
+                <p class="service-hero__subtitle">We create beautiful, high-converting user experiences that solve business problems, delight your users, and drive measurable growth.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container service-overview">
+                <h2>Design That's More Than Skin Deep</h2>
+                <p>
+                    At Nexora, we believe that exceptional design is the fusion of art and science. It’s not just about aesthetics; it's about understanding user psychology, business objectives, and technical constraints to build an interface that feels intuitive and guides users effortlessly toward their goals. Our process is collaborative, data-driven, and relentlessly focused on creating a powerful tool for your business.
+                </p>
+            </div>
+        </section>
+
+        <section class="section deliverables">
+            <div class="container">
+                <header class="deliverables__header">
+                    <h2>Key Deliverables</h2>
+                    <p>Our strategic design process is comprehensive, ensuring every aspect of the user experience is intentionally crafted.</p>
+                </header>
+                <div class="deliverables__grid">
+                    <div class="deliverable-card">
+                        <svg class="deliverable-card__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+                        <h3>User Research & Personas</h3>
+                        <p>We dive deep into your audience's needs, behaviors, and motivations to build a foundational understanding that informs every design decision.</p>
+                    </div>
+                    <div class="deliverable-card">
+                        <svg class="deliverable-card__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25c0-.46.182-.9.513-1.237l3.75-3.75c.337-.337.877-.513 1.32-.513h6.125a2.25 2.25 0 012.25 2.25z" /></svg>
+                        <h3>Wireframing & Prototyping</h3>
+                        <p>We map out the user flow and architecture, creating interactive blueprints to test and refine the experience before writing a line of code.</p>
+                    </div>
+                    <div class="deliverable-card">
+                        <svg class="deliverable-card__icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125V4.125A2.25 2.25 0 0018.75 1.875h-5.25A2.25 2.25 0 0011.25 4.125v13.125c0 .621.504 1.125 1.125 1.125h-6.75z" /></svg>
+                        <h3>High-Fidelity UI Design</h3>
+                        <p>This is where the vision comes to life. We craft a stunning, pixel-perfect visual interface that embodies your brand and delights your users.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="featured-project">
+                    <div class="featured-project__image-wrapper">
+                        <img src="https://placehold.co/600x400/3a3a3a/fff?text=Project+Delta" alt="Showcase of Project Delta">
+                    </div>
+                    <div class="featured-project__content">
+                        <h4>Featured Design Project</h4>
+                        <h2>Project Delta</h2>
+                        <p>We partnered with this innovative startup to design their flagship product from the ground up, resulting in an award-winning UI/UX that secured significant user adoption post-launch.</p>
+                        <a href="/work/project-delta.html" class="button button--primary">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section page-cta">
+            <div class="container">
+                <h2>Ready to Elevate Your User Experience?</h2>
+                <a href="/contact.html" class="button button--primary">Schedule a Call</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer-v2-simplified">
+        <div class="container">
+            <div class="footer-v2__main-section">
+                <div class="footer-v2__grid">
+                    <div class="footer-v2__column footer-v2__column--brand">
+                        <a href="/index.html" class="footer-v2__brand-name">NEXORA</a>
+                        <p class="footer-v2__brand-description">We engineer high-performance web solutions that drive measurable results and fuel your bottom line.</p>
+                        <a href="/about.html" class="footer-v2__read-more">Read More &rarr;</a>
+                    </div>
+                    <div class="footer-v2__column">
+                        <h3 class="footer-v2__column-title">Discover</h3>
+                        <ul class="footer-v2__link-list">
+                            <li><a href="/services.html" class="footer-v2__link">Services</a></li>
+                            <li><a href="/work.html" class="footer-v2__link">Work</a></li>
+                            <li><a href="/insights.html" class="footer-v2__link">Insights</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-v2__column">
+                        <h3 class="footer-v2__column-title">About</h3>
+                        <ul class="footer-v2__link-list">
+                            <li><a href="/about.html" class="footer-v2__link">About Us</a></li>
+                            <li><a href="/contact.html" class="footer-v2__link">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-v2__column">
+                        <h3 class="footer-v2__column-title">Social</h3>
+                        <ul class="footer-v2__link-list">
+                             <li><a href="https://www.instagram.com/nexora_web_agency/" class="footer-v2__link" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                            <li><a href="https://www.linkedin.com/in/nexora-web-agency-353b10370" class="footer-v2__link" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-v2__partner-section">
+                <span class="footer-v2__partner-label">Our Partners:</span>
+                <div class="footer-v2__partner-logos">
+                    <img src="https://placehold.co/100x40/FFFFFF/000000?text=PARTNER1" alt="Partner 1" class="footer-v2__partner-logo">
+                    <img src="https://placehold.co/100x40/FFFFFF/000000?text=PARTNER2" alt="Partner 2" class="footer-v2__partner-logo">
+                </div>
+                <a href="/work.html" class="footer-v2__partner-see-all">See All &rarr;</a>
+            </div>
+            <div class="footer-v2__bottom-bar">
+                <p>Copyright &copy;2024 All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="/assets/js/navigation.js"></script>
+
+</body>
+</html>
