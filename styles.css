@@ -1,0 +1,342 @@
+/* ========================
+   1. GLOBAL VARIABLES
+   ======================== */
+:root {
+    --bg-dark: #0d1117;     /* Main background */
+    --bg-row: #161b22;      /* List Row background */
+    --text-white: #ffffff;
+    --text-muted: #8b949e;
+    --accent-gold: #f1c40f;
+    --accent-green: #2ecc71;
+    --accent-red: #e74c3c;
+    --footer-underline: #d35400; /* Orange/Brown underline */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Inter', sans-serif;
+}
+
+ul { list-style: none; padding: 0; margin: 0; }
+a { text-decoration: none; }
+h1, h2, h3, h4 { margin: 0; }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ========================
+   2. HEADER & HERO
+   ======================== */
+.site-header {
+    background-color: #000;
+}
+
+.top-bar {
+    text-align: center;
+    padding: 15px 0;
+    background: #050505;
+}
+
+.site-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+.site-logo strong { font-size: 1.6rem; }
+
+/* Hero Area with Background Image */
+.hero-section {
+    position: relative;
+    height: 300px;
+    /* Placeholder Gradient that looks like a Roulette Table (Red/Black) */
+    background: radial-gradient(circle at center, #500000, #1a0000); 
+    /* Ideally replace URL below with actual roulette image */
+    background-image: url('https://images.unsplash.com/photo-1605870445919-838d190e8e1b?q=80&w=2072&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6); /* Darkens the image */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-usps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hero-usps li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.icon-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.icon-circle.white { background: #fff; color: #333; }
+.icon-circle.green { background: #2ecc71; color: #fff; }
+.red-text { color: #d00; }
+
+.page-title-bar {
+    background: #0d1117;
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #2a2e35;
+}
+
+.page-title-bar h1 {
+    font-size: 1.5rem;
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: var(--footer-underline);
+    text-underline-offset: 8px;
+}
+
+/* ========================
+   3. MAIN TABLE (DARK)
+   ======================== */
+.table-header {
+    display: grid;
+    grid-template-columns: 60px 2fr 2fr 1.5fr 1.5fr 1.5fr;
+    padding: 15px 20px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.casino-item { margin-bottom: 15px; }
+
+.casino-row {
+    background-color: var(--bg-row);
+    display: grid;
+    grid-template-columns: 60px 2fr 2fr 1.5fr 1.5fr 1.5fr;
+    align-items: center;
+    padding: 15px 20px;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.casino-row:hover { background-color: #21262d; }
+
+/* Rank Badge */
+.rank-badge {
+    width: 30px; height: 30px;
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: bold; color: #000;
+}
+.rank-badge.gold { background: linear-gradient(135deg, #f1c40f, #e67e22); }
+.rank-badge.silver { background: #bdc3c7; }
+
+/* Identity */
+.col-identity { display: flex; gap: 15px; align-items: center; }
+.logo-wrapper { width: 50px; height: 50px; }
+.placeholder-logo { 
+    width: 100%; height: 100%; border-radius: 8px; 
+    display: flex; align-items: center; justify-content: center; 
+    font-weight: bold; color: #fff; 
+}
+.purple-bg { background: #4b0082; }
+.red-bg { background: #c0392b; }
+
+.casino-name { font-weight: 700; font-size: 1.1rem; }
+.mobile-only-bonus { display: none; font-size: 0.85rem; color: var(--accent-gold); }
+
+/* Bonus Column */
+.col-bonus { display: flex; flex-direction: column; }
+.bonus-highlight { color: var(--accent-gold); font-weight: 700; font-size: 1rem; }
+.bonus-sub { font-size: 0.85rem; }
+.wagering { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; }
+
+/* Rating & Payments */
+.stars { color: var(--accent-gold); font-size: 0.9rem; }
+.rating-text { font-size: 0.8rem; margin-top: 5px; display: block; }
+.col-payments i { font-size: 1.5rem; margin-right: 8px; color: #c9d1d9; }
+.license-text { display: block; font-size: 0.7rem; color: var(--text-muted); margin-top: 5px; }
+
+/* Buttons */
+.col-action { display: flex; flex-direction: column; gap: 8px; }
+.btn-play {
+    background-color: var(--text-white);
+    color: #000;
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+.btn-more {
+    background: transparent; border: none; color: var(--text-muted);
+    cursor: pointer; font-size: 0.8rem;
+}
+.btn-more:hover { color: #fff; }
+
+/* ========================
+   4. DETAIL CARD (LIGHT)
+   ======================== */
+.casino-detail-panel { padding: 0 0 20px 0; }
+
+.ref-card {
+    background: #fff;
+    color: #333;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 10px;
+}
+
+/* Header Grid inside Card */
+.ref-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.ref-col-identity { display: flex; align-items: center; gap: 15px; flex: 1.2; }
+
+.ref-logo-container { position: relative; width: 60px; height: 60px; }
+.ref-logo { 
+    width: 100%; height: 100%; border-radius: 50%; background: #2b0a3d; 
+    color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; 
+}
+.ref-flag-badge {
+    position: absolute; top: -5px; left: -5px; width: 22px; height: 22px;
+    background: #fff; border-radius: 50%; border: 1px solid #ccc;
+    display: flex; align-items: center; justify-content: center;
+}
+
+.ref-info-text h3 { font-size: 1.1rem; color: #000; }
+.ref-sub { font-size: 0.85rem; color: #666; margin: 2px 0; }
+.ref-rating { color: #f1c40f; font-weight: 700; font-size: 0.9rem; }
+
+.ref-col-bonus { flex: 1.5; text-align: center; }
+.green-text { color: #2ecc71; font-weight: 700; font-size: 1.1rem; }
+
+.ref-col-stats { flex: 1; font-size: 0.85rem; display: flex; flex-direction: column; gap: 5px; }
+.stat-item i { color: #15803d; margin-right: 5px; }
+
+.ref-col-btns { display: flex; flex-direction: column; gap: 8px; width: 130px; }
+.ref-btn-primary {
+    background: #2ecc71; color: #fff; text-align: center; padding: 8px; 
+    border-radius: 20px; font-weight: 700; font-size: 0.9rem;
+}
+.ref-btn-secondary {
+    background: #f5f5f5; border: 1px solid #ddd; padding: 6px; 
+    border-radius: 20px; cursor: pointer; color: #333;
+}
+
+.ref-divider { border: 0; border-top: 1px solid #eee; margin: 20px 0; }
+
+/* Bento Grid */
+.ref-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.ref-box { display: flex; flex-direction: column; }
+.ref-box h4 { margin-bottom: 10px; font-size: 0.9rem; color: #111; }
+.ref-desc { font-size: 0.85rem; color: #666; line-height: 1.4; }
+
+.ref-logos-grid { display: flex; flex-wrap: wrap; gap: 5px; }
+.pay-icon { background: #222; color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 1rem; }
+.pay-icon:nth-child(4) { background: #00c853; } /* Paysafe */
+
+.ref-providers { display: flex; gap: 5px; }
+.prov-circle { width: 28px; height: 28px; border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; }
+
+.highlight-box { background: #f9f9f9; padding: 15px; border-radius: 8px; }
+.ref-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #eee; font-size: 0.85rem; }
+.ref-row span { color: #666; } .ref-row strong { color: #000; }
+
+/* Card Footer */
+.ref-footer { 
+    margin-top: 20px; padding-top: 15px; border-top: 1px solid #eee; 
+    display: flex; justify-content: space-between; align-items: center; 
+}
+.ref-license-area { color: #666; font-size: 0.8rem; display: flex; align-items: center; gap: 8px; }
+.maple-icon { color: #d00; font-size: 1.1rem; }
+.ref-review-link { color: #2ecc71; font-weight: 600; font-size: 0.85rem; }
+
+
+/* ========================
+   5. SITE FOOTER (SEO)
+   ======================== */
+.site-footer {
+    background-color: #050505;
+    color: #b0b0b0;
+    padding: 60px 0 20px;
+    margin-top: 50px;
+    border-top: 1px solid #222;
+}
+
+.footer-container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+.footer-heading {
+    color: #fff;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    display: inline-block;
+    border-bottom: 2px solid var(--footer-underline);
+    padding-bottom: 5px;
+}
+
+.footer-section { margin-bottom: 40px; }
+.footer-section p { line-height: 1.6; font-size: 0.95rem; margin-bottom: 15px; }
+
+.footer-list { list-style: disc; padding-left: 20px; color: #d35400; /* Bullet color */ }
+.footer-list li { margin-bottom: 10px; color: #b0b0b0; /* Text color */ }
+.footer-list strong { color: #fff; }
+
+.copyright { text-align: center; font-size: 0.8rem; color: #555; margin-top: 40px; }
+
+/* ========================
+   6. RESPONSIVE
+   ======================== */
+@media (max-width: 768px) {
+    .table-header { display: none; }
+    
+    .casino-row {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "identity identity" "bonus rating" "action action";
+        gap: 15px;
+    }
+    .col-rank, .col-payments, .col-bonus .wagering { display: none; }
+    .col-identity { grid-area: identity; }
+    .col-bonus { grid-area: bonus; }
+    .col-rating { grid-area: rating; text-align: right; }
+    .col-action { grid-area: action; }
+
+    .mobile-only-bonus { display: block; margin-top: 5px; }
+    .bonus-highlight { font-size: 0.9rem; }
+
+    /* Card Mobile */
+    .ref-header, .ref-grid, .ref-footer { flex-direction: column; text-align: center; }
+    .ref-col-btns { width: 100%; flex-direction: row; }
+    .ref-btn-primary, .ref-btn-secondary { flex: 1; }
+    .ref-grid { grid-template-columns: 1fr; }
+}
