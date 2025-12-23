@@ -1,390 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data-Driven Casino Table</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+    /* --- VARIABLES & THEME --- */
+    :root {
+        --bg-body: #121212;
+        --bg-card: #1b1b1b;
+        --bg-panel: #0a0a0a;
+        --border-color: #2a2a2a;
+        --accent-gold: #ffc107;
+        --text-white: #ffffff;
+        --text-grey: #b0b0b0;
+        --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Best Online Casinos Canada 2025</title>
-        <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-            rel="stylesheet">
-    </head>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font-main); }
+    
+    body { background-color: var(--bg-body); padding: 20px; color: var(--text-white); }
 
-    <body>
-        <header class="site-header">
-            <div class="top-bar">
-                <div class="site-logo">
-                    <span>ONLINE</span>
-                    <strong>CASINOS</strong>
-                </div>
-            </div>
-            <div class="hero-section">
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="page-title-bar">
-                <h1>Best Online Casinos in ... 2025</h1>
-            </div>
-        </header>
-        <main class="container">
-            <div class="table-header">
-                <span>Rank</span>
-                <span>Casino</span>
-                <span>Welcome Bonus</span>
-                <span>Rating</span>
-                <span>Payments</span>
-                <span>Action</span>
-            </div>
-            <div class="casino-item">
-                <div class="casino-row">
-                    <div class="col-rank">
-                        <span class="rank-badge gold">1</span>
-                    </div>
-                    <div class="col-identity">
-                        <div class="logo-wrapper">
-                            <div class="placeholder-logo purple-bg">JC</div>
-                        </div>
-                        <div class="name-wrapper">
-                            <span class="casino-name">Jackpot City Casino</span>
-                            <span class="mobile-only-bonus">100% up to
-                                $4,000</span>
-                        </div>
-                    </div>
-                    <div class="col-bonus">
-                        <span class="bonus-highlight">100% up to $4,000</span>
-                        <span class="bonus-sub">+ 420 Free Spins</span>
-                        <span class="wagering">Wagering: 35x</span>
-                    </div>
-                    <div class="col-rating">
-                        <div class="stars">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star-half-stroke"></i>
-                        </div>
-                        <span class="rating-text">4.7/5 Excellent</span>
-                    </div>
-                    <div class="col-payments">
-                        <i class="fa-brands fa-cc-visa"></i>
-                        <i class="fa-brands fa-intercom"></i> <i
-                            class="fa-brands fa-bitcoin"></i>
-                        <span class="license-text">Kahnawake Lic.</span>
-                    </div>
-                    <div class="col-action">
-                        <a href="#" class="btn-play">Play Now</a>
-                        <button class="btn-more toggle-trigger">More Info <i
-                                class="fa-solid fa-chevron-down"></i></button>
-                    </div>
-                </div>
-                <div class="casino-detail-panel" style="display: none;">
-                    <div class="ref-card">
-                        <div class="ref-header">
-                            <div class="ref-col-identity">
-                                <div class="ref-logo-container">
-                                    <span class="ref-flag-badge"><i
-                                            class="fa-brands fa-canadian-maple-leaf"
-                                            style="color:#d00; font-size:12px;"></i></span>
-                                    <div class="ref-logo">JC</div>
-                                </div>
-                                <div class="ref-info-text">
-                                    <h3>Jackpot City Casino</h3>
-                                    <p class="ref-sub">Established in 1998</p>
-                                    <div class="ref-rating"><i
-                                            class="fa-solid fa-star"></i> 4.7/5
-                                        Excellent</div>
-                                </div>
-                            </div>
-                            <div class="ref-col-bonus">
-                                <span class="green-text">100% up to $4,000 + 420
-                                    Free Spins</span>
-                            </div>
-                            <div class="ref-col-stats">
-                                <div class="stat-item"><i
-                                        class="fa-solid fa-circle-check"></i>
-                                    RTP: 97.39%</div>
-                                <div class="stat-item"><i
-                                        class="fa-solid fa-circle-check"></i>
-                                    Payout: 1-3 days</div>
-                                <div class="stat-item"><i
-                                        class="fa-solid fa-circle-check"></i>
-                                    Games: 1,350+</div>
-                            </div>
-                            <div class="ref-col-btns">
-                                <a href="#" class="ref-btn-primary">Get
-                                    bonus</a>
-                                <button
-                                    class="ref-btn-secondary toggle-trigger">More
-                                    info <i
-                                        class="fa-solid fa-chevron-up"></i></button>
-                            </div>
-                        </div>
-                        <hr class="ref-divider">
-                        <div class="ref-grid">
-                            <div class="ref-box">
-                                <h4>Banking options</h4>
-                                <div class="ref-logos-grid">
-                                    <span class="pay-icon"><i
-                                            class="fa-brands fa-cc-visa"></i></span>
-                                    <span class="pay-icon"><i
-                                            class="fa-brands fa-cc-mastercard"></i></span>
-                                    <span class="pay-icon">Interac</span>
-                                    <span class="pay-icon">Paysafe</span>
-                                    <span class="pay-icon"><i
-                                            class="fa-brands fa-bitcoin"></i></span>
-                                </div>
-                            </div>
-                            <div class="ref-box">
-                                <h4>Games available</h4>
-                                <p class="ref-desc">Slots, live casino,
-                                    blackjack, roulette, craps, baccarat,
-                                    progressive jackpots</p>
-                                <div class="ref-sub-label">Providers
-                                    available</div>
-                                <div class="ref-providers">
-                                    <div class="prov-circle"
-                                        style="background:#009688;">M</div>
-                                    <div class="prov-circle"
-                                        style="background:#ff5722;">P</div>
-                                    <div class="prov-circle"
-                                        style="background:#e91e63;">N</div>
-                                    <div class="prov-circle"
-                                        style="background:#3f51b5;">E</div>
-                                </div>
-                            </div>
-                            <div class="ref-box highlight-box">
-                                <h4>Bonus information</h4>
-                                <div
-                                    class="ref-row"><span>Wagering</span><strong>35x</strong></div>
-                                <div class="ref-row"><span>Min
-                                        deposit</span><strong>$10</strong></div>
-                                <div class="ref-row"><span>Time to
-                                        wager</span><strong>7
-                                        days</strong></div>
-                            </div>
-                            <div class="ref-box">
-                                <h4>VIP & high roller offers</h4>
-                                <p class="ref-desc">-</p>
-                            </div>
-                            <div class="ref-box">
-                                <h4>Mobile app</h4>
-                                <p class="ref-desc">Available for Mac / PC,
-                                    Android, iPhone</p>
-                            </div>
-                            <div class="ref-box">
-                                <h4>Customer service</h4>
-                                <p class="ref-desc">Faqs, live chat, email |
-                                    support@...</p>
-                            </div>
-                        </div>
-                        <div class="ref-footer">
-                            <div class="ref-license-area">
-                                <i
-                                    class="fa-brands fa-canadian-maple-leaf maple-icon"></i>
-                                <span>Licensed by Kahnawake Gaming
-                                    Commission</span>
-                            </div>
-                            <a href="#" class="ref-review-link">Jackpot City
-                                Casino review <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="casino-item">
-                <div class="casino-row">
-                    <div class="col-rank"><span
-                            class="rank-badge silver">2</span></div>
-                    <div class="col-identity">
-                        <div class="logo-wrapper">
-                            <div class="placeholder-logo red-bg">SP</div>
-                        </div>
-                        <div class="name-wrapper"><span class="casino-name">Spin
-                                Palace</span></div>
-                    </div>
-                    <div class="col-bonus"><span class="bonus-highlight">$1,000
-                            Match</span><span class="bonus-sub">Daily
-                            Jackpots</span></div>
-                    <div class="col-rating">
-                        <div class="stars"><i class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i><i
-                                class="fa-solid fa-star"></i></div>
-                    </div>
-                    <div class="col-payments"><i
-                            class="fa-brands fa-bitcoin"></i></div>
-                    <div class="col-action">
-                        <a href="#" class="btn-play">Play Now</a>
-                        <button class="btn-more toggle-trigger">More Info <i
-                                class="fa-solid fa-chevron-down"></i></button>
-                    </div>
-                </div>
-                  <div class="casino-detail-panel" style="display: none;">
-                    <div class="ref-card">
-                        <div class="ref-header">
-                            <div class="ref-col-identity">
-                                <div class="ref-logo-container">
-                                    <span class="ref-flag-badge"><i
-                                            class="fa-brands fa-canadian-maple-leaf"
-                                            style="color:#d00; font-size:12px;"></i></span>
-                                    <div class="ref-logo">JC</div>
-                                </div>
-                                <div class="ref-info-text">
-                                    <h3>Jackpot City Casino</h3>
-                                    <p class="ref-sub">Established in 1998</p>
-                                    <div class="ref-rating"><i
-                                            class="fa-solid fa-star"></i> 4.7/5
-                                        Excellent</div>
-                                </div>
-                            </div>
-                            <div class="ref-col-bonus">
-                                <span class="green-text">100% up to $4,000 + 420
-                                    Free Spins</span>
-                            </div>
-                            <div class="ref-col-stats">
-                                <div class="stat-item"><i
-                                        class="fa-solid fa-circle-check"></i>
-                                    RTP: 97.39%</div>
-                                <div class="stat-item"><i
-                                        class="fa-solid fa-circle-check"></i>
-                                    Payout: 1-3 days</div>
-                                <div class="stat-item"><i
-                                        class="fa-solid fa-circle-check"></i>
-                                    Games: 1,350+</div>
-                            </div>
-                            <div class="ref-col-btns">
-                                <a href="#" class="ref-btn-primary">Get
-                                    bonus</a>
-                                <button
-                                    class="ref-btn-secondary toggle-trigger">More
-                                    info <i
-                                        class="fa-solid fa-chevron-up"></i></button>
-                            </div>
-                        </div>
-                        <hr class="ref-divider">
-                        <div class="ref-grid">
-                            <div class="ref-box">
-                                <h4>Banking options</h4>
-                                <div class="ref-logos-grid">
-                                    <span class="pay-icon"><i
-                                            class="fa-brands fa-cc-visa"></i></span>
-                                    <span class="pay-icon"><i
-                                            class="fa-brands fa-cc-mastercard"></i></span>
-                                    <span class="pay-icon">Interac</span>
-                                    <span class="pay-icon">Paysafe</span>
-                                    <span class="pay-icon"><i
-                                            class="fa-brands fa-bitcoin"></i></span>
-                                </div>
-                            </div>
-                            <div class="ref-box">
-                                <h4>Games available</h4>
-                                <p class="ref-desc">Slots, live casino,
-                                    blackjack, roulette, craps, baccarat,
-                                    progressive jackpots</p>
-                                <div class="ref-sub-label">Providers
-                                    available</div>
-                                <div class="ref-providers">
-                                    <div class="prov-circle"
-                                        style="background:#009688;">M</div>
-                                    <div class="prov-circle"
-                                        style="background:#ff5722;">P</div>
-                                    <div class="prov-circle"
-                                        style="background:#e91e63;">N</div>
-                                    <div class="prov-circle"
-                                        style="background:#3f51b5;">E</div>
-                                </div>
-                            </div>
-                            <div class="ref-box highlight-box">
-                                <h4>Bonus information</h4>
-                                <div
-                                    class="ref-row"><span>Wagering</span><strong>35x</strong></div>
-                                <div class="ref-row"><span>Min
-                                        deposit</span><strong>$10</strong></div>
-                                <div class="ref-row"><span>Time to
-                                        wager</span><strong>7
-                                        days</strong></div>
-                            </div>
-                            <div class="ref-box">
-                                <h4>VIP & high roller offers</h4>
-                                <p class="ref-desc">-</p>
-                            </div>
-                            <div class="ref-box">
-                                <h4>Mobile app</h4>
-                                <p class="ref-desc">Available for Mac / PC,
-                                    Android, iPhone</p>
-                            </div>
-                            <div class="ref-box">
-                                <h4>Customer service</h4>
-                                <p class="ref-desc">Faqs, live chat, email |
-                                    support@...</p>
-                            </div>
-                        </div>
-                        <div class="ref-footer">
-                            <div class="ref-license-area">
-                                <i
-                                    class="fa-brands fa-canadian-maple-leaf maple-icon"></i>
-                                <span>Licensed by Kahnawake Gaming
-                                    Commission</span>
-                            </div>
-                            <a href="#" class="ref-review-link">Jackpot City
-                                Casino review <i
-                                    class="fa-solid fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <footer class="site-footer">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h2 class="footer-heading">Online Casinos in ...</h2>
-                    <p>... is renowned for its high-quality online casinos,
-                        offering players the opportunity to enjoy gambling from
-                        the comfort of their own homes. However, with the
-                        growing popularity of online gambling, it is essential
-                        to focus not only on entertainment but also on
-                        security.</p>
-                </div>
-                <div class="footer-section">
-                    <h2 class="footer-heading">Responsible Gaming in ...
-                        Online Casinos</h2>
-                    <p>Responsible gaming is a key component of the ...
-                        gambling industry. Responsible online casinos offer
-                        their users tools to control their gambling habits,
-                        including:</p>
-                    <ul class="footer-list">
-                        <li><strong>Deposit limits:</strong> Casinos allow
-                            players to set limits on how much they can spend per
-                            day, week, or month.</li>
-                        <li><strong>Self-exclusion:</strong> If a player feels
-                            they are losing control, they can temporarily or
-                            permanently block their access.</li>
-                        <li><strong>Information and resources:</strong>
-                            Responsible platforms provide information on how to
-                            recognize signs of addiction.</li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h2 class="footer-heading">Player Security in ...
-                        Online Casinos</h2>
-                    <p>Player security is a top priority. Key security measures
-                        include:</p>
-                    <ul class="footer-list">
-                        <li><strong>Data encryption:</strong> Using SSL (Secure
-                            Socket Layer) to protect all transactions.</li>
-                        <li><strong>Licensing:</strong> Obtaining licenses from
-                            regulators such as the Kahnawake Gaming
-                            Commission.</li>
-                        <li><strong>Identity verification:</strong> KYC
-                            procedures to prevent fraud.</li>
-                    </ul>
-                </div>
-                
-            </div>
-        </footer>
-        <script src="script.js"></script>
-    </body>
+    .casino-list-container { max-width: 1200px; margin: 0 auto; }
+    .loading-msg { text-align: center; color: #666; padding: 20px; }
 
+    /* --- GRID LAYOUT --- */
+    .table-header, .casino-row-main {
+        display: grid;
+        grid-template-columns: 80px 1.5fr 2fr 1fr 1.2fr 160px;
+        gap: 15px;
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    .table-header {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #555;
+        letter-spacing: 1px;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 10px;
+    }
+    .table-header > div:nth-child(1), 
+    .table-header > div:nth-child(4), 
+    .table-header > div:nth-child(5), 
+    .table-header > div:nth-child(6) { text-align: center; }
+
+    /* --- CARD STYLES --- */
+    .casino-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        margin-bottom: 12px;
+        overflow: hidden;
+        transition: transform 0.2s;
+    }
+    .casino-card:hover { border-color: #444; }
+
+    /* Columns */
+    .rank-col { display: flex; justify-content: center; }
+    .rank-box {
+        background-color: var(--accent-gold); color: #000;
+        width: 32px; height: 32px; border-radius: 6px;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 800; font-size: 1rem;
+    }
+
+    .casino-info-col { display: flex; align-items: center; gap: 15px; }
+    .casino-logo { width: 48px; height: 48px; border-radius: 10px; object-fit: contain; background: #111; }
+    .casino-name { font-weight: 700; font-size: 1.05rem; color: #fff; }
+
+    .bonus-col { display: flex; flex-direction: column; justify-content: center; }
+    .bonus-highlight { color: var(--accent-gold); font-size: 1rem; font-weight: 700; margin-bottom: 3px; }
+    .bonus-sub { color: #fff; font-size: 0.9rem; font-weight: 500; }
+    .wagering { font-size: 0.75rem; color: #666; margin-top: 3px; }
+
+    .rating-col { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .stars { color: var(--accent-gold); font-size: 0.85rem; letter-spacing: 1px; }
+    .score-text { font-size: 0.8rem; font-weight: 600; color: #fff; }
+
+    .payment-col { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; }
+    .pay-icon { 
+        background: #fff; border-radius: 3px; padding: 3px 6px; 
+        color: #111; font-size: 0.7rem; font-weight: 700; 
+        min-width: 30px; text-align: center; 
+    }
+
+    .action-col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .btn-play {
+        background-color: #ffffff; color: #000; border: none;
+        padding: 10px 0; width: 100%; border-radius: 6px;
+        font-weight: 700; font-size: 0.95rem; cursor: pointer;
+        text-decoration: none; text-align: center; transition: background 0.2s;
+    }
+    .btn-play:hover { background-color: #dcdcdc; }
+    
+    .toggle-details {
+        background: none; border: none; color: #888;
+        cursor: pointer; font-size: 0.8rem;
+        display: flex; align-items: center; gap: 5px;
+    }
+    .toggle-details:hover { color: #fff; }
+
+    /* --- DETAILS PANEL --- */
+    .casino-details-panel {
+        display: none;
+        background-color: var(--bg-panel);
+        padding: 25px;
+        border-top: 1px solid var(--border-color);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .casino-details-panel.active { display: grid; }
+
+    .detail-box { background: #121212; border: 1px solid #222; border-radius: 8px; padding: 15px; }
+    .detail-title { color: var(--text-grey); font-size: 0.85rem; margin-bottom: 10px; display: block; font-weight: 700; text-transform: uppercase; }
+    .detail-content { font-size: 0.9rem; line-height: 1.5; color: var(--text-white); }
+    
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { background: #222; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; border: 1px solid #333; color: #ddd; }
+    
+    .info-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #222; color: #aaa; font-size: 0.9rem; }
+    .info-row span:last-child { color: #fff; font-weight: 500; }
+    .info-row:last-child { border-bottom: none; }
+
+    .panel-footer {
+        grid-column: 1 / -1; display: flex; justify-content: space-between;
+        border-top: 1px solid #333; padding-top: 15px; font-size: 0.8rem; color: #777;
+    }
+
+    /* --- MOBILE RESPONSIVE --- */
+    @media (max-width: 900px) {
+        .table-header { display: none; }
+        .casino-row-main {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "logo rank" "bonus bonus" "rating payments" "action action";
+            gap: 12px; text-align: center;
+        }
+        .rank-col { grid-area: rank; justify-content: flex-end; }
+        .casino-info-col { grid-area: logo; }
+        .bonus-col { grid-area: bonus; text-align: center; background: #222; padding: 10px; border-radius: 6px; }
+        .rating-col { grid-area: rating; }
+        .payment-col { grid-area: payments; }
+        .action-col { grid-area: action; }
+        .casino-details-panel { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+
+<div class="casino-list-container" id="casinoContainer">
+    <div class="table-header">
+        <div>Rank</div>
+        <div>Casino</div>
+        <div>Welcome Bonus</div>
+        <div>Rating</div>
+        <div>Payments</div>
+        <div>Action</div>
+    </div>
+    
+    <div id="loading" class="loading-msg">Loading Casino Data...</div>
+    
+    </div>
+
+<script>
+    // --- 1. CONFIGURATION ---
+    const CSV_FILE = 'casino_records.csv'; // Must be in the same directory
+
+    // --- 2. ICON MAPPING HELPERS ---
+    const iconMap = {
+        'Visa': '<i class="fab fa-cc-visa"></i>',
+        'Mastercard': '<i class="fab fa-cc-mastercard"></i>',
+        'Bitcoin': '<i class="fab fa-bitcoin"></i>',
+        'Apple Pay': '<i class="fab fa-apple-pay"></i>',
+        'Google Pay': '<i class="fab fa-google-pay"></i>',
+        'Amex': '<i class="fab fa-cc-amex"></i>',
+        'PayPal': '<i class="fab fa-paypal"></i>',
+        'Ethereum': '<i class="fab fa-ethereum"></i>'
+    };
+
+    function getPayIcon(methodName) {
+        const cleanName = methodName.trim();
+        if (iconMap[cleanName]) return iconMap[cleanName];
+        // If no icon found, return text badge
+        return cleanName; 
+    }
+
+    // --- 3. CSV PARSER (Handles quoted strings) ---
+    function parseCSV(text) {
+        const rows = [];
+        let row = [];
+        let col = "";
+        let inQuotes = false;
+        
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+            const nextChar = text[i+1];
+
+            if (char === '"') {
+                if (inQuotes && nextChar === '"') {
+                    col += '"'; // Escaped quote
+                    i++;
+                } else {
+                    inQuotes = !inQuotes; // Toggle quote state
+                }
+            } else if (char === ',' && !inQuotes) {
+                row.push(col.trim());
+                col = "";
+            } else if ((char === '\r' || char === '\n') && !inQuotes) {
+                if (col || row.length > 0) row.push(col.trim());
+                if (row.length > 0) rows.push(row);
+                row = [];
+                col = "";
+                if (char === '\r' && nextChar === '\n') i++; // Handle \r\n
+            } else {
+                col += char;
+            }
+        }
+        if (col || row.length > 0) {
+            row.push(col.trim());
+            rows.push(row);
+        }
+        return rows;
+    }
+
+    // --- 4. DATA FETCHING & RENDERING ---
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch(CSV_FILE)
+            .then(response => response.text())
+            .then(csvText => {
+                const rawData = parseCSV(csvText);
+                const headers = rawData[0]; // First row is headers
+                const data = rawData.slice(1); // Rest is data
+
+                const container = document.getElementById('casinoContainer');
+                document.getElementById('loading').style.display = 'none';
+
+                data.forEach(row => {
+                    // Map headers to row values safely
+                    const getCol = (name) => {
+                        const index = headers.indexOf(name);
+                        return (index > -1 && row[index]) ? row[index] : '';
+                    };
+
+                    // Skip empty rows
+                    if (!getCol('Name')) return;
+
+                    // --- GENERATE HTML ---
+                    const card = document.createElement('div');
+                    card.className = 'casino-card';
+
+                    // Parse Payments for Icons
+                    const paymentMethods = getCol('Payment methods (icons)').split(',').map(p => 
+                        `<span class="pay-icon">${getPayIcon(p)}</span>`
+                    ).slice(0, 4).join(''); // Limit to 4 for main view
+
+                    // Parse Banking for Details Tag List
+                    const bankingTags = getCol('Banking').split(',').map(b => 
+                        `<span class="tag">${b.trim()}</span>`
+                    ).join('');
+
+                     // Parse Providers
+                     const providerTags = getCol('Providers').split(',').slice(0, 5).map(p => 
+                        `<span class="tag">${p.trim()}</span>`
+                    ).join('');
+
+                    card.innerHTML = `
+                        <div class="casino-row-main">
+                            <div class="rank-col">
+                                <div class="rank-box">${getCol('Rank')}</div>
+                            </div>
+                            <div class="casino-info-col">
+                                <img src="${getCol('Logo URL')}" alt="${getCol('Name')}" class="casino-logo">
+                                <span class="casino-name">${getCol('Name')}</span>
+                            </div>
+                            <div class="bonus-col">
+                                <span class="bonus-highlight">${getCol('Welcome bonus (headline)')}</span>
+                                <span class="bonus-sub">New Player Offer</span>
+                                <span class="wagering">Rating: ${getCol('Rating')}/5</span>
+                            </div>
+                            <div class="rating-col">
+                                <div class="stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="score-text">${getCol('Rating')} Excellent</span>
+                            </div>
+                            <div class="payment-col">
+                                ${paymentMethods}
+                            </div>
+                            <div class="action-col">
+                                <a href="${getCol('Affiliate URL')}" class="btn-play">${getCol('Claim Now (button)') || 'Play Now'}</a>
+                                <button class="toggle-details" onclick="toggleDetails(this)">More Info <i class="fas fa-chevron-down"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="casino-details-panel">
+                            <div class="detail-box">
+                                <span class="detail-title">Banking Options</span>
+                                <div class="tag-list">${bankingTags}</div>
+                            </div>
+                            <div class="detail-box">
+                                <span class="detail-title">Games & Providers</span>
+                                <div class="detail-content" style="margin-bottom:10px;">${getCol('Games Available')}</div>
+                                <div class="tag-list">${providerTags}</div>
+                            </div>
+                            <div class="detail-box">
+                                <span class="detail-title">Bonus Information</span>
+                                <div class="detail-content">
+                                    <div class="info-row"><span>Details:</span> <span>${getCol('Bonus Information')}</span></div>
+                                </div>
+                            </div>
+                            <div class="detail-box">
+                                <span class="detail-title">Mobile App</span>
+                                <div class="detail-content">${getCol('Mobile App')}</div>
+                            </div>
+                            <div class="detail-box">
+                                <span class="detail-title">Customer Service</span>
+                                <div class="detail-content">${getCol('Customer Service')}</div>
+                            </div>
+                            <div class="detail-box">
+                                <span class="detail-title">VIP & High Roller</span>
+                                <div class="detail-content">${getCol('VIP & High Roller')}</div>
+                            </div>
+                            <div class="panel-footer">
+                                <span><i class="fas fa-shield-alt"></i> Licensed by ${getCol('License')}</span>
+                                <a href="${getCol('Review link')}" style="color:#e91e63;">Read Full Review &rarr;</a>
+                            </div>
+                        </div>
+                    `;
+
+                    container.appendChild(card);
+                });
+            })
+            .catch(err => {
+                console.error('Error loading CSV:', err);
+                document.getElementById('loading').innerHTML = 'Error loading data. Please ensure "casino_records.csv" is in the same directory.';
+            });
+    });
+
+    // --- 5. UI INTERACTION ---
+    function toggleDetails(button) {
+        const card = button.closest('.casino-card');
+        const panel = card.querySelector('.casino-details-panel');
+        panel.classList.toggle('active');
+        if (panel.classList.contains('active')) {
+            button.innerHTML = 'Less Info <i class="fas fa-chevron-up"></i>';
+        } else {
+            button.innerHTML = 'More Info <i class="fas fa-chevron-down"></i>';
+        }
+    }
+</script>
+
+</body>
 </html>
