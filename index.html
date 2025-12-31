@@ -15,20 +15,17 @@
                 --bg-card: #1b1b1b;
                 --bg-panel: #0a0a0a;
                 --border-color: #2a2a2a;
-                
                 /* Brand Colors */
                 --brand-gold: #c69c3a;
                 --brand-gold-bright: #d4a017;
                 --brand-yellow: #ffc107;
                 --brand-dark: #0d0d0d;
-                
                 /* CTA & Text */
                 --cta-bg: linear-gradient(180deg, #FFD700 0%, #FFA500 100%);
                 --cta-shadow: rgba(255, 165, 0, 0.4);
                 --text-white: #ffffff;
                 --text-grey: #b0b0b0;
                 --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-                
                 /* Standard Icon Size for ALL logos */
                 --icon-size: 28px;
             }
@@ -38,6 +35,11 @@
                 margin: 0;
                 padding: 0;
                 font-family: var(--font-main);
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth snap */
+            }
+
+            html {
+                scroll-behavior: smooth;
             }
 
             body {
@@ -51,7 +53,6 @@
             a {
                 text-decoration: none;
                 color: inherit;
-                transition: 0.3s;
             }
 
             ul {
@@ -61,11 +62,49 @@
             }
 
             /* ============================
-       2. HEADER SECTION
+               ANIMATIONS KEYFRAMES
+            ============================ */
+            @keyframes fadeUp {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+
+            @keyframes sheen {
+                0% { left: -100%; }
+                100% { left: 100%; }
+            }
+
+            .hero-section, .newsletter-section, .site-footer {
+                opacity: 0;
+                animation: fadeUp 0.8s ease-out forwards;
+            }
+
+            /* ============================
+       2. HEADER SECTION (STICKY + BLUR)
        ============================ */
             .site-header {
                 background-color: #000;
                 border-bottom: 1px solid #222;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                width: 100%;
+                transition: background-color 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+            }
+
+            .site-header.scrolled {
+                background-color: rgba(0, 0, 0, 0.85);
+                backdrop-filter: blur(12px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+                padding-top: 5px;
+                padding-bottom: 5px; 
             }
 
             .nav-bar {
@@ -87,6 +126,12 @@
                 font-size: 1.1rem;
                 letter-spacing: 1px;
                 line-height: 1;
+                transform: scale(1);
+            }
+            
+            .brand-logo:hover {
+                transform: scale(1.05);
+                text-shadow: 0 0 15px rgba(198, 156, 58, 0.6);
             }
 
             .brand-logo i {
@@ -110,10 +155,27 @@
                 font-weight: 600;
                 color: #ccc;
                 text-transform: uppercase;
+                position: relative;
             }
 
             .nav-links a:hover {
                 color: var(--brand-gold);
+                transform: translateY(-2px);
+            }
+            
+            .nav-links a::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: -4px;
+                left: 0;
+                background-color: var(--brand-gold);
+                transition: width 0.3s ease;
+            }
+            
+            .nav-links a:hover::after {
+                width: 100%;
             }
 
             .btn-contact {
@@ -124,6 +186,12 @@
                 font-weight: 700;
                 font-size: 0.85rem;
             }
+            
+            .btn-contact:hover {
+                background-color: var(--brand-gold-bright);
+                box-shadow: 0 0 15px rgba(198, 156, 58, 0.4);
+                transform: translateY(-2px);
+            }
 
             /* ============================
        3. HERO SECTION
@@ -133,6 +201,7 @@
                 padding: 50px 20px;
                 text-align: center;
                 border-bottom: 1px solid var(--border-color);
+                animation-delay: 0.1s;
             }
 
             .hero-container {
@@ -163,7 +232,6 @@
                 line-height: 1.6;
             }
 
-            /* Stats Grid */
             .stats-grid {
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
@@ -177,14 +245,19 @@
                 padding: 20px;
                 border-radius: 8px;
                 text-align: center;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+            
+            .stat-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
             }
 
             .stat-number {
                 display: block;
                 font-size: 1.4rem;
                 font-weight: 800;
-                color: #6a1b9a; /* Purple accent */
+                color: #6a1b9a;
                 margin-bottom: 5px;
             }
 
@@ -200,7 +273,7 @@
        ============================ */
             .main-content-area {
                 padding: 40px 20px;
-                flex: 1; 
+                flex: 1;
             }
 
             .casino-list-container {
@@ -226,35 +299,69 @@
                 margin-bottom: 10px;
             }
 
+            /* --- CASINO CARD ANIMATIONS --- */
             .casino-card {
                 background-color: var(--bg-card);
                 border: 1px solid var(--border-color);
                 border-radius: 8px;
                 margin-bottom: 12px;
                 overflow: hidden;
+                
+                /* Entry Animation */
+                opacity: 0; 
+                animation: fadeUp 0.6s ease-out forwards;
+                
+                /* Transition for Hover */
+                transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            }
+            
+            /* Enhanced Card Hover */
+            .casino-card:hover {
+                transform: translateY(-5px); /* Lift Up */
+                border-color: #555;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                z-index: 2; /* Bring to front */
             }
 
-            /* Rank Badge Styles */
             .rank-name-wrapper { display: contents; }
             .rank-col { display: flex; align-items: left; justify-content: left; }
+
             .rank-box {
                 width: 42px; height: 42px;
                 font-size: 1.05rem; font-weight: 900;
                 border-radius: 12px;
                 display: flex; align-items: center; justify-content: center;
                 position: relative;
+                transition: transform 0.3s ease;
             }
+            
+            /* Pop Rank on Card Hover */
+            .casino-card:hover .rank-box {
+                transform: scale(1.1);
+            }
+
             .rank-box.tier-gold { background: linear-gradient(180deg, #FFF2B0 0%, #FFD700 50%, #C69C3A 100%); color: #1a1205; box-shadow: 0 10px 22px rgba(255, 215, 0, 0.45); }
             .rank-box.tier-silver { background: linear-gradient(180deg, #F5F5F5 0%, #C9CCD1 100%); color: #1a1a1a; box-shadow: 0 6px 14px rgba(180, 180, 180, 0.35); }
             .rank-box.tier-bronze { background: linear-gradient(180deg, #E2B07A 0%, #B87333 100%); color: #1a1205; box-shadow: 0 6px 14px rgba(184, 115, 51, 0.35); }
             .rank-box.tier-muted { background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%); color: #999; box-shadow: inset 0 0 0 1px #333; }
 
             .casino-info-col { display: flex; align-items: center; gap: 12px; }
-            .casino-logo { width: 50px; height: 50px; border-radius: 50%; object-fit: contain; background: #111; }
+
+            .casino-logo {
+                width: 50px; height: 50px;
+                border-radius: 50%;
+                object-fit: contain;
+                background: #111;
+                transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            }
+            /* Spin Logo on Card Hover */
+            .casino-card:hover .casino-logo {
+                transform: rotate(360deg) scale(1.1);
+            }
+
             .name-rating-stack { display: flex; flex-direction: column; justify-content: center; }
             .casino-name { font-weight: 700; font-size: 1.2rem; color: #fff; line-height: 1.2; }
-            
-            /* Mobile Rating */
+
             .mobile-rating { display: none; margin-top: 6px; align-items: center; gap: 8px; }
             .mobile-rating .stars { font-size: 0.8rem; display: flex; gap: 2px; }
             .mobile-rating-text { font-size: 0.8rem; color: #ddd; font-weight: 600; }
@@ -263,201 +370,157 @@
             .bonus-highlight { color: var(--brand-gold); font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
             .bonus-sub { color: #fff; font-size: 0.85rem; }
 
-            /* Desktop Rating */
             .rating-col { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 8px; }
             .stars { color: var(--brand-gold); font-size: 0.8rem; display: flex; gap: 2px; }
+            
+            /* Pulse Stars on Card Hover */
+            .casino-card:hover .stars {
+                animation: pulse 1s infinite;
+            }
+            
             .score-text { font-size: 0.9rem; font-weight: 700; color: #fff; }
 
             .payment-col { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px; }
             .pay-icon { background: #fff; border-radius: 3px; padding: 2px 5px; color: #111; font-size: 0.7rem; font-weight: 700; display: inline-block; }
+            
+            .pay-icon:hover, .pay-img:hover { transform: scale(1.1); }
             .pay-img { height: var(--icon-size); width: auto; max-width: 50px; border-radius: 2px; background: #fff; padding: 2px; vertical-align: middle; object-fit: contain; }
 
             .action-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+
+            /* Play Button Sheen Effect */
             .btn-play {
-                background: var(--cta-bg); color: #000 !important; border: none; padding: 10px 16px; width: 100%; border-radius: 5px; font-weight: 900; font-size: 0.85rem; cursor: pointer; text-align: center; transition: all 0.2s ease; text-transform: uppercase; box-shadow: 0 4px 0px #b37400, 0 4px 12px var(--cta-shadow);
+                background: var(--cta-bg);
+                color: #000 !important;
+                border: none;
+                padding: 10px 16px;
+                width: 100%;
+                border-radius: 5px;
+                font-weight: 900;
+                font-size: 0.85rem;
+                cursor: pointer;
+                text-align: center;
+                text-transform: uppercase;
+                box-shadow: 0 4px 0px #b37400, 0 4px 12px var(--cta-shadow);
+                position: relative;
+                overflow: hidden; /* For the sheen */
+                transition: all 0.2s ease;
             }
-            .btn-play:hover { transform: translateY(-2px); box-shadow: 0 6px 0px #b37400, 0 6px 16px var(--cta-shadow); filter: brightness(1.1); }
+            
+            /* The Sheen/Shine Element */
+            .btn-play::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+                transition: none;
+            }
+
+            .btn-play:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 0px #b37400, 0 8px 20px var(--cta-shadow);
+                filter: brightness(1.1);
+            }
+            
+            /* Trigger Sheen on Hover */
+            .btn-play:hover::after {
+                animation: sheen 0.6s ease-in-out;
+            }
+            
+            .btn-play:active { transform: translateY(2px); box-shadow: 0 0 0 #b37400; }
+
             .toggle-details { background: none; border: none; color: #777; cursor: pointer; font-size: 0.75rem; display: flex; align-items: center; gap: 4px; }
+            .toggle-details:hover { color: #fff; transform: scale(1.05); }
 
             /* Details Panel */
-            .casino-details-panel { display: none; background-color: #0d0d0d; padding: 25px; border-top: 1px solid var(--border-color); grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 20px; }
+            .casino-details-panel {
+                display: none;
+                background-color: #0d0d0d;
+                padding: 25px;
+                border-top: 1px solid var(--border-color);
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 20px;
+                animation: fadeUp 0.4s ease-out;
+            }
+
             .casino-details-panel.active { display: grid; }
-            .detail-box { background: #181818; border: 1px solid #2a2a2a; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 10px; min-height: 140px; }
+
+            .detail-box {
+                background: #181818;
+                border: 1px solid #2a2a2a;
+                border-radius: 12px;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                min-height: 140px;
+                transition: transform 0.3s;
+            }
+            .detail-box:hover { transform: translateY(-3px); border-color: #333; }
+
             .detail-title { color: #fff; font-size: 0.95rem; margin-bottom: 5px; display: block; font-weight: 700; }
             .sub-title { color: #888; font-size: 0.85rem; font-weight: 600; margin-top: 10px; display: block; }
             .detail-content { font-size: 0.9rem; line-height: 1.5; color: #ccc; }
             .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
-            
-            .bank-tag-img { height: var(--icon-size); width: auto; border-radius: 4px; background: #fff; padding: 2px 4px; object-fit: contain; }
-            .provider-tag-img { height: var(--icon-size); width: var(--icon-size); border-radius: 50%; background: #fff; padding: 2px; object-fit: contain; }
+
+            .bank-tag-img, .provider-tag-img {
+                height: var(--icon-size); width: auto; border-radius: 4px; background: #fff; padding: 2px; object-fit: contain; transition: transform 0.2s;
+            }
+            .provider-tag-img { width: var(--icon-size); border-radius: 50%; }
+            .bank-tag-img:hover, .provider-tag-img:hover { transform: scale(1.15); z-index: 5; }
+
             .text-tag { background: #222; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; color: #ddd; border: 1px solid #333; }
-            
             .bonus-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #2a2a2a; font-size: 0.9rem; }
             .bonus-row:last-child { border-bottom: none; }
             .bonus-label { color: #888; }
             .bonus-value { color: #fff; font-weight: 600; text-align: right; }
-            
             .panel-footer { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #2a2a2a; padding-top: 15px; margin-top: 5px; font-size: 0.8rem; }
             .license-info { display: flex; align-items: center; gap: 8px; color: #777; }
             .review-link { color: #777; font-weight: 600; font-size: 0.85rem; }
+            .review-link:hover { color: var(--brand-gold); }
 
             /* ============================
-       5. NEWSLETTER SECTION (Redesigned)
+       5. NEWSLETTER SECTION
        ============================ */
             .newsletter-section {
-                /* Premium Gradient */
                 background: linear-gradient(135deg, #FFC107 0%, #FFD700 50%, #FFB300 100%);
                 padding: 60px 20px;
                 text-align: center;
                 margin-top: 50px;
                 color: #1a1a1a;
                 border-top: 4px solid #b38600;
-                box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
-            }
-            
-            .newsletter-container {
-                max-width: 800px;
-                margin: 0 auto;
+                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+                animation-delay: 0.4s;
             }
 
-            .newsletter-heading {
-                font-size: 1.8rem;
-                font-weight: 800;
-                margin-bottom: 10px;
-                color: #000;
-                text-transform: uppercase;
-                letter-spacing: 0.5px;
-            }
-            
-            .newsletter-sub {
-                margin-bottom: 35px;
-                font-size: 1rem;
-                color: #222;
-                font-weight: 500;
-            }
-
-            .newsletter-form {
-                display: flex;
-                justify-content: center;
-                gap: 15px;
-                flex-wrap: wrap;
-            }
-
-            .newsletter-input {
-                padding: 14px 25px;
-                border: 2px solid #000;
-                border-radius: 6px;
-                width: 350px;
-                font-size: 0.95rem;
-                transition: transform 0.2s;
-            }
-            .newsletter-input:focus {
-                outline: none;
-                transform: scale(1.02);
-            }
-
-            .newsletter-btn {
-                background-color: #d32f2f;
-                color: #fff;
-                border: none;
-                padding: 14px 35px;
-                border-radius: 6px;
-                font-weight: 800;
-                cursor: pointer;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                transition: all 0.2s ease;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            }
-            .newsletter-btn:hover {
-                background-color: #b71c1c;
-                transform: translateY(-2px);
-                box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-            }
+            .newsletter-container { max-width: 800px; margin: 0 auto; }
+            .newsletter-heading { font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; color: #000; text-transform: uppercase; letter-spacing: 0.5px; }
+            .newsletter-sub { margin-bottom: 35px; font-size: 1rem; color: #222; font-weight: 500; }
+            .newsletter-form { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+            .newsletter-input { padding: 14px 25px; border: 2px solid #000; border-radius: 6px; width: 350px; font-size: 0.95rem; transition: transform 0.2s; }
+            .newsletter-input:focus { outline: none; transform: scale(1.02); }
+            .newsletter-btn { background-color: #d32f2f; color: #fff; border: none; padding: 14px 35px; border-radius: 6px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
+            .newsletter-btn:hover { background-color: #b71c1c; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); }
 
             /* ============================
-       6. DARK FOOTER (Multi-Column)
+       6. DARK FOOTER
        ============================ */
-            .site-footer {
-                background-color: #080808;
-                color: #999;
-                padding: 60px 20px 20px;
-            }
-
-            .footer-grid {
-                max-width: 1200px;
-                margin: 0 auto 50px;
-                display: grid;
-                grid-template-columns: 1.5fr 1fr 1fr 1fr;
-                gap: 40px;
-            }
-
-            /* Footer Column Styles */
-            .footer-col h4 {
-                color: #fff;
-                font-size: 1rem;
-                font-weight: 700;
-                margin-bottom: 20px;
-                text-transform: uppercase;
-                border-left: 3px solid var(--brand-gold);
-                padding-left: 10px;
-            }
-
-            .footer-col p {
-                line-height: 1.6;
-                font-size: 0.85rem;
-            }
-
-            .footer-links-list li {
-                margin-bottom: 12px;
-            }
-            
-            .footer-links-list a {
-                font-size: 0.9rem;
-                transition: 0.2s;
-            }
-            
-            .footer-links-list a:hover {
-                color: var(--brand-gold);
-                padding-left: 5px; /* Slight movement on hover */
-            }
-
-            /* Brand Column in Footer */
-            .footer-brand .brand-logo {
-                align-items: flex-start; /* Left align for footer */
-                margin-bottom: 15px;
-            }
-            
-            .social-icons {
-                display: flex;
-                gap: 15px;
-                margin-top: 10px;
-            }
-            .social-icons a {
-                width: 36px; height: 36px;
-                background: #222;
-                color: #fff;
-                border-radius: 50%;
-                display: flex; align-items: center; justify-content: center;
-                transition: 0.3s;
-            }
-            .social-icons a:hover {
-                background: var(--brand-gold);
-                color: #000;
-            }
-
-            /* Copyright Bar */
-            .footer-bottom-bar {
-                max-width: 1200px;
-                margin: 0 auto;
-                padding-top: 25px;
-                border-top: 1px solid #222;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                font-size: 0.8rem;
-                color: #555;
-            }
+            .site-footer { background-color: #080808; color: #999; padding: 60px 20px 20px; animation-delay: 0.5s; }
+            .footer-grid { max-width: 1200px; margin: 0 auto 50px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+            .footer-col h4 { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; border-left: 3px solid var(--brand-gold); padding-left: 10px; }
+            .footer-col p { line-height: 1.6; font-size: 0.85rem; }
+            .footer-links-list li { margin-bottom: 12px; }
+            .footer-links-list a { font-size: 0.9rem; transition: 0.2s; }
+            .footer-links-list a:hover { color: var(--brand-gold); padding-left: 5px; }
+            .footer-brand .brand-logo { align-items: flex-start; margin-bottom: 15px; }
+            .social-icons { display: flex; gap: 15px; margin-top: 10px; }
+            .social-icons a { width: 36px; height: 36px; background: #222; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+            .social-icons a:hover { background: var(--brand-gold); color: #000; transform: rotate(15deg); }
+            .footer-bottom-bar { max-width: 1200px; margin: 0 auto; padding-top: 25px; border-top: 1px solid #222; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #555; }
 
             /* ============================
        7. RESPONSIVE
@@ -466,12 +529,7 @@
                 .nav-links, .table-header { display: none; }
                 .hero-title { font-size: 1.8rem; }
                 .stats-grid { grid-template-columns: 1fr 1fr; }
-                
-                .casino-row-main {
-                    grid-template-columns: 1fr 1fr;
-                    grid-template-areas: "header header" "bonus bonus" "payments payments" "action action";
-                    padding: 15px;
-                }
+                .casino-row-main { grid-template-columns: 1fr 1fr; grid-template-areas: "header header" "bonus bonus" "payments payments" "action action"; padding: 15px; }
                 .rank-name-wrapper { grid-area: header; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 15px; padding: 15px 0; }
                 .mobile-rating { display: flex; }
                 .rating-col { display: none; }
@@ -479,19 +537,15 @@
                 .payment-col { grid-area: payments; margin-top: 5px; }
                 .action-col { grid-area: action; margin-top: 10px; }
                 .casino-details-panel { grid-template-columns: 1fr; }
-                
-                /* Footer Stack */
                 .footer-grid { grid-template-columns: 1fr; gap: 30px; }
                 .footer-bottom-bar { flex-direction: column; gap: 10px; text-align: center; }
-                
-                .newsletter-input { width: 100%; max-width: 400px; }
-                .newsletter-btn { width: 100%; max-width: 400px; }
+                .newsletter-input, .newsletter-btn { width: 100%; max-width: 400px; }
             }
         </style>
     </head>
 
     <body>
-        <header class="site-header">
+        <header class="site-header" id="siteHeader">
             <div class="nav-bar">
                 <div class="brand-logo">
                     <i class="fa-solid fa-crown"></i> EXCLUSIVE OFFERS <span>.VIP</span>
@@ -504,13 +558,11 @@
                 <a href="#" class="btn-contact">Contact Us</a>
             </div>
         </header>
-
         <section class="hero-section">
             <div class="hero-container">
                 <span class="pre-title">Find the best online casinos</span>
                 <h1 class="hero-title">Welcome to Your VIP Casino Advantage</h1>
                 <p class="hero-subtitle">We rigorously test and review thousands of casinos to bring you the safest, most lucrative VIP offers available in 2025.</p>
-                
                 <div class="stats-grid">
                     <div class="stat-card">
                         <span class="stat-number">500+</span>
@@ -531,7 +583,6 @@
                 </div>
             </div>
         </section>
-
         <main class="main-content-area">
             <div class="casino-list-container" id="casinoContainer">
                 <div class="table-header">
@@ -545,19 +596,16 @@
                 <div id="loading" style="text-align:center; padding:20px; color:#666;">Loading...</div>
             </div>
         </main>
-
         <section class="newsletter-section">
             <div class="newsletter-container">
                 <h2 class="newsletter-heading">Join the Winners Circle</h2>
                 <p class="newsletter-sub">Get exclusive high-roller bonuses and VIP codes sent directly to your inbox weekly.</p>
-                
                 <form class="newsletter-form">
                     <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
                     <button type="submit" class="newsletter-btn">Get VIP Access</button>
                 </form>
             </div>
         </section>
-
         <footer class="site-footer">
             <div class="footer-grid">
                 <div class="footer-col footer-brand">
@@ -572,7 +620,6 @@
                         <a href="#"><i class="fa-brands fa-telegram"></i></a>
                     </div>
                 </div>
-
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="footer-links-list">
@@ -583,7 +630,6 @@
                         <li><a href="#">Casino Reviews</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-col">
                     <h4>Support</h4>
                     <ul class="footer-links-list">
@@ -594,7 +640,6 @@
                         <li><a href="#">Sitemap</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <ul class="footer-links-list">
@@ -605,17 +650,13 @@
                     </ul>
                 </div>
             </div>
-
             <div class="footer-bottom-bar">
-                <div class="copyright-text">
-                    &copy; 2025 Exclusive Offers VIP. All rights reserved. 18+ Please gamble responsibly.
-                </div>
+                <div class="copyright-text"> &copy; 2025 Exclusive Offers VIP. All rights reserved. 18+ Please gamble responsibly. </div>
                 <div class="footer-bottom-links">
                     <i class="fa-solid fa-shield-halved"></i> SSL Secure Connection
                 </div>
             </div>
         </footer>
-
         <script>
             const CSV_FILE = 'casino_records.csv';
 
@@ -678,54 +719,64 @@
                 if (iconFile) return `<img src="logos/${iconFile}" alt="${n}" title="${n}" class="provider-tag-img">`;
                 return `<span class="text-tag">${n}</span>`;
             }
-            
+
             function renderBonusTable(rawText) {
                 if (!rawText) return '<div class="bonus-row"><span class="bonus-label">Info</span><span class="bonus-value">-</span></div>';
                 let rows = '';
-                
+
                 const minDepMatch = rawText.match(/Min Dep:\s*([^(\n]+)/i);
                 if (minDepMatch) {
                     rows += `<div class="bonus-row"><span class="bonus-label">Min deposit</span><span class="bonus-value">${minDepMatch[1].trim()}</span></div>`;
                 }
-                
+
                 const withdrawalMatch = rawText.match(/Withdrawal:\s*([^L\n]+)/i);
                 if (withdrawalMatch) {
                     rows += `<div class="bonus-row"><span class="bonus-label">Withdrawal Speed</span><span class="bonus-value">${withdrawalMatch[1].trim()}</span></div>`;
                 }
-                
+
                 rows += `<div class="bonus-row"><span class="bonus-label">Wagering</span><span class="bonus-value">35x</span></div>`;
-                
+
                 if (rows === '') {
-                     rows = `<div class="bonus-row"><span class="bonus-label">Details</span><span class="bonus-value" style="font-size:0.8rem">${rawText}</span></div>`;
+                    rows = `<div class="bonus-row"><span class="bonus-label">Details</span><span class="bonus-value" style="font-size:0.8rem">${rawText}</span></div>`;
                 }
-                
+
                 return rows;
             }
 
             function renderStars(ratingStr) {
                 const rating = parseFloat(ratingStr) || 0;
                 let html = '<div class="stars">';
-                
+
                 const fullStars = Math.floor(rating);
-                for(let i=0; i<fullStars; i++) {
+                for (let i = 0; i < fullStars; i++) {
                     html += '<i class="fa-solid fa-star"></i>';
                 }
-                
+
                 const remainder = rating % 1;
                 let hasHalf = false;
-                if(remainder >= 0.4) {
+                if (remainder >= 0.4) {
                     html += '<i class="fa-solid fa-star-half-stroke"></i>';
                     hasHalf = true;
                 }
-                
+
                 const emptyStars = 5 - fullStars - (hasHalf ? 1 : 0);
-                for(let i=0; i<emptyStars; i++) {
+                for (let i = 0; i < emptyStars; i++) {
                     html += '<i class="fa-regular fa-star"></i>';
                 }
-                
+
                 html += '</div>';
                 return html;
             }
+
+            // Scroll Listener for Sticky Header
+            window.addEventListener('scroll', () => {
+                const header = document.getElementById('siteHeader');
+                if (window.scrollY > 20) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
 
             document.addEventListener('DOMContentLoaded', () => {
                 fetch(CSV_FILE)
@@ -737,7 +788,7 @@
                         const container = document.getElementById('casinoContainer');
                         document.getElementById('loading').style.display = 'none';
 
-                        data.forEach(row => {
+                        data.forEach((row, index) => {
                             const getCol = (n) => {
                                 const idx = headers.indexOf(n);
                                 return (idx > -1 && row[idx]) ? row[idx] : '';
@@ -747,12 +798,15 @@
 
                             const card = document.createElement('div');
                             card.className = 'casino-card';
+                            
+                            // Cascading Animation Delay
+                            card.style.animationDelay = `${index * 0.1}s`;
 
                             const payments = getCol('Payment methods (icons)').split(',').slice(0, 4).map(p => renderItem(p)).join('');
                             const bankingTags = getCol('Banking').split(',').map(b => renderBankingTag(b)).join('');
                             const providerTags = getCol('Providers').split(',').slice(0, 8).map(p => renderProviderTag(p)).join('');
                             const bonusTableHTML = renderBonusTable(getCol('Bonus Information'));
-                            
+
                             const ratingVal = getCol('Rating');
                             const starsHTML = renderStars(ratingVal);
 
@@ -850,4 +904,5 @@
             }
         </script>
     </body>
+
 </html>
