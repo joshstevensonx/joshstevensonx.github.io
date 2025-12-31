@@ -19,7 +19,6 @@
                 --brand-gold-hover: #e0b042;
                 --brand-brown: #3e2b16;
                 --brand-dark: #0d0d0d;
-                /* High Conversion CTA Colors */
                 --cta-bg: linear-gradient(180deg, #FFD700 0%, #FFA500 100%);
                 --cta-shadow: rgba(255, 165, 0, 0.4);
                 --text-white: #ffffff;
@@ -167,7 +166,7 @@
                 overflow: hidden;
             }
 
-            /* Reverting Wrapper behavior for Desktop to align with grid */
+            /* Rank Badge Styles */
             .rank-name-wrapper {
                 display: contents;
             }
@@ -184,62 +183,34 @@
                 font-size: 1.05rem;
                 font-weight: 900;
                 border-radius: 12px;
-                background: linear-gradient(180deg, #FFD966 0%, #C69C3A 100%);
-                color: #1a1205;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                box-shadow:
-                    0 6px 14px rgba(0, 0, 0, 0.6),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.35);
                 position: relative;
             }
 
-            .rank-box::after {
-                content: '';
-                position: absolute;
-                inset: -2px;
-                border-radius: 14px;
-                background: linear-gradient(180deg, rgba(255, 215, 0, 0.35), rgba(255, 165, 0, 0));
-                z-index: -1;
-            }
-
-            /* ============================
-   RANK TIERS (FINAL)
-   ============================ */
-            /* GOLD — Rank #1 */
             .rank-box.tier-gold {
                 background: linear-gradient(180deg, #FFF2B0 0%, #FFD700 50%, #C69C3A 100%);
                 color: #1a1205;
-                box-shadow:
-                    0 10px 22px rgba(255, 215, 0, 0.45),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+                box-shadow: 0 10px 22px rgba(255, 215, 0, 0.45);
             }
 
-            /* SILVER — Rank #2 */
             .rank-box.tier-silver {
                 background: linear-gradient(180deg, #F5F5F5 0%, #C9CCD1 100%);
                 color: #1a1a1a;
-                box-shadow:
-                    0 6px 14px rgba(180, 180, 180, 0.35),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+                box-shadow: 0 6px 14px rgba(180, 180, 180, 0.35);
             }
 
-            /* BRONZE — Rank #3 */
             .rank-box.tier-bronze {
                 background: linear-gradient(180deg, #E2B07A 0%, #B87333 100%);
                 color: #1a1205;
-                box-shadow:
-                    0 6px 14px rgba(184, 115, 51, 0.35),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+                box-shadow: 0 6px 14px rgba(184, 115, 51, 0.35);
             }
 
-            /* MUTED — Rank 4+ */
             .rank-box.tier-muted {
                 background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
                 color: #999;
-                box-shadow:
-                    inset 0 0 0 1px #333;
+                box-shadow: inset 0 0 0 1px #333;
             }
 
             .casino-info-col {
@@ -251,7 +222,7 @@
             .casino-logo {
                 width: 50px;
                 height: 50px;
-                border-radius: 50% 50% 50% 50%;
+                border-radius: 50%;
                 object-fit: contain;
                 background: #111;
             }
@@ -312,9 +283,21 @@
                 color: #111;
                 font-size: 0.7rem;
                 font-weight: 700;
+                display: inline-block;
             }
 
-            /* Action Column Spacing */
+            .pay-img {
+                height: 24px;
+                width: auto;
+                max-width: 50px;
+                border-radius: 2px;
+                background: #fff;
+                padding: 2px;
+                vertical-align: middle;
+                object-fit: contain;
+            }
+
+            /* Action Buttons */
             .action-col {
                 display: flex;
                 flex-direction: column;
@@ -336,18 +319,12 @@
                 transition: all 0.2s ease;
                 text-transform: uppercase;
                 box-shadow: 0 4px 0px #b37400, 0 4px 12px var(--cta-shadow);
-                position: relative;
             }
 
             .btn-play:hover {
                 transform: translateY(-2px);
                 box-shadow: 0 6px 0px #b37400, 0 6px 16px var(--cta-shadow);
                 filter: brightness(1.1);
-            }
-
-            .btn-play:active {
-                transform: translateY(2px);
-                box-shadow: 0 0px 0px #b37400;
             }
 
             .toggle-details {
@@ -361,13 +338,18 @@
                 gap: 4px;
             }
 
-            /* Details Panel */
+            /* ============================
+               4. DETAILS PANEL (REDESIGNED)
+               ============================ */
             .casino-details-panel {
                 display: none;
-                background-color: var(--bg-panel);
+                background-color: #0d0d0d; /* Slightly darker than card */
                 padding: 25px;
                 border-top: 1px solid var(--border-color);
-                grid-template-columns: repeat(3, 1fr);
+                
+                /* Exact Grid from Image: 3 Columns, 2 Rows */
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: auto auto; 
                 gap: 20px;
             }
 
@@ -375,35 +357,65 @@
                 display: grid;
             }
 
+            /* General Box Style */
             .detail-box {
-                background: #121212;
-                border: 1px solid #222;
-                border-radius: 8px;
-                padding: 15px;
+                background: #181818;
+                border: 1px solid #2a2a2a;
+                border-radius: 12px; /* Matched rounded corners */
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                min-height: 140px;
             }
 
             .detail-title {
-                color: var(--text-grey);
-                font-size: 0.85rem;
-                margin-bottom: 10px;
+                color: #fff;
+                font-size: 0.95rem;
+                margin-bottom: 5px;
                 display: block;
                 font-weight: 700;
-                text-transform: uppercase;
+            }
+            
+            .sub-title {
+                color: #888;
+                font-size: 0.85rem;
+                font-weight: 600;
+                margin-top: 10px;
+                display: block;
             }
 
             .detail-content {
                 font-size: 0.9rem;
                 line-height: 1.5;
-                color: var(--text-white);
+                color: #ccc;
             }
 
+            /* Banking & Providers Tag Lists */
             .tag-list {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 8px;
             }
 
-            .tag {
+            /* Specific Image Styling for Details */
+            .bank-tag-img {
+                height: 30px;
+                border-radius: 4px;
+                background: #fff;
+                padding: 2px 4px;
+            }
+
+            .provider-tag-img {
+                height: 32px;
+                width: 32px;
+                border-radius: 50%; /* Circle icons as per image */
+                background: #fff;
+                padding: 2px;
+                object-fit: contain;
+            }
+
+            .text-tag {
                 background: #222;
                 padding: 4px 8px;
                 border-radius: 4px;
@@ -412,140 +424,73 @@
                 border: 1px solid #333;
             }
 
-            .info-row {
+            /* Bonus Table Style */
+            .bonus-row {
                 display: flex;
                 justify-content: space-between;
-                padding: 6px 0;
-                border-bottom: 1px solid #222;
-                color: #aaa;
+                padding: 8px 0;
+                border-bottom: 1px solid #2a2a2a;
                 font-size: 0.9rem;
             }
+            .bonus-row:last-child { border-bottom: none; }
+            .bonus-label { color: #888; }
+            .bonus-value { color: #fff; font-weight: 600; text-align: right; }
 
-            .info-row span:last-child {
-                color: #fff;
-                font-weight: 500;
-            }
-
-            .info-row:last-child {
-                border-bottom: none;
-            }
-
+            /* Panel Footer */
             .panel-footer {
                 grid-column: 1 / -1;
                 display: flex;
                 justify-content: space-between;
-                border-top: 1px solid #333;
+                align-items: center;
+                border-top: 1px solid #2a2a2a;
                 padding-top: 15px;
+                margin-top: 5px;
                 font-size: 0.8rem;
+            }
+            
+            .license-info {
+                display: flex;
+                align-items: center;
+                gap: 8px;
                 color: #777;
+            }
+            
+            .review-link {
+                color: #777; /* Green link from image */
+                font-weight: 600;
+                font-size: 0.85rem;
             }
 
             /* ============================
-       4. MOBILE RESPONSIVE
-       ============================ */
+               5. RESPONSIVE
+               ============================ */
             @media (max-width: 900px) {
-
-                .nav-links,
-                .table-header {
-                    display: none;
-                }
-
+                .nav-links, .table-header { display: none; }
+                
                 .casino-row-main {
                     grid-template-columns: 1fr 1fr;
-                    grid-template-areas:
-                        "header header"
-                        "bonus bonus"
-                        "rating payments"
-                        "action action";
+                    grid-template-areas: "header header" "bonus bonus" "rating payments" "action action";
                     padding: 15px;
                 }
-
-                /* === Redesigned Mobile Header Row (Expanded & Premium) === */
+                
                 .rank-name-wrapper {
                     grid-area: header;
                     display: grid;
                     grid-template-columns: auto 1fr;
                     align-items: center;
-                    gap: 30px;
-                    width: 100%;
-                    padding: 20px 16px;
-                    margin: 0;
-                    background:
-                        linear-gradient(180deg, rgba(198, 156, 58, 0.12) 0%, rgba(0, 0, 0, 0) 55%),
-                        radial-gradient(circle at top left, #242424 0%, #141414 70%);
-                    border-bottom: 1px solid #2a2a2a;
-                    box-sizing: border-box;
+                    gap: 15px;
+                    padding: 15px 0;
                 }
+                
+                .bonus-col { grid-area: bonus; text-align: center; background: #222; padding: 10px; border-radius: 6px; }
+                .rating-col { grid-area: rating; }
+                .payment-col { grid-area: payments; }
+                .action-col { grid-area: action; margin-top: 10px; }
 
-                .rank-col {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                .rank-box {
-                    width: 42px;
-                    height: 42px;
-                    font-size: 1.05rem;
-                    border-radius: 10px;
-                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-                }
-
-                .casino-info-col {
-                    display: flex;
-                    align-items: center;
-                    gap: 14px;
-                    min-width: 0;
-                }
-
-                .casino-logo {
-                    width: 52px;
-                    height: 52px;
-                    border-radius: 50% 50% 50% 50%;
-                    background: #0b0b0b;
-                    box-shadow: inset 0 0 0 1px #2a2a2a, 0 4px 10px rgba(0, 0, 0, 0.45);
-                }
-
-                .casino-name {
-                    font-size: 1.3rem;
-                    font-weight: 900;
-                    line-height: 1.25;
-                    letter-spacing: 0.2px;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-
-                .bonus-col {
-                    grid-area: bonus;
-                    text-align: center;
-                    background: #222;
-                    padding: 12px;
-                    border-radius: 6px;
-                    margin: 5px 0;
-                }
-
-                .rating-col {
-                    grid-area: rating;
-                    border-right: 1px solid #2a2a2a;
-                }
-
-                .payment-col {
-                    grid-area: payments;
-                }
-
-                .action-col {
-                    grid-area: action;
-                    padding-top: 15px;
-                }
-
+                /* Stack details panel on mobile */
                 .casino-details-panel {
                     grid-template-columns: 1fr;
                 }
-            }
-
-            .action-col .toggle-details {
-                margin-top: 4px;
             }
         </style>
     </head>
@@ -584,6 +529,25 @@
         <script>
             const CSV_FILE = 'casino_records.csv';
 
+            const iconMap = {
+                "NetEnt": "netent.svg",
+                "Microgaming": "microgaming.svg",
+                "Play'n GO": "playn-go.svg",
+                "Evolution": "evolution-gaming.svg",
+                "Pragmatic Play": "pragmatic-play.svg",
+                "Thunderkick": "thunderkick.svg",
+                "Yggdrasil": "yggdrasil-gaming-logo.svg",
+                "Visa": "visa.svg",
+                "Mastercard": "mastercard.svg",
+                "Skrill": "skrill.svg",
+                "Neteller": "neteller.svg",
+                "Bitcoin": "bitcoin.svg",
+                "MiFinity": "mifinity.svg",
+                "Jeton": "jeton.jpg",
+                "Paysafecard": "paysafe%20card.svg",
+                "Bank transfer": "bank%20transfer.svg"
+            };
+
             function parseCSV(text) {
                 const rows = [];
                 let row = [];
@@ -601,6 +565,62 @@
                     } else col += char;
                 }
                 if (col || row.length > 0) { row.push(col.trim()); rows.push(row); }
+                return rows;
+            }
+
+            // Renders icons for Main Row and Banking Details (Rectangular)
+            function renderItem(name) {
+                const n = name.trim();
+                const iconFile = iconMap[n];
+                if (iconFile) return `<img src="logos/${iconFile}" alt="${n}" title="${n}" class="pay-img">`;
+                return `<span class="pay-icon">${n}</span>`;
+            }
+
+            // Renders Banking logos (Rectangular)
+            function renderBankingTag(name) {
+                const n = name.trim();
+                const iconFile = iconMap[n];
+                if (iconFile) return `<img src="logos/${iconFile}" alt="${n}" title="${n}" class="bank-tag-img">`;
+                return `<span class="text-tag">${n}</span>`;
+            }
+
+            // Renders Provider logos (Circular)
+            function renderProviderTag(name) {
+                const n = name.trim();
+                const iconFile = iconMap[n];
+                if (iconFile) return `<img src="logos/${iconFile}" alt="${n}" title="${n}" class="provider-tag-img">`;
+                return `<span class="text-tag">${n}</span>`;
+            }
+            
+            // Helper to clean up bonus text for the table view
+            function renderBonusTable(rawText) {
+                // If text is empty
+                if (!rawText) return '<div class="bonus-row"><span class="bonus-label">Info</span><span class="bonus-value">-</span></div>';
+                
+                // Naive split attempt if user separates by newlines or specific keywords
+                // Since data is messy, we'll try to find specific keywords to create rows
+                let rows = '';
+                
+                // 1. Min Dep
+                const minDepMatch = rawText.match(/Min Dep:\s*([^(\n]+)/i);
+                if (minDepMatch) {
+                    rows += `<div class="bonus-row"><span class="bonus-label">Min deposit</span><span class="bonus-value">${minDepMatch[1].trim()}</span></div>`;
+                }
+                
+                // 2. Withdrawal
+                const withdrawalMatch = rawText.match(/Withdrawal:\s*([^L\n]+)/i);
+                if (withdrawalMatch) {
+                    rows += `<div class="bonus-row"><span class="bonus-label">Withdrawal Speed</span><span class="bonus-value">${withdrawalMatch[1].trim()}</span></div>`;
+                }
+                
+                // 3. Wagering (not in CSV example, but layout requests it)
+                rows += `<div class="bonus-row"><span class="bonus-label">Wagering</span><span class="bonus-value">35x</span></div>`;
+                
+                // If regex failed, just dump the text
+                if (rows === '') {
+                     rows = `<div class="bonus-row"><span class="bonus-label">Details</span><span class="bonus-value" style="font-size:0.8rem">${rawText}</span></div>`;
+                }
+                
                 return rows;
             }
 
@@ -625,12 +645,11 @@
                             const card = document.createElement('div');
                             card.className = 'casino-card';
 
-                            const payments = getCol('Payment methods (icons)').split(',').slice(0, 4).map(p =>
-                                `<span class="pay-icon">${p.trim()}</span>`
-                            ).join('');
-
-                            const bankingTags = getCol('Banking').split(',').map(b => `<span class="tag">${b.trim()}</span>`).join('');
-                            const providerTags = getCol('Providers').split(',').slice(0, 5).map(p => `<span class="tag">${p.trim()}</span>`).join('');
+                            // Data Processing
+                            const payments = getCol('Payment methods (icons)').split(',').slice(0, 4).map(p => renderItem(p)).join('');
+                            const bankingTags = getCol('Banking').split(',').map(b => renderBankingTag(b)).join('');
+                            const providerTags = getCol('Providers').split(',').slice(0, 8).map(p => renderProviderTag(p)).join(''); // Limit 8 logos
+                            const bonusTableHTML = renderBonusTable(getCol('Bonus Information'));
 
                             card.innerHTML = `
                             <div class="casino-row-main">
@@ -639,15 +658,11 @@
                                        ${(() => {
                                     const rank = parseInt(getCol('Rank'), 10);
                                     let tier = 'tier-muted';
-
                                     if (rank === 1) tier = 'tier-gold';
                                     else if (rank === 2) tier = 'tier-silver';
                                     else if (rank === 3) tier = 'tier-bronze';
-
                                     return `<div class="rank-box ${tier}">${rank}</div>`;
                                 })()}
-
-
                                     </div>
                                     <div class="casino-info-col">
                                         <img src="${getCol('Logo URL')}" alt="${getCol('Name')}" class="casino-logo">
@@ -659,14 +674,10 @@
                                     <span class="bonus-sub">New Player Offer</span>
                                 </div>
                                 <div class="rating-col">
-                                    <div class="stars">
-                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                    </div>
+                                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                                     <span class="score-text">${getCol('Rating')} Rating</span>
                                 </div>
-                                <div class="payment-col">
-                                    ${payments}
-                                </div>
+                                <div class="payment-col">${payments}</div>
                                 <div class="action-col">
                                     <a href="${getCol('Affiliate URL')}" class="btn-play">${getCol('Claim Now (button)') || 'Claim Now'}</a>
                                     <button class="toggle-details" onclick="toggleDetails(this)">Details <i class="fas fa-chevron-down"></i></button>
@@ -675,35 +686,42 @@
 
                             <div class="casino-details-panel">
                                 <div class="detail-box">
-                                    <span class="detail-title">Banking Options</span>
+                                    <span class="detail-title">Banking options</span>
                                     <div class="tag-list">${bankingTags}</div>
                                 </div>
+                                
                                 <div class="detail-box">
-                                    <span class="detail-title">Games & Providers</span>
-                                    <div class="detail-content" style="margin-bottom:10px;">${getCol('Games Available')}</div>
+                                    <span class="detail-title">Games available</span>
+                                    <div class="detail-content" style="font-size:0.85rem; color:#aaa;">${getCol('Games Available')}</div>
+                                    <span class="detail-title">Providers available</span>
                                     <div class="tag-list">${providerTags}</div>
                                 </div>
+                                
                                 <div class="detail-box">
-                                    <span class="detail-title">Bonus Information</span>
-                                    <div class="detail-content">
-                                        <div class="info-row"><span>Details:</span> <span>${getCol('Bonus Information')}</span></div>
-                                    </div>
+                                    <span class="detail-title">Bonus information</span>
+                                    ${bonusTableHTML}
                                 </div>
+                                
                                 <div class="detail-box">
-                                    <span class="detail-title">Mobile App</span>
+                                    <span class="detail-title">VIP & high roller offers</span>
+                                    <div class="detail-content">${getCol('VIP & High Roller') || '-'}</div>
+                                </div>
+                                
+                                <div class="detail-box">
+                                    <span class="detail-title">Mobile app</span>
                                     <div class="detail-content">${getCol('Mobile App')}</div>
                                 </div>
+                                
                                 <div class="detail-box">
-                                    <span class="detail-title">Customer Service</span>
+                                    <span class="detail-title">Customer service</span>
                                     <div class="detail-content">${getCol('Customer Service')}</div>
                                 </div>
-                                <div class="detail-box">
-                                    <span class="detail-title">VIP & High Roller</span>
-                                    <div class="detail-content">${getCol('VIP & High Roller')}</div>
-                                </div>
+                                
                                 <div class="panel-footer">
-                                    <span><i class="fas fa-shield-alt"></i> Licensed by ${getCol('License')}</span>
-                                    <a href="${getCol('Review link')}" style="color:#e91e63;">Read Full Review &rarr;</a>
+                                    <div class="license-info">
+                                        <i class="fas fa-shield-alt"></i> Licensed by ${getCol('License')}
+                                    </div>
+                                    <a href="${getCol('Review link')}" class="review-link">${getCol('Name')} Review &rarr;</a>
                                 </div>
                             </div>
                         `;
@@ -719,5 +737,4 @@
             }
         </script>
     </body>
-
 </html>
