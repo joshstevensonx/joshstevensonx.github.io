@@ -1,908 +1,1023 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Exclusive Offers VIP - Best Online Casinos 2025</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <style>
-            /* ============================
-       1. GLOBAL VARIABLES & RESET
-       ============================ */
-            :root {
-                --bg-body: #121212;
-                --bg-card: #1b1b1b;
-                --bg-panel: #0a0a0a;
-                --border-color: #2a2a2a;
-                /* Brand Colors */
-                --brand-gold: #c69c3a;
-                --brand-gold-bright: #d4a017;
-                --brand-yellow: #ffc107;
-                --brand-dark: #0d0d0d;
-                /* CTA & Text */
-                --cta-bg: linear-gradient(180deg, #FFD700 0%, #FFA500 100%);
-                --cta-shadow: rgba(255, 165, 0, 0.4);
-                --text-white: #ffffff;
-                --text-grey: #b0b0b0;
-                --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-                /* Standard Icon Size for ALL logos */
-                --icon-size: 28px;
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scooty XP - Your Everyday Delivery, Fast & Easy!</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B00',    // Scooty Orange
+                        secondary: '#003366',  // Scooty Deep Blue
+                        accent: '#F8F9FA',     // Light Grey
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    }
+                }
             }
+        }
+    </script>
 
-            * {
-                box-sizing: border-box;
-                margin: 0;
-                padding: 0;
-                font-family: var(--font-main);
-                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth snap */
-            }
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-            html {
-                scroll-behavior: smooth;
-            }
+    <style>
+        html { scroll-behavior: smooth; }
+        body { -webkit-font-smoothing: antialiased; }
+        .gradient-bg { background: linear-gradient(135deg, #003366 0%, #001f3f 100%); }
+        .hero-shape { clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+        
+        /* Multi-page Simulation Styles */
+        .page-view { display: none; animation: fadeIn 0.4s ease; }
+        .page-view.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-            body {
-                background-color: var(--bg-body);
-                color: var(--text-white);
-                display: flex;
-                flex-direction: column;
-                min-height: 100vh;
-            }
+        /* FAQ Accordion Styles */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            transition: max-height 0.5s ease-in;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen">
 
-            a {
-                text-decoration: none;
-                color: inherit;
-            }
-
-            ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-
-            /* ============================
-               ANIMATIONS KEYFRAMES
-            ============================ */
-            @keyframes fadeUp {
-                from { opacity: 0; transform: translateY(30px); }
-                to { opacity: 1; transform: translateY(0); }
-            }
-            
-            @keyframes pulse {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.05); }
-                100% { transform: scale(1); }
-            }
-
-            @keyframes sheen {
-                0% { left: -100%; }
-                100% { left: 100%; }
-            }
-
-            .hero-section, .newsletter-section, .site-footer {
-                opacity: 0;
-                animation: fadeUp 0.8s ease-out forwards;
-            }
-
-            /* ============================
-       2. HEADER SECTION (STICKY + BLUR)
-       ============================ */
-            .site-header {
-                background-color: #000;
-                border-bottom: 1px solid #222;
-                position: sticky;
-                top: 0;
-                z-index: 1000;
-                width: 100%;
-                transition: background-color 0.4s ease, backdrop-filter 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
-            }
-
-            .site-header.scrolled {
-                background-color: rgba(0, 0, 0, 0.85);
-                backdrop-filter: blur(12px);
-                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-                box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-                padding-top: 5px;
-                padding-bottom: 5px; 
-            }
-
-            .nav-bar {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 15px 20px;
-            }
-
-            .brand-logo {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                color: var(--brand-gold);
-                text-transform: uppercase;
-                font-weight: 800;
-                font-size: 1.1rem;
-                letter-spacing: 1px;
-                line-height: 1;
-                transform: scale(1);
-            }
-            
-            .brand-logo:hover {
-                transform: scale(1.05);
-                text-shadow: 0 0 15px rgba(198, 156, 58, 0.6);
-            }
-
-            .brand-logo i {
-                font-size: 1.6rem;
-                margin-bottom: 4px;
-            }
-
-            .brand-logo span {
-                font-size: 0.75rem;
-                color: #fff;
-                letter-spacing: 2px;
-            }
-
-            .nav-links {
-                display: flex;
-                gap: 30px;
-            }
-
-            .nav-links a {
-                font-size: 0.9rem;
-                font-weight: 600;
-                color: #ccc;
-                text-transform: uppercase;
-                position: relative;
-            }
-
-            .nav-links a:hover {
-                color: var(--brand-gold);
-                transform: translateY(-2px);
-            }
-            
-            .nav-links a::after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 2px;
-                bottom: -4px;
-                left: 0;
-                background-color: var(--brand-gold);
-                transition: width 0.3s ease;
-            }
-            
-            .nav-links a:hover::after {
-                width: 100%;
-            }
-
-            .btn-contact {
-                background-color: var(--brand-gold);
-                color: #1a1106;
-                padding: 8px 24px;
-                border-radius: 4px;
-                font-weight: 700;
-                font-size: 0.85rem;
-            }
-            
-            .btn-contact:hover {
-                background-color: var(--brand-gold-bright);
-                box-shadow: 0 0 15px rgba(198, 156, 58, 0.4);
-                transform: translateY(-2px);
-            }
-
-            /* ============================
-       3. HERO SECTION
-       ============================ */
-            .hero-section {
-                background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
-                padding: 50px 20px;
-                text-align: center;
-                border-bottom: 1px solid var(--border-color);
-                animation-delay: 0.1s;
-            }
-
-            .hero-container {
-                max-width: 1000px;
-                margin: 0 auto;
-            }
-
-            .pre-title {
-                color: var(--brand-gold);
-                font-size: 0.85rem;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                margin-bottom: 10px;
-                display: block;
-            }
-
-            .hero-title {
-                font-size: 2.2rem;
-                color: #fff;
-                margin-bottom: 20px;
-                font-weight: 700;
-            }
-
-            .hero-subtitle {
-                color: #999;
-                max-width: 600px;
-                margin: 0 auto 40px;
-                line-height: 1.6;
-            }
-
-            .stats-grid {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 20px;
-                margin-top: 30px;
-            }
-
-            .stat-card {
-                background: #fff;
-                color: #111;
-                padding: 20px;
-                border-radius: 8px;
-                text-align: center;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            }
-            
-            .stat-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            }
-
-            .stat-number {
-                display: block;
-                font-size: 1.4rem;
-                font-weight: 800;
-                color: #6a1b9a;
-                margin-bottom: 5px;
-            }
-
-            .stat-label {
-                font-size: 0.8rem;
-                color: #555;
-                font-weight: 600;
-                text-transform: uppercase;
-            }
-
-            /* ============================
-       4. MAIN CASINO LIST
-       ============================ */
-            .main-content-area {
-                padding: 40px 20px;
-                flex: 1;
-            }
-
-            .casino-list-container {
-                max-width: 1200px;
-                margin: 0 auto;
-            }
-
-            .table-header,
-            .casino-row-main {
-                display: grid;
-                grid-template-columns: 80px 1.5fr 2fr 1fr 1.2fr 160px;
-                gap: 15px;
-                align-items: center;
-                padding: 15px 20px;
-            }
-
-            .table-header {
-                font-size: 0.75rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                color: #555;
-                border-bottom: 1px solid var(--border-color);
-                margin-bottom: 10px;
-            }
-
-            /* --- CASINO CARD ANIMATIONS --- */
-            .casino-card {
-                background-color: var(--bg-card);
-                border: 1px solid var(--border-color);
-                border-radius: 8px;
-                margin-bottom: 12px;
-                overflow: hidden;
-                
-                /* Entry Animation */
-                opacity: 0; 
-                animation: fadeUp 0.6s ease-out forwards;
-                
-                /* Transition for Hover */
-                transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            }
-            
-            /* Enhanced Card Hover */
-            .casino-card:hover {
-                transform: translateY(-5px); /* Lift Up */
-                border-color: #555;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-                z-index: 2; /* Bring to front */
-            }
-
-            .rank-name-wrapper { display: contents; }
-            .rank-col { display: flex; align-items: left; justify-content: left; }
-
-            .rank-box {
-                width: 42px; height: 42px;
-                font-size: 1.05rem; font-weight: 900;
-                border-radius: 12px;
-                display: flex; align-items: center; justify-content: center;
-                position: relative;
-                transition: transform 0.3s ease;
-            }
-            
-            /* Pop Rank on Card Hover */
-            .casino-card:hover .rank-box {
-                transform: scale(1.1);
-            }
-
-            .rank-box.tier-gold { background: linear-gradient(180deg, #FFF2B0 0%, #FFD700 50%, #C69C3A 100%); color: #1a1205; box-shadow: 0 10px 22px rgba(255, 215, 0, 0.45); }
-            .rank-box.tier-silver { background: linear-gradient(180deg, #F5F5F5 0%, #C9CCD1 100%); color: #1a1a1a; box-shadow: 0 6px 14px rgba(180, 180, 180, 0.35); }
-            .rank-box.tier-bronze { background: linear-gradient(180deg, #E2B07A 0%, #B87333 100%); color: #1a1205; box-shadow: 0 6px 14px rgba(184, 115, 51, 0.35); }
-            .rank-box.tier-muted { background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%); color: #999; box-shadow: inset 0 0 0 1px #333; }
-
-            .casino-info-col { display: flex; align-items: center; gap: 12px; }
-
-            .casino-logo {
-                width: 50px; height: 50px;
-                border-radius: 50%;
-                object-fit: contain;
-                background: #111;
-                transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            }
-            /* Spin Logo on Card Hover */
-            .casino-card:hover .casino-logo {
-                transform: rotate(360deg) scale(1.1);
-            }
-
-            .name-rating-stack { display: flex; flex-direction: column; justify-content: center; }
-            .casino-name { font-weight: 700; font-size: 1.2rem; color: #fff; line-height: 1.2; }
-
-            .mobile-rating { display: none; margin-top: 6px; align-items: center; gap: 8px; }
-            .mobile-rating .stars { font-size: 0.8rem; display: flex; gap: 2px; }
-            .mobile-rating-text { font-size: 0.8rem; color: #ddd; font-weight: 600; }
-
-            .bonus-col { display: flex; flex-direction: column; justify-content: center; }
-            .bonus-highlight { color: var(--brand-gold); font-size: 1.1rem; font-weight: 700; margin-bottom: 2px; }
-            .bonus-sub { color: #fff; font-size: 0.85rem; }
-
-            .rating-col { display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 8px; }
-            .stars { color: var(--brand-gold); font-size: 0.8rem; display: flex; gap: 2px; }
-            
-            /* Pulse Stars on Card Hover */
-            .casino-card:hover .stars {
-                animation: pulse 1s infinite;
-            }
-            
-            .score-text { font-size: 0.9rem; font-weight: 700; color: #fff; }
-
-            .payment-col { display: flex; justify-content: center; flex-wrap: wrap; gap: 4px; }
-            .pay-icon { background: #fff; border-radius: 3px; padding: 2px 5px; color: #111; font-size: 0.7rem; font-weight: 700; display: inline-block; }
-            
-            .pay-icon:hover, .pay-img:hover { transform: scale(1.1); }
-            .pay-img { height: var(--icon-size); width: auto; max-width: 50px; border-radius: 2px; background: #fff; padding: 2px; vertical-align: middle; object-fit: contain; }
-
-            .action-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
-
-            /* Play Button Sheen Effect */
-            .btn-play {
-                background: var(--cta-bg);
-                color: #000 !important;
-                border: none;
-                padding: 10px 16px;
-                width: 100%;
-                border-radius: 5px;
-                font-weight: 900;
-                font-size: 0.85rem;
-                cursor: pointer;
-                text-align: center;
-                text-transform: uppercase;
-                box-shadow: 0 4px 0px #b37400, 0 4px 12px var(--cta-shadow);
-                position: relative;
-                overflow: hidden; /* For the sheen */
-                transition: all 0.2s ease;
-            }
-            
-            /* The Sheen/Shine Element */
-            .btn-play::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-                transition: none;
-            }
-
-            .btn-play:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 0px #b37400, 0 8px 20px var(--cta-shadow);
-                filter: brightness(1.1);
-            }
-            
-            /* Trigger Sheen on Hover */
-            .btn-play:hover::after {
-                animation: sheen 0.6s ease-in-out;
-            }
-            
-            .btn-play:active { transform: translateY(2px); box-shadow: 0 0 0 #b37400; }
-
-            .toggle-details { background: none; border: none; color: #777; cursor: pointer; font-size: 0.75rem; display: flex; align-items: center; gap: 4px; }
-            .toggle-details:hover { color: #fff; transform: scale(1.05); }
-
-            /* Details Panel */
-            .casino-details-panel {
-                display: none;
-                background-color: #0d0d0d;
-                padding: 25px;
-                border-top: 1px solid var(--border-color);
-                grid-template-columns: 1fr 1fr 1fr;
-                grid-template-rows: auto auto;
-                gap: 20px;
-                animation: fadeUp 0.4s ease-out;
-            }
-
-            .casino-details-panel.active { display: grid; }
-
-            .detail-box {
-                background: #181818;
-                border: 1px solid #2a2a2a;
-                border-radius: 12px;
-                padding: 20px;
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                min-height: 140px;
-                transition: transform 0.3s;
-            }
-            .detail-box:hover { transform: translateY(-3px); border-color: #333; }
-
-            .detail-title { color: #fff; font-size: 0.95rem; margin-bottom: 5px; display: block; font-weight: 700; }
-            .sub-title { color: #888; font-size: 0.85rem; font-weight: 600; margin-top: 10px; display: block; }
-            .detail-content { font-size: 0.9rem; line-height: 1.5; color: #ccc; }
-            .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
-
-            .bank-tag-img, .provider-tag-img {
-                height: var(--icon-size); width: auto; border-radius: 4px; background: #fff; padding: 2px; object-fit: contain; transition: transform 0.2s;
-            }
-            .provider-tag-img { width: var(--icon-size); border-radius: 50%; }
-            .bank-tag-img:hover, .provider-tag-img:hover { transform: scale(1.15); z-index: 5; }
-
-            .text-tag { background: #222; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; color: #ddd; border: 1px solid #333; }
-            .bonus-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #2a2a2a; font-size: 0.9rem; }
-            .bonus-row:last-child { border-bottom: none; }
-            .bonus-label { color: #888; }
-            .bonus-value { color: #fff; font-weight: 600; text-align: right; }
-            .panel-footer { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #2a2a2a; padding-top: 15px; margin-top: 5px; font-size: 0.8rem; }
-            .license-info { display: flex; align-items: center; gap: 8px; color: #777; }
-            .review-link { color: #777; font-weight: 600; font-size: 0.85rem; }
-            .review-link:hover { color: var(--brand-gold); }
-
-            /* ============================
-       5. NEWSLETTER SECTION
-       ============================ */
-            .newsletter-section {
-                background: linear-gradient(135deg, #FFC107 0%, #FFD700 50%, #FFB300 100%);
-                padding: 60px 20px;
-                text-align: center;
-                margin-top: 50px;
-                color: #1a1a1a;
-                border-top: 4px solid #b38600;
-                box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
-                animation-delay: 0.4s;
-            }
-
-            .newsletter-container { max-width: 800px; margin: 0 auto; }
-            .newsletter-heading { font-size: 1.8rem; font-weight: 800; margin-bottom: 10px; color: #000; text-transform: uppercase; letter-spacing: 0.5px; }
-            .newsletter-sub { margin-bottom: 35px; font-size: 1rem; color: #222; font-weight: 500; }
-            .newsletter-form { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-            .newsletter-input { padding: 14px 25px; border: 2px solid #000; border-radius: 6px; width: 350px; font-size: 0.95rem; transition: transform 0.2s; }
-            .newsletter-input:focus { outline: none; transform: scale(1.02); }
-            .newsletter-btn { background-color: #d32f2f; color: #fff; border: none; padding: 14px 35px; border-radius: 6px; font-weight: 800; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); }
-            .newsletter-btn:hover { background-color: #b71c1c; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); }
-
-            /* ============================
-       6. DARK FOOTER
-       ============================ */
-            .site-footer { background-color: #080808; color: #999; padding: 60px 20px 20px; animation-delay: 0.5s; }
-            .footer-grid { max-width: 1200px; margin: 0 auto 50px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
-            .footer-col h4 { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 20px; text-transform: uppercase; border-left: 3px solid var(--brand-gold); padding-left: 10px; }
-            .footer-col p { line-height: 1.6; font-size: 0.85rem; }
-            .footer-links-list li { margin-bottom: 12px; }
-            .footer-links-list a { font-size: 0.9rem; transition: 0.2s; }
-            .footer-links-list a:hover { color: var(--brand-gold); padding-left: 5px; }
-            .footer-brand .brand-logo { align-items: flex-start; margin-bottom: 15px; }
-            .social-icons { display: flex; gap: 15px; margin-top: 10px; }
-            .social-icons a { width: 36px; height: 36px; background: #222; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-            .social-icons a:hover { background: var(--brand-gold); color: #000; transform: rotate(15deg); }
-            .footer-bottom-bar { max-width: 1200px; margin: 0 auto; padding-top: 25px; border-top: 1px solid #222; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #555; }
-
-            /* ============================
-       7. RESPONSIVE
-       ============================ */
-            @media (max-width: 900px) {
-                .nav-links, .table-header { display: none; }
-                .hero-title { font-size: 1.8rem; }
-                .stats-grid { grid-template-columns: 1fr 1fr; }
-                .casino-row-main { grid-template-columns: 1fr 1fr; grid-template-areas: "header header" "bonus bonus" "payments payments" "action action"; padding: 15px; }
-                .rank-name-wrapper { grid-area: header; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 15px; padding: 15px 0; }
-                .mobile-rating { display: flex; }
-                .rating-col { display: none; }
-                .bonus-col { grid-area: bonus; text-align: center; background: #222; padding: 10px; border-radius: 6px; }
-                .payment-col { grid-area: payments; margin-top: 5px; }
-                .action-col { grid-area: action; margin-top: 10px; }
-                .casino-details-panel { grid-template-columns: 1fr; }
-                .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-                .footer-bottom-bar { flex-direction: column; gap: 10px; text-align: center; }
-                .newsletter-input, .newsletter-btn { width: 100%; max-width: 400px; }
-            }
-        </style>
-    </head>
-
-    <body>
-        <header class="site-header" id="siteHeader">
-            <div class="nav-bar">
-                <div class="brand-logo">
-                    <i class="fa-solid fa-crown"></i> EXCLUSIVE OFFERS <span>.VIP</span>
+    <!-- Global Navigation -->
+    <nav class="fixed w-full bg-secondary text-white z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="navigate('home')">
+                    <!-- SVG Logo -->
+                    <img src="myscooty_logo.svg" alt="Scooty XP Logo" class="h-10 w-auto">
+                    <span class="font-heading font-bold text-2xl tracking-tight hidden sm:block">SCOOTY <span class="text-primary">XP</span></span>
                 </div>
-                <nav class="nav-links">
-                    <a href="#">Home</a>
-                    <a href="#">Bonuses</a>
-                    <a href="#">Reviews</a>
-                </nav>
-                <a href="#" class="btn-contact">Contact Us</a>
-            </div>
-        </header>
-        <section class="hero-section">
-            <div class="hero-container">
-                <span class="pre-title">Find the best online casinos</span>
-                <h1 class="hero-title">Welcome to Your VIP Casino Advantage</h1>
-                <p class="hero-subtitle">We rigorously test and review thousands of casinos to bring you the safest, most lucrative VIP offers available in 2025.</p>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <span class="stat-number">500+</span>
-                        <span class="stat-label">Exclusive Bonuses</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">45+</span>
-                        <span class="stat-label">Verified Casinos</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">150+</span>
-                        <span class="stat-label">Active Players</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">Expert Support</span>
-                    </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="#" onclick="navigate('home'); return false;" class="nav-link hover:text-primary transition" data-target="home">Home</a>
+                    <a href="#" onclick="navigate('about'); return false;" class="nav-link hover:text-primary transition" data-target="about">About Us</a>
+                    <a href="#" onclick="navigate('partner'); return false;" class="nav-link hover:text-primary transition" data-target="partner">Become a Partner</a>
+                    <a href="#" onclick="navigate('faq'); return false;" class="nav-link hover:text-primary transition" data-target="faq">FAQs</a>
+                    <a href="#" onclick="navigate('blog'); return false;" class="nav-link hover:text-primary transition" data-target="blog">Blog</a>
+                </div>
+
+                <!-- Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button onclick="navigate('login')" class="px-5 py-2 rounded-full font-semibold border border-white hover:bg-white hover:text-secondary transition">Login</button>
+                    <button onclick="navigate('signup')" class="px-5 py-2 rounded-full font-semibold bg-primary text-white hover:bg-orange-600 transition shadow-md shadow-primary/30">Sign Up</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-primary focus:outline-none">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
                 </div>
             </div>
-        </section>
-        <main class="main-content-area">
-            <div class="casino-list-container" id="casinoContainer">
-                <div class="table-header">
-                    <div>Rank</div>
-                    <div>Casino</div>
-                    <div>Welcome Bonus</div>
-                    <div>Rating</div>
-                    <div>Payments</div>
-                    <div>Action</div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-secondary border-t border-gray-700">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="#" onclick="navigate('home'); return false;" class="block px-3 py-2 rounded-md font-medium hover:bg-gray-800 hover:text-primary">Home</a>
+                <a href="#" onclick="navigate('about'); return false;" class="block px-3 py-2 rounded-md font-medium hover:bg-gray-800 hover:text-primary">About Us</a>
+                <a href="#" onclick="navigate('partner'); return false;" class="block px-3 py-2 rounded-md font-medium hover:bg-gray-800 hover:text-primary">Become a Partner</a>
+                <a href="#" onclick="navigate('faq'); return false;" class="block px-3 py-2 rounded-md font-medium hover:bg-gray-800 hover:text-primary">FAQs</a>
+                <a href="#" onclick="navigate('blog'); return false;" class="block px-3 py-2 rounded-md font-medium hover:bg-gray-800 hover:text-primary">Blog</a>
+                <div class="border-t border-gray-700 pt-4 flex flex-col gap-2">
+                    <button onclick="navigate('login')" class="block w-full text-center px-5 py-2 rounded-full font-semibold border border-white text-white">Login</button>
+                    <button onclick="navigate('signup')" class="block w-full text-center px-5 py-2 rounded-full font-semibold bg-primary text-white">Sign Up</button>
                 </div>
-                <div id="loading" style="text-align:center; padding:20px; color:#666;">Loading...</div>
             </div>
-        </main>
-        <section class="newsletter-section">
-            <div class="newsletter-container">
-                <h2 class="newsletter-heading">Join the Winners Circle</h2>
-                <p class="newsletter-sub">Get exclusive high-roller bonuses and VIP codes sent directly to your inbox weekly.</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email address" class="newsletter-input" required>
-                    <button type="submit" class="newsletter-btn">Get VIP Access</button>
-                </form>
-            </div>
-        </section>
-        <footer class="site-footer">
-            <div class="footer-grid">
-                <div class="footer-col footer-brand">
-                    <div class="brand-logo" style="color:#c69c3a;">
-                        <i class="fa-solid fa-crown"></i> EXCLUSIVE OFFERS
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow pt-20">
+
+        <!-- ================= PAGE: HOME ================= -->
+        <div id="page-home" class="page-view active">
+            <!-- Hero Section -->
+            <section class="pt-8 pb-20 lg:pt-16 lg:pb-28 gradient-bg hero-shape text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6 lg:pr-8 z-10">
+                            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+                                Fast, Reliable Delivery Across <span class="text-primary">Nigeria</span>
+                            </h1>
+                            <p class="text-lg sm:text-xl text-gray-200">
+                                Your Everyday Delivery, Fast & Easy! Groceries, medicines, food, parcels, and home services delivered to your doorstep.
+                            </p>
+                            <div class="flex flex-wrap gap-4 pt-4">
+                                <button onclick="navigate('download')" class="flex items-center gap-2 bg-primary hover:bg-orange-600 text-white px-8 py-3.5 rounded-full font-semibold text-lg transition shadow-lg shadow-primary/40">
+                                    <i data-lucide="smartphone" class="w-5 h-5"></i> Download App
+                                </button>
+                                <button onclick="navigate('download')" class="flex items-center gap-2 bg-white hover:bg-gray-100 text-secondary px-8 py-3.5 rounded-full font-semibold text-lg transition shadow-lg">
+                                    Order Now <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                                </button>
+                            </div>
+                            <div class="flex items-center gap-6 pt-6 text-sm font-medium text-gray-300">
+                                <span class="flex items-center gap-2"><i data-lucide="zap" class="text-primary w-5 h-5"></i> Quick Delivery</span>
+                                <span class="flex items-center gap-2"><i data-lucide="home" class="text-primary w-5 h-5"></i> Free to Your Doorstep</span>
+                            </div>
+                        </div>
+                        <div class="relative hidden sm:block">
+                            <!-- Image 1 -->
+                            <div class="absolute inset-0 bg-primary opacity-20 blur-3xl rounded-full"></div>
+                            <img src="unnamed.jpg" alt="Delivery Services" class="relative z-10 rounded-2xl shadow-2xl object-cover h-[500px] w-full border-4 border-secondary/50">
+                            <div class="absolute -bottom-6 -left-6 bg-white text-secondary p-4 rounded-xl shadow-xl z-20 flex items-center gap-4">
+                                <div class="bg-green-100 p-3 rounded-full text-green-600">
+                                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="font-heading font-bold text-lg">100% Secure</p>
+                                    <p class="text-sm text-gray-500">Paystack & Flutterwave</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p>The world's premier destination for exclusive casino bonuses and unbiased reviews. We help you play smarter and win bigger.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-telegram"></i></a>
+                </div>
+            </section>
+
+            <!-- Featured Services -->
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold text-secondary mb-4">Everything You Need, In One App</h2>
+                        <p class="text-gray-600 text-lg">From your favorite meals to intercity rides and home repairs. The Scooty XP Super-App has you covered.</p>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div onclick="navigate('download')" class="bg-gray-50 rounded-2xl p-6 text-center hover-lift border border-gray-100 cursor-pointer group">
+                            <div class="w-16 h-16 mx-auto bg-orange-100 text-primary rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition"><i data-lucide="utensils" class="w-8 h-8"></i></div>
+                            <h3 class="font-heading font-semibold text-secondary">Food & Drinks</h3>
+                            <p class="text-sm text-gray-500 mt-2">Local & Intercontinental</p>
+                        </div>
+                        <div onclick="navigate('download')" class="bg-gray-50 rounded-2xl p-6 text-center hover-lift border border-gray-100 cursor-pointer group">
+                            <div class="w-16 h-16 mx-auto bg-blue-100 text-secondary rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition"><i data-lucide="shopping-basket" class="w-8 h-8"></i></div>
+                            <h3 class="font-heading font-semibold text-secondary">Groceries</h3>
+                            <p class="text-sm text-gray-500 mt-2">Fresh essentials</p>
+                        </div>
+                        <div onclick="navigate('download')" class="bg-gray-50 rounded-2xl p-6 text-center hover-lift border border-gray-100 cursor-pointer group">
+                            <div class="w-16 h-16 mx-auto bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition"><i data-lucide="pill" class="w-8 h-8"></i></div>
+                            <h3 class="font-heading font-semibold text-secondary">Pharmacy</h3>
+                            <p class="text-sm text-gray-500 mt-2">Verified medications</p>
+                        </div>
+                        <div onclick="navigate('download')" class="bg-gray-50 rounded-2xl p-6 text-center hover-lift border border-gray-100 cursor-pointer group">
+                            <div class="w-16 h-16 mx-auto bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition"><i data-lucide="car" class="w-8 h-8"></i></div>
+                            <h3 class="font-heading font-semibold text-secondary">Cab Service</h3>
+                            <p class="text-sm text-gray-500 mt-2">City & Intercity Rides</p>
+                        </div>
+                        <div onclick="navigate('download')" class="bg-gray-50 rounded-2xl p-6 text-center hover-lift border border-gray-100 cursor-pointer group">
+                            <div class="w-16 h-16 mx-auto bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition"><i data-lucide="package" class="w-8 h-8"></i></div>
+                            <h3 class="font-heading font-semibold text-secondary">Parcels</h3>
+                            <p class="text-sm text-gray-500 mt-2">Fast logistics</p>
+                        </div>
+                        <div onclick="navigate('download')" class="bg-gray-50 rounded-2xl p-6 text-center hover-lift border border-gray-100 cursor-pointer group">
+                            <div class="w-16 h-16 mx-auto bg-pink-100 text-pink-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition"><i data-lucide="shirt" class="w-8 h-8"></i></div>
+                            <h3 class="font-heading font-semibold text-secondary">Fashion</h3>
+                            <p class="text-sm text-gray-500 mt-2">Clothing & Lifestyle</p>
+                        </div>
+                        <div onclick="navigate('download')" class="bg-gray-50 rounded-2xl p-6 text-center hover-lift border border-gray-100 cursor-pointer group">
+                            <div class="w-16 h-16 mx-auto bg-red-100 text-red-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition"><i data-lucide="wrench" class="w-8 h-8"></i></div>
+                            <h3 class="font-heading font-semibold text-secondary">Home Services</h3>
+                            <p class="text-sm text-gray-500 mt-2">Cleaners, Repairs</p>
+                        </div>
+                        <div onclick="navigate('download')" class="bg-gray-50 rounded-2xl p-6 text-center hover-lift border border-gray-100 cursor-pointer group">
+                            <div class="w-16 h-16 mx-auto bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition"><i data-lucide="smartphone" class="w-8 h-8"></i></div>
+                            <h3 class="font-heading font-semibold text-secondary">iStore & Retail</h3>
+                            <p class="text-sm text-gray-500 mt-2">Curated electronics</p>
+                        </div>
                     </div>
                 </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links-list">
-                        <li><a href="#">Top Rated Casinos</a></li>
-                        <li><a href="#">Newest Bonuses</a></li>
-                        <li><a href="#">No Deposit Offers</a></li>
-                        <li><a href="#">Crypto Casinos</a></li>
-                        <li><a href="#">Casino Reviews</a></li>
-                    </ul>
+            </section>
+
+            <!-- Marketing Image Break -->
+             <section class="bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                     <img src="PHOTO-2026-04-28-16-39-23.jpg" alt="Marketing Banner" class="w-full h-auto rounded-3xl shadow-xl object-cover">
                 </div>
-                <div class="footer-col">
-                    <h4>Support</h4>
-                    <ul class="footer-links-list">
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Editorial Guidelines</a></li>
-                        <li><a href="#">Responsible Gambling</a></li>
-                        <li><a href="#">Sitemap</a></li>
-                    </ul>
+             </section>
+
+            <!-- How It Works -->
+            <section class="py-20 bg-accent">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold text-secondary">How It Works</h2>
+                        <p class="text-gray-600 mt-4 text-lg">We made the process simple, fast, and highly secure.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <div class="relative text-center">
+                            <div class="w-20 h-20 mx-auto bg-white rounded-2xl shadow-md flex items-center justify-center text-primary text-2xl font-bold border-2 border-primary mb-6">1</div>
+                            <h3 class="font-heading font-bold text-xl text-secondary mb-2">Search & Select</h3>
+                            <p class="text-gray-600">Find what you need across thousands of local vendors.</p>
+                        </div>
+                        <div class="relative text-center">
+                            <div class="w-20 h-20 mx-auto bg-white rounded-2xl shadow-md flex items-center justify-center text-primary text-2xl font-bold border-2 border-primary mb-6">2</div>
+                            <h3 class="font-heading font-bold text-xl text-secondary mb-2">Place Order</h3>
+                            <p class="text-gray-600">Easy checkout in Naira (₦) via Paystack or Flutterwave.</p>
+                        </div>
+                        <div class="relative text-center">
+                            <div class="w-20 h-20 mx-auto bg-white rounded-2xl shadow-md flex items-center justify-center text-primary text-2xl font-bold border-2 border-primary mb-6">3</div>
+                            <h3 class="font-heading font-bold text-xl text-secondary mb-2">Real-Time Track</h3>
+                            <p class="text-gray-600">Watch your delivery move on the map live.</p>
+                        </div>
+                        <div class="relative text-center">
+                            <div class="w-20 h-20 mx-auto bg-white rounded-2xl shadow-md flex items-center justify-center text-primary text-2xl font-bold border-2 border-primary mb-6">4</div>
+                            <h3 class="font-heading font-bold text-xl text-secondary mb-2">Get it Delivered</h3>
+                            <p class="text-gray-600">Fast delivery right to your door.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul class="footer-links-list">
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">Disclaimer</a></li>
-                    </ul>
+            </section>
+
+            <!-- Promos & Rewards -->
+            <section class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div onclick="navigate('download')" class="bg-yellow-50 rounded-3xl p-8 flex items-center justify-between border border-yellow-200 overflow-hidden relative group cursor-pointer hover:shadow-lg transition">
+                            <div class="z-10 w-2/3">
+                                <h3 class="font-heading font-bold text-2xl text-yellow-800 mb-2">Special Offers & Rewards</h3>
+                                <p class="text-yellow-700 mb-6">Spin & Win daily discounts!</p>
+                                <button class="bg-yellow-500 text-white font-bold px-6 py-2 rounded-full hover:bg-yellow-600 transition">Play Now</button>
+                            </div>
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 w-40 opacity-80 group-hover:rotate-12 transition duration-500 text-yellow-500">
+                                <i data-lucide="ferris-wheel" class="w-full h-full"></i>
+                            </div>
+                        </div>
+                        <div onclick="navigate('signup')" class="bg-green-50 rounded-3xl p-8 flex items-center justify-between border border-green-200 overflow-hidden relative group cursor-pointer hover:shadow-lg transition">
+                            <div class="z-10 w-2/3">
+                                <h3 class="font-heading font-bold text-2xl text-green-800 mb-2">Earn Loyalty Points</h3>
+                                <p class="text-green-700 mb-6">Get Cashback & Deals on every order!</p>
+                                <button class="bg-green-600 text-white font-bold px-6 py-2 rounded-full hover:bg-green-700 transition">Sign Up & Save</button>
+                            </div>
+                            <div class="absolute right-0 top-1/2 -translate-y-1/2 w-40 opacity-80 group-hover:scale-110 transition duration-500 text-green-500">
+                                <i data-lucide="gem" class="w-full h-full"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="footer-bottom-bar">
-                <div class="copyright-text"> &copy; 2025 Exclusive Offers VIP. All rights reserved. 18+ Please gamble responsibly. </div>
-                <div class="footer-bottom-links">
-                    <i class="fa-solid fa-shield-halved"></i> SSL Secure Connection
+            </section>
+
+            <!-- Popular in Lagos -->
+            <section class="py-20 bg-accent">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold text-secondary mb-2">Popular in Lagos</h2>
+                        <p class="text-gray-600 text-lg">Local Favorites Delivered to You</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover-lift relative group">
+                            <img src="https://images.unsplash.com/photo-1604329760661-e71cb8365547?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tasty Jollof" class="w-full h-48 object-cover">
+                            <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-12">
+                                <h3 class="font-heading font-bold text-white text-lg">Tasty Jollof</h3>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover-lift relative group">
+                            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fresh Groceries" class="w-full h-48 object-cover">
+                            <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-12">
+                                <h3 class="font-heading font-bold text-white text-lg">Fresh Groceries</h3>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover-lift relative group">
+                            <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pharmacy Items" class="w-full h-48 object-cover">
+                            <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-12">
+                                <h3 class="font-heading font-bold text-white text-lg">Pharmacy Items</h3>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover-lift relative group">
+                            <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Fashion Trends" class="w-full h-48 object-cover">
+                            <div class="absolute bottom-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 pt-12">
+                                <h3 class="font-heading font-bold text-white text-lg">Fashion Trends</h3>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </footer>
-        <script>
-            const CSV_FILE = 'casino_records.csv';
+            </section>
+        </div>
 
-            const iconMap = {
-                "NetEnt": "netent.svg",
-                "Microgaming": "microgaming.svg",
-                "Play'n GO": "playn-go.svg",
-                "Evolution": "evolution-gaming.svg",
-                "Pragmatic Play": "pragmatic-play.svg",
-                "Thunderkick": "thunderkick.svg",
-                "Yggdrasil": "yggdrasil-gaming-logo.svg",
-                "Visa": "visa.svg",
-                "Mastercard": "mastercard.svg",
-                "Skrill": "skrill.svg",
-                "Neteller": "neteller.svg",
-                "Bitcoin": "bitcoin.svg",
-                "MiFinity": "mifinity.svg",
-                "Jeton": "jeton.jpg",
-                "Paysafecard": "paysafe%20card.svg",
-                "Bank transfer": "bank%20transfer.svg"
-            };
+        <!-- ================= PAGE: ABOUT US ================= -->
+        <div id="page-about" class="page-view">
+            <section class="py-16 lg:py-24 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h1 class="font-heading text-4xl md:text-5xl font-bold text-secondary mb-6">About Scooty XP</h1>
+                        <p class="text-gray-600 text-lg leading-relaxed">Scooty XP is a tech-enabled logistics platform and B2B2C "super-app" ecosystem revolutionizing last-mile delivery and field services in Lagos, Nigeria. Our mission is to deliver fast, elite, and efficient solutions that empower Nigerian businesses and simplify everyday life.</p>
+                    </div>
 
-            function parseCSV(text) {
-                const rows = [];
-                let row = [];
-                let col = "";
-                let inQuotes = false;
-                for (let i = 0; i < text.length; i++) {
-                    const char = text[i];
-                    if (char === '"') inQuotes = !inQuotes;
-                    else if (char === ',' && !inQuotes) { row.push(col.trim()); col = ""; }
-                    else if ((char === '\r' || char === '\n') && !inQuotes) {
-                        if (col || row.length > 0) row.push(col.trim());
-                        if (row.length > 0) rows.push(row);
-                        row = []; col = "";
-                        if (char === '\r' && text[i + 1] === '\n') i++;
-                    } else col += char;
-                }
-                if (col || row.length > 0) { row.push(col.trim()); rows.push(row); }
-                return rows;
-            }
+                    <h2 class="font-heading text-3xl font-bold text-center text-secondary mb-12">Our Leadership Team</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-accent rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition">
+                            <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                                <i data-lucide="user" class="w-10 h-10 text-primary"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-secondary mb-2">Chatru Moorjani</h3>
+                            <p class="text-primary font-semibold text-sm mb-4">Director</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">A results-driven Business Executive leading the strategic expansion of the multi-vertical super-app across Nigeria. With a background from King's College London and deep experience in technology and logistics infrastructure, Chatru thrives on innovation and building value-driven B2B2C ecosystems.</p>
+                        </div>
+                        <div class="bg-accent rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition">
+                            <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                                <i data-lucide="user" class="w-10 h-10 text-primary"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-secondary mb-2">Edward Stevenson</h3>
+                            <p class="text-primary font-semibold text-sm mb-4">Managing Director</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">A visionary executive with over 25 years of experience scaling operations across retail and digital infrastructure in Africa and the UK. Edward drives scalable, future-ready logistics solutions that support sustainable urban mobility and local commerce in Nigeria.</p>
+                        </div>
+                        <div class="bg-accent rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition">
+                            <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                                <i data-lucide="user" class="w-10 h-10 text-primary"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-secondary mb-2">Anthony Akpotu</h3>
+                            <p class="text-primary font-semibold text-sm mb-4">Operations Manager</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">A seasoned operations leader with broad expertise in last-mile logistics and tech-enabled delivery networks. Anthony oversees rider onboarding, dispatch algorithms, and vendor integration, ensuring seamless fulfillment for thousands of users across Nigeria.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-            function renderItem(name) {
-                const n = name.trim();
-                const iconFile = iconMap[n];
-                if (iconFile) return `<img src="logos/${iconFile}" alt="${n}" title="${n}" class="pay-img">`;
-                return `<span class="pay-icon">${n}</span>`;
-            }
+        <!-- ================= PAGE: BECOME A PARTNER ================= -->
+        <div id="page-partner" class="page-view">
+            <section class="py-16 lg:py-24 bg-accent">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16">
+                        <h1 class="font-heading text-4xl md:text-5xl font-bold text-secondary mb-6">Partner With Us</h1>
+                        <p class="text-gray-600 text-lg">Whether you are a merchant looking to expand your reach, a service provider managing a team, or a rider wanting flexible income, Scooty XP has the tools to help you succeed.</p>
+                    </div>
 
-            function renderBankingTag(name) {
-                const n = name.trim();
-                const iconFile = iconMap[n];
-                if (iconFile) return `<img src="logos/${iconFile}" alt="${n}" title="${n}" class="bank-tag-img">`;
-                return `<span class="text-tag">${n}</span>`;
-            }
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="bg-white rounded-3xl shadow-md p-10 relative overflow-hidden border-t-4 border-primary hover-lift">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="bg-orange-100 p-4 rounded-full text-primary">
+                                    <i data-lucide="store" class="w-8 h-8"></i>
+                                </div>
+                                <h2 class="font-heading text-2xl font-bold text-secondary">Become a Vendor</h2>
+                            </div>
+                            <p class="text-gray-600 mb-6">Grow your business with Scooty XP's Store App. Access thousands of customers with transparent ~9.1% commissions, non-destructive inventory management, and generate QR Codes for direct offline-to-online marketing.</p>
+                            <ul class="space-y-3 mb-8 text-gray-600">
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Sell Groceries, Food, Pharmacy, or Retail</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Transparent Per-Order Commission</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Marketing Tools & QR Generators</li>
+                            </ul>
+                            <button onclick="navigate('signup')" class="w-full bg-primary text-white font-bold px-8 py-4 rounded-xl hover:bg-orange-600 transition shadow-lg">Register Your Store</button>
+                        </div>
+                        <div class="bg-white rounded-3xl shadow-md p-10 relative overflow-hidden border-t-4 border-secondary hover-lift">
+                            <div class="flex items-center gap-4 mb-6">
+                                <div class="bg-blue-100 p-4 rounded-full text-secondary">
+                                    <i data-lucide="bike" class="w-8 h-8"></i>
+                                </div>
+                                <h2 class="font-heading text-2xl font-bold text-secondary">Join Our Riders</h2>
+                            </div>
+                            <p class="text-gray-600 mb-6">Earn good money and work flexible hours. Deliver food, parcels, or drive intercity routes using our advanced driver app featuring live Google Maps routing and proximity-based dispatching.</p>
+                            <ul class="space-y-3 mb-8 text-gray-600">
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Flexible Working Hours</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Weekly Payouts to your Bank</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="text-green-500 w-5 h-5"></i> Deliver Food, Parcels, or Cab Rides</li>
+                            </ul>
+                            <button onclick="navigate('signup')" class="w-full bg-secondary text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-900 transition shadow-lg">Sign Up to Ride</button>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 bg-gradient-to-r from-green-600 to-emerald-500 rounded-3xl p-10 text-white flex flex-col md:flex-row items-center justify-between shadow-xl">
+                        <div class="md:w-2/3 mb-6 md:mb-0">
+                            <h2 class="font-heading text-2xl font-bold mb-2">Run a Service Business?</h2>
+                            <p class="text-white/90">Use the <strong>Scooty XP Provider App</strong> to manage your team of cleaners, technicians, or handymen. Set hourly rates, track real-time staff availability, and receive bookings directly from the Scooty XP super-app.</p>
+                        </div>
+                        <button onclick="navigate('signup')" class="bg-white text-green-700 font-bold px-8 py-3 rounded-full hover:bg-gray-100 transition whitespace-nowrap">Learn About Providers</button>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-            function renderProviderTag(name) {
-                const n = name.trim();
-                const iconFile = iconMap[n];
-                if (iconFile) return `<img src="logos/${iconFile}" alt="${n}" title="${n}" class="provider-tag-img">`;
-                return `<span class="text-tag">${n}</span>`;
-            }
+        <!-- ================= PAGE: FAQS ================= -->
+        <div id="page-faq" class="page-view">
+            <section class="py-16 lg:py-24 bg-white">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h1 class="font-heading text-4xl md:text-5xl font-bold text-secondary mb-4">Frequently Asked Questions</h1>
+                        <p class="text-gray-600 text-lg">Find answers to common questions about ordering, delivery, and partnering with Scooty XP.</p>
+                    </div>
 
-            function renderBonusTable(rawText) {
-                if (!rawText) return '<div class="bonus-row"><span class="bonus-label">Info</span><span class="bonus-value">-</span></div>';
-                let rows = '';
+                    <div class="space-y-4">
+                        <div class="faq-item border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+                            <button class="w-full text-left p-6 bg-white hover:bg-gray-50 focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                                <h3 class="font-heading font-bold text-lg text-secondary flex items-center gap-3">
+                                    <i data-lucide="map-pin" class="w-5 h-5 text-primary flex-shrink-0"></i> 
+                                    What areas do you cover?
+                                </h3>
+                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-gray-500"></i>
+                            </button>
+                            <div class="faq-answer bg-gray-50 px-6">
+                                <p class="text-gray-600 pb-6 pt-2">Currently, we cover all major neighborhoods in Lagos, Nigeria, including Victoria Island, Lekki, Ikoyi, Ikeja, and Surulere. We are constantly expanding our delivery radius to serve more communities.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+                            <button class="w-full text-left p-6 bg-white hover:bg-gray-50 focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                                <h3 class="font-heading font-bold text-lg text-secondary flex items-center gap-3">
+                                    <i data-lucide="clock" class="w-5 h-5 text-primary flex-shrink-0"></i> 
+                                    How fast is delivery?
+                                </h3>
+                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-gray-500"></i>
+                            </button>
+                            <div class="faq-answer bg-gray-50 px-6">
+                                <p class="text-gray-600 pb-6 pt-2">Food and groceries are typically delivered within 30-45 minutes depending on distance, preparation time, and current traffic conditions. Intercity parcel deliveries vary based on destination. You can track your order live on the map within the app!</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+                            <button class="w-full text-left p-6 bg-white hover:bg-gray-50 focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                                <h3 class="font-heading font-bold text-lg text-secondary flex items-center gap-3">
+                                    <i data-lucide="shopping-bag" class="w-5 h-5 text-primary flex-shrink-0"></i> 
+                                    Can I order from multiple stores at once?
+                                </h3>
+                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-gray-500"></i>
+                            </button>
+                            <div class="faq-answer bg-gray-50 px-6">
+                                <p class="text-gray-600 pb-6 pt-2">Yes! The Scooty XP super-app supports multi-service checkouts. This means you can order your groceries, hot food from a restaurant, and pharmacy items all in one basket and check out seamlessly.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+                            <button class="w-full text-left p-6 bg-white hover:bg-gray-50 focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                                <h3 class="font-heading font-bold text-lg text-secondary flex items-center gap-3">
+                                    <i data-lucide="credit-card" class="w-5 h-5 text-primary flex-shrink-0"></i> 
+                                    What payment methods are accepted?
+                                </h3>
+                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-gray-500"></i>
+                            </button>
+                            <div class="faq-answer bg-gray-50 px-6">
+                                <p class="text-gray-600 pb-6 pt-2">We process secure payments in Naira (₦) through trusted gateways like Paystack and Flutterwave. You can pay using your debit/credit card, direct bank transfer, or USSD codes.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+                            <button class="w-full text-left p-6 bg-white hover:bg-gray-50 focus:outline-none flex justify-between items-center" onclick="toggleFaq(this)">
+                                <h3 class="font-heading font-bold text-lg text-secondary flex items-center gap-3">
+                                    <i data-lucide="store" class="w-5 h-5 text-primary flex-shrink-0"></i> 
+                                    How do I register as a Vendor?
+                                </h3>
+                                <i data-lucide="chevron-down" class="faq-icon w-5 h-5 text-gray-500"></i>
+                            </button>
+                            <div class="faq-answer bg-gray-50 px-6">
+                                <p class="text-gray-600 pb-6 pt-2">Becoming a vendor is easy. Download the "Scooty XP Store" app from the Google Play Store or Apple App Store, click Sign Up, and submit your business details. Once our team approves your account, you can set your working hours, add your bank details for withdrawals, and start listing products.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-                const minDepMatch = rawText.match(/Min Dep:\s*([^(\n]+)/i);
-                if (minDepMatch) {
-                    rows += `<div class="bonus-row"><span class="bonus-label">Min deposit</span><span class="bonus-value">${minDepMatch[1].trim()}</span></div>`;
-                }
+        <!-- ================= PAGE: BLOG ================= -->
+        <div id="page-blog" class="page-view">
+            <section class="py-16 lg:py-24 bg-accent">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h1 class="font-heading text-4xl md:text-5xl font-bold text-secondary mb-4">Scooty XP Blog</h1>
+                        <p class="text-gray-600 text-lg">News, tips, and updates from the leading delivery super-app in Nigeria.</p>
+                    </div>
 
-                const withdrawalMatch = rawText.match(/Withdrawal:\s*([^L\n]+)/i);
-                if (withdrawalMatch) {
-                    rows += `<div class="bonus-row"><span class="bonus-label">Withdrawal Speed</span><span class="bonus-value">${withdrawalMatch[1].trim()}</span></div>`;
-                }
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover-lift cursor-pointer border border-gray-100 flex flex-col h-full">
+                            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Groceries" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Guides</span>
+                                <h3 class="font-heading font-bold text-xl text-secondary mb-3">Top 10 Grocery Delivery Tips in Lagos</h3>
+                                <p class="text-gray-600 text-sm mb-4 flex-grow">Discover how to maximize freshness and save money when ordering your weekly groceries via the Scooty XP super-app.</p>
+                                <span class="text-sm text-gray-400 font-medium">May 1, 2026 • 4 min read</span>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover-lift cursor-pointer border border-gray-100 flex flex-col h-full">
+                            <img src="https://images.unsplash.com/photo-1604329760661-e71cb8365547?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Jollof" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">Food</span>
+                                <h3 class="font-heading font-bold text-xl text-secondary mb-3">The Best Jollof Spots Delivering to VI</h3>
+                                <p class="text-gray-600 text-sm mb-4 flex-grow">We rounded up the top-rated local restaurants in Victoria Island that guarantee hot, fresh Jollof delivery straight to your doorstep.</p>
+                                <span class="text-sm text-gray-400 font-medium">April 28, 2026 • 3 min read</span>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover-lift cursor-pointer border border-gray-100 flex flex-col h-full">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Store App" class="w-full h-48 object-cover">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="text-xs font-bold text-primary uppercase tracking-wider mb-2 block">For Vendors</span>
+                                <h3 class="font-heading font-bold text-xl text-secondary mb-3">How to Use QR Codes to Drive Sales</h3>
+                                <p class="text-gray-600 text-sm mb-4 flex-grow">Learn how to generate and print your store's unique QR code from the Scooty XP Store app to convert walk-ins to online repeat customers.</p>
+                                <span class="text-sm text-gray-400 font-medium">April 15, 2026 • 5 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-                rows += `<div class="bonus-row"><span class="bonus-label">Wagering</span><span class="bonus-value">35x</span></div>`;
+        <!-- ================= PAGE: HELP CENTER ================= -->
+        <div id="page-help" class="page-view">
+            <section class="py-16 lg:py-24 bg-white">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h1 class="font-heading text-4xl md:text-5xl font-bold text-secondary mb-4">Help Center</h1>
+                        <p class="text-gray-600 text-lg">How can we help you today?</p>
+                        
+                        <!-- Search Box -->
+                        <div class="mt-8 max-w-2xl mx-auto relative">
+                            <input type="text" placeholder="Search for articles, questions, or topics..." class="w-full pl-12 pr-4 py-4 rounded-full border-2 border-gray-200 focus:border-primary focus:outline-none focus:ring-0 text-gray-700 text-lg transition">
+                            <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6"></i>
+                            <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white px-6 py-2 rounded-full font-bold hover:bg-orange-600 transition">Search</button>
+                        </div>
+                    </div>
 
-                if (rows === '') {
-                    rows = `<div class="bonus-row"><span class="bonus-label">Details</span><span class="bonus-value" style="font-size:0.8rem">${rawText}</span></div>`;
-                }
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="border border-gray-200 p-8 rounded-2xl text-center hover-lift cursor-pointer hover:border-primary transition" onclick="navigate('track')">
+                            <div class="w-16 h-16 mx-auto bg-blue-50 text-secondary rounded-full flex items-center justify-center mb-4">
+                                <i data-lucide="package" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-secondary mb-2">Order Issues</h3>
+                            <p class="text-gray-600 text-sm">Where is my order? Missing items, or incorrect delivery.</p>
+                        </div>
+                        <div class="border border-gray-200 p-8 rounded-2xl text-center hover-lift cursor-pointer hover:border-primary transition">
+                            <div class="w-16 h-16 mx-auto bg-green-50 text-green-600 rounded-full flex items-center justify-center mb-4">
+                                <i data-lucide="credit-card" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-secondary mb-2">Payments & Refunds</h3>
+                            <p class="text-gray-600 text-sm">Payment methods, failed transactions, and refund status.</p>
+                        </div>
+                        <div class="border border-gray-200 p-8 rounded-2xl text-center hover-lift cursor-pointer hover:border-primary transition">
+                            <div class="w-16 h-16 mx-auto bg-orange-50 text-primary rounded-full flex items-center justify-center mb-4">
+                                <i data-lucide="user" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="font-heading font-bold text-xl text-secondary mb-2">Account Management</h3>
+                            <p class="text-gray-600 text-sm">Updating details, password resets, and app settings.</p>
+                        </div>
+                    </div>
 
-                return rows;
-            }
+                    <div class="mt-16 bg-accent rounded-3xl p-10 text-center">
+                        <h2 class="font-heading text-2xl font-bold text-secondary mb-4">Still need help?</h2>
+                        <p class="text-gray-600 mb-6">Our customer support team is available 24/7 to assist you.</p>
+                        <button onclick="navigate('chat')" class="bg-secondary text-white px-8 py-3 rounded-full font-bold hover:bg-blue-900 transition flex items-center gap-2 mx-auto">
+                            <i data-lucide="message-square" class="w-5 h-5"></i> Open Live Chat
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-            function renderStars(ratingStr) {
-                const rating = parseFloat(ratingStr) || 0;
-                let html = '<div class="stars">';
+        <!-- ================= PAGE: TRACK ORDER ================= -->
+        <div id="page-track" class="page-view">
+            <section class="py-16 lg:py-24 bg-accent">
+                <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-white rounded-3xl shadow-md p-8 md:p-12">
+                        <div class="text-center mb-10">
+                            <div class="w-20 h-20 mx-auto bg-orange-100 text-primary rounded-full flex items-center justify-center mb-6">
+                                <i data-lucide="map" class="w-10 h-10"></i>
+                            </div>
+                            <h1 class="font-heading text-3xl md:text-4xl font-bold text-secondary mb-4">Track Your Order</h1>
+                            <p class="text-gray-600">Enter your order ID below to see the current status of your delivery.</p>
+                        </div>
 
-                const fullStars = Math.floor(rating);
-                for (let i = 0; i < fullStars; i++) {
-                    html += '<i class="fa-solid fa-star"></i>';
-                }
+                        <form class="space-y-6" onsubmit="event.preventDefault(); alert('Tracking feature requires app installation or login.');">
+                            <div>
+                                <label for="order-id" class="block text-sm font-medium text-gray-700 mb-2">Order ID or Tracking Number</label>
+                                <input type="text" id="order-id" placeholder="e.g. SXP-102938" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" required>
+                            </div>
+                            <div>
+                                <label for="phone-number" class="block text-sm font-medium text-gray-700 mb-2">Phone Number used for order</label>
+                                <input type="tel" id="phone-number" placeholder="+234 XXX XXX XXXX" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" required>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-orange-600 transition shadow-lg mt-4">
+                                Track Order
+                            </button>
+                        </form>
+                        
+                        <div class="mt-8 text-center">
+                            <p class="text-sm text-gray-500">For real-time GPS tracking, please use the <a href="#" class="text-primary font-semibold hover:underline">Scooty XP App</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
-                const remainder = rating % 1;
-                let hasHalf = false;
-                if (remainder >= 0.4) {
-                    html += '<i class="fa-solid fa-star-half-stroke"></i>';
-                    hasHalf = true;
-                }
+        <!-- ================= PAGE: LIVE CHAT ================= -->
+        <div id="page-chat" class="page-view">
+            <section class="py-16 lg:py-24 bg-white">
+                <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-8">
+                        <h1 class="font-heading text-3xl font-bold text-secondary">Live Support Chat</h1>
+                        <p class="text-gray-600">You are connected to a support agent.</p>
+                    </div>
 
-                const emptyStars = 5 - fullStars - (hasHalf ? 1 : 0);
-                for (let i = 0; i < emptyStars; i++) {
-                    html += '<i class="fa-regular fa-star"></i>';
-                }
-
-                html += '</div>';
-                return html;
-            }
-
-            // Scroll Listener for Sticky Header
-            window.addEventListener('scroll', () => {
-                const header = document.getElementById('siteHeader');
-                if (window.scrollY > 20) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
-            document.addEventListener('DOMContentLoaded', () => {
-                fetch(CSV_FILE)
-                    .then(r => r.text())
-                    .then(csvText => {
-                        const rawData = parseCSV(csvText);
-                        const headers = rawData[0];
-                        const data = rawData.slice(1);
-                        const container = document.getElementById('casinoContainer');
-                        document.getElementById('loading').style.display = 'none';
-
-                        data.forEach((row, index) => {
-                            const getCol = (n) => {
-                                const idx = headers.indexOf(n);
-                                return (idx > -1 && row[idx]) ? row[idx] : '';
-                            };
-
-                            if (!getCol('Name')) return;
-
-                            const card = document.createElement('div');
-                            card.className = 'casino-card';
+                    <!-- Chat UI Mockup -->
+                    <div class="border border-gray-200 rounded-2xl overflow-hidden flex flex-col h-[500px] shadow-sm">
+                        <!-- Header -->
+                        <div class="bg-secondary text-white p-4 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="relative">
+                                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                                        <i data-lucide="user" class="w-6 h-6"></i>
+                                    </div>
+                                    <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-secondary rounded-full"></div>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm leading-tight">Scooty Support Agent</p>
+                                    <p class="text-xs text-blue-200">Online</p>
+                                </div>
+                            </div>
+                            <button class="text-white/70 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+                        </div>
+                        
+                        <!-- Messages Area -->
+                        <div class="flex-grow bg-accent p-6 flex flex-col gap-4 overflow-y-auto">
+                            <div class="text-center text-xs text-gray-400 my-2">Today, 10:42 AM</div>
                             
-                            // Cascading Animation Delay
-                            card.style.animationDelay = `${index * 0.1}s`;
-
-                            const payments = getCol('Payment methods (icons)').split(',').slice(0, 4).map(p => renderItem(p)).join('');
-                            const bankingTags = getCol('Banking').split(',').map(b => renderBankingTag(b)).join('');
-                            const providerTags = getCol('Providers').split(',').slice(0, 8).map(p => renderProviderTag(p)).join('');
-                            const bonusTableHTML = renderBonusTable(getCol('Bonus Information'));
-
-                            const ratingVal = getCol('Rating');
-                            const starsHTML = renderStars(ratingVal);
-
-                            card.innerHTML = `
-                            <div class="casino-row-main">
-                                <div class="rank-name-wrapper">
-                                    <div class="rank-col">
-                                       ${(() => {
-                                    const rank = parseInt(getCol('Rank'), 10);
-                                    let tier = 'tier-muted';
-                                    if (rank === 1) tier = 'tier-gold';
-                                    else if (rank === 2) tier = 'tier-silver';
-                                    else if (rank === 3) tier = 'tier-bronze';
-                                    return `<div class="rank-box ${tier}">${rank}</div>`;
-                                })()}
-                                    </div>
-                                    <div class="casino-info-col">
-                                        <img src="${getCol('Logo URL')}" alt="${getCol('Name')}" class="casino-logo">
-                                        <div class="name-rating-stack">
-                                            <span class="casino-name">${getCol('Name')}</span>
-                                            <div class="mobile-rating">
-                                                ${starsHTML}
-                                                <span class="mobile-rating-text">${ratingVal}</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <!-- Incoming Message -->
+                            <div class="flex gap-3 max-w-[80%]">
+                                <div class="w-8 h-8 bg-primary/10 rounded-full flex-shrink-0 flex items-center justify-center text-primary">
+                                    <i data-lucide="bot" class="w-5 h-5"></i>
                                 </div>
-                                <div class="bonus-col">
-                                    <span class="bonus-highlight">${getCol('Welcome bonus (headline)')}</span>
-                                    <span class="bonus-sub">New Player Offer</span>
-                                </div>
-                                
-                                <div class="rating-col">
-                                    ${starsHTML}
-                                    <span class="score-text">${ratingVal}</span>
-                                </div>
-                                
-                                <div class="payment-col">${payments}</div>
-                                <div class="action-col">
-                                    <a href="${getCol('Affiliate URL')}" class="btn-play">${getCol('Claim Now (button)') || 'Claim Now'}</a>
-                                    <button class="toggle-details" onclick="toggleDetails(this)">Details <i class="fas fa-chevron-down"></i></button>
+                                <div class="bg-white border border-gray-100 p-3 rounded-2xl rounded-tl-none shadow-sm text-sm text-gray-700">
+                                    Hi there! 👋 Welcome to Scooty XP support. How can I help you today?
                                 </div>
                             </div>
 
-                            <div class="casino-details-panel">
-                                <div class="detail-box">
-                                    <span class="detail-title">Banking options</span>
-                                    <div class="tag-list">${bankingTags}</div>
+                            <!-- User Actions / Suggested Replies -->
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <button class="text-xs border border-primary text-primary px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition">Where is my order?</button>
+                                <button class="text-xs border border-primary text-primary px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition">I have a payment issue</button>
+                                <button class="text-xs border border-primary text-primary px-3 py-1.5 rounded-full hover:bg-primary hover:text-white transition">Speak to a human</button>
+                            </div>
+                        </div>
+
+                        <!-- Input Area -->
+                        <div class="p-4 bg-white border-t border-gray-200 flex items-center gap-3">
+                            <button class="text-gray-400 hover:text-secondary"><i data-lucide="paperclip" class="w-5 h-5"></i></button>
+                            <input type="text" placeholder="Type your message..." class="flex-grow bg-gray-100 border-none rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50">
+                            <button class="bg-primary text-white p-2 rounded-full hover:bg-orange-600 transition">
+                                <i data-lucide="send" class="w-5 h-5 ml-0.5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE: TERMS & CONDITIONS ================= -->
+        <div id="page-terms" class="page-view">
+            <section class="py-16 lg:py-24 bg-white">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="mb-12">
+                        <h1 class="font-heading text-3xl md:text-4xl font-bold text-secondary mb-4">Terms & Conditions</h1>
+                        <p class="text-gray-500 text-sm">Last Updated: May 1, 2026</p>
+                    </div>
+
+                    <div class="prose max-w-none text-gray-600 space-y-6">
+                        <h2 class="font-heading text-2xl font-bold text-secondary mt-8 mb-4">1. Introduction</h2>
+                        <p>Welcome to Scooty XP. These Terms & Conditions govern your use of the Scooty XP website, mobile applications, and services (collectively, the "Platform"). By accessing or using our Platform, you agree to be bound by these terms.</p>
+                        
+                        <h2 class="font-heading text-2xl font-bold text-secondary mt-8 mb-4">2. Services Description</h2>
+                        <p>Scooty XP provides a technology platform that connects users ("Customers") with independent third-party providers of goods and services ("Vendors") and independent third-party logistics providers ("Riders"). Scooty XP does not itself provide the delivery services, food, or goods.</p>
+
+                        <h2 class="font-heading text-2xl font-bold text-secondary mt-8 mb-4">3. User Accounts</h2>
+                        <p>To use most aspects of the Services, you must register for and maintain an active personal user account. You must be at least 18 years of age to obtain an Account. You are responsible for all activity that occurs under your Account.</p>
+
+                        <h2 class="font-heading text-2xl font-bold text-secondary mt-8 mb-4">4. Payments and Pricing</h2>
+                        <p>You understand that use of the Services may result in charges to you for the services or goods you receive. Scooty XP will facilitate your payment of the applicable Charges on behalf of the Third Party Provider as such Third Party Provider's limited payment collection agent.</p>
+
+                        <h2 class="font-heading text-2xl font-bold text-secondary mt-8 mb-4">5. Limitation of Liability</h2>
+                        <p>Scooty XP shall not be liable for indirect, incidental, special, exemplary, punitive or consequential damages, including lost profits, lost data, personal injury or property damage related to, in connection with, or otherwise resulting from any use of the services.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE: PRIVACY POLICY ================= -->
+        <div id="page-privacy" class="page-view">
+            <section class="py-16 lg:py-24 bg-white">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="mb-12">
+                        <h1 class="font-heading text-3xl md:text-4xl font-bold text-secondary mb-4">Privacy Policy</h1>
+                        <p class="text-gray-500 text-sm">Last Updated: May 1, 2026</p>
+                    </div>
+
+                    <div class="prose max-w-none text-gray-600 space-y-6">
+                        <h2 class="font-heading text-2xl font-bold text-secondary mt-8 mb-4">1. Information We Collect</h2>
+                        <p>When you use the Scooty XP Platform, we collect information you provide, usage information, and information about your device. We also collect information about you from other sources like third-party services and optional programs in which you participate, which we may combine with other information we have about you.</p>
+                        
+                        <h2 class="font-heading text-2xl font-bold text-secondary mt-8 mb-4">2. Location Information</h2>
+                        <p>We collect location information (including GPS and WiFi data) depending on your Scooty XP app settings and device permissions. We collect this information when the app is running in the foreground or background of your device to enable delivery tracking.</p>
+
+                        <h2 class="font-heading text-2xl font-bold text-secondary mt-8 mb-4">3. How We Use Your Information</h2>
+                        <p>We use the information we collect to provide, maintain, and improve our services. This includes using the information to:</p>
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Process and complete transactions</li>
+                            <li>Send transactional messages (e.g., receipts, updates)</li>
+                            <li>Monitor and analyze trends, usage, and activities</li>
+                            <li>Personalize the Services (e.g., displaying recommendations)</li>
+                            <li>Facilitate communications between you and a Rider/Vendor</li>
+                        </ul>
+
+                        <h2 class="font-heading text-2xl font-bold text-secondary mt-8 mb-4">4. Sharing Your Information</h2>
+                        <p>We may share your information with Riders and Vendors to facilitate your deliveries. We may also share information with third-party service providers who process information on our behalf, or when required by law.</p>
+
+                        <h2 class="font-heading text-2xl font-bold text-secondary mt-8 mb-4">5. Data Security</h2>
+                        <p>We use reasonable organizational, technical, and administrative measures designed to protect your personal information within our organization. However, no data transmission or storage system can be guaranteed to be 100% secure.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE: LOGIN ================= -->
+        <div id="page-login" class="page-view">
+            <section class="py-16 lg:py-24 bg-accent min-h-[80vh] flex items-center">
+                <div class="max-w-md mx-auto px-4 w-full">
+                    <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+                        <div class="text-center mb-8">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-50 rounded-full text-secondary mb-4">
+                                <i data-lucide="log-in" class="w-8 h-8"></i>
+                            </div>
+                            <h2 class="font-heading text-3xl font-bold text-secondary">Welcome Back</h2>
+                            <p class="text-gray-500 mt-2">Log in to your Scooty XP account</p>
+                        </div>
+                        <form class="space-y-5" onsubmit="event.preventDefault(); navigate('home'); alert('Mock Login Successful!');">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email or Phone Number</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="Enter your email or phone" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                                <input type="password" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="Enter your password" required>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="flex items-center gap-2">
+                                    <input type="checkbox" class="rounded text-primary focus:ring-primary">
+                                    <span class="text-sm text-gray-600">Remember me</span>
+                                </label>
+                                <a href="#" class="text-sm text-primary font-semibold hover:underline">Forgot Password?</a>
+                            </div>
+                            <button type="submit" class="w-full bg-primary text-white font-bold py-3.5 rounded-xl hover:bg-orange-600 transition shadow-lg mt-4">
+                                Log In
+                            </button>
+                        </form>
+                        <p class="text-center text-gray-600 mt-8 text-sm">
+                            Don't have an account? <button onclick="navigate('signup')" class="text-primary font-bold hover:underline">Sign up</button>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE: SIGN UP ================= -->
+        <div id="page-signup" class="page-view">
+            <section class="py-16 lg:py-24 bg-accent min-h-[80vh] flex items-center">
+                <div class="max-w-md mx-auto px-4 w-full">
+                    <div class="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+                        <div class="text-center mb-8">
+                            <div class="inline-flex items-center justify-center w-16 h-16 bg-orange-50 rounded-full text-primary mb-4">
+                                <i data-lucide="user-plus" class="w-8 h-8"></i>
+                            </div>
+                            <h2 class="font-heading text-3xl font-bold text-secondary">Create Account</h2>
+                            <p class="text-gray-500 mt-2">Join the Scooty XP ecosystem</p>
+                        </div>
+                        <form class="space-y-5" onsubmit="event.preventDefault(); navigate('home'); alert('Mock Registration Successful!');">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                    <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="First Name" required>
                                 </div>
-                                
-                                <div class="detail-box">
-                                    <span class="detail-title">Games available</span>
-                                    <div class="detail-content" style="font-size:0.85rem; color:#aaa;">${getCol('Games Available')}</div>
-                                    <span class="detail-title" style="margin-top:10px;">Providers available</span>
-                                    <div class="tag-list">${providerTags}</div>
-                                </div>
-                                
-                                <div class="detail-box">
-                                    <span class="detail-title">Bonus information</span>
-                                    ${bonusTableHTML}
-                                </div>
-                                
-                                <div class="detail-box">
-                                    <span class="detail-title">VIP & high roller offers</span>
-                                    <div class="detail-content">${getCol('VIP & High Roller') || '-'}</div>
-                                </div>
-                                
-                                <div class="detail-box">
-                                    <span class="detail-title">Mobile app</span>
-                                    <div class="detail-content">${getCol('Mobile App')}</div>
-                                </div>
-                                
-                                <div class="detail-box">
-                                    <span class="detail-title">Customer service</span>
-                                    <div class="detail-content">${getCol('Customer Service')}</div>
-                                </div>
-                                
-                                <div class="panel-footer">
-                                    <div class="license-info">
-                                        <i class="fas fa-shield-alt"></i> Licensed by ${getCol('License')}
-                                    </div>
-                                    <a href="${getCol('Review link')}" class="review-link">${getCol('Name')} Review &rarr;</a>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="Last Name" required>
                                 </div>
                             </div>
-                        `;
-                            container.appendChild(card);
-                        });
-                    });
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="your@email.com" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Account Type</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition bg-white" required>
+                                    <option value="" disabled selected>Select Account Type...</option>
+                                    <option value="customer">Customer / Buyer</option>
+                                    <option value="vendor">Store Vendor</option>
+                                    <option value="rider">Rider / Driver</option>
+                                    <option value="provider">Service Provider</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                                <input type="password" class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition" placeholder="Create a password" required>
+                            </div>
+                            <button type="submit" class="w-full bg-secondary text-white font-bold py-3.5 rounded-xl hover:bg-blue-900 transition shadow-lg mt-4">
+                                Create Account
+                            </button>
+                        </form>
+                        <p class="text-center text-gray-600 mt-8 text-sm">
+                            Already have an account? <button onclick="navigate('login')" class="text-primary font-bold hover:underline">Log in</button>
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PAGE: DOWNLOAD ================= -->
+        <div id="page-download" class="page-view">
+            <section class="py-16 lg:py-24 bg-white min-h-[80vh] flex items-center">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <div class="w-24 h-24 mx-auto bg-blue-50 text-secondary rounded-full flex items-center justify-center mb-8">
+                        <i data-lucide="smartphone" class="w-12 h-12"></i>
+                    </div>
+                    <h1 class="font-heading text-4xl md:text-5xl font-bold text-secondary mb-6">Get the Scooty XP App</h1>
+                    <p class="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-12">
+                        To place orders, track deliveries in real-time, or manage your store, please download the appropriate app for your device.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                        <a href="https://apps.apple.com/ca/app/scooty-xp/id6759159512" class="bg-gray-900 hover:bg-gray-800 text-white p-6 rounded-2xl flex items-center justify-center gap-4 transition hover-lift">
+                            <i data-lucide="apple" class="w-10 h-10"></i>
+                            <div class="text-left">
+                                <p class="text-xs uppercase tracking-wider text-gray-400">Download on the</p>
+                                <p class="font-heading font-bold text-2xl">App Store</p>
+                            </div>
+                        </a>
+                        
+                        <a href="https://play.google.com/store/apps/details?id=com.myscooty.customer" class="bg-gray-900 hover:bg-gray-800 text-white p-6 rounded-2xl flex items-center justify-center gap-4 transition hover-lift">
+                            <i data-lucide="play" class="w-10 h-10 text-green-500 fill-current"></i>
+                            <div class="text-left">
+                                <p class="text-xs uppercase tracking-wider text-gray-400">GET IT ON</p>
+                                <p class="font-heading font-bold text-2xl">Google Play</p>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-16 pt-8 border-t border-gray-100">
+                        <p class="text-gray-500 mb-4">Looking for our other apps?</p>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition">Driver App</button>
+                            <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition">Store App</button>
+                            <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition">Provider App</button>
+                            <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition">Worker App</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Brand & Contact -->
+                <div>
+                    <div class="flex items-center gap-3 mb-6 cursor-pointer" onclick="navigate('home')">
+                        <img src="myscooty_logo.svg" alt="Scooty XP Logo" class="h-8 w-auto">
+                        <span class="font-heading font-bold text-xl text-white tracking-tight">SCOOTY <span class="text-primary">XP</span></span>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-6">Fast. Elite. Efficient.<br>Your Everyday Delivery.</p>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-3"><i data-lucide="map-pin" class="w-4 h-4 text-primary"></i> Victoria Island, Lagos, Nigeria</li>
+                        <li class="flex items-center gap-3"><i data-lucide="phone" class="w-4 h-4 text-primary"></i> +234 915 430 5583</li>
+                        <li class="flex items-center gap-3"><i data-lucide="mail" class="w-4 h-4 text-primary"></i> contact@myscooty.ng</li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-heading font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" onclick="navigate('about'); return false;" class="hover:text-primary transition">About Us</a></li>
+                        <li><a href="#" onclick="navigate('home'); return false;" class="hover:text-primary transition">How it Works</a></li>
+                        <li><a href="#" onclick="navigate('partner'); return false;" class="hover:text-primary transition">Become a Partner</a></li>
+                        <li><a href="#" onclick="navigate('faq'); return false;" class="hover:text-primary transition">FAQs</a></li>
+                        <li><a href="#" onclick="navigate('blog'); return false;" class="hover:text-primary transition">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support & Legal -->
+                <div>
+                    <h4 class="text-white font-heading font-semibold mb-6">Customer Support</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" onclick="navigate('help'); return false;" class="hover:text-primary transition">Help Center</a></li>
+                        <li><a href="#" onclick="navigate('track'); return false;" class="hover:text-primary transition">Track Order</a></li>
+                        <li><a href="#" onclick="navigate('chat'); return false;" class="hover:text-primary transition">Live Chat</a></li>
+                        <li><a href="#" onclick="navigate('terms'); return false;" class="hover:text-primary transition">Terms & Conditions</a></li>
+                        <li><a href="#" onclick="navigate('privacy'); return false;" class="hover:text-primary transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- App & Socials -->
+                <div>
+                    <h4 class="text-white font-heading font-semibold mb-6">Get the App</h4>
+                    <div class="flex flex-col gap-3 mb-8">
+                        <a href="https://apps.apple.com/ca/app/scooty-xp/id6759159512" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-lg p-2 flex items-center gap-3 transition">
+                            <i data-lucide="apple" class="w-6 h-6 text-white"></i>
+                            <div>
+                                <p class="text-[10px] uppercase leading-none text-gray-400">Download on the</p>
+                                <p class="font-semibold text-white leading-tight">App Store</p>
+                            </div>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.myscooty.customer" class="bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-lg p-2 flex items-center gap-3 transition">
+                            <i data-lucide="play" class="w-6 h-6 text-green-500 fill-current"></i>
+                            <div>
+                                <p class="text-[10px] uppercase leading-none text-gray-400">GET IT ON</p>
+                                <p class="font-semibold text-white leading-tight">Google Play</p>
+                            </div>
+                        </a>
+                    </div>
+                    <h4 class="text-white font-heading font-semibold mb-4">Follow Us</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-primary hover:text-white transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-primary hover:text-white transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-primary hover:text-white transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="bg-gray-800 p-2 rounded-full hover:bg-primary hover:text-white transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2026 Scooty XP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Logic -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Single Page Router Logic
+        function navigate(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-view').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show target page
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+
+            // Update Desktop Nav Active States (only for main nav items)
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.dataset.target === pageId) {
+                    link.classList.add('text-primary');
+                } else {
+                    link.classList.remove('text-primary');
+                }
             });
 
-            function toggleDetails(btn) {
-                const panel = btn.closest('.casino-card').querySelector('.casino-details-panel');
-                panel.classList.toggle('active');
-                btn.innerHTML = panel.classList.contains('active') ? 'Less <i class="fas fa-chevron-up"></i>' : 'Details <i class="fas fa-chevron-down"></i>';
+            // Close mobile menu if open
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
             }
-        </script>
-    </body>
 
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // FAQ Accordion Logic
+        function toggleFaq(button) {
+            const faqItem = button.closest('.faq-item');
+            
+            // Close other open FAQs
+            document.querySelectorAll('.faq-item.active').forEach(item => {
+                if(item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Toggle current FAQ
+            faqItem.classList.toggle('active');
+        }
+
+        // Default route on load
+        navigate('home');
+    </script>
+</body>
 </html>
